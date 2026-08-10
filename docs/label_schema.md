@@ -282,14 +282,15 @@ and model metadata together.
 
 ## 8. Annotator review procedure
 
-1. Two annotators independently label the 20 review examples in
-   `tests/fixtures/ner_gold_examples.json` without seeing each other's answers.
-2. Compare entity type and exact boundaries.
-3. Record disagreements and rationale without consulting a model prediction.
-4. Adjudicate every disagreement or mark it unresolved.
-5. Update unclear rules, increment schema version if semantics change, and rerun
+1. Review 10–20 examples from `tests/fixtures/ner_gold_examples.json`.
+2. The review may be performed jointly by the team or independently by multiple
+   annotators. Record which method was used.
+3. Compare entity type and exact boundaries against the written rules.
+4. Record disagreements and rationale without consulting a model prediction.
+5. Adjudicate every disagreement or mark it unresolved.
+6. Update unclear rules, increment schema version if semantics change, and rerun
    automated tests.
-6. Record reviewer pseudonymous IDs, date, agreement result, and schema version.
+7. Record reviewer group or pseudonymous IDs, date, result, and schema version.
 
 The fixture contains automated candidate gold labels, but automated validation
-does not replace independent human review.
+does not replace documented human review.
