@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0.0",
+  "label_order": [
+    "O",
+    "B-JALAN", "I-JALAN",
+    "B-NOMOR", "I-NOMOR",
+    "B-RT", "I-RT",
+    "B-RW", "I-RW",
+    "B-KELURAHAN", "I-KELURAHAN",
+    "B-KECAMATAN", "I-KECAMATAN",
+    "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN",
+    "B-PROVINSI", "I-PROVINSI",
+    "B-KODEPOS", "I-KODEPOS",
+    "B-DETAIL_LOKASI", "I-DETAIL_LOKASI"
+  ],
+  "examples": [
+    {
+      "id": "GOLD-001",
+      "categories": ["positive", "complete"],
+      "status": "gold",
+      "tokens": ["Jl.", "Asia", "Afrika", "No.", "12", "Kel.", "Braga", "Kec.", "Sumur", "Bandung", "Kota", "Bandung", "Jawa", "Barat", "40111"],
+      "labels": ["B-JALAN", "I-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Complete address with explicit designators."
+    },
+    {
+      "id": "GOLD-002",
+      "categories": ["positive", "rt-rw", "detail"],
+      "status": "gold",
+      "tokens": ["Gg.", "Melati", "Blok", "C2", "RT", "04", "RW", "09", "Kel.", "Sukamaju", "Kec.", "Cilodong", "Kota", "Depok", "Jawa", "Barat", "16415"],
+      "labels": ["B-JALAN", "I-JALAN", "B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-RT", "I-RT", "B-RW", "I-RW", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Named alley is a road; block is destination detail."
+    },
+    {
+      "id": "GOLD-003",
+      "categories": ["positive", "kabupaten"],
+      "status": "gold",
+      "tokens": ["Jalan", "Raya", "Cileunyi", "Nomor", "8B", "Desa", "Cibiru", "Wetan", "Kecamatan", "Cileunyi", "Kabupaten", "Bandung", "Jawa", "Barat", "40625"],
+      "labels": ["B-JALAN", "I-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KELURAHAN", "I-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Village and regency designators resolve administrative levels."
+    },
+    {
+      "id": "GOLD-004",
+      "categories": ["abbreviation", "positive"],
+      "status": "gold",
+      "tokens": ["Jln.", "Diponegoro", "No", "5", "Ds.", "Citarum", "Kec.", "Bandung", "Wetan", "Kota", "Bandung", "Jabar", "40115"],
+      "labels": ["B-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "B-KODEPOS"],
+      "rationale": "Documented abbreviations keep the intended entity role."
+    },
+    {
+      "id": "GOLD-005",
+      "categories": ["typo", "positive"],
+      "status": "gold",
+      "tokens": ["Jaln", "Sudirman", "Nomer", "10", "Kelurahn", "Dago", "Kecmatan", "Coblong", "Bandung", "Jawa", "Brat", "40135"],
+      "labels": ["B-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Observed typos are not corrected inside the gold input."
+    },
+    {
+      "id": "GOLD-006",
+      "categories": ["detail", "positive"],
+      "status": "gold",
+      "tokens": ["Apartemen", "Sentra", "Tower", "A", "Lantai", "12", "Unit", "05", "Jl.", "Soekarno", "Hatta", "No.", "689", "Bandung", "Jawa", "Barat", "40286"],
+      "labels": ["B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-JALAN", "I-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Building, tower, floor, and unit form one contiguous destination detail."
+    },
+    {
+      "id": "GOLD-007",
+      "categories": ["landmark", "positive"],
+      "status": "gold",
+      "tokens": ["Jl.", "Merdeka", "No.", "3", "seberang", "kantor", "pos", "Kel.", "Padasuka", "Kec.", "Cibeunying", "Kidul", "Kota", "Bandung"],
+      "labels": ["B-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN"],
+      "rationale": "Spatial landmark instruction is DETAIL_LOKASI."
+    },
+    {
+      "id": "GOLD-008",
+      "categories": ["rt-rw", "punctuation"],
+      "status": "gold",
+      "tokens": ["Jl.", "Mawar", "RT", "03", "/", "RW", "07", "Kel.", "Cipedes", "Kec.", "Sukajadi", "Kota", "Bandung"],
+      "labels": ["B-JALAN", "I-JALAN", "B-RT", "I-RT", "O", "B-RW", "I-RW", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN"],
+      "rationale": "Slash separator is outside RT and RW spans."
+    },
+    {
+      "id": "GOLD-009",
+      "categories": ["postal-code", "positive"],
+      "status": "gold",
+      "tokens": ["Kode", "Pos", "40123", "Kel.", "Cihapit", "Kec.", "Bandung", "Wetan", "Kota", "Bandung"],
+      "labels": ["O", "O", "B-KODEPOS", "B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN"],
+      "rationale": "Only the five-digit value belongs to KODEPOS."
+    },
+    {
+      "id": "GOLD-010",
+      "categories": ["punctuation", "positive"],
+      "status": "gold",
+      "tokens": ["Jl.", "Pahlawan", ",", "No.", "21", ",", "Semarang", ",", "Jawa", "Tengah", ",", "50241"],
+      "labels": ["B-JALAN", "I-JALAN", "O", "B-NOMOR", "I-NOMOR", "O", "B-KOTA_KABUPATEN", "O", "B-PROVINSI", "I-PROVINSI", "O", "B-KODEPOS"],
+      "rationale": "Separating commas are O."
+    },
+    {
+      "id": "GOLD-011",
+      "categories": ["public-facility", "detail"],
+      "status": "gold",
+      "tokens": ["Gedung", "Serbaguna", "Lantai", "2", "Jl.", "Veteran", "No.", "10", "Kota", "Surakarta", "Jawa", "Tengah", "57111"],
+      "labels": ["B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Public venue and floor are delivery-location detail, not recipient PII."
+    },
+    {
+      "id": "GOLD-012",
+      "categories": ["detail", "positive"],
+      "status": "gold",
+      "tokens": ["Gang", "Kelinci", "Blok", "B", "Nomor", "7", "Kelurahan", "Pasar", "Baru", "Kecamatan", "Sawah", "Besar", "Jakarta", "Pusat", "DKI", "Jakarta", "10710"],
+      "labels": ["B-JALAN", "I-JALAN", "B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-NOMOR", "I-NOMOR", "B-KELURAHAN", "I-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Multiple multi-token administrative and detail spans."
+    },
+    {
+      "id": "GOLD-013",
+      "categories": ["negative", "delivery-time"],
+      "status": "gold",
+      "tokens": ["Kirim", "setelah", "pukul", "lima", "sore"],
+      "labels": ["O", "O", "O", "O", "O"],
+      "rationale": "Delivery time is not location detail."
+    },
+    {
+      "id": "GOLD-014",
+      "categories": ["negative", "order-id"],
+      "status": "gold",
+      "tokens": ["Nomor", "pesanan", "40111", "harap", "diproses"],
+      "labels": ["O", "O", "O", "O", "O"],
+      "rationale": "Order identifier is neither NOMOR nor KODEPOS."
+    },
+    {
+      "id": "GOLD-015",
+      "categories": ["pii", "positive"],
+      "status": "gold",
+      "tokens": ["[NAME]", "[PHONE]", "Jl.", "Kebon", "Jeruk", "No.", "9", "Jakarta", "Barat", "DKI", "Jakarta", "11530"],
+      "labels": ["O", "O", "B-JALAN", "I-JALAN", "I-JALAN", "B-NOMOR", "I-NOMOR", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "PII placeholders are outside address NER."
+    },
+    {
+      "id": "GOLD-016",
+      "categories": ["ambiguous", "adjudicated"],
+      "status": "gold",
+      "tokens": ["Sukamaju", "Cilodong", "Depok", "Jawa", "Barat", "16415"],
+      "labels": ["B-KELURAHAN", "B-KECAMATAN", "B-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Trusted structured hierarchy resolves bare administrative names.",
+      "adjudication": "Resolved from source fields with documented provenance."
+    },
+    {
+      "id": "GOLD-017",
+      "categories": ["ambiguous", "unresolved"],
+      "status": "needs_adjudication",
+      "tokens": ["Melati", "Indah", "Bandung"],
+      "labels": null,
+      "candidate_labels": ["JALAN", "DETAIL_LOKASI", "KELURAHAN", "KOTA_KABUPATEN"],
+      "rationale": "No designator, structured provenance, or sufficient context."
+    },
+    {
+      "id": "GOLD-018",
+      "categories": ["conflict", "validator-handoff"],
+      "status": "gold",
+      "tokens": ["Kel.", "Braga", "Kec.", "Coblong", "Kota", "Bandung", "40111"],
+      "labels": ["B-KELURAHAN", "I-KELURAHAN", "B-KECAMATAN", "I-KECAMATAN", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-KODEPOS"],
+      "flags": ["hierarchy_conflict"],
+      "rationale": "NER labels observed roles; validator handles hierarchy conflict."
+    },
+    {
+      "id": "GOLD-019",
+      "categories": ["repeated-entity", "punctuation"],
+      "status": "gold",
+      "tokens": ["Kota", "Bandung", ",", "Bandung", ",", "Jawa", "Barat"],
+      "labels": ["B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "O", "B-KOTA_KABUPATEN", "O", "B-PROVINSI", "I-PROVINSI"],
+      "rationale": "A repeated occurrence starts a new B-tag."
+    },
+    {
+      "id": "GOLD-020",
+      "categories": ["detail", "kilometer", "landmark"],
+      "status": "gold",
+      "tokens": ["Jl.", "Raya", "Bogor", "KM", "28", "patokan", "dekat", "terminal", "Kota", "Depok", "Jawa", "Barat", "16451"],
+      "labels": ["B-JALAN", "I-JALAN", "I-JALAN", "B-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "I-DETAIL_LOKASI", "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN", "B-PROVINSI", "I-PROVINSI", "B-KODEPOS"],
+      "rationale": "Kilometer marker and landmark form contiguous destination detail."
+    }
+  ]
+}
