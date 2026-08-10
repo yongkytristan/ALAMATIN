@@ -1,0 +1,53 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# JavaScript / web
+node_modules/
+.next/
+coverage/
+
+# Private and generated data
+data/raw/**
+data/private/**
+data/interim/**
+data/processed/**
+!data/raw/.gitkeep
+!data/private/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Models and large artifacts
+models/
+checkpoints/
+artifacts/
+*.bin
+*.ckpt
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Local tooling and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

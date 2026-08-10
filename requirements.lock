@@ -1,0 +1,5 @@
+# ALAMATIN dependency lock
+#
+# The repository-skeleton validation uses only the Python standard library.
+# Add exact, hash-verified runtime and development dependencies here once the
+# implementation stack is frozen. Do not add unpinned dependencies.
