@@ -4,7 +4,7 @@
 - Status: development smoke benchmark
 - Card version: `1.0.0`
 - NER schema: `1.0.0`
-- Source catalog: `data/sources.json` version `1.0.0`
+- Source catalog: `data/sources.json` version `1.2.0`
 
 ## Intended use
 
@@ -18,7 +18,11 @@ real-test result.
 | `source_id` | Role | Included now? |
 |---|---|---|
 | `alamatin_synthetic_ner_review_v1` | Synthetic labeled base examples | Yes, as `tests/fixtures/ner_gold_examples.json` |
-| `kemendagri_wilayah_2025` | Future hierarchy validation and conflict construction | No; acquisition/transformation is a later governed step |
+| `kemendagri_wilayah_2025` | Hierarchy validation and conflict construction | No benchmark rows; two Cirebon code resolutions are recorded for the local reference build |
+| `open_data_jabar_postal_2023` | Jawa Barat hierarchy/postal reference | No benchmark rows; a locally supplied extract is used only in ignored reference artifacts |
+| `kemendagri_master_village_2024` | Village hierarchy cross-check | No; API host access was unavailable during review |
+| `bps_sig_code_relationship_2020` | BPS/Kemendagri/postal relationship cross-check | No; source remains `hold` |
+| `kodepos_dev_rest_api` | Targeted or explicit province-wide internal postal validation | No; generated observations are ignored local evidence and are not part of this benchmark |
 | `osm_geofabrik_indonesia_2026_07_01` | Future road/landmark candidates and corroboration | No; acquisition/transformation is a later governed step |
 | `pos_indonesia_postcode_search` | Candidate postal-code authority | No; explicitly excluded while its catalog decision is `hold` |
 

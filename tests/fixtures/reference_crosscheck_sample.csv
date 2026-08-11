@@ -1,0 +1,4 @@
+source_id,snapshot,province_code,province_name,city_code,city_name,district_code,district_name,village_code,village_name,postal_code,evidence_url,note
+kemendagri_master_village_2024,fixture-2024,32,JAWA BARAT,3273,KOTA BANDUNG,327305,SUMUR BANDUNG,3273051002,BRAGA,40111,https://example.invalid/kemendagri,Valid hierarchy chain cross-check fixture.
+bps_sig_code_relationship_2020,fixture-2020,32,JAWA BARAT,3273,KOTA BANDUNG,327305,SUMUR BANDUNG,3273051002,BRAGA KULON,40112,https://example.invalid/bps,Synthetic fixture exercises name and postal conflicts.
+pos_indonesia_postcode_search,manual-fixture-2026-08-11,32,JAWA BARAT,3201,KABUPATEN BOGOR,320101,CIBINONG,3201011002,PAKANSARI,16916,https://kodepos.posindonesia.co.id/,Synthetic manual spot-check fixture; no bulk query.

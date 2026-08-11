@@ -33,6 +33,13 @@ data/processed/**
 !data/interim/.gitkeep
 !data/processed/.gitkeep
 
+# Locally supplied Issue 8 source snapshots (never commit or redistribute)
+/databps*.xls
+/diskominfo-od_kode_wilayah_dan_nama_wilayah_desa_kelurahan.csv
+/kemendagri-api.json
+/opendata.jabarprov.go.id_dataset_kode_pos_kab_kota_indonesia_csv.zip
+/static/download/
+
 # Models and large artifacts
 models/
 checkpoints/

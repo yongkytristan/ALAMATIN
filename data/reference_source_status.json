@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-08-11",
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "acquisition_status": "acquired_and_verified_for_two_code_resolutions",
+      "artifact_url": "https://peraturan.bpk.go.id/Download/384753/Lampiran-Kepmen%20300.2.2-2138%20Tahun%202025.pdf",
+      "next_action": "Use the recorded Sambeng and Sirnabaya resolutions before joining postal sources; the 2025 amendment was reviewed and does not alter Kabupaten Cirebon.",
+      "source_id": "kemendagri_wilayah_2025"
+    },
+    {
+      "acquisition_status": "blocked_http_403_cloudflare_challenge",
+      "artifact_url": "https://data.jabarprov.go.id/api-backend/bigdata/dispusipda/kode_pos_kab_kota_indonesia?download=csv",
+      "next_action": "Retry the cataloged fetch command when the publisher service is available; do not bypass the challenge.",
+      "source_id": "open_data_jabar_postal_2023"
+    },
+    {
+      "acquisition_status": "blocked_dns_resolution",
+      "artifact_url": "https://api-e-database.kemendagri.go.id/api/data_master_kode_desa_kelurahan/51F890E2DF",
+      "next_action": "Retry from an approved network and normalize the response to the cross-check contract.",
+      "source_id": "kemendagri_master_village_2024"
+    },
+    {
+      "acquisition_status": "hold_no_stable_artifact_or_reuse_terms",
+      "artifact_url": null,
+      "next_action": "Record the exact relationship-table edition, artifact URL, checksum, and terms before acquisition.",
+      "source_id": "bps_sig_code_relationship_2020"
+    },
+    {
+      "acquisition_status": "manual_spot_check_started_two_selected_conflicts",
+      "artifact_url": "https://kodepos.posindonesia.co.id/CariKodepos",
+      "next_action": "Continue only with selected rows from the deterministic spot-check queue, record exact context and access date, and never bulk scrape or automatically propagate a result.",
+      "source_id": "pos_indonesia_postcode_search"
+    }
+  ]
+}

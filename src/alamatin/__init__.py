@@ -24,6 +24,16 @@ from .label_schema import (
     SCHEMA_VERSION,
     validate_bio_sequence,
 )
+from .reference_hierarchy import (
+    REFERENCE_SCHEMA_VERSION,
+    LookupResult,
+    ReferenceHierarchy,
+    ReferenceRow,
+    ReferenceValidationError,
+    SourceReference,
+    normalize_name,
+    normalize_region_code,
+)
 
 __all__ = [
     "BIO_LABELS",
@@ -35,7 +45,12 @@ __all__ = [
     "LatencySummary",
     "RateResult",
     "RecallResult",
+    "REFERENCE_SCHEMA_VERSION",
+    "ReferenceHierarchy",
+    "ReferenceRow",
+    "ReferenceValidationError",
     "SCHEMA_VERSION",
+    "SourceReference",
     "binary_recall",
     "canonical_json_sha256",
     "critical_exact_match",
@@ -44,6 +59,9 @@ __all__ = [
     "extract_bio_entities",
     "false_correction_rate",
     "latency_summary_ms",
+    "LookupResult",
     "nearest_rank_percentile",
+    "normalize_name",
+    "normalize_region_code",
     "validate_bio_sequence",
 ]
