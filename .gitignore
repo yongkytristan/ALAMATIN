@@ -23,22 +23,11 @@ node_modules/
 .next/
 coverage/
 
-# Private and generated data
-data/raw/**
+# Internal data repository: governed source, interim, and processed artifacts
+# are intentionally tracked here. This policy must never be copied to the
+# public ALAMATIN repository.
 data/private/**
-data/interim/**
-data/processed/**
-!data/raw/.gitkeep
 !data/private/.gitkeep
-!data/interim/.gitkeep
-!data/processed/.gitkeep
-
-# Locally supplied Issue 8 source snapshots (never commit or redistribute)
-/databps*.xls
-/diskominfo-od_kode_wilayah_dan_nama_wilayah_desa_kelurahan.csv
-/kemendagri-api.json
-/opendata.jabarprov.go.id_dataset_kode_pos_kab_kota_indonesia_csv.zip
-/static/download/
 
 # Models and large artifacts
 models/

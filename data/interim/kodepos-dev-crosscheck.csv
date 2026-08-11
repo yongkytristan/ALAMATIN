@@ -1,0 +1,2 @@
+source_id,snapshot,province_code,province_name,city_code,city_name,district_code,district_name,village_code,village_name,postal_code,evidence_url,note
+kodepos_dev_rest_api,2026-08-11,32,Jawa Barat,32.04,Bandung,32.04.13,Banjaran,32.04.13.2003,Banjaran Kulon,40377,https://api.kodepos.dev/kodepos/api/subdistricts/32.04.13.2003,"Bounded Kodepos.dev REST API spot check; validation evidence only, never a silent canonical override."

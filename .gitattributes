@@ -1,5 +1,10 @@
-* text=auto eol=lf
-
-*.bat text eol=crlf
-*.cmd text eol=crlf
-*.ps1 text eol=crlf
+# Preserve internal data snapshots byte-for-byte so manifest SHA-256 values
+# remain valid after clone on every platform.
+/data/raw/** binary
+/data/interim/** binary
+/data/processed/** binary
+/static/download/** binary
+/databps*.xls binary
+/diskominfo-od_kode_wilayah_dan_nama_wilayah_desa_kelurahan.csv binary
+/kemendagri-api.json binary
+/opendata.jabarprov.go.id_dataset_kode_pos_kab_kota_indonesia_csv.zip binary

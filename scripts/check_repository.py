@@ -22,8 +22,11 @@ REQUIRED_PATHS = (
     "tests",
     "docs",
 )
-FORBIDDEN_PARTS = {"raw", "private", "checkpoints", "models", "secrets"}
-MAX_TRACKED_BYTES = 10 * 1024 * 1024
+# INTERNAL REPOSITORY POLICY: governed raw/interim/processed artifacts are
+# intentionally tracked for restricted team handoff. Never copy this relaxed
+# location/size policy into the public ALAMATIN repository.
+FORBIDDEN_PARTS = {"private", "checkpoints", "models", "secrets"}
+MAX_TRACKED_BYTES = 100 * 1024 * 1024
 SECRET_PATTERNS = (
     re.compile(r"(?i)(?:api[_-]?key|secret|token)\s*=\s*['\"][^'\"\s]{8,}"),
     re.compile(r"-----BEGIN (?:RSA|OPENSSH|EC) PRIVATE KEY-----"),
@@ -54,7 +57,7 @@ def main() -> int:
         if not path.is_file():
             continue
         if path.stat().st_size > MAX_TRACKED_BYTES:
-            errors.append(f"tracked file exceeds 10 MiB: {relative}")
+            errors.append(f"tracked file exceeds 100 MiB: {relative}")
             continue
         try:
             content = path.read_text(encoding="utf-8")

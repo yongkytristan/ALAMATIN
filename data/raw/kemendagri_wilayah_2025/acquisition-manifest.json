@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "base_annex",
+      "bytes": 55489113,
+      "filename": "kemendagri-300.2.2-2138-2025-lampiran.pdf",
+      "sha256": "ac13b5a57358fcec0503429bb06b2d6b4e5572f65fd0162979b87a79863b1de6",
+      "url": "https://peraturan.bpk.go.id/Download/384753/Lampiran-Kepmen%20300.2.2-2138%20Tahun%202025.pdf"
+    },
+    {
+      "artifact_id": "amendment",
+      "bytes": 11026133,
+      "filename": "kemendagri-300.2.2-2430-2025.pdf",
+      "sha256": "b5ea05544536335ee567a2a7b871a9c4325c1ba437a200d7698b6faff7a2ba1e",
+      "url": "https://peraturan.bpk.go.id/Download/384720/Kepmendagri%20Nomor%20300.2.2-2430%20Tahun%202025.pdf"
+    }
+  ],
+  "catalog_version": "1.2.0",
+  "manifest_version": "1.0.0",
+  "retrieved_at": "2026-08-11T07:19:29.397508Z",
+  "source_id": "kemendagri_wilayah_2025",
+  "source_snapshot": "Kepmendagri 300.2.2-2138/2025 dated 2025-04-25, as amended by Kepmendagri 300.2.2-2430/2025 dated 2025-06-23"
+}

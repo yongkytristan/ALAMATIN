@@ -1,0 +1,36 @@
+{
+  "candidate_review_rows": 1974,
+  "editable_fields": [
+    "reviewer",
+    "review_status",
+    "review_decision",
+    "reviewed_postal_code",
+    "evidence_source_name",
+    "evidence_url",
+    "evidence_checked_at",
+    "evidence_scope",
+    "review_notes",
+    "second_reviewer",
+    "second_review_status"
+  ],
+  "initial_review_status": "pending",
+  "input_sha256": {
+    "candidates": "2ac0bf23324c09509a1e082005443c85b664b7d220ca0984b0cdcfda554f67e4",
+    "disagreements": "b763350322363ffdb1886a856a5dd7100d43ced4f54fede77aa1c6d2e62970c2",
+    "government_conflicts": "1da30aae04bfdfb0d05198a31ce71d6fa5957f6fb9487ee2bde676d54fedb8a7",
+    "observations": "01786ac84f32cb3bbaed7088e08d3c4cfb522b3e1af983326ed9f022a022920e",
+    "unresolved": "e99115e5570770700217d12f89a840a0a071c0ba7f0cbf0726a0ba5c59b68d38"
+  },
+  "output_sha256": {
+    "candidate_review": "7d42fbd72e3321477ff07674157ad55b8957c81b3e41315a4ed11403ff119f78",
+    "unresolved_review": "5e14728557e6a6266c7ecac3be204f4b5f567f9498d1ea71645b07b895fd138c"
+  },
+  "rows_with_existing_pos_observation": 2,
+  "schema_version": "1.0.0",
+  "total_review_rows": 3081,
+  "unresolved_case_counts": {
+    "local_government_consensus_api_conflict": 482,
+    "source_disagreement": 625
+  },
+  "unresolved_review_rows": 1107
+}

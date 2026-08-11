@@ -1,0 +1,220 @@
+{
+  "excluded": [
+    ".env",
+    "API credentials",
+    ".codex",
+    "unrelated untracked files"
+  ],
+  "file_count": 41,
+  "files": [
+    {
+      "bytes": 351615,
+      "path": "data/interim/diskominfo-vs-open-data-jabar-postal-differences.csv",
+      "sha256": "60e2a0810f463b8fa8b15d2879c071f80293cca83f92669f5c55c5cd6658c706"
+    },
+    {
+      "bytes": 9431158,
+      "path": "data/interim/jabar-source-review.xlsx",
+      "sha256": "67ecad70724a260a79e2770862ca757654a8253f69de77aa19de31dab5df2b37"
+    },
+    {
+      "bytes": 433,
+      "path": "data/interim/kodepos-dev-crosscheck.csv",
+      "sha256": "ff801aea6ac0899731926f5495b342ddf72405be9da5addd0ee9c35004ab9e21"
+    },
+    {
+      "bytes": 3796537,
+      "path": "data/interim/kodepos-dev-jabar-checkpoint.json",
+      "sha256": "86196e554e52479d51788bcdaffd37b9f20acd69be3b0651c332be6eb0f8ae95"
+    },
+    {
+      "bytes": 734521,
+      "path": "data/interim/kodepos-dev-jabar-comparison.csv",
+      "sha256": "128bcb52418afbe8e11b31b1ea6130f4b755709198a232b79f0918e01ba3dda7"
+    },
+    {
+      "bytes": 446924,
+      "path": "data/interim/kodepos-dev-jabar-differences.csv",
+      "sha256": "f7110684de0ebbd872a8047fb73cb7a2679d77e4b3f23cd270f53c558a47970a"
+    },
+    {
+      "bytes": 219078,
+      "path": "data/interim/kodepos-dev-jabar-priority-review.csv",
+      "sha256": "98809f572335ae1fcb99fbb91335547db0c67b2de983952947a07350dcbd91d5"
+    },
+    {
+      "bytes": 1195,
+      "path": "data/interim/kodepos-dev-jabar-summary.json",
+      "sha256": "d43486ecca5dc0b4d8cc1e30feea7131c9148b324cec1323c17b8835caaacc7f"
+    },
+    {
+      "bytes": 2009448,
+      "path": "data/interim/kodepos-dev-jabar.csv",
+      "sha256": "daa58647e1071629cd48202d71bf8a5246c7d5529db625cc7e8978074593b464"
+    },
+    {
+      "bytes": 835,
+      "path": "data/interim/manual-pos-conflicts.csv",
+      "sha256": "01786ac84f32cb3bbaed7088e08d3c4cfb522b3e1af983326ed9f022a022920e"
+    },
+    {
+      "bytes": 1299809,
+      "path": "data/interim/postal-review/jabar-postal-corroborated-review.csv",
+      "sha256": "7d42fbd72e3321477ff07674157ad55b8957c81b3e41315a4ed11403ff119f78"
+    },
+    {
+      "bytes": 1289,
+      "path": "data/interim/postal-review/jabar-postal-human-review-summary.json",
+      "sha256": "d6f4c60154f9cb2076b618551f17a492c05c2490e8b7092f32d33bf5a33ee7a2"
+    },
+    {
+      "bytes": 706615,
+      "path": "data/interim/postal-review/jabar-postal-unresolved-review.csv",
+      "sha256": "5e14728557e6a6266c7ecac3be204f4b5f567f9498d1ea71645b07b895fd138c"
+    },
+    {
+      "bytes": 1281669,
+      "path": "data/processed/jabar-postal-consensus-accepted.csv",
+      "sha256": "686d8eed3a9d1c11f527fc299e7868b7b4d5f8ed11f4e5bc12b73401d9c5d39b"
+    },
+    {
+      "bytes": 2877248,
+      "path": "data/processed/jabar-postal-consensus-candidate.csv",
+      "sha256": "37a6f359de260566974f29820a0a03899d287f0ea0b683ecb0b2e85458ed5e0a"
+    },
+    {
+      "bytes": 1596014,
+      "path": "data/processed/jabar-postal-consensus-review-required.csv",
+      "sha256": "ad9d3766cc661a42dae68866830231ea7f95c3e1c17148076eb241913cc740b3"
+    },
+    {
+      "bytes": 1511,
+      "path": "data/processed/jabar-postal-consensus-summary.json",
+      "sha256": "9d3a7ce42c09169b16db4852d9c4fa9c35eef168cafa38045fdb7eeca6363b91"
+    },
+    {
+      "bytes": 1075743,
+      "path": "data/processed/jabar-postal-corroborated-candidates.csv",
+      "sha256": "2ac0bf23324c09509a1e082005443c85b664b7d220ca0984b0cdcfda554f67e4"
+    },
+    {
+      "bytes": 243316,
+      "path": "data/processed/jabar-postal-government-consensus-api-conflict.csv",
+      "sha256": "1da30aae04bfdfb0d05198a31ce71d6fa5957f6fb9487ee2bde676d54fedb8a7"
+    },
+    {
+      "bytes": 114642,
+      "path": "data/processed/jabar-postal-pos-spotcheck-queue.csv",
+      "sha256": "c49bc8da70f3fe3f7d6acc6054cd8aa1de146ecbd74114ffc30c66cf25fdca54"
+    },
+    {
+      "bytes": 823,
+      "path": "data/processed/jabar-postal-pos-spotcheck-summary.json",
+      "sha256": "b5f5e33c3a6e299e658d26fb78627d92458b89b6bfde82958e8abb30a1d47039"
+    },
+    {
+      "bytes": 21995,
+      "path": "data/processed/jabar-postal-unresolved-clusters.csv",
+      "sha256": "24bb673680e9e608c5ed81ce9da28b1cbeb5d784367fbf684347c39550b348a7"
+    },
+    {
+      "bytes": 13765,
+      "path": "data/processed/jabar-postal-unresolved-group-summary.json",
+      "sha256": "caf529bc62ee4994b0d597efb1ba7f4a587f3b594d25b2152eb98ad08f99bd71"
+    },
+    {
+      "bytes": 337487,
+      "path": "data/processed/jabar-postal-unresolved-source-disagreement.csv",
+      "sha256": "b763350322363ffdb1886a856a5dd7100d43ced4f54fede77aa1c6d2e62970c2"
+    },
+    {
+      "bytes": 520706,
+      "path": "data/processed/jabar-postal-unresolved.csv",
+      "sha256": "e99115e5570770700217d12f89a840a0a071c0ba7f0cbf0726a0ba5c59b68d38"
+    },
+    {
+      "bytes": 656796,
+      "path": "data/processed/jabar-reference-v1-exceptions.csv",
+      "sha256": "b259fa3af3914a2aea3c9b2ae69d3ce502448b0ede4f30cac0be540766c4b679"
+    },
+    {
+      "bytes": 1461,
+      "path": "data/processed/jabar-reference-v1-summary.json",
+      "sha256": "67a07bb6f3d14b582268eae917012afd3410f730447ba80e968e4cc972d37182"
+    },
+    {
+      "bytes": 3516017,
+      "path": "data/processed/jabar-reference-v1-verified.json",
+      "sha256": "66c8cca7dbe7dc9289e1a03fb0627029bfb5e365887cba174c2f894a488cc72b"
+    },
+    {
+      "bytes": 3048487,
+      "path": "data/processed/jabar-reference-v1.csv",
+      "sha256": "267e1b3bc9139820d8f24ea72c67b8f6f48133d1bc72d43829798da1cc14cde3"
+    },
+    {
+      "bytes": 961,
+      "path": "data/raw/kemendagri_wilayah_2025/acquisition-manifest.json",
+      "sha256": "c651986d8d3a0da09c43b94571923ef0abf48bce335f3d78289a27380abc3cf8"
+    },
+    {
+      "bytes": 55489113,
+      "path": "data/raw/kemendagri_wilayah_2025/kemendagri-300.2.2-2138-2025-lampiran.pdf",
+      "sha256": "ac13b5a57358fcec0503429bb06b2d6b4e5572f65fd0162979b87a79863b1de6"
+    },
+    {
+      "bytes": 11026133,
+      "path": "data/raw/kemendagri_wilayah_2025/kemendagri-300.2.2-2430-2025.pdf",
+      "sha256": "b5ea05544536335ee567a2a7b871a9c4325c1ba437a200d7698b6faff7a2ba1e"
+    },
+    {
+      "bytes": 12489359,
+      "path": "data/raw/open_data_jabar_postal_2023/static/download/dispusipda-kode_pos_kab_kota_indonesia_data.csv",
+      "sha256": "33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7"
+    },
+    {
+      "bytes": 3948,
+      "path": "data/raw/open_data_jabar_postal_2023/static/download/dispusipda-kode_pos_kab_kota_indonesia_metadata.pdf",
+      "sha256": "c97c5e9ddfad0ef011d66507210ff51b076b1c1274a77b61f7c5b9254ed09544"
+    },
+    {
+      "bytes": 10662,
+      "path": "databps1.xls",
+      "sha256": "5670a6b66c9daab190a4cbf8bba64b0b678bcc82b7d387d584928b49e5fd1497"
+    },
+    {
+      "bytes": 10479,
+      "path": "databps2.xls",
+      "sha256": "1ff156a60df65348b8a97324d3feb12ec1266410ad7afc04cf4cdda14cd75663"
+    },
+    {
+      "bytes": 1157760,
+      "path": "diskominfo-od_kode_wilayah_dan_nama_wilayah_desa_kelurahan.csv",
+      "sha256": "6c4c46f393e6497190b817f5c49062b8c25587b8f4d33bbe2b258543d180d4fc"
+    },
+    {
+      "bytes": 2687,
+      "path": "kemendagri-api.json",
+      "sha256": "338eee1629b6d11a131a7b0d0f5c5e734949280f250936a56c6b618d0db62d78"
+    },
+    {
+      "bytes": 12493741,
+      "path": "opendata.jabarprov.go.id_dataset_kode_pos_kab_kota_indonesia_csv.zip",
+      "sha256": "cfe2c049337aba6ec8826826b3a3b203ec70f87f4b5ef1f0094fd9bdb6614eec"
+    },
+    {
+      "bytes": 12489359,
+      "path": "static/download/dispusipda-kode_pos_kab_kota_indonesia_data.csv",
+      "sha256": "33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7"
+    },
+    {
+      "bytes": 3948,
+      "path": "static/download/dispusipda-kode_pos_kab_kota_indonesia_metadata.pdf",
+      "sha256": "c97c5e9ddfad0ef011d66507210ff51b076b1c1274a77b61f7c5b9254ed09544"
+    }
+  ],
+  "public_main_commit": "4819f0c6ca3e3d5180776ca7c4c00c913ff52560",
+  "schema_version": "1.0.0",
+  "snapshot": "2026-08-11",
+  "total_bytes": 139485287
+}

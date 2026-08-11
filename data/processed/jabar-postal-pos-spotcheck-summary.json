@@ -1,0 +1,24 @@
+{
+  "input_sha256": "b763350322363ffdb1886a856a5dd7100d43ced4f54fede77aa1c6d2e62970c2",
+  "observations_sha256": "01786ac84f32cb3bbaed7088e08d3c4cfb522b3e1af983326ed9f022a022920e",
+  "observed_queue_rows": 2,
+  "observed_represented_rows": 25,
+  "output_sha256": {
+    "queue": "c49bc8da70f3fe3f7d6acc6054cd8aa1de146ecbd74114ffc30c66cf25fdca54"
+  },
+  "pending_queue_rows": 247,
+  "policy": "One representative per exact postal triplet. Manual results are evidence only and must not be propagated automatically.",
+  "priority_counts": {
+    "P0_missing_source": 11,
+    "P1_high_impact": 13,
+    "P2_medium_impact": 30,
+    "P3_targeted": 195
+  },
+  "queue_rows": 249,
+  "represented_unresolved_rows": 625,
+  "review_status_counts": {
+    "observed_matches_source": 2,
+    "pending": 247
+  },
+  "schema_version": "1.0.0"
+}
