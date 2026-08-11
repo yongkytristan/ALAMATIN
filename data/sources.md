@@ -1,6 +1,6 @@
 # Public data source decisions
 
-- Catalog version: `1.0.0`
+- Catalog version: `1.2.0`
 - Review date: 2026-08-11
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
@@ -15,12 +15,69 @@ Approval of a source does not approve every field in that source.
 | Required use | Approved `source_id` | Boundary |
 |---|---|---|
 | Administrative hierarchy | `kemendagri_wilayah_2025` | Authority for region codes/names after applying the 2025 amendment; not a postal-code authority |
+| Jawa Barat hierarchy and postal MVP | `open_data_jabar_postal_2023` | Internal non-commercial use; Kemendagri fields canonical, BPS spellings retained as aliases |
+| Village master cross-check | `kemendagri_master_village_2024` | Administrative evidence only; resource access currently blocked by DNS resolution |
+| BPS/postal relationship cross-check | `bps_sig_code_relationship_2020` | On hold pending stable artifact and reuse terms |
+| Bounded postal conflict validation | `kodepos_dev_rest_api` | Internal validation only; selected village-code detail calls, local ignored output, no redistribution |
 | Roads and landmarks | `osm_geofabrik_indonesia_2026_07_01` | Gazetteer/corroborating data only; coverage varies and ODbL applies |
 | Base address benchmark | `alamatin_synthetic_ner_review_v1` | Deterministic smoke benchmark only; no real-world or model-quality claim |
 
-There is deliberately no approved bulk postal-code source yet. Pos Indonesia's
-official search is recorded as `hold`; ALAMATIN must return unresolved when the
-available approved evidence cannot establish a postal code.
+The Open Data Jabar 2023 snapshot is approved as the restricted Jawa Barat MVP
+postal source. It is not a national postal authority. Pos Indonesia's official
+search remains `hold` for bulk use; ALAMATIN must return unresolved when the
+approved evidence cannot establish a unique postal code.
+
+## `open_data_jabar_postal_2023` — restricted use
+
+Purpose: primary Jawa Barat hierarchy/postal mapping. The portal records dataset
+ID `95037db4-04d0-4b5f-8799-4c0ca9abb460`, data year 2023, and modification on
+16 December 2024. Current approval is internal and non-commercial; derived or
+raw data must not be redistributed. The published CSV endpoint returned an HTTP
+403 Cloudflare challenge on the review date, so no bypass or alternate mirror
+was used.
+
+Kemendagri province/district/village columns become canonical; the city parent
+is derived from the Kemendagri district prefix because the portal defines its
+city code as BPS. Different BPS spellings/codes become aliases or documented
+exceptions. Every output row carries this source ID, snapshot, and artifact
+SHA-256.
+
+## `kemendagri_master_village_2024` — use as cross-check
+
+Purpose: compare village code/name/parent relationships. Satu Data Indonesia
+records dataset ID `90249796-6f43-41b1-8167-1877b92b5c89`, modified 16 August
+2024, and warns that SDI principle fulfillment is still in progress. The API
+host did not resolve on the review date. It cannot establish or override a
+postal code.
+
+## `bps_sig_code_relationship_2020` — hold
+
+The BPS SIG page records relationship tables between BPS Wilkerstat,
+Kemendagri, and older postal codes. No stable direct artifact and reuse terms
+were recorded, so only metadata and synthetic contract tests are allowed. Any
+future approved extract must be normalized and used as cross-check evidence,
+never as a silent override.
+
+## `kodepos_dev_rest_api` — internal validation
+
+The credentialed REST API has separate targeted and explicit province-audit
+modes. The targeted client accepts explicit conflict/gap codes, defaults to 25
+requests, and enforces a hard 100-request ceiling. Both modes write only the
+normalized hierarchy/postal fields to ignored `data/interim/` output. The API
+key is read from `KODEPOS_API_KEY`; it is never a CLI argument, output field, or
+committed configuration value.
+
+The service is live and mutable, so each observation records the access date and
+detail endpoint. Results are corroborating evidence: they may emit a documented
+exception but never silently replace the canonical government-source value.
+Kodepos.dev terms prohibit data resale or redistribution without written
+permission, so generated observations remain local and cannot become a bulk
+repository dataset.
+
+An explicit full-Jawa-Barat audit may use the documented search pagination at
+100 rows per page. It requires `--confirm-full-jabar`, checkpoints every page,
+compares only administrative/postal fields, consumes service credits, and keeps
+all API-derived output ignored and local.
 
 ## `kemendagri_wilayah_2025` — use
 

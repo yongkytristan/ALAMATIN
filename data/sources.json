@@ -1,5 +1,5 @@
 {
-  "catalog_version": "1.0.0",
+  "catalog_version": "1.2.0",
   "reviewed_at": "2026-08-11",
   "purpose_vocabulary": [
     "administrative_hierarchy",
@@ -141,6 +141,172 @@
         "Twenty curated examples are insufficient for model selection or performance claims.",
         "Synthetic examples do not measure real marketplace address distribution or error prevalence.",
         "This source must never be mixed into the sealed real test."
+      ]
+    },
+    {
+      "source_id": "open_data_jabar_postal_2023",
+      "name": "Kode Pos Desa/Kelurahan di Indonesia",
+      "decision": "use",
+      "purposes": [
+        "administrative_hierarchy",
+        "postal_code_reference"
+      ],
+      "publisher": "Dinas Komunikasi dan Informatika Provinsi Jawa Barat via Open Data Jabar",
+      "landing_page_url": "https://opendata.jabarprov.go.id/id/dataset/kode-pos-desa-kelurahan-di-indonesia",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Portal dataset 95037db4-04d0-4b5f-8799-4c0ca9abb460, data year 2023, modified 2024-12-16",
+      "license_review": {
+        "status": "internal_noncommercial_only",
+        "basis": "Open Data Jabar terms allow personal non-commercial use; broader commercial reuse was not granted in the reviewed terms.",
+        "redistribution": "metadata_and_synthetic_fixtures_only",
+        "attribution": "Open Data Jabar and Dinas Perpustakaan dan Kearsipan Daerah Provinsi Jawa Barat, dataset ID and snapshot"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "The documented fields contain administrative units and postal codes, not people or household-level addresses.",
+        "controls": "Allowlist only hierarchy codes/names, postal code, and year; do not join to customer records in the build stage."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "postal_csv_2023",
+            "url": "https://data.jabarprov.go.id/api-backend/bigdata/dispusipda/kode_pos_kab_kota_indonesia?download=csv",
+            "filename": "open-data-jabar-kode-pos-2023.csv",
+            "media_type": "text/csv"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Keep only Jawa Barat rows and the documented hierarchy/postal-code fields.",
+        "Use Kemendagri province/district/village codes and derive the city parent from the Kemendagri district prefix; retain differing BPS names as aliases.",
+        "Record every name, parent-code, and postal-code disagreement in the exception report.",
+        "Record source_id, source snapshot, and raw artifact SHA-256 on every canonical row."
+      ],
+      "limitations": [
+        "The published endpoint returned a Cloudflare HTTP 403 challenge on 2026-08-11; no bypass was attempted.",
+        "The snapshot is a compiled dataset and must be cross-checked against Kemendagri, BPS SIG, and selected manual Pos Indonesia observations.",
+        "Use is limited to internal non-commercial work unless broader permission is recorded."
+      ]
+    },
+    {
+      "source_id": "kemendagri_master_village_2024",
+      "name": "Data Master Kode Desa/Kelurahan",
+      "decision": "use",
+      "purposes": [
+        "administrative_hierarchy"
+      ],
+      "publisher": "Kementerian Dalam Negeri Republik Indonesia via Satu Data Indonesia",
+      "landing_page_url": "https://data.go.id/dataset/dataset/data-master-kode-desa-kelurahan",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Dataset 90249796-6f43-41b1-8167-1877b92b5c89, published 2024-05-09, modified 2024-08-16",
+      "license_review": {
+        "status": "internal_use_approved",
+        "basis": "Public government dataset metadata and API were recorded; the portal notes that SDI principle fulfillment remains in progress.",
+        "redistribution": "metadata_only",
+        "attribution": "Kementerian Dalam Negeri Republik Indonesia and Satu Data Indonesia, dataset ID and snapshot"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "The dataset describes administrative village/kelurahan master codes and names, not person-level data.",
+        "controls": "Retain only administrative code, name, level, and parent relationship."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "village_master_api",
+            "url": "https://api-e-database.kemendagri.go.id/api/data_master_kode_desa_kelurahan/51F890E2DF",
+            "filename": "kemendagri-master-desa-kelurahan-2024.json",
+            "media_type": "application/json"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Normalize the response into the cross-check CSV contract documented for the hierarchy builder.",
+        "Filter to Jawa Barat and compare by normalized ten-digit village code.",
+        "Record differences as exceptions; never overwrite primary values silently."
+      ],
+      "limitations": [
+        "The resource host did not resolve from the build environment on 2026-08-11.",
+        "The portal states that fulfillment of Satu Data Indonesia principles is still in progress.",
+        "This source does not establish a postal code."
+      ]
+    },
+    {
+      "source_id": "bps_sig_code_relationship_2020",
+      "name": "Relationship Table BPS Wilkerstat, Kemendagri, and postal codes",
+      "decision": "hold",
+      "purposes": [
+        "administrative_hierarchy",
+        "postal_code_reference"
+      ],
+      "publisher": "Badan Pusat Statistik",
+      "landing_page_url": "https://sig.bps.go.id/bridging-kode/index",
+      "accessed_at": "2026-08-11",
+      "snapshot": "SIG relationship-table page observed 2026-08-11; options include 2020 semester 2 administrative relationships and 2017 semester 2 postal-code relationships",
+      "license_review": {
+        "status": "unresolved",
+        "basis": "The relationship tables and an interactive download control were identified, but no stable direct artifact URL and reuse terms were recorded.",
+        "redistribution": "prohibited_until_reviewed",
+        "attribution": "Badan Pusat Statistik, table edition and access date"
+      },
+      "pii_review": {
+        "status": "approved_in_principle",
+        "finding": "The described relationship tables contain geographic codes and names, not person-level records.",
+        "controls": "Do not acquire until a stable artifact and terms are recorded; after approval retain only hierarchy and postal relationship fields."
+      },
+      "acquisition": {
+        "mode": "none",
+        "reason": "Stable direct download URL, immutable artifact version, and reuse terms require confirmation."
+      },
+      "transformation_plan": [
+        "After approval, normalize the selected relationship table into the documented cross-check CSV contract.",
+        "Compare codes and names to canonical rows and emit exceptions for every difference."
+      ],
+      "limitations": [
+        "The postal relationship option is based on 2015 postal codes and may be stale.",
+        "The source remains on hold and may only be represented by synthetic test fixtures."
+      ]
+    },
+    {
+      "source_id": "kodepos_dev_rest_api",
+      "name": "Kodepos.dev REST API",
+      "decision": "use",
+      "purposes": [
+        "postal_code_reference"
+      ],
+      "publisher": "Kodepos.dev",
+      "landing_page_url": "https://www.kodepos.dev/dokumentasi/rest-api",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Live credentialed REST API; every observation records its explicit access date",
+      "license_review": {
+        "status": "internal_validation_only",
+        "basis": "The service terms permit API access but prohibit resale or redistribution of its data without written permission. ALAMATIN uses responses only as ignored local validation evidence.",
+        "redistribution": "prohibited",
+        "attribution": "Kodepos.dev REST API, endpoint and access date"
+      },
+      "pii_review": {
+        "status": "approved_with_controls",
+        "finding": "The documented response contains public administrative codes/names and postal codes, not people or household addresses.",
+        "controls": "Allowlist only hierarchy code/name and postalCode. Never send customer addresses, names, phone numbers, or other free text. Keep response artifacts in ignored data/interim paths."
+      },
+      "acquisition": {
+        "mode": "none",
+        "reason": "Use a dedicated explicit REST validation script; generic catalog acquisition and redistribution remain disabled."
+      },
+      "transformation_plan": [
+        "For targeted checks, select only village codes from already documented conflicts or coverage gaps.",
+        "For an explicitly confirmed province audit, use documented search pagination with scripts/audit_kodepos_jabar.py and checkpoint every page.",
+        "Use an environment-only API key for every request.",
+        "Normalize allowlisted fields into the cross-check CSV contract and retain endpoint plus access-date provenance.",
+        "Treat differences as exceptions; never silently overwrite the canonical government-source value."
+      ],
+      "limitations": [
+        "This is a live third-party service rather than an immutable government snapshot.",
+        "Each request consumes service credits and is subject to rate limits and account terms.",
+        "Generated observations are internal validation evidence and must not be committed or redistributed.",
+        "The targeted client caps each invocation at 100 selected village codes and defaults to 25; the province audit requires an explicit confirmation flag and consumes additional credits."
       ]
     },
     {

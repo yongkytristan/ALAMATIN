@@ -6,8 +6,12 @@ agreements; product implementation is tracked separately in GitHub Issues.
 
 ## Current status
 
-Repository foundation only. No model, dataset, application, or production
-service has been implemented yet.
+Repository foundation, NER/evaluation contracts, public-source governance, and
+the deterministic Jawa Barat hierarchy/postal lookup are implemented. The
+governed builder has also produced a real local/internal Jawa Barat reference
+from the user-supplied source snapshots. Raw and derived source data remain
+ignored and cannot be redistributed from the repository under the recorded
+source terms.
 
 ## Repository layout
 

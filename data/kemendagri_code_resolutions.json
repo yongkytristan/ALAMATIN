@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "kemendagri_wilayah_2025",
+  "snapshot": "Kepmendagri 300.2.2-2138/2025 dated 2025-04-25, as amended by Kepmendagri 300.2.2-2430/2025 dated 2025-06-23",
+  "artifacts": {
+    "base_annex_sha256": "ac13b5a57358fcec0503429bb06b2d6b4e5572f65fd0162979b87a79863b1de6",
+    "amendment_sha256": "b5ea05544536335ee567a2a7b871a9c4325c1ba437a200d7698b6faff7a2ba1e"
+  },
+  "amendment_review": "Kepmendagri 300.2.2-2430/2025 changes four islands between Aceh Singkil and Tapanuli Tengah and does not alter Kabupaten Cirebon.",
+  "resolutions": [
+    {
+      "village_name": "SAMBENG",
+      "former_village_code": "32.09.39.2001",
+      "former_district_code": "32.09.39",
+      "former_district_name": "SURANENGGALA",
+      "current_village_code": "32.09.21.2016",
+      "current_district_code": "32.09.21",
+      "current_district_name": "GUNUNG JATI",
+      "city_code": "32.09",
+      "city_name": "KABUPATEN CIREBON",
+      "evidence_pdf_page": 1468,
+      "evidence_printed_page": "1.483",
+      "evidence_note": "The active row lists Sambeng under Gunung Jati and notes it was formerly in Suranenggala; the Suranenggala table retains only a movement note, not an active code row."
+    },
+    {
+      "village_name": "SIRNABAYA",
+      "former_village_code": "32.09.39.2002",
+      "former_district_code": "32.09.39",
+      "former_district_name": "SURANENGGALA",
+      "current_village_code": "32.09.21.2017",
+      "current_district_code": "32.09.21",
+      "current_district_name": "GUNUNG JATI",
+      "city_code": "32.09",
+      "city_name": "KABUPATEN CIREBON",
+      "evidence_pdf_page": 1468,
+      "evidence_printed_page": "1.483",
+      "evidence_note": "The active row lists Sirnabaya under Gunung Jati and notes it was formerly in Suranenggala; the Suranenggala table retains only a movement note, not an active code row."
+    }
+  ]
+}
