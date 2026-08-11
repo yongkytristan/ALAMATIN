@@ -52,7 +52,7 @@ class KodeposJabarAuditTest(unittest.TestCase):
             )
 
         rows, pagination, _ = fetch_search_page(
-            api_key="test-secret",
+            api_key="dummy",
             after="cursor value",
             opener=opener,
             retries=0,
@@ -60,7 +60,7 @@ class KodeposJabarAuditTest(unittest.TestCase):
 
         self.assertEqual(len(rows), 1)
         self.assertEqual(pagination["total"], 1)
-        self.assertEqual(observed["authorization"], "Bearer test-secret")
+        self.assertEqual(observed["authorization"], "Bearer dummy")
         self.assertIn("q=Jawa+Barat", observed["url"])
         self.assertIn("first=100", observed["url"])
         self.assertIn("after=cursor+value", observed["url"])
@@ -87,7 +87,7 @@ class KodeposJabarAuditTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             checkpoint = Path(directory) / "checkpoint.json"
             rows = fetch_all_jabar(
-                api_key="test-secret",
+                api_key="dummy",
                 snapshot="2026-08-11",
                 checkpoint=checkpoint,
                 page_size=100,
@@ -98,7 +98,7 @@ class KodeposJabarAuditTest(unittest.TestCase):
                 page_fetcher=page_fetcher,
             )
             resumed = fetch_all_jabar(
-                api_key="test-secret",
+                api_key="dummy",
                 snapshot="2026-08-11",
                 checkpoint=checkpoint,
                 page_size=100,

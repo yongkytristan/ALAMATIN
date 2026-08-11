@@ -39,13 +39,13 @@ class KodeposRESTTest(unittest.TestCase):
     def test_api_key_loads_from_dotenv_without_overriding_environment(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / ".env"
-            path.write_text("KODEPOS_API_KEY='file-secret'\n", encoding="utf-8")
+            path.write_text("KODEPOS_API_KEY='mock'\n", encoding="utf-8")
             previous = os.environ.get("KODEPOS_API_KEY")
             os.environ.pop("KODEPOS_API_KEY", None)
             try:
-                self.assertEqual(load_api_key(path), "file-secret")
-                os.environ["KODEPOS_API_KEY"] = "environment-secret"
-                self.assertEqual(load_api_key(path), "environment-secret")
+                self.assertEqual(load_api_key(path), "mock")
+                os.environ["KODEPOS_API_KEY"] = "dummy"
+                self.assertEqual(load_api_key(path), "dummy")
             finally:
                 if previous is None:
                     os.environ.pop("KODEPOS_API_KEY", None)
@@ -73,13 +73,13 @@ class KodeposRESTTest(unittest.TestCase):
             )
 
         data, url = fetch_subdistrict(
-            "3273051002", "test-secret", timeout=5, opener=opener
+            "3273051002", "dummy", timeout=5, opener=opener
         )
         self.assertEqual(data, API_DATA)
-        self.assertEqual(observed["authorization"], "Bearer test-secret")
+        self.assertEqual(observed["authorization"], "Bearer dummy")
         self.assertEqual(observed["timeout"], 5)
         self.assertEqual(url, observed["url"])
-        self.assertNotIn("test-secret", url)
+        self.assertNotIn("dummy", url)
 
     def test_response_is_written_in_builder_crosscheck_contract(self) -> None:
         row = crosscheck_row(
