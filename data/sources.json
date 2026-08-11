@@ -1,0 +1,179 @@
+{
+  "catalog_version": "1.0.0",
+  "reviewed_at": "2026-08-11",
+  "purpose_vocabulary": [
+    "administrative_hierarchy",
+    "postal_code_reference",
+    "street_landmark_reference",
+    "base_address_benchmark"
+  ],
+  "sources": [
+    {
+      "source_id": "kemendagri_wilayah_2025",
+      "name": "Kode dan data wilayah administrasi Kemendagri 2025",
+      "decision": "use",
+      "purposes": [
+        "administrative_hierarchy"
+      ],
+      "publisher": "Kementerian Dalam Negeri Republik Indonesia",
+      "landing_page_url": "https://peraturan.bpk.go.id/Details/322942/keputusan-mendagri-no-nomor-30022-2138-tahun",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Kepmendagri 300.2.2-2138/2025 dated 2025-04-25, as amended by Kepmendagri 300.2.2-2430/2025 dated 2025-06-23",
+      "license_review": {
+        "status": "internal_use_approved",
+        "basis": "Public legal documents distributed by JDIH/BPK; no license over a separately extracted database is assumed.",
+        "redistribution": "metadata_only",
+        "attribution": "Kementerian Dalam Negeri Republik Indonesia, decision number and access date"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "The annex contains administrative units and aggregate geography/population fields, not person-level address records.",
+        "controls": "Extract only region code, region name, hierarchy level, and parent relationship. Drop population and unrelated columns."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "base_annex",
+            "url": "https://peraturan.bpk.go.id/Download/384753/Lampiran-Kepmen%20300.2.2-2138%20Tahun%202025.pdf",
+            "filename": "kemendagri-300.2.2-2138-2025-lampiran.pdf",
+            "media_type": "application/pdf"
+          },
+          {
+            "artifact_id": "amendment",
+            "url": "https://peraturan.bpk.go.id/Download/384720/Kepmendagri%20Nomor%20300.2.2-2430%20Tahun%202025.pdf",
+            "filename": "kemendagri-300.2.2-2430-2025.pdf",
+            "media_type": "application/pdf"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Retain immutable downloaded files and acquisition manifest outside Git.",
+        "Parse the base annex into the canonical region hierarchy.",
+        "Apply the amendment before publishing a reference snapshot.",
+        "Retain source_id and artifact SHA-256 in every derived manifest."
+      ],
+      "limitations": [
+        "This source is an administrative hierarchy, not a postal-code authority.",
+        "The PDF layout requires extraction validation and spot checks against the rendered document.",
+        "Internal use is approved; redistribution of an extracted database needs a separate legal decision."
+      ]
+    },
+    {
+      "source_id": "osm_geofabrik_indonesia_2026_07_01",
+      "name": "OpenStreetMap Indonesia extract via Geofabrik",
+      "decision": "use",
+      "purposes": [
+        "street_landmark_reference"
+      ],
+      "publisher": "OpenStreetMap contributors; extract produced by Geofabrik GmbH",
+      "landing_page_url": "https://download.geofabrik.de/asia/indonesia.html",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Geofabrik indonesia-260701.osm.pbf, produced 2026-07-01",
+      "license_review": {
+        "status": "use_with_obligations",
+        "basis": "OpenStreetMap data is licensed under ODbL 1.0.",
+        "redistribution": "odbl_only",
+        "attribution": "Copyright OpenStreetMap contributors; link to https://www.openstreetmap.org/copyright and identify ODbL"
+      },
+      "pii_review": {
+        "status": "approved_with_controls",
+        "finding": "The public Geofabrik extract removes contributor user names, user IDs, and changeset IDs. OSM objects can still contain free-text tags.",
+        "controls": "Do not ingest history extracts. Allowlist only road, place, address, postal-code, and selected landmark tags; reject contact/name/free-text tags not needed by the task."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "osm_pbf",
+            "url": "https://download.geofabrik.de/asia/indonesia-260701.osm.pbf",
+            "filename": "indonesia-260701.osm.pbf",
+            "media_type": "application/vnd.openstreetmap.data+pbf",
+            "checksum_url": "https://download.geofabrik.de/asia/indonesia-260701.osm.pbf.md5",
+            "checksum_algorithm": "md5"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Verify the upstream MD5 and record an additional SHA-256 in the acquisition manifest.",
+        "Clip records to Indonesia because the extract also includes East Timor.",
+        "Allowlist required tags and remove contributor metadata and unrelated free text.",
+        "Carry source_id, OSM object identifiers, snapshot date, and ODbL attribution into derived manifests."
+      ],
+      "limitations": [
+        "Community coverage and tag consistency vary by region.",
+        "OSM is corroborating evidence, not an authority for administrative or postal correctness.",
+        "Derived databases distributed outside the team remain subject to ODbL obligations."
+      ]
+    },
+    {
+      "source_id": "alamatin_synthetic_ner_review_v1",
+      "name": "ALAMATIN synthetic NER review examples v1",
+      "decision": "use",
+      "purposes": [
+        "base_address_benchmark"
+      ],
+      "publisher": "ALAMATIN contributors",
+      "landing_page_url": "https://github.com/yongkytristan/ALAMATIN/blob/main/tests/fixtures/ner_gold_examples.json",
+      "accessed_at": "2026-08-11",
+      "snapshot": "NER schema 1.0.0 fixture at repository commit f045d2d",
+      "license_review": {
+        "status": "project_owned",
+        "basis": "Contributor-authored synthetic examples tracked in this repository.",
+        "redistribution": "repository_terms",
+        "attribution": "ALAMATIN contributors"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "Examples are synthetic and include no customer records, real recipients, phone numbers, or contact identifiers.",
+        "controls": "Keep the benchmark synthetic and run the repository secret/PII review before adding examples."
+      },
+      "acquisition": {
+        "mode": "local",
+        "path": "tests/fixtures/ner_gold_examples.json"
+      },
+      "transformation_plan": [
+        "Validate schema_version, label order, unique IDs, and BIO transitions.",
+        "Use only as a deterministic smoke benchmark until a separately governed evaluation dataset is frozen.",
+        "Carry source_id into the future dataset manifest."
+      ],
+      "limitations": [
+        "Twenty curated examples are insufficient for model selection or performance claims.",
+        "Synthetic examples do not measure real marketplace address distribution or error prevalence.",
+        "This source must never be mixed into the sealed real test."
+      ]
+    },
+    {
+      "source_id": "pos_indonesia_postcode_search",
+      "name": "Pos Indonesia postal-code search",
+      "decision": "hold",
+      "purposes": [
+        "postal_code_reference"
+      ],
+      "publisher": "PT Pos Indonesia (Persero)",
+      "landing_page_url": "https://kodepos.posindonesia.co.id/",
+      "accessed_at": "2026-08-11",
+      "snapshot": "Live search service; no immutable bulk snapshot identified",
+      "license_review": {
+        "status": "unresolved",
+        "basis": "The official search service was identified, but bulk-access and reuse terms were not found.",
+        "redistribution": "prohibited_until_reviewed",
+        "attribution": "Not applicable while on hold"
+      },
+      "pii_review": {
+        "status": "not_started",
+        "finding": "No data acquired.",
+        "controls": "Do not scrape or query in bulk while the source remains on hold."
+      },
+      "acquisition": {
+        "mode": "none",
+        "reason": "Requires written terms/API confirmation and a reproducible snapshot mechanism."
+      },
+      "transformation_plan": [],
+      "limitations": [
+        "Interactive lookup is not a reproducible bulk dataset.",
+        "No reuse or redistribution permission has been recorded."
+      ]
+    }
+  ]
+}
