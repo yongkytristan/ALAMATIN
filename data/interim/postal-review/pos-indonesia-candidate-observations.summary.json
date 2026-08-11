@@ -1,0 +1,21 @@
+{
+  "authorization_record": "project-owner approval in ALAMATIN work session 2026-08-11",
+  "batch_pause_seconds": 300.0,
+  "batch_size": 100,
+  "exact_matches_candidate": 171,
+  "exact_matches_diskominfo": 1715,
+  "policy": "Observation only; no automatic promotion to verified data.",
+  "request_delay_seconds": 2.0,
+  "review_rows": 1974,
+  "schema_version": "1.0.0",
+  "snapshot": "2026-08-11",
+  "source_id": "pos_indonesia_postcode_search",
+  "source_url": "https://kodepos.posindonesia.co.id/CariKodepos",
+  "status_counts": {
+    "exact_match": 1972,
+    "no_exact_match": 2
+  },
+  "unique_queries_cached": 1477,
+  "unique_queries_total": 1477,
+  "updated_at": "2026-08-11T16:18:03.322832+00:00"
+}
