@@ -10,8 +10,11 @@ not permission to auto-correct an ambiguous address.
    columns, Kemendagri province/district/village codes and names are canonical;
    the city parent code is derived from the Kemendagri district prefix. A
    differing BPS name/code becomes an alias or exception.
-2. `kemendagri_master_village_2024` is an administrative cross-check. It does
-   not establish a postal code.
+2. `kemendagri_master_village_2024` is an optional administrative cross-check,
+   deferred out of the Jawa Barat MVP scope on 2026-08-13 (see
+   `data/sources.md`). It does not establish a postal code and the published
+   reference does not depend on it; the canonical hierarchy already comes
+   from `kemendagri_wilayah_2025`.
 3. `bps_sig_code_relationship_2020` is recorded but remains on hold until a
    stable artifact and reuse terms are known. It cannot silently influence a
    production build.
@@ -28,13 +31,16 @@ The exact acquisition observations are tracked in
 On 11 August 2026 the Open Data Jabar CSV returned an HTTP 403 Cloudflare
 challenge, the Kemendagri API host did not resolve, and no stable direct BPS SIG
 artifact was identified. No access control was bypassed and no downloaded
-government dataset is committed. Retry only through the cataloged acquisition
-path:
+government dataset is committed. Retry the primary postal source only through
+the cataloged acquisition path:
 
 ```bash
 python scripts/acquire_sources.py fetch open_data_jabar_postal_2023
-python scripts/acquire_sources.py fetch kemendagri_master_village_2024
 ```
+
+Retrying `kemendagri_master_village_2024` is optional; it is deferred out of
+the current MVP scope (see above) and not required to reproduce the published
+reference.
 
 Open Data Jabar's reviewed terms restrict the current approval to internal,
 non-commercial use. Only source metadata, code, and synthetic fixtures belong
