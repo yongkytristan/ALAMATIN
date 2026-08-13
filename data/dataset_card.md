@@ -4,7 +4,7 @@
 - Status: development smoke benchmark
 - Card version: `1.0.0`
 - NER schema: `1.0.0`
-- Source catalog: `data/sources.json` version `1.4.0`
+- Source catalog: `data/sources.json` version `1.5.0`
 
 ## Intended use
 
@@ -25,6 +25,7 @@ real-test result.
 | `kodepos_dev_rest_api` | Targeted or explicit province-wide internal postal validation | No; generated observations are ignored local evidence and are not part of this benchmark |
 | `osm_geofabrik_indonesia_2026_07_01` | Future road/landmark candidates and corroboration | No; acquisition/transformation is a later governed step |
 | `pos_indonesia_postcode_search` | Candidate postal-code authority | No; explicitly excluded while its catalog decision is `hold` |
+| `alamatin_synthetic_train_v1` | Bulk NER training/dev/test_synth corpus (ALM-010) | No; a separate corpus, not part of this 20-example smoke benchmark -- see [`docs/synthetic_generator.md`](../docs/synthetic_generator.md) |
 
 The source IDs are stable join keys. Future manifests must use these exact IDs,
 not publisher names or mutable URLs.

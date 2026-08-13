@@ -1,6 +1,6 @@
 # Public data source decisions
 
-- Catalog version: `1.4.0`
+- Catalog version: `1.5.0`
 - Review date: 2026-08-13
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
@@ -203,6 +203,38 @@ training corpus, representative sample, release benchmark, or sealed test.
   addresses.
 - Quality checks: schema version, stable IDs, BIO validity, label coverage, and
   explicit adjudication state.
+
+## `alamatin_synthetic_train_v1` — use
+
+Purpose: bulk NER training/dev/test_synth corpus (ALM-010).
+
+Generated entirely by `scripts/generate_synthetic_addresses.py`. The only
+external input is the already-governed public reference
+`data/final/jabar-postal-app-lookup.csv` (province/city/district/village
+code and name, plus `postal_code`); street, landmark, and PII-placeholder
+pools are synthetic, contributor-authored, generic name fragments, not
+scraped or copied from OSM, a gazetteer, or any real customer address.
+
+- Version: `generator_version 1.0.0`, `template_version 1.0.0`, seed
+  `20260813`; see `data/synthetic/generation-summary.json` for the exact
+  reference checksum and per-split noise-category counts.
+- Licensing decision: contributor-authored repository material.
+- PII decision: no real names/phones; the PII-mixed noise category uses the
+  literal `[NAME]`/`[PHONE]` placeholder tokens already defined in
+  `docs/label_schema.md`, both labeled `O`.
+- Reproducibility: rerunning the script with the same seed and reference file
+  produces byte-identical output; `generation-summary.json` records the
+  reference file's SHA-256 and every output file's SHA-256.
+- Anti-leakage: every base address's noised variants are confined to exactly
+  one split; `scripts/generate_synthetic_addresses.py` fails loudly if a
+  `base_id` ever appears in more than one split.
+- Quality checks: every example's BIO sequence is validated with
+  `alamatin.label_schema.validate_bio_sequence` before being written; see
+  `docs/synthetic_generator.md` for noise categories and rates.
+- Limitations: street/landmark names are generic placeholders, not real Jawa
+  Barat roads or businesses, until ALM-009 (OSM extraction) is completed and
+  integrated as an optional enhancement. This source must never be mixed
+  into the sealed real test.
 
 ## `pos_indonesia_postcode_search` — hold
 

@@ -1,0 +1,77 @@
+{
+  "anti_leakage": "every base_id's variants are confined to exactly one split",
+  "generator_version": "1.0.0",
+  "no_raw_private_address": "street/landmark/name pools are synthetic and generic; only the administrative chain (province/city/district/village/postal_code) comes from the governed public reference",
+  "noise_category_counts": {
+    "dev": {
+      "abbreviation": 750,
+      "admin_conflict": 24,
+      "case_lower": 204,
+      "case_title": 161,
+      "case_upper": 185,
+      "gang": 132,
+      "instruksi": 79,
+      "missing_kodepos": 300,
+      "missing_provinsi": 369,
+      "missing_rt_rw": 210,
+      "pii_mixed": 228,
+      "prefix_junk": 104,
+      "separator": 651,
+      "typo": 443
+    },
+    "test_synth": {
+      "abbreviation": 750,
+      "admin_conflict": 26,
+      "case_lower": 166,
+      "case_title": 197,
+      "case_upper": 202,
+      "gang": 126,
+      "instruksi": 81,
+      "missing_kodepos": 306,
+      "missing_provinsi": 393,
+      "missing_rt_rw": 219,
+      "pii_mixed": 180,
+      "prefix_junk": 111,
+      "separator": 666,
+      "typo": 453
+    },
+    "train": {
+      "abbreviation": 4500,
+      "admin_conflict": 156,
+      "case_lower": 1128,
+      "case_title": 1144,
+      "case_upper": 1138,
+      "gang": 615,
+      "instruksi": 445,
+      "missing_kodepos": 1872,
+      "missing_provinsi": 2178,
+      "missing_rt_rw": 1359,
+      "pii_mixed": 1380,
+      "prefix_junk": 654,
+      "separator": 3914,
+      "typo": 2645
+    }
+  },
+  "output_sha256": {
+    "dev": "0ae34a86f3fd736dd7218b5bac133380222c2e56bc2a3f584a66d83993e26c56",
+    "test_synth": "10c0283421a2c6ad21b699002e4c16287b777f19074143d4425ff80119a781ef",
+    "train": "615a84eb739a5964e8e5d90345a14300dfbc5e1138816925c42579dbb0b7ae76"
+  },
+  "reference_chain_count": 5957,
+  "reference_path": "data\\final\\jabar-postal-app-lookup.csv",
+  "reference_sha256": "9d60e5cd2231d8c3a9116544b16b0f1d783e6ffb8bde39623e4461527d4895c9",
+  "schema_version": "1.0.0",
+  "seed": 20260813,
+  "split_base_counts": {
+    "dev": 250,
+    "test_synth": 250,
+    "train": 1500
+  },
+  "split_example_counts": {
+    "dev": 750,
+    "test_synth": 750,
+    "train": 4500
+  },
+  "template_version": "1.0.0",
+  "variants_per_base": 3
+}
