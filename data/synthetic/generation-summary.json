@@ -3,23 +3,7 @@
   "generator_version": "1.0.0",
   "no_raw_private_address": "street/landmark/name pools are synthetic and generic; only the administrative chain (province/city/district/village/postal_code) comes from the governed public reference",
   "noise_category_counts": {
-    "dev": {
-      "abbreviation": 723,
-      "admin_conflict": 25,
-      "case_lower": 195,
-      "case_title": 175,
-      "case_upper": 188,
-      "gang": 114,
-      "instruksi": 73,
-      "missing_kodepos": 315,
-      "missing_provinsi": 390,
-      "missing_rt_rw": 174,
-      "pii_mixed": 216,
-      "prefix_junk": 119,
-      "separator": 661,
-      "typo": 420
-    },
-    "test_synth": {
+    "test": {
       "abbreviation": 727,
       "admin_conflict": 14,
       "case_lower": 182,
@@ -50,12 +34,28 @@
       "prefix_junk": 664,
       "separator": 3980,
       "typo": 2666
+    },
+    "val": {
+      "abbreviation": 723,
+      "admin_conflict": 25,
+      "case_lower": 195,
+      "case_title": 175,
+      "case_upper": 188,
+      "gang": 114,
+      "instruksi": 73,
+      "missing_kodepos": 315,
+      "missing_provinsi": 390,
+      "missing_rt_rw": 174,
+      "pii_mixed": 216,
+      "prefix_junk": 119,
+      "separator": 661,
+      "typo": 420
     }
   },
   "output_sha256": {
-    "dev": "09426814d6c81b394aeab095f42f6ed31602e8c1571572cb93d0bbb5cb35487b",
-    "test_synth": "3219c6c8a1ba935c4717cba090668edf33f42187e6873b35a86f568a4db5f538",
-    "train": "15e7de1d976ac367cd4a8b599296133d8f7793dc3d7434c276185da936893080"
+    "test": "3219c6c8a1ba935c4717cba090668edf33f42187e6873b35a86f568a4db5f538",
+    "train": "15e7de1d976ac367cd4a8b599296133d8f7793dc3d7434c276185da936893080",
+    "val": "09426814d6c81b394aeab095f42f6ed31602e8c1571572cb93d0bbb5cb35487b"
   },
   "reference_chain_count": 5957,
   "reference_path": "data\\final\\jabar-postal-app-lookup.csv",
@@ -63,14 +63,14 @@
   "schema_version": "1.0.0",
   "seed": 20260813,
   "split_base_counts": {
-    "dev": 250,
-    "test_synth": 250,
-    "train": 1500
+    "test": 250,
+    "train": 1500,
+    "val": 250
   },
   "split_example_counts": {
-    "dev": 750,
-    "test_synth": 750,
-    "train": 4500
+    "test": 750,
+    "train": 4500,
+    "val": 750
   },
   "template_version": "1.0.0",
   "variants_per_base": 3

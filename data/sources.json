@@ -173,7 +173,7 @@
       "transformation_plan": [
         "Regenerate with scripts/generate_synthetic_addresses.py using the recorded seed/generator_version/template_version for byte-identical output.",
         "Validate every example's BIO sequence with alamatin.label_schema.validate_bio_sequence before it is written.",
-        "Keep every noised variant of the same base address confined to exactly one split (train, dev, or test_synth); never let base-address variants leak across splits.",
+        "Keep every noised variant of the same base address confined to exactly one split (train, val, or test); never let base-address variants leak across splits.",
         "Carry source_id, generator_version, template_version, seed, and the reference file's SHA-256 into data/synthetic/generation-summary.json."
       ],
       "limitations": [

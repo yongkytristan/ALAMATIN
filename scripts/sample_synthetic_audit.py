@@ -26,7 +26,7 @@ class AuditSampleError(ValueError):
 
 def _load_examples(split_dir: Path) -> list[dict[str, Any]]:
     examples: list[dict[str, Any]] = []
-    for split_name in ("train", "dev", "test_synth"):
+    for split_name in ("train", "val", "test"):
         payload = json.loads((split_dir / f"{split_name}.json").read_text(encoding="utf-8"))
         for example in payload["examples"]:
             examples.append({**example, "split": split_name})

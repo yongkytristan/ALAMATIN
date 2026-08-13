@@ -53,17 +53,17 @@ class GenerateSyntheticAddressesTest(unittest.TestCase):
         self.assertNotIn("private", DEFAULT_REFERENCE.parts)
 
     def test_build_dataset_is_reproducible_from_the_same_seed(self) -> None:
-        first = build_dataset(SAMPLE_CHAINS, seed=42, train_bases=10, dev_bases=3, test_bases=3, variants_per_base=2)
-        second = build_dataset(SAMPLE_CHAINS, seed=42, train_bases=10, dev_bases=3, test_bases=3, variants_per_base=2)
+        first = build_dataset(SAMPLE_CHAINS, seed=42, train_bases=10, val_bases=3, test_bases=3, variants_per_base=2)
+        second = build_dataset(SAMPLE_CHAINS, seed=42, train_bases=10, val_bases=3, test_bases=3, variants_per_base=2)
         self.assertEqual(first, second)
 
     def test_different_seed_changes_output(self) -> None:
-        first = build_dataset(SAMPLE_CHAINS, seed=1, train_bases=10, dev_bases=3, test_bases=3, variants_per_base=2)
-        second = build_dataset(SAMPLE_CHAINS, seed=2, train_bases=10, dev_bases=3, test_bases=3, variants_per_base=2)
+        first = build_dataset(SAMPLE_CHAINS, seed=1, train_bases=10, val_bases=3, test_bases=3, variants_per_base=2)
+        second = build_dataset(SAMPLE_CHAINS, seed=2, train_bases=10, val_bases=3, test_bases=3, variants_per_base=2)
         self.assertNotEqual(first, second)
 
     def test_every_generated_example_has_a_valid_bio_sequence(self) -> None:
-        splits = build_dataset(SAMPLE_CHAINS, seed=7, train_bases=25, dev_bases=5, test_bases=5, variants_per_base=3)
+        splits = build_dataset(SAMPLE_CHAINS, seed=7, train_bases=25, val_bases=5, test_bases=5, variants_per_base=3)
         checked = 0
         for examples in splits.values():
             for example in examples:
@@ -86,19 +86,19 @@ class GenerateSyntheticAddressesTest(unittest.TestCase):
     def test_no_leakage_check_passes_for_a_clean_split_and_fails_for_a_leak(self) -> None:
         clean = {
             "train": [{"base_id": 1}, {"base_id": 1}],
-            "dev": [{"base_id": 2}],
+            "val": [{"base_id": 2}],
         }
         _check_no_leakage(clean)  # should not raise
 
         leaking = {
             "train": [{"base_id": 1}],
-            "dev": [{"base_id": 1}],
+            "val": [{"base_id": 1}],
         }
         with self.assertRaises(GeneratorError):
             _check_no_leakage(leaking)
 
     def test_noise_categories_cover_multiple_kinds_at_reasonable_scale(self) -> None:
-        splits = build_dataset(SAMPLE_CHAINS, seed=11, train_bases=80, dev_bases=10, test_bases=10, variants_per_base=3)
+        splits = build_dataset(SAMPLE_CHAINS, seed=11, train_bases=80, val_bases=10, test_bases=10, variants_per_base=3)
         categories: set[str] = set()
         for example in splits["train"]:
             categories.update(example["categories"])
@@ -106,7 +106,7 @@ class GenerateSyntheticAddressesTest(unittest.TestCase):
         self.assertTrue(expected.issubset(categories), categories)
 
     def test_administrative_conflict_rows_still_label_the_postal_code(self) -> None:
-        splits = build_dataset(SAMPLE_CHAINS, seed=5, train_bases=150, dev_bases=1, test_bases=1, variants_per_base=1)
+        splits = build_dataset(SAMPLE_CHAINS, seed=5, train_bases=150, val_bases=1, test_bases=1, variants_per_base=1)
         conflict_examples = [
             example for example in splits["train"] if "admin_conflict" in example["categories"]
         ]
@@ -120,7 +120,7 @@ class GenerateSyntheticAddressesTest(unittest.TestCase):
                 sys.executable,
                 "scripts/generate_synthetic_addresses.py",
                 "--train-bases", "5",
-                "--dev-bases", "2",
+                "--val-bases", "2",
                 "--test-bases", "2",
                 "--variants-per-base", "2",
                 "--seed", "123",
