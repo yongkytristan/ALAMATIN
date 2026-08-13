@@ -4,7 +4,7 @@
 - Status: development smoke benchmark
 - Card version: `1.0.0`
 - NER schema: `1.0.0`
-- Source catalog: `data/sources.json` version `1.2.0`
+- Source catalog: `data/sources.json` version `1.3.0`
 
 ## Intended use
 

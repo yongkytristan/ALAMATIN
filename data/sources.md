@@ -1,7 +1,7 @@
 # Public data source decisions
 
-- Catalog version: `1.2.0`
-- Review date: 2026-08-11
+- Catalog version: `1.3.0`
+- Review date: 2026-08-13
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
 
@@ -24,8 +24,13 @@ Approval of a source does not approve every field in that source.
 
 The Open Data Jabar 2023 snapshot is approved as the restricted Jawa Barat MVP
 postal source. It is not a national postal authority. Pos Indonesia's official
-search remains `hold` for bulk use; ALAMATIN must return unresolved when the
-approved evidence cannot establish a unique postal code.
+search remains `hold` for any new or general bulk use; ALAMATIN must return
+unresolved when the approved evidence cannot establish a unique postal code.
+A single dated, bounded, project-owner-approved exception was used to close
+two already-open internal review passes on the existing Jawa Barat postal
+rows — see `pos_indonesia_postcode_search` below and
+`docs/postal-data-status-and-review-guide.md`. That exception does not reopen
+this source for further bulk use.
 
 ## `open_data_jabar_postal_2023` — restricted use
 
@@ -145,6 +150,35 @@ snapshot or explicit bulk reuse/redistribution terms were identified during
 this review. Do not scrape it or use it to generate a dataset. Move this source
 to `use` only after Data & Research records terms/API permission, snapshotting,
 PII review, and a reproducible acquisition path.
+
+### Documented exception — Section 2 and Section 3 spot-check (2026-08-11/12)
+
+The standing decision above stays `hold`; `scripts/acquire_sources.py` still
+refuses this `source_id` (see `tests/test_data_sources.py`). Separately, the
+project owner approved a bounded, dated exception to close rows that were
+already open in the Jawa Barat postal review, not a general bulk-acquisition
+approval:
+
+- Scope: two-source candidate corroboration ("Section 2") and remaining
+  unresolved rows ("Section 3") of the existing postal review only.
+- Method: a dedicated script, `scripts/fetch_pos_indonesia_candidates.py`,
+  outside the generic `acquire_sources.py` path; 2-second delay between
+  requests, 100-query batches, batch pauses, and a response cache to avoid
+  repeat queries.
+- Volume: 917 unique village-name queries across both passes.
+- Output handling: only search-result observations (queried name, returned
+  candidates, exact/no-match/multiple-match status) were kept, in
+  `data/interim/postal-review/`, which is excluded from the public
+  repository. A postal code is promoted into governed reference output only
+  after human adjudication with recorded evidence — never a silent
+  auto-accept of the raw search response.
+- Full record: `data/sources.json` → `pos_indonesia_postcode_search` →
+  `documented_exceptions`, and
+  `docs/postal-data-status-and-review-guide.md`.
+
+This exception does not change the standing `hold` decision. Any further or
+different bulk use of this source needs its own new, separately dated and
+scoped exception recorded here first.
 
 ## Required provenance flow
 
