@@ -30,9 +30,12 @@ The exact acquisition observations are tracked in
 [`data/reference_source_status.json`](../data/reference_source_status.json).
 On 11 August 2026 the Open Data Jabar CSV returned an HTTP 403 Cloudflare
 challenge, the Kemendagri API host did not resolve, and no stable direct BPS SIG
-artifact was identified. No access control was bypassed and no downloaded
-government dataset is committed. Retry the primary postal source only through
-the cataloged acquisition path:
+artifact was identified. No access control was bypassed by the scripted
+acquisition path; the project owner separately obtained the same public
+Open Data Jabar dataset through a normal browser session on 11 August 2026 and
+that file (checksum recorded in `data/sources.md`) is the one actually used
+throughout the postal reference build. Retry the primary postal source only
+through the cataloged acquisition path when reproducing from scratch:
 
 ```bash
 python scripts/acquire_sources.py fetch open_data_jabar_postal_2023

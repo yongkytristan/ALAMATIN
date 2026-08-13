@@ -9,9 +9,9 @@
       "source_id": "kemendagri_wilayah_2025"
     },
     {
-      "acquisition_status": "blocked_http_403_cloudflare_challenge",
+      "acquisition_status": "scripted_endpoint_blocked_manually_downloaded_2026_08_11",
       "artifact_url": "https://data.jabarprov.go.id/api-backend/bigdata/dispusipda/kode_pos_kab_kota_indonesia?download=csv",
-      "next_action": "Retry the cataloged fetch command when the publisher service is available; do not bypass the challenge.",
+      "next_action": "The scripted/cataloged endpoint still returns an HTTP 403 Cloudflare challenge; no scripted bypass was attempted. The project owner manually downloaded the same public dataset through a normal browser session on 2026-08-11 (dispusipda-kode_pos_kab_kota_indonesia_data.csv, sha256 33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7, already recorded on every derived row and reproduced in the public data/processed/jabar-reference-v1-verified.json). See data/sources.md for the recorded exception. Retry the cataloged fetch command when the publisher service is available again to restore full scripted reproducibility.",
       "source_id": "open_data_jabar_postal_2023"
     },
     {
