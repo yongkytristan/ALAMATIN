@@ -16,10 +16,24 @@ Ketiga section digabung secara vertikal, diurutkan berdasarkan `village_code`,
 menjadi satu file final:
 
 - `jabar-postal-final-merged.csv` — 5.957 baris, seluruh desa/kelurahan Jawa
-  Barat, tidak ada lagi baris unresolved.
+  Barat, tidak ada lagi baris unresolved. Skema penuh (26 kolom) — ini adalah
+  **artefak audit/provenance**: siapa yang review, sumber mana per baris,
+  evidence apa. Dipakai untuk `dataset_card.md` dan proposal §Governance,
+  bukan untuk dibaca langsung oleh kode aplikasi.
+
+Dari file gabungan itu, hanya 9 kolom yang benar-benar dipakai logic Parser →
+Normalizer → Validator (kode/nama hierarki wilayah + kode pos final), jadi
+diturunkan lagi menjadi satu file ramping:
+
+- `jabar-postal-app-lookup.csv` — 5.957 baris, kolom:
+  `village_code, province_code, province_name, city_code, city_name,
+  district_code, district_name, village_name, postal_code`. **Inilah file
+  yang sebaiknya dikonsumsi backend/Validator** kalau tidak memakai
+  `data/processed/jabar-reference-v1-verified.json` (yang juga sudah punya
+  alias per level wilayah untuk pencocokan nama tidak baku).
 
 Header identik antar section dan tidak ada overlap `village_code`, sehingga
-penggabungan ini aman dan reproducible.
+penggabungan dan penurunan kolom ini aman dan reproducible.
 
 Bangun ulang folder ini dengan:
 

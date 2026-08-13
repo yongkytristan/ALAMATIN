@@ -30,7 +30,20 @@ DEFAULT_SECTION_ONE = ROOT / "data" / "final" / "section-1-verified-consensus.cs
 DEFAULT_SECTION_TWO = ROOT / "data" / "final" / "section-2-verified-adjudicated.csv"
 DEFAULT_SECTION_THREE = ROOT / "data" / "final" / "section-3-verified-adjudicated.csv"
 DEFAULT_MERGED = ROOT / "data" / "final" / "jabar-postal-final-merged.csv"
+DEFAULT_APP_LOOKUP = ROOT / "data" / "final" / "jabar-postal-app-lookup.csv"
 DEFAULT_SUMMARY = ROOT / "data" / "final" / "sections-summary.json"
+
+APP_LOOKUP_FIELDS = (
+    "village_code",
+    "province_code",
+    "province_name",
+    "city_code",
+    "city_name",
+    "district_code",
+    "district_name",
+    "village_name",
+    "postal_code",
+)
 
 
 class FinalSectionError(ValueError):
@@ -43,6 +56,7 @@ def stage_sections(
     section_two_codes: set[str],
     section_three_codes: set[str],
 ) -> tuple[
+    list[dict[str, str]],
     list[dict[str, str]],
     list[dict[str, str]],
     list[dict[str, str]],
@@ -101,7 +115,10 @@ def stage_sections(
         [*section_one, *section_two, *section_three],
         key=lambda row: row["village_code"],
     )
-    return section_one, section_two, section_three, merged, {
+    app_lookup = [
+        {field: row[field] for field in APP_LOOKUP_FIELDS} for row in merged
+    ]
+    return section_one, section_two, section_three, merged, app_lookup, {
         "schema_version": "1.0.0",
         "section_1_rows": len(section_one),
         "section_2_rows": len(section_two),
@@ -151,6 +168,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--section-two", type=Path, default=DEFAULT_SECTION_TWO)
     parser.add_argument("--section-three", type=Path, default=DEFAULT_SECTION_THREE)
     parser.add_argument("--merged", type=Path, default=DEFAULT_MERGED)
+    parser.add_argument("--app-lookup", type=Path, default=DEFAULT_APP_LOOKUP)
     parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
     return parser
 
@@ -164,21 +182,25 @@ def main(argv: list[str] | None = None) -> int:
         _, section_three_source = read_csv(args.section_three_codes)
         if fields_one != fields_adjudicated:
             raise FinalSectionError("Section sources do not share the canonical schema")
-        section_one, section_two, section_three, merged, summary = stage_sections(
-            source_one,
-            adjudicated,
-            {row["village_code"] for row in section_two_source},
-            {row["village_code"] for row in section_three_source},
+        section_one, section_two, section_three, merged, app_lookup, summary = (
+            stage_sections(
+                source_one,
+                adjudicated,
+                {row["village_code"] for row in section_two_source},
+                {row["village_code"] for row in section_three_source},
+            )
         )
         _write_csv(args.section_one, fields_one, section_one)
         _write_csv(args.section_two, fields_one, section_two)
         _write_csv(args.section_three, fields_one, section_three)
         _write_csv(args.merged, fields_one, merged)
+        _write_csv(args.app_lookup, APP_LOOKUP_FIELDS, app_lookup)
         _write_json(
             args.summary,
             {
                 **summary,
                 "merged_rows": len(merged),
+                "app_lookup_rows": len(app_lookup),
                 "input_sha256": {
                     "section_1_source": file_sha256(args.section_one_source),
                     "adjudicated_source": file_sha256(args.adjudicated_source),
@@ -190,6 +212,7 @@ def main(argv: list[str] | None = None) -> int:
                     "section_2": file_sha256(args.section_two),
                     "section_3": file_sha256(args.section_three),
                     "merged": file_sha256(args.merged),
+                    "app_lookup": file_sha256(args.app_lookup),
                 },
             },
         )

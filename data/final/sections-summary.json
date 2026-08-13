@@ -1,4 +1,5 @@
 {
+  "app_lookup_rows": 5957,
   "input_sha256": {
     "adjudicated_source": "fcbb25e1123251198b81544bab1a45aba414956d6d86209827bb33c0ea876d2b",
     "section_1_source": "686d8eed3a9d1c11f527fc299e7868b7b4d5f8ed11f4e5bc12b73401d9c5d39b",
@@ -9,6 +10,7 @@
   "merge_ready_rows": 5957,
   "merged_rows": 5957,
   "output_sha256": {
+    "app_lookup": "9d60e5cd2231d8c3a9116544b16b0f1d783e6ffb8bde39623e4461527d4895c9",
     "merged": "fcbb25e1123251198b81544bab1a45aba414956d6d86209827bb33c0ea876d2b",
     "section_1": "686d8eed3a9d1c11f527fc299e7868b7b4d5f8ed11f4e5bc12b73401d9c5d39b",
     "section_2": "49cde4cb28d722ce38b749282ebb8330a973f42f19b689e1efcea16573bd5964",

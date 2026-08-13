@@ -9,7 +9,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from stage_final_postal_sections import FinalSectionError, stage_sections  # noqa: E402
+from stage_final_postal_sections import (  # noqa: E402
+    APP_LOOKUP_FIELDS,
+    FinalSectionError,
+    stage_sections,
+)
 
 
 def row(code: str, status: str) -> dict[str, str]:
@@ -65,6 +69,21 @@ class StageFinalPostalSectionsTest(unittest.TestCase):
         self.assertEqual(set(merged_codes), one | two | three)
         self.assertEqual(len(set(merged_codes)), len(merged_codes))
         self.assertEqual(merged_codes, sorted(merged_codes))
+
+        app_lookup_path = ROOT / "data" / "final" / "jabar-postal-app-lookup.csv"
+        with app_lookup_path.open("r", encoding="utf-8-sig", newline="") as stream:
+            reader = csv.DictReader(stream)
+            self.assertEqual(list(reader.fieldnames or ()), list(APP_LOOKUP_FIELDS))
+            app_lookup_rows = list(reader)
+        self.assertEqual(len(app_lookup_rows), 5957)
+        app_lookup_codes = [item["village_code"] for item in app_lookup_rows]
+        self.assertEqual(set(app_lookup_codes), one | two | three)
+        self.assertEqual(len(set(app_lookup_codes)), len(app_lookup_codes))
+        self.assertEqual(app_lookup_codes, sorted(app_lookup_codes))
+        for merged_row, app_row in zip(merged_rows, app_lookup_rows):
+            self.assertEqual(merged_row["village_code"], app_row["village_code"])
+            for field in APP_LOOKUP_FIELDS:
+                self.assertEqual(merged_row[field], app_row[field])
 
 
 if __name__ == "__main__":
