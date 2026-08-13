@@ -1,34 +1,31 @@
 {
   "duplicate_village_codes": 0,
-  "exception_rows": 3081,
+  "exception_rows": 0,
   "input_sha256": {
-    "consensus": "37a6f359de260566974f29820a0a03899d287f0ea0b683ecb0b2e85458ed5e0a",
-    "consensus_summary": "9d3a7ce42c09169b16db4852d9c4fa9c35eef168cafa38045fdb7eeca6363b91",
+    "consensus": "fcbb25e1123251198b81544bab1a45aba414956d6d86209827bb33c0ea876d2b",
+    "consensus_summary": "2582fd6b22d2525a9189ab62eff2890fe8286ce29a4ddfe50362ae4658017a02",
     "diskominfo": "6c4c46f393e6497190b817f5c49062b8c25587b8f4d33bbe2b258543d180d4fc",
-    "manual_observations": "01786ac84f32cb3bbaed7088e08d3c4cfb522b3e1af983326ed9f022a022920e",
+    "manual_observations": "3c519452093367868ecd171819d31b87a321120a123e14eee9fe8aa81d896505",
     "open_data_jabar": "33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7"
   },
-  "manual_pos_observation_rows": 2,
+  "manual_pos_observation_rows": 3081,
   "operational_status_counts": {
-    "candidate_review_only": 1974,
-    "unresolved_do_not_guess": 1107,
-    "usable_verified": 2876
+    "usable_verified": 5957
   },
   "output_sha256": {
-    "exceptions": "b259fa3af3914a2aea3c9b2ae69d3ce502448b0ede4f30cac0be540766c4b679",
-    "full_csv": "267e1b3bc9139820d8f24ea72c67b8f6f48133d1bc72d43829798da1cc14cde3",
-    "verified_lookup": "66c8cca7dbe7dc9289e1a03fb0627029bfb5e365887cba174c2f894a488cc72b"
+    "exceptions": "30e69c4730ceb8fc5b1a0df1f7768f486e291054ae13fec3fbd9863c479a5727",
+    "full_csv": "542b3290e25dceef89651bd2dcb7217d25a9e0650ace85ee156a17931fcda698",
+    "verified_lookup": "855ec337f3a56603f622e99c18ff4d67c1eb4d1af20c658b4306ccce096e1332"
   },
   "parent_integrity": true,
-  "release_policy": "Only usable_verified rows enter the postal lookup; candidate and unresolved rows remain in the full table and exception report.",
+  "release_policy": "Only usable_verified rows enter the postal lookup; unresolved rows remain in the full table and exception report.",
   "rows_with_aliases": 5561,
   "schema_version": "1.0.0",
   "scope": "Jawa Barat",
   "total_administrative_rows": 5957,
   "verification_status_counts": {
-    "corroborated_candidate": 1974,
-    "review_required": 1107,
+    "verified_adjudicated": 3081,
     "verified_consensus": 2876
   },
-  "verified_lookup_rows": 2876
+  "verified_lookup_rows": 5957
 }

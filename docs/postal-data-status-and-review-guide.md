@@ -7,21 +7,44 @@ bukti tambahan.
 
 ## 1. Status snapshot saat ini
 
-Snapshot internal 11 Agustus 2026 berisi 5.957 desa/kelurahan Jawa Barat.
+Snapshot internal yang direbuild 13 Agustus 2026 berisi 5.957 desa/kelurahan
+Jawa Barat.
 
 | Status | Jumlah | Arti | Boleh dipakai aplikasi? |
 |---|---:|---|---|
 | `usable_verified` / `verified_consensus` | 2.876 | Diskominfo, Open Data Jabar, dan Kodepos.dev sama | Ya, untuk exact postal lookup |
-| `candidate_review_only` / `corroborated_candidate` | 1.974 | Kodepos.dev sama dengan tepat satu sumber lokal | Belum; tampilkan hanya untuk review |
-| `unresolved_do_not_guess` / `review_required` | 1.107 | Belum ada keputusan aman menurut aturan build | Tidak |
+| `usable_verified` / `verified_adjudicated` | 3.081 | Review Pos Indonesia sudah dinormalisasi, divalidasi, dan disetujui melalui adjudikasi | Ya, untuk exact postal lookup |
 
-Sebanyak 3.081 baris masih memerlukan review manusia. `postal_code` sengaja
-kosong pada semua baris tersebut. Kekosongan ini adalah kontrol keselamatan,
-bukan error ekspor.
+Seluruh 5.957 baris sudah masuk lookup terverifikasi; tidak ada baris
+`unresolved_do_not_guess` yang tersisa untuk Jawa Barat.
+
+Dua baris terakhir yang sempat tertahan (SAMBENG dan SIRNABAYA, Kec. Gunung
+Jati, Kab. Cirebon, `village_code` `32.09.21.2016` dan `32.09.21.2017`)
+diselesaikan pada 13 Agustus 2026 lewat jalur *manual Pos Indonesia
+correction* (lihat `scripts/adjudicate_postal_human_review.py`,
+`adjudicate_unresolved_reviews`, cabang `manual_correction_confirmed`).
+Pencocokan otomatis gagal karena basis data Pos Indonesia masih mencantumkan
+kedua desa itu di kecamatan lama (Suranenggala), bukan kecamatan aktifnya
+(Gunung Jati). Cache scrape Pos Indonesia (`pos-indonesia-unresolved-observations.cache.json`)
+menunjukkan kecocokan exact desa+kabupaten+provinsi dengan kode pos `45659`,
+dan perpindahan kecamatan itu terdokumentasi independen di
+`data/kemendagri_code_resolutions.json`. Nilai `45659` ini juga sama dengan
+nilai Diskominfo. Sebuah usulan awal (`45150`, dari direktori pihak ketiga
+`nomor.net` via pencarian Google manual) ditolak karena sumbernya tidak
+memenuhi hierarki evidence di dokumen ini (lihat Bagian 7) — baik skrip
+adjudikasi maupun `scripts/build_final_jabar_reference.py` menolak sumber
+selain Pos Indonesia untuk baris jenis ini.
 
 ## 2. File yang digunakan
 
 Artefak build sumber bersifat read-only:
+
+- `data/processed/jabar-postal-adjudicated.csv` — input canonical hasil
+  adjudikasi untuk seluruh 5.957 baris;
+- `data/processed/jabar-postal-adjudicated-evidence.csv` — evidence final untuk
+  1.974 review yang dipromosikan;
+- `data/processed/jabar-postal-adjudication-summary.json` — hitungan keputusan,
+  checksum input/output, dan audit promosi;
 
 - `data/processed/jabar-postal-corroborated-candidates.csv` — 1.974 kandidat;
 - `data/processed/jabar-postal-unresolved.csv` — 1.107 unresolved;
@@ -69,6 +92,11 @@ ketiga. Reviewer harus mencari bukti resmi yang cocok dengan keseluruhan rantai
 desa/kelurahan, kecamatan, kabupaten/kota, dan provinsi.
 
 ### 3.2 Unresolved — 1.107 baris
+
+Kelompok awal ini telah diperiksa ke Pos Indonesia pada 12 Agustus 2026. Sebanyak
+1.105 baris memperoleh hasil exact dan dipromosikan melalui adjudikasi; Sambeng
+dan Sirnabaya di Kecamatan Gunung Jati tetap unresolved karena tidak ada hasil
+exact.
 
 Kelompok ini terdiri atas:
 
@@ -201,6 +229,12 @@ Jangan melakukan bulk scraping. Simpan query, konteks hasil, URL, dan tanggal
 akses. Jika pencarian nama menghasilkan banyak wilayah, cocokkan semua level
 administratif; jangan memilih hanya karena kode pos tampak masuk akal.
 
+Pengecualian snapshot tercatat diberikan project owner pada 11 Agustus 2026
+untuk Section 2 dan 12 Agustus 2026 untuk Section 3. Pengecualian tersebut hanya
+berlaku untuk proses internal yang sudah dijalankan dengan cache, delay dua
+detik, batch 100 query, dan jeda antarbath. Ini bukan izin umum untuk scraping
+ulang atau menaikkan laju akses.
+
 ## 8. Prosedur review per baris
 
 1. Ambil satu baris berstatus `pending`, isi `reviewer`, lalu ubah menjadi
@@ -265,6 +299,19 @@ Build final kemudian dijalankan ulang dan perubahan jumlah
 `usable_verified`, `candidate_review_only`, serta `unresolved_do_not_guess`
 harus dijelaskan dalam summary dan changelog.
 
+Untuk snapshot ini, jalankan berurutan:
+
+```bash
+python scripts/adjudicate_postal_human_review.py
+python scripts/build_final_jabar_reference.py
+```
+
+Build adjudikasi menolak review yang tidak lengkap, scope selain
+`exact_village`, keputusan di luar enum panduan, atau review kedua yang belum
+disetujui. Build reference kemudian mempromosikan hanya status
+`verified_consensus` dan `verified_adjudicated`.
+
 Dataset belum disebut final penuh selama masih ada baris review terbuka. Artefak
 `jabar-reference-v1-verified.json` tetap menjadi satu-satunya postal lookup yang
-aman digunakan aplikasi pada snapshot saat ini.
+aman digunakan aplikasi dan sekarang berisi 5.957 baris (semua desa/kelurahan
+Jawa Barat, tidak ada lagi baris `unresolved_do_not_guess`).

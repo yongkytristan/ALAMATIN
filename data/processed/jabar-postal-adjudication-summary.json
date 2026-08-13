@@ -1,0 +1,48 @@
+{
+  "candidate_review_rows": 1974,
+  "decision_counts": {
+    "accept_other": 1802,
+    "accept_suggested": 172
+  },
+  "evidence_counts": {
+    "manual_pos_correction": 2,
+    "pos_exact_hierarchy": 1972
+  },
+  "input_sha256": {
+    "api": "daa58647e1071629cd48202d71bf8a5246c7d5529db625cc7e8978074593b464",
+    "consensus": "37a6f359de260566974f29820a0a03899d287f0ea0b683ecb0b2e85458ed5e0a",
+    "consensus_summary": "9d3a7ce42c09169b16db4852d9c4fa9c35eef168cafa38045fdb7eeca6363b91",
+    "diskominfo": "6c4c46f393e6497190b817f5c49062b8c25587b8f4d33bbe2b258543d180d4fc",
+    "evidence": "3c519452093367868ecd171819d31b87a321120a123e14eee9fe8aa81d896505",
+    "observations": "a5e4cfc7f13b230fd099dab4fce12f427ebca35e0cd3ad435e5ab57545a9912e",
+    "open_data_jabar": "33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7",
+    "resolutions": "de71f9a7c020da2fba3c9cd3fcbe82f1be749ca63e49f99ae67494fef19a8ca0",
+    "unresolved_observations": "5e5ac621608473e580ccdd768b9d37205409826a4a8ec5d020de10b222c174e8"
+  },
+  "output_sha256": {
+    "adjudicated": "fcbb25e1123251198b81544bab1a45aba414956d6d86209827bb33c0ea876d2b",
+    "evidence": "3c519452093367868ecd171819d31b87a321120a123e14eee9fe8aa81d896505",
+    "normalized_review": "ced13844fce323b9d6a5bbd1d0121ed89bcc7385571b7ceb60084f51624c04bb",
+    "normalized_unresolved_review": "cf23fd784e0d7a5eb224b452668c9413bc22122205c53b567e39739fe81e3c49"
+  },
+  "policy": "Only completed, exact-scope, second-approved reviews are promoted.",
+  "promoted_review_rows": 1974,
+  "schema_version": "1.0.0",
+  "second_review_approved_rows": 3081,
+  "total_administrative_rows": 5957,
+  "unresolved_decision_counts": {
+    "accept_other": 646,
+    "accept_suggested": 461
+  },
+  "unresolved_evidence_counts": {
+    "manual_pos_correction": 2,
+    "pos_exact_hierarchy": 1105
+  },
+  "unresolved_promoted_rows": 1107,
+  "unresolved_retained_rows": 0,
+  "unresolved_review_rows": 1107,
+  "verification_status_counts": {
+    "verified_adjudicated": 3081,
+    "verified_consensus": 2876
+  }
+}
