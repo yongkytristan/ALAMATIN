@@ -48,6 +48,7 @@ DEFAULT_OUTPUT_DIR = ROOT / "data" / "synthetic"
 # ---------------------------------------------------------------------------
 
 STREET_DESIGNATORS: tuple[str, ...] = ("Jalan", "Jl.", "Jln.", "Jln", "JL", "jl.")
+STREET_DESIGNATOR_CANONICAL: frozenset[str] = frozenset({"Jalan"})
 STREET_NAMES: tuple[str, ...] = (
     "Merdeka", "Sudirman", "Diponegoro", "Asia Afrika", "Cihampelas",
     "Cendrawasih", "Mawar", "Melati", "Anggrek", "Kenanga", "Flamboyan",
@@ -60,27 +61,36 @@ STREET_NAMES: tuple[str, ...] = (
 )
 NOMOR_DESIGNATORS: tuple[str, ...] = ("No.", "No", "Nomor", "Nomer")
 GANG_DESIGNATORS: tuple[str, ...] = ("Gang", "Gg.", "Gg")
+GANG_DESIGNATOR_CANONICAL: frozenset[str] = frozenset({"Gang"})
 
 KELURAHAN_DESIGNATORS: tuple[str, ...] = ("Kel.", "Kelurahan", "Desa", "Ds.")
-KECAMATAN_DESIGNATORS: tuple[str, ...] = ("Kec.", "Kecamatan", "Kecmatan")
+KELURAHAN_DESIGNATOR_CANONICAL: frozenset[str] = frozenset({"Kelurahan", "Desa"})
+KECAMATAN_DESIGNATORS: tuple[str, ...] = ("Kec.", "Kecamatan")
+KECAMATAN_DESIGNATOR_CANONICAL: frozenset[str] = frozenset({"Kecamatan"})
 KOTA_PREFIX_FORMS: dict[str, tuple[str, ...]] = {
-    "KOTA": ("Kota", "Kota"),
+    "KOTA": ("Kota",),
     "KAB.": ("Kabupaten", "Kab.", "Kab"),
 }
+KOTA_MARKER_CANONICAL: frozenset[str] = frozenset({"Kota", "Kabupaten"})
 
 PROVINCE_FORMS: dict[str, tuple[str, ...]] = {
-    "JAWA BARAT": ("Jawa Barat", "Provinsi Jawa Barat", "Jabar", "Jawa Brat"),
+    "JAWA BARAT": ("Jawa Barat", "Provinsi Jawa Barat", "Jabar"),
 }
+PROVINCE_FORM_CANONICAL: frozenset[str] = frozenset({"Jawa Barat", "Provinsi Jawa Barat"})
 
 LANDMARK_DIRECTIONS: tuple[str, ...] = ("depan", "belakang", "dekat", "samping", "seberang")
+# Category "" means the name is already a self-contained landmark (SDN/SD
+# Negeri/Kantor Pos/Puskesmas already say what kind of place it is), so no
+# extra category word is prefixed.
 LANDMARK_CATEGORIES: dict[str, tuple[str, ...]] = {
     "Masjid": ("Al-Ikhlas", "Al-Falah", "An-Nur", "Al-Hidayah", "Baiturrahman"),
-    "Gereja": ("Santo Yusuf", "GPIB Bethel", "Kristus Raja"),
-    "Sekolah": ("SDN 1", "SMPN 2", "SMAN 3", "SD Negeri 4", "MI Nurul Iman"),
-    "Kantor Pos": ("",),
+    "Gereja": ("Santo Yusuf", "Kristus Raja", "Immanuel"),
+    "": (
+        "SDN 1", "SMPN 2", "SMAN 3", "SD Negeri 4", "MI Nurul Iman",
+        "Kantor Pos", "Puskesmas",
+    ),
     "Minimarket": ("Indomaret", "Alfamart", "Alfamidi"),
-    "Pasar": ("Pasar Baru", "Pasar Minggu", "Pasar Cikapundung"),
-    "Puskesmas": ("",),
+    "Pasar": ("Baru", "Minggu", "Cikapundung"),
     "Taman": ("Kota", "Lansia", "Bermain"),
 }
 DETAIL_BLOK_PATTERNS: tuple[str, ...] = ("Blok", "Blok")
@@ -287,10 +297,14 @@ def render_variant(base: dict[str, Any], rng: random.Random) -> dict[str, Any]:
         return word
 
     def add_jalan() -> None:
-        designator = typo(rng.choice(GANG_DESIGNATORS if base["is_gang"] else STREET_DESIGNATORS))
+        pool = GANG_DESIGNATORS if base["is_gang"] else STREET_DESIGNATORS
+        canonical = GANG_DESIGNATOR_CANONICAL if base["is_gang"] else STREET_DESIGNATOR_CANONICAL
+        chosen = rng.choice(pool)
+        if chosen not in canonical:
+            noise.append("abbreviation")
+        designator = typo(chosen)
         street = typo(base["street"])
         _add(tokens, labels, f"{designator} {street}", "JALAN")
-        noise.append("abbreviation")
 
     def add_nomor() -> None:
         designator = rng.choice(NOMOR_DESIGNATORS)
@@ -315,26 +329,31 @@ def render_variant(base: dict[str, Any], rng: random.Random) -> dict[str, Any]:
     def add_kelurahan() -> None:
         name = typo(base["village_name"].title())
         if rng.random() < 0.7:
-            designator = typo(rng.choice(KELURAHAN_DESIGNATORS))
+            chosen = rng.choice(KELURAHAN_DESIGNATORS)
+            if chosen not in KELURAHAN_DESIGNATOR_CANONICAL:
+                noise.append("abbreviation")
+            designator = typo(chosen)
             _add(tokens, labels, f"{designator} {name}", "KELURAHAN")
-            noise.append("abbreviation")
         else:
             _add(tokens, labels, name, "KELURAHAN")
 
     def add_kecamatan() -> None:
         name = typo(base["district_name"].title())
         if rng.random() < 0.7:
-            designator = typo(rng.choice(KECAMATAN_DESIGNATORS))
+            chosen = rng.choice(KECAMATAN_DESIGNATORS)
+            if chosen not in KECAMATAN_DESIGNATOR_CANONICAL:
+                noise.append("abbreviation")
+            designator = typo(chosen)
             _add(tokens, labels, f"{designator} {name}", "KECAMATAN")
-            noise.append("abbreviation")
         else:
             _add(tokens, labels, name, "KECAMATAN")
 
     def add_kota() -> None:
         marker, name = _build_kota_component(base["city_name"], rng)
         if marker:
+            if marker not in KOTA_MARKER_CANONICAL:
+                noise.append("abbreviation")
             _add(tokens, labels, f"{marker} {name}", "KOTA_KABUPATEN")
-            noise.append("abbreviation")
         else:
             _add(tokens, labels, name, "KOTA_KABUPATEN")
 
@@ -342,7 +361,10 @@ def render_variant(base: dict[str, Any], rng: random.Random) -> dict[str, Any]:
         if not base["include_provinsi"]:
             return
         forms = PROVINCE_FORMS.get(base["province_name"], (base["province_name"].title(),))
-        _add(tokens, labels, rng.choice(forms), "PROVINSI")
+        chosen = rng.choice(forms)
+        if chosen not in PROVINCE_FORM_CANONICAL:
+            noise.append("abbreviation")
+        _add(tokens, labels, chosen, "PROVINSI")
 
     def add_kodepos() -> None:
         if not base["include_kodepos"]:
