@@ -1,6 +1,6 @@
 # Public data source decisions
 
-- Catalog version: `1.3.0`
+- Catalog version: `1.4.0`
 - Review date: 2026-08-13
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
@@ -83,6 +83,35 @@ An explicit full-Jawa-Barat audit may use the documented search pagination at
 100 rows per page. It requires `--confirm-full-jabar`, checkpoints every page,
 compares only administrative/postal fields, consumes service credits, and keeps
 all API-derived output ignored and local.
+
+### Derived Jawa Barat postal reference output — redistribution decision (2026-08-13)
+
+`open_data_jabar_postal_2023` and `kodepos_dev_rest_api` both restrict
+redistribution of their raw or per-source data (see their sections above).
+The project owner separately approved redistributing, in the public ALAMATIN
+repository, only the fully adjudicated Jawa Barat postal reference output
+derived from them:
+
+- `data/processed/jabar-reference-v1-verified.json` and
+  `data/final/jabar-postal-app-lookup.csv` — one canonical `postal_code` per
+  `village_code`, chosen through the documented corroboration/adjudication
+  process (see `docs/postal-data-status-and-review-guide.md`), plus their
+  `jabar-reference-v1-exceptions.csv` and `jabar-reference-v1-summary.json`
+  manifests.
+- Every published value passed cross-check against Diskominfo, Kodepos.dev,
+  and, for previously unresolved rows, a Pos Indonesia spot-check with
+  recorded evidence, before a single value was accepted per village.
+
+Not redistributed: the raw Open Data Jabar extract, per-source value columns
+(`postal_code_diskominfo`, `postal_code_open_data_jabar`,
+`postal_code_kodepos_dev`), reviewer worksheets, and raw
+Kodepos.dev/Pos Indonesia observations. Those stay in the private repository
+under the standing decisions above.
+
+This decision applies only to the specific derived files listed above. It
+does not change `open_data_jabar_postal_2023`'s `internal_noncommercial_only`
+status or `kodepos_dev_rest_api`'s prohibited raw-data redistribution; any
+different or broader redistribution needs its own separately dated review.
 
 ## `kemendagri_wilayah_2025` — use
 

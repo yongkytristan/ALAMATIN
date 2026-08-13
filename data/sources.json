@@ -1,5 +1,5 @@
 {
-  "catalog_version": "1.3.0",
+  "catalog_version": "1.4.0",
   "reviewed_at": "2026-08-13",
   "purpose_vocabulary": [
     "administrative_hierarchy",
@@ -187,6 +187,16 @@
         "The published endpoint returned a Cloudflare HTTP 403 challenge on 2026-08-11; no bypass was attempted.",
         "The snapshot is a compiled dataset and must be cross-checked against Kemendagri, BPS SIG, and selected manual Pos Indonesia observations.",
         "Use is limited to internal non-commercial work unless broader permission is recorded."
+      ],
+      "documented_exceptions": [
+        {
+          "exception_id": "jabar_postal_reference_v1_redistribution_2026_08_13",
+          "approved_by": "project_owner",
+          "approved_on": "2026-08-13",
+          "scope": "Redistribution, in the public ALAMATIN repository, of the derived Jawa Barat postal reference output only: data/processed/jabar-reference-v1-verified.json, data/final/jabar-postal-app-lookup.csv, and their jabar-reference-v1-exceptions.csv/jabar-reference-v1-summary.json manifests. Not the raw Open Data Jabar extract or its per-source value column.",
+          "basis": "The published rows are a new, human-adjudicated work product: every value passed corroboration against Diskominfo, Kodepos.dev, and, for previously unresolved rows, a Pos Indonesia spot-check, with evidence and reviewer decisions recorded privately in data/interim/postal-review/. The raw extract, per-source columns, and reviewer worksheets are not redistributed -- only the single adjudicated postal_code per village_code.",
+          "policy_effect": "Applies only to the specific derived files listed above. Does not change the standing internal_noncommercial_only decision or metadata_and_synthetic_fixtures_only redistribution limit for the raw Open Data Jabar extract itself; any other redistribution needs its own dated review."
+        }
       ]
     },
     {
@@ -307,6 +317,16 @@
         "Each request consumes service credits and is subject to rate limits and account terms.",
         "Generated observations are internal validation evidence and must not be committed or redistributed.",
         "The targeted client caps each invocation at 100 selected village codes and defaults to 25; the province audit requires an explicit confirmation flag and consumes additional credits."
+      ],
+      "documented_exceptions": [
+        {
+          "exception_id": "jabar_postal_reference_v1_redistribution_2026_08_13",
+          "approved_by": "project_owner",
+          "approved_on": "2026-08-13",
+          "scope": "Redistribution, in the public ALAMATIN repository, of the derived Jawa Barat postal reference output only: data/processed/jabar-reference-v1-verified.json, data/final/jabar-postal-app-lookup.csv, and their jabar-reference-v1-exceptions.csv/jabar-reference-v1-summary.json manifests. Not Kodepos.dev API responses, its per-source value column, or raw cross-check observations.",
+          "basis": "Same as the open_data_jabar_postal_2023 exception recorded on this date: the published table is a new, human-adjudicated work product (a single postal_code per village_code, with evidence and reviewer decisions recorded privately), not a redistribution of Kodepos.dev's raw responses or a bulk repository dataset built from them.",
+          "policy_effect": "Applies only to the specific derived files listed above. Does not change the standing internal_validation_only decision or the prohibited redistribution status for raw Kodepos.dev API responses/observations; any other redistribution needs its own dated review."
+        }
       ]
     },
     {
