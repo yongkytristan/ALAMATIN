@@ -11,7 +11,7 @@
 ## What this is
 
 A reproducible generator that builds labeled Indonesian addresses for NER
-training, dev, and synthetic-test splits. Every address is assembled from a
+train, validation, and synthetic-test splits. Every address is assembled from a
 valid Jawa Barat administrative chain in the governed public reference
 (`data/final/jabar-postal-app-lookup.csv`) plus synthetic street, landmark,
 and PII-placeholder pools that are contributor-authored, not scraped or
@@ -38,7 +38,7 @@ rules, or output schema.
 ```bash
 python scripts/generate_synthetic_addresses.py \
   --seed 20260813 \
-  --train-bases 1500 --dev-bases 250 --test-bases 250 --variants-per-base 3 \
+  --train-bases 1500 --val-bases 250 --test-bases 250 --variants-per-base 3 \
   --output-dir data/synthetic
 ```
 
@@ -46,12 +46,12 @@ The same seed, reference file, generator version, and template version always
 produce byte-identical output; `data/synthetic/generation-summary.json`
 records the reference file's SHA-256, every output file's SHA-256, the split
 base/example counts, and the noise-category distribution per split. Increase
-`--train-bases`/`--dev-bases`/`--test-bases`/`--variants-per-base` to scale
+`--train-bases`/`--val-bases`/`--test-bases`/`--variants-per-base` to scale
 volume for a real training run; nothing about the label contract changes.
 
 ## Output format
 
-`data/synthetic/{train,dev,test_synth}.json`:
+`data/synthetic/{train,val,test}.json`:
 
 ```json
 {

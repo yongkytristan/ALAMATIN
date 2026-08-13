@@ -10,7 +10,7 @@ changes label boundaries.
 
 Multiple noisy renderings of the same underlying ("base") address share a
 ``base_id`` and are always assigned to the same split, so no near-duplicate
-address ever leaks across train/dev/test_synth.
+address ever leaks across train/val/test.
 """
 
 from __future__ import annotations
@@ -452,7 +452,7 @@ def build_dataset(
     chains: Sequence[dict[str, str]],
     seed: int,
     train_bases: int,
-    dev_bases: int,
+    val_bases: int,
     test_bases: int,
     variants_per_base: int,
 ) -> dict[str, list[dict[str, Any]]]:
@@ -460,8 +460,8 @@ def build_dataset(
     next_base_id = [0]
     return {
         "train": generate_split(chains, train_bases, variants_per_base, rng, next_base_id),
-        "dev": generate_split(chains, dev_bases, variants_per_base, rng, next_base_id),
-        "test_synth": generate_split(chains, test_bases, variants_per_base, rng, next_base_id),
+        "val": generate_split(chains, val_bases, variants_per_base, rng, next_base_id),
+        "test": generate_split(chains, test_bases, variants_per_base, rng, next_base_id),
     }
 
 
@@ -515,7 +515,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--seed", type=int, default=20260813)
     parser.add_argument("--train-bases", type=int, default=1500)
-    parser.add_argument("--dev-bases", type=int, default=250)
+    parser.add_argument("--val-bases", type=int, default=250)
     parser.add_argument("--test-bases", type=int, default=250)
     parser.add_argument("--variants-per-base", type=int, default=3)
     return parser
@@ -530,7 +530,7 @@ def main(argv: list[str] | None = None) -> int:
             chains,
             args.seed,
             args.train_bases,
-            args.dev_bases,
+            args.val_bases,
             args.test_bases,
             args.variants_per_base,
         )
@@ -538,8 +538,8 @@ def main(argv: list[str] | None = None) -> int:
 
         output_paths = {
             "train": args.output_dir / "train.json",
-            "dev": args.output_dir / "dev.json",
-            "test_synth": args.output_dir / "test_synth.json",
+            "val": args.output_dir / "val.json",
+            "test": args.output_dir / "test.json",
         }
         for split_name, path in output_paths.items():
             _write_split(path, splits[split_name])
@@ -555,8 +555,8 @@ def main(argv: list[str] | None = None) -> int:
             "reference_chain_count": len(chains),
             "split_base_counts": {
                 "train": args.train_bases,
-                "dev": args.dev_bases,
-                "test_synth": args.test_bases,
+                "val": args.val_bases,
+                "test": args.test_bases,
             },
             "split_example_counts": {
                 name: len(examples) for name, examples in splits.items()

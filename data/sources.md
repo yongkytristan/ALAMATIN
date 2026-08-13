@@ -206,7 +206,7 @@ training corpus, representative sample, release benchmark, or sealed test.
 
 ## `alamatin_synthetic_train_v1` — use
 
-Purpose: bulk NER training/dev/test_synth corpus (ALM-010).
+Purpose: bulk NER train/validation/test corpus (ALM-010).
 
 Generated entirely by `scripts/generate_synthetic_addresses.py`. The only
 external input is the already-governed public reference
