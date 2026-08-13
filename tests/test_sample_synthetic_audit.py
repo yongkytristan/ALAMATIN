@@ -48,7 +48,7 @@ class SampleSyntheticAuditTest(unittest.TestCase):
             gen_args = [
                 sys.executable,
                 "scripts/generate_synthetic_addresses.py",
-                "--train-bases", "20", "--dev-bases", "5", "--test-bases", "5",
+                "--train-bases", "20", "--val-bases", "5", "--test-bases", "5",
                 "--variants-per-base", "3", "--seed", "9",
                 "--output-dir", str(output_path),
             ]
