@@ -35,12 +35,31 @@ class StageFinalPostalSectionsTest(unittest.TestCase):
                 {"32.01.01.1003"},
             )
 
+    def test_app_lookup_export_is_schema_compatible_and_sorted(self) -> None:
+        app_lookup_path = ROOT / "data" / "final" / "jabar-postal-app-lookup.csv"
+        with app_lookup_path.open("r", encoding="utf-8-sig", newline="") as stream:
+            reader = csv.DictReader(stream)
+            self.assertEqual(list(reader.fieldnames or ()), list(APP_LOOKUP_FIELDS))
+            app_lookup_rows = list(reader)
+        self.assertEqual(len(app_lookup_rows), 5957)
+        app_lookup_codes = [item["village_code"] for item in app_lookup_rows]
+        self.assertEqual(len(set(app_lookup_codes)), len(app_lookup_codes))
+        self.assertEqual(app_lookup_codes, sorted(app_lookup_codes))
+        for row_data in app_lookup_rows:
+            self.assertEqual(len(row_data["postal_code"]), 5)
+            self.assertTrue(row_data["postal_code"].isdigit())
+
     def test_staged_repository_outputs_are_schema_compatible_and_disjoint(self) -> None:
         paths = [
             ROOT / "data" / "final" / "section-1-verified-consensus.csv",
             ROOT / "data" / "final" / "section-2-verified-adjudicated.csv",
             ROOT / "data" / "final" / "section-3-verified-adjudicated.csv",
         ]
+        if not all(path.exists() for path in paths):
+            self.skipTest(
+                "section-1/2/3 are internal-only artifacts (see data/final/README.md); "
+                "not every clone of this repository carries them"
+            )
         sections: list[list[dict[str, str]]] = []
         headers: list[list[str]] = []
         for path in paths:
