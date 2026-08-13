@@ -47,6 +47,25 @@ city code as BPS. Different BPS spellings/codes become aliases or documented
 exceptions. Every output row carries this source ID, snapshot, and artifact
 SHA-256.
 
+### Documented exception — manual browser download (2026-08-11)
+
+The scripted/cataloged endpoint (`scripts/acquire_sources.py`) still returns
+an HTTP 403 Cloudflare challenge; no scripted bypass has ever been attempted.
+The project owner manually downloaded the same public dataset through a
+normal browser session on 2026-08-11 — a human viewing a public page, not an
+automated or credential-based bypass of an access control. That file
+(`dispusipda-kode_pos_kab_kota_indonesia_data.csv`, SHA-256
+`33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7`) is the
+one actually used throughout the postal reference build; every derived row
+records this checksum, and it is independently verifiable in the published
+`data/processed/jabar-reference-v1-verified.json`. See
+`data/reference_source_status.json` for the tracked acquisition status. This
+does not change the source's `internal_noncommercial_only` license status or
+redistribution limit; it only documents how the input file was actually
+obtained so the build is traceable. Retry the scripted endpoint when the
+publisher service is available again to restore full scripted
+reproducibility.
+
 ## `kemendagri_master_village_2024` — use as cross-check (deferred, optional for MVP)
 
 Purpose: compare village code/name/parent relationships. Satu Data Indonesia

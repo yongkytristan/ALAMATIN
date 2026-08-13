@@ -196,6 +196,14 @@
           "scope": "Redistribution, in the public ALAMATIN repository, of the derived Jawa Barat postal reference output only: data/processed/jabar-reference-v1-verified.json, data/final/jabar-postal-app-lookup.csv, and their jabar-reference-v1-exceptions.csv/jabar-reference-v1-summary.json manifests. Not the raw Open Data Jabar extract or its per-source value column.",
           "basis": "The published rows are a new, human-adjudicated work product: every value passed corroboration against Diskominfo, Kodepos.dev, and, for previously unresolved rows, a Pos Indonesia spot-check, with evidence and reviewer decisions recorded privately in data/interim/postal-review/. The raw extract, per-source columns, and reviewer worksheets are not redistributed -- only the single adjudicated postal_code per village_code.",
           "policy_effect": "Applies only to the specific derived files listed above. Does not change the standing internal_noncommercial_only decision or metadata_and_synthetic_fixtures_only redistribution limit for the raw Open Data Jabar extract itself; any other redistribution needs its own dated review."
+        },
+        {
+          "exception_id": "manual_browser_acquisition_2026_08_11",
+          "approved_by": "project_owner",
+          "approved_on": "2026-08-11",
+          "scope": "How the input file dispusipda-kode_pos_kab_kota_indonesia_data.csv (sha256 33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7) was actually obtained, since the scripted/cataloged endpoint in scripts/acquire_sources.py returns an HTTP 403 Cloudflare challenge.",
+          "basis": "The project owner manually downloaded the same public dataset through a normal browser session -- a human viewing a public page, not an automated or credential-based bypass of an access control. This is the file actually used throughout the postal reference build; its checksum is recorded on every derived row and is independently verifiable in the published data/processed/jabar-reference-v1-verified.json.",
+          "policy_effect": "Documents the real acquisition path for traceability/reproducibility only. Does not change the standing internal_noncommercial_only license status or redistribution limit. Retry the scripted endpoint when the publisher service is available again to restore full scripted reproducibility."
         }
       ]
     },
