@@ -1,0 +1,31 @@
+{
+  "duplicate_village_codes": 0,
+  "exception_rows": 0,
+  "input_sha256": {
+    "consensus": "fcbb25e1123251198b81544bab1a45aba414956d6d86209827bb33c0ea876d2b",
+    "consensus_summary": "2582fd6b22d2525a9189ab62eff2890fe8286ce29a4ddfe50362ae4658017a02",
+    "diskominfo": "6c4c46f393e6497190b817f5c49062b8c25587b8f4d33bbe2b258543d180d4fc",
+    "manual_observations": "3c519452093367868ecd171819d31b87a321120a123e14eee9fe8aa81d896505",
+    "open_data_jabar": "33e35ba9c96a76276e16d09dbae8ca277bbd2e91d66ea69cf7a691d4944206c7"
+  },
+  "manual_pos_observation_rows": 3081,
+  "operational_status_counts": {
+    "usable_verified": 5957
+  },
+  "output_sha256": {
+    "exceptions": "30e69c4730ceb8fc5b1a0df1f7768f486e291054ae13fec3fbd9863c479a5727",
+    "full_csv": "542b3290e25dceef89651bd2dcb7217d25a9e0650ace85ee156a17931fcda698",
+    "verified_lookup": "855ec337f3a56603f622e99c18ff4d67c1eb4d1af20c658b4306ccce096e1332"
+  },
+  "parent_integrity": true,
+  "release_policy": "Only usable_verified rows enter the postal lookup; unresolved rows remain in the full table and exception report.",
+  "rows_with_aliases": 5561,
+  "schema_version": "1.0.0",
+  "scope": "Jawa Barat",
+  "total_administrative_rows": 5957,
+  "verification_status_counts": {
+    "verified_adjudicated": 3081,
+    "verified_consensus": 2876
+  },
+  "verified_lookup_rows": 5957
+}
