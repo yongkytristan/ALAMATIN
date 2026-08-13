@@ -16,7 +16,7 @@ Approval of a source does not approve every field in that source.
 |---|---|---|
 | Administrative hierarchy | `kemendagri_wilayah_2025` | Authority for region codes/names after applying the 2025 amendment; not a postal-code authority |
 | Jawa Barat hierarchy and postal MVP | `open_data_jabar_postal_2023` | Internal non-commercial use; Kemendagri fields canonical, BPS spellings retained as aliases |
-| Village master cross-check | `kemendagri_master_village_2024` | Administrative evidence only; resource access currently blocked by DNS resolution |
+| Village master cross-check (optional, deferred) | `kemendagri_master_village_2024` | Administrative evidence only; resource access blocked by DNS resolution; deferred out of the Jawa Barat MVP scope on 2026-08-13, see below |
 | BPS/postal relationship cross-check | `bps_sig_code_relationship_2020` | On hold pending stable artifact and reuse terms |
 | Bounded postal conflict validation | `kodepos_dev_rest_api` | Internal validation only; selected village-code detail calls, local ignored output, no redistribution |
 | Roads and landmarks | `osm_geofabrik_indonesia_2026_07_01` | Gazetteer/corroborating data only; coverage varies and ODbL applies |
@@ -47,13 +47,26 @@ city code as BPS. Different BPS spellings/codes become aliases or documented
 exceptions. Every output row carries this source ID, snapshot, and artifact
 SHA-256.
 
-## `kemendagri_master_village_2024` — use as cross-check
+## `kemendagri_master_village_2024` — use as cross-check (deferred, optional for MVP)
 
 Purpose: compare village code/name/parent relationships. Satu Data Indonesia
 records dataset ID `90249796-6f43-41b1-8167-1877b92b5c89`, modified 16 August
 2024, and warns that SDI principle fulfillment is still in progress. The API
 host did not resolve on the review date. It cannot establish or override a
 postal code.
+
+**Deferral decision (2026-08-13):** this source was only ever meant as an
+independent cross-check of the village hierarchy already established from
+`kemendagri_wilayah_2025` (the acquired Kepmendagri decision documents), not a
+source the Jawa Barat postal reference depends on. The published
+`jabar-reference-v1-verified.json` already reconciles three independent
+postal sources (Diskominfo, Open Data Jabar, Kodepos.dev) on top of that
+canonical hierarchy, with Pos Indonesia spot-checks closing the remaining
+conflicts. The project owner deferred acquiring this source out of the Jawa
+Barat MVP scope; it stays a candidate for the final round if broader
+national coverage or an extra hierarchy cross-check is needed. `decision`
+remains `use` — it may still be acquired later, it is simply not required
+for the current MVP.
 
 ## `bps_sig_code_relationship_2020` — hold
 
