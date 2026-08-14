@@ -1,0 +1,1502 @@
+{
+  "npsn_sd_20202104": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Sukamulya",
+      ",",
+      "Kec",
+      "Cikembar",
+      ",",
+      "Kab",
+      "Sukabumi"
+    ]
+  },
+  "npsn_sd_20204964": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Kp.",
+      "Cinawala",
+      "Ds.",
+      "Padajaya",
+      "Kec.",
+      "Cikalongkulon",
+      "-",
+      "Cianjur",
+      ",",
+      "Kecamatan",
+      "Cikalongkulon",
+      ",",
+      "Kb",
+      "Cianjur"
+    ]
+  },
+  "npsn_sd_20208296": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "mnglyang",
+      "n.18",
+      "sindangsar",
+      ",",
+      "kec.",
+      "suksr",
+      ",",
+      "kb",
+      "sumedang"
+    ]
+  },
+  "npsn_sd_20210749": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "kp.",
+      "weninggalih",
+      ",",
+      "kec",
+      "bantarkalong",
+      ",",
+      "kb",
+      "tasimkalaya"
+    ]
+  },
+  "npsn_sd_20211255": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "cikapas",
+      ",",
+      "kcmtn",
+      "baregbeg",
+      ",",
+      "kabupaten",
+      "cims"
+    ]
+  },
+  "npsn_sd_20212497": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "dsuun",
+      "bantadrawa",
+      "rt",
+      "003",
+      "rw",
+      "004",
+      "ds",
+      "ciparakan",
+      "kec.",
+      "kalipucang",
+      "kab.",
+      "pangandaran",
+      ",",
+      "kcmtn",
+      "kalipucang",
+      ",",
+      "kabupaten",
+      "apngandaran"
+    ]
+  },
+  "npsn_sd_20214272": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.rayaselatandusuniidshaurgeuliskec.bantarujeg-45464",
+      ",",
+      "kecbantarujeg",
+      ",",
+      "kbmajalengka"
+    ]
+  },
+  "npsn_sd_20217527": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-KOTA_KABUPATEN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "RAYA",
+      "SADANG",
+      "ASRAMA",
+      "YON",
+      "ARMED",
+      "9",
+      "SADANG",
+      "PURWAKARTA",
+      ",",
+      "KEC",
+      "PURWAKARTA",
+      ",",
+      "KAB",
+      "PURWAKARTA"
+    ]
+  },
+  "npsn_sd_20218556": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jln.rayasetukp.bahagiart01",
+      "/",
+      "04",
+      ",",
+      "kec.tambunselatan",
+      ",",
+      "kabupatenbekasi"
+    ]
+  },
+  "npsn_sd_20220503": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.Cimanggu",
+      "Permai",
+      "1",
+      "No.1",
+      "Kec",
+      "Tanah",
+      "Sareal",
+      "Kt",
+      "Bogor",
+      ",",
+      "Kecamatan",
+      "Tanah",
+      "Sareal",
+      ",",
+      "Kta",
+      "Bogor"
+    ]
+  },
+  "npsn_sd_20222094": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "dr.",
+      "sutom",
+      "no.33",
+      ",",
+      "kcmtn",
+      "kesambi",
+      ",",
+      "kta",
+      "cirebon"
+    ]
+  },
+  "npsn_sd_20222703": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.suplierrayablokaa27tamanwismaasri",
+      ",",
+      "kcmtnbekasiutara",
+      ",",
+      "kotabekasi"
+    ]
+  },
+  "npsn_sd_20224265": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Ibu",
+      "Ganirah",
+      "No.71",
+      "Rt",
+      ".002",
+      "Rw",
+      ".004",
+      ",",
+      "Kcmtn",
+      "Cimahi",
+      "Selatan",
+      ",",
+      "Kta",
+      "Cimahi"
+    ]
+  },
+  "npsn_sd_20225258": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "I-RW",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "dewi",
+      "sartikag",
+      "ang",
+      "jeruk",
+      "rt..",
+      "001",
+      "rw",
+      ".",
+      "008",
+      "lingk.",
+      "parunglesang",
+      ",",
+      "kec",
+      "banjar",
+      ",",
+      "tka",
+      "banjar"
+    ]
+  },
+  "npsn_sd_20227062": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Kp.",
+      "Bangkonol",
+      ",",
+      "Kecamatan",
+      "Sukawening",
+      ",",
+      "Kab.",
+      "Garut"
+    ]
+  },
+  "npsn_sd_20245521": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Jamaras",
+      "4",
+      "No.101",
+      ",",
+      "Kec.",
+      "Mandalajati",
+      ",",
+      "Kt",
+      "Bandung"
+    ]
+  },
+  "npsn_sd_20252246": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "dusun",
+      "cimuncagn",
+      ",",
+      "kecamatan",
+      "panumbangan",
+      ",",
+      "kab.",
+      "ciamis"
+    ]
+  },
+  "npsn_sd_69762664": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.re.mrtadinta",
+      "n.93",
+      "b",
+      ",",
+      "kec.",
+      "cipedes",
+      ",",
+      "kta",
+      "tasikmalya"
+    ]
+  },
+  "npsn_sd_69917492": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.LETJEN",
+      "S",
+      "PARMAN",
+      ",",
+      "KECAMATAN",
+      "CILEUNGSI",
+      ",",
+      "KAB",
+      "BOGOR"
+    ]
+  },
+  "npsn_sd_69995771": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl",
+      "wbawa",
+      "mukti",
+      "i",
+      "gg",
+      "h",
+      "samin",
+      "rt",
+      "01",
+      "rw",
+      "04",
+      ",",
+      "kc.",
+      "jatiash",
+      ",",
+      "kt",
+      "bkasi"
+    ]
+  },
+  "npsn_sd_70010542": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.buyut",
+      "deling",
+      "blok",
+      "grewal",
+      "rt.06",
+      "rw",
+      ".03",
+      ",",
+      "kec",
+      "weru",
+      ",",
+      "kabupaten",
+      "cirebon"
+    ]
+  },
+  "npsn_sma_20200670": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-RT",
+      "I-RT",
+      "O",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Kp.",
+      "Pabuaran",
+      "Kaum",
+      "Ds.",
+      "Cibanteng",
+      "Rt.",
+      "03",
+      "/",
+      "02",
+      ",",
+      "Kec.",
+      "Ciampea",
+      ",",
+      "Kb",
+      "Bogor"
+    ]
+  },
+  "npsn_sma_20210746": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.anggacandrano.133cukangkawung",
+      ",",
+      "kec.sodonghilir",
+      ",",
+      "kab.tasikmalaya"
+    ]
+  },
+  "npsn_sma_20211562": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Pesantren",
+      "Sindangsari",
+      "Dusun",
+      "Sindang",
+      "Rt",
+      "006",
+      "Rw",
+      "002",
+      ",",
+      "Kcmtn",
+      "Panawangan",
+      ",",
+      "Kb",
+      "Ciamis"
+    ]
+  },
+  "npsn_sma_20211578": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Kartawijaya",
+      "No.",
+      "600",
+      "Pamokolan",
+      "Cihaurbeuti",
+      ",",
+      "Kec.",
+      "Cihaurbeuti",
+      ",",
+      "Kabupaten",
+      "Ciamis"
+    ]
+  },
+  "npsn_sma_20219728": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.dursasanano.8",
+      ",",
+      "kec.cicendo",
+      ",",
+      "ktbandung"
+    ]
+  },
+  "npsn_sma_20219762": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "B-RT",
+      "I-RT",
+      "O",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "aracmanik",
+      "no.",
+      "31",
+      "rt",
+      "02",
+      "/",
+      "rw",
+      "01",
+      ",",
+      "kecamatan",
+      "mandalajati",
+      ",",
+      "kota",
+      "bandung"
+    ]
+  },
+  "npsn_sma_20220338": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Kartini",
+      "No.",
+      "1",
+      ",",
+      "Kecamatan",
+      "Bogor",
+      "Tengah",
+      ",",
+      "Kt",
+      "Bogor"
+    ]
+  },
+  "npsn_sma_20221563": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "sarasa",
+      "blok",
+      "loasari",
+      "no.1",
+      "sukabumi",
+      ",",
+      "ke",
+      "ccibeureum",
+      ",",
+      "kota",
+      "sukabumi"
+    ]
+  },
+  "npsn_sma_20222364": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "WAHIDIN",
+      "SUDIROHUSODO",
+      "NO.",
+      "81",
+      ",",
+      "KECAMATAN",
+      "KEJAKSAN",
+      ",",
+      "KOTA",
+      "CIREBON"
+    ]
+  },
+  "npsn_sma_20222370": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl",
+      "cipto",
+      "mangnkusumo",
+      "no.24",
+      ",",
+      "kec",
+      "kesmbi",
+      ",",
+      "kta",
+      "cirbon"
+    ]
+  },
+  "npsn_sma_20227814": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "KOMPLEKS",
+      "PERSEKOLAHAN",
+      "SAWAH",
+      "LEGA",
+      "NAGROG",
+      ",",
+      "KEC.",
+      "CICALENGKA",
+      ",",
+      "KAB.",
+      "BANDUNG"
+    ]
+  },
+  "npsn_sma_20238019": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "simpang",
+      "tiga",
+      "stu",
+      "n.",
+      "18",
+      "tambun",
+      "selatan",
+      ",",
+      "kecmtn",
+      "tambun",
+      "seltan",
+      ",",
+      "kab.",
+      "bekasi"
+    ]
+  },
+  "npsn_sma_20246383": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "I-RT",
+      "O",
+      "B-RW",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.Ibnu",
+      "Sabil",
+      "Kp.Pangkalan",
+      "Rt.",
+      "02",
+      "/",
+      "08",
+      "Sukamekar",
+      "Sukawangi",
+      ",",
+      "Kec",
+      "Sukawangi",
+      ",",
+      "Kb",
+      "Bekasi"
+    ]
+  },
+  "npsn_sma_20251847": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "LANGKAPLANCAR",
+      "DSN",
+      "CIBEUREUM",
+      ",",
+      "KECAMATAN",
+      "LANGKAPLANCAR",
+      ",",
+      "KB",
+      "PANGANDARAN"
+    ]
+  },
+  "npsn_sma_20264425": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "RAYA",
+      "CANGKINGAN",
+      "KEDOKANBUNDER",
+      ",",
+      "KEC.",
+      "KEDOKAN",
+      "BUNDER",
+      ",",
+      "KB",
+      "INDRAMAYU"
+    ]
+  },
+  "npsn_sma_20276416": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl",
+      "raya",
+      "ahnkam",
+      "kampus",
+      "labschool",
+      ",",
+      "kec",
+      "jatisampurna",
+      ",",
+      "kat",
+      "bekasi"
+    ]
+  },
+  "npsn_sma_69774555": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl",
+      "Boulevard",
+      "Utara",
+      "Blok",
+      "I",
+      "Summarecon",
+      "Bekasi",
+      ",",
+      "Kec.",
+      "Bekasi",
+      "Utara",
+      ",",
+      "Kt",
+      "Bekasi"
+    ]
+  },
+  "npsn_sma_69900793": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "blokdalemrt.02rw.04ds.weragati",
+      ",",
+      "kecpalasah",
+      ",",
+      "kabmajalengka"
+    ]
+  },
+  "npsn_sma_69915781": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "O",
+      "B-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jln.pengkolankondangjampangkulon",
+      ",",
+      "kecjampangkulon",
+      ",",
+      "kbsukabumi"
+    ]
+  },
+  "npsn_sma_69923800": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Ds.",
+      "Cibinong",
+      "Jatiluhur",
+      "Purwakarta",
+      ",",
+      "Kec",
+      "Jatiluhur",
+      ",",
+      "Kabupaten",
+      "Purwakarta"
+    ]
+  },
+  "npsn_sma_69964626": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN",
+      "B-KODEPOS",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "PENGAIRAN",
+      "DS",
+      "GEMPOL",
+      "KEC.",
+      "BANYUSARI",
+      "KABUPATEN",
+      "KARAWANG",
+      "41374",
+      ",",
+      "KEC.",
+      "BANYUSARI",
+      ",",
+      "KABUPATEN",
+      "KARAWANG"
+    ]
+  },
+  "npsn_sma_69981895": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "O",
+      "B-RW",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Cijurai",
+      "Rt02",
+      "/",
+      "02",
+      "Sukabumi",
+      ",",
+      "Kec.",
+      "Cireunghas",
+      ",",
+      "Kabupaten",
+      "Sukabumi"
+    ]
+  },
+  "npsn_sma_69992302": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "rya",
+      "cbesi",
+      "n.",
+      "02",
+      "jatinangor",
+      "sumedng",
+      ",",
+      "kcmtn",
+      "jatinangr",
+      ",",
+      "kb",
+      "smedang"
+    ]
+  },
+  "npsn_sma_69995692": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "SINDANGSARI",
+      "NO.35",
+      "CIMERAK",
+      ",",
+      "PANGANDARAN",
+      ",",
+      "KEC",
+      "CIMERAK",
+      ",",
+      "KAB.",
+      "PANGANDARAN"
+    ]
+  },
+  "npsn_sma_70014071": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "O",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Jl.",
+      "Rd.",
+      "H",
+      "Mulya",
+      "Sukarama",
+      "001",
+      "/",
+      "002",
+      ",",
+      "Kec.",
+      "Leles",
+      ",",
+      "Kab.",
+      "Cianjur"
+    ]
+  },
+  "npsn_sma_70031480": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "B-NOMOR",
+      "I-NOMOR",
+      "O",
+      "B-RT",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "JL.",
+      "SELACAU",
+      "NO.",
+      "180",
+      ",",
+      "RT.01",
+      "RW.01",
+      ",",
+      "KEC.",
+      "BATUJAJAR",
+      ",",
+      "KB",
+      "BANDUNG",
+      "BARAT"
+    ]
+  },
+  "npsn_sma_70039210": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "I-RT",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "jl.",
+      "ir.",
+      "sekarn",
+      "blok",
+      "cikedng",
+      "rt",
+      ".001",
+      "rw.001",
+      ",",
+      "kcmtan",
+      "kuningan",
+      ",",
+      "kab.",
+      "kuningan"
+    ]
+  },
+  "npsn_sma_70040372": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-RT",
+      "B-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "dusun",
+      "ii",
+      "blok",
+      "cipetir",
+      "rt.003r",
+      "w.002",
+      ",",
+      "kecamatan",
+      "sindang",
+      "agung",
+      ",",
+      "kb",
+      "ukningan"
+    ]
+  },
+  "npsn_sma_70041954": {
+    "annotator_id": "YT-01",
+    "labels": [
+      "B-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "I-JALAN",
+      "B-KELURAHAN",
+      "I-KELURAHAN",
+      "B-RT",
+      "I-RT",
+      "I-RT",
+      "B-RW",
+      "I-RW",
+      "O",
+      "B-KECAMATAN",
+      "I-KECAMATAN",
+      "O",
+      "B-KOTA_KABUPATEN",
+      "I-KOTA_KABUPATEN"
+    ],
+    "tokens": [
+      "Komplek",
+      "Pondok",
+      "Pesantren",
+      "Darul",
+      "Huda",
+      "Dsn",
+      "Kliwon",
+      "Rt",
+      ".",
+      "001",
+      "Rw",
+      ".001",
+      ",",
+      "Kec",
+      "Garawangi",
+      ",",
+      "Kabupaten",
+      "Kuningan"
+    ]
+  }
+}

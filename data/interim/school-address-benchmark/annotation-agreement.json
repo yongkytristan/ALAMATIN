@@ -1,0 +1,96 @@
+{
+  "by_type": {
+    "DETAIL_LOKASI": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "JALAN": {
+      "f1": 0.5892857142857142,
+      "false_negative": 17,
+      "false_positive": 29,
+      "precision": 0.532258064516129,
+      "recall": 0.66,
+      "true_positive": 33
+    },
+    "KECAMATAN": {
+      "f1": 0.9433962264150944,
+      "false_negative": 4,
+      "false_positive": 2,
+      "precision": 0.9615384615384616,
+      "recall": 0.9259259259259259,
+      "true_positive": 50
+    },
+    "KELURAHAN": {
+      "f1": null,
+      "false_negative": 9,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "KODEPOS": {
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "true_positive": 1
+    },
+    "KOTA_KABUPATEN": {
+      "f1": 0.9433962264150944,
+      "false_negative": 5,
+      "false_positive": 1,
+      "precision": 0.9803921568627451,
+      "recall": 0.9090909090909091,
+      "true_positive": 50
+    },
+    "NOMOR": {
+      "f1": 0.8571428571428571,
+      "false_negative": 4,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.75,
+      "true_positive": 12
+    },
+    "PROVINSI": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "RT": {
+      "f1": 0.846153846153846,
+      "false_negative": 4,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.7333333333333333,
+      "true_positive": 11
+    },
+    "RW": {
+      "f1": 0.5454545454545454,
+      "false_negative": 10,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.375,
+      "true_positive": 6
+    }
+  },
+  "disagreement_examples": 29,
+  "exact_match_examples": 21,
+  "overall": {
+    "f1": 0.7931873479318735,
+    "false_negative": 53,
+    "false_positive": 32,
+    "precision": 0.8358974358974359,
+    "recall": 0.7546296296296297,
+    "true_positive": 163
+  },
+  "reviewed_count": 50,
+  "schema_version": "1.0.0"
+}

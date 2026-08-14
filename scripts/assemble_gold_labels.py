@@ -45,10 +45,23 @@ class GoldAssemblyError(ValueError):
 
 
 def _apply_adjudication(labels: list[str], start: int, end: int, decision: str, base_id: str) -> None:
+    """Apply an adjudicator's decision for one disagreement span onto ``labels``.
+
+    ``labels`` always starts as a copy of the human reviewer's own full,
+    independent label sequence, so it already reflects the true state at
+    every position. A disagreement row sourced from "automated added a span
+    the human didn't have" carries the automated pass's (often coarser,
+    misaligned) span boundary -- wiping that whole range to O would destroy
+    any finer-grained human sub-spans that happen to fall inside it (for
+    example an automated `JALAN` span spuriously covering what the human
+    correctly split into `JALAN` + `KELURAHAN` + `KECAMATAN`). Because the
+    human's own labels already omit whatever the automated pass wrongly
+    added, an "O" decision needs no action here -- it only exists so
+    ``adjudicated_label`` is never left blank for an unresolved row.
+    """
+
     decision = decision.strip()
     if decision == "O":
-        for index in range(start, end):
-            labels[index] = "O"
         return
     if decision not in ENTITY_TYPES:
         raise GoldAssemblyError(f"{base_id}: invalid adjudicated_label {decision!r}")
