@@ -1,0 +1,2008 @@
+{
+  "assembled_at": "2026-08-14T13:38:30.312249+00:00",
+  "benchmark_id": "alamatin_human_noised_public_address_benchmark_v1",
+  "example_count": 200,
+  "examples": [
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20202104",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20202104",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Sukamulya, Kec Cikembar, Kab Sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20202179",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20202179",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. CIHAURSEAH, KCMTN JAMPANGKULON, KB SUKABUMI"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20203058",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20203058",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl.Gunung Sentul, Kec Ciemas, Kabupaten Sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20203564",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20203564",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp cibatu 1, kmctn cibinon,gk abupaten cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20204734",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20204734",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl nagrak ,kec suakresmi, kab cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20204928",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20204928",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. CIMANGGU, KECAMATAN CIBEBER, KAB CIANJUR"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20204964",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20204964",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Cinawala Ds. Padajaya Kec. Cikalongkulon - Cianjur, Kecamatan Cikalongkulon, Kb Cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20205760",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20205760",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.tugupahlawan,kecamatanmajalaya,kabbandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20205838",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20205838",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Pajaten Rt  01 Rw. 02, Kecamatan Kertasari, Kabupaten Bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20206365",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20206365",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. PASIRLAYUNG, KECAMATAN CIMENYAN, KABUPATEN BANDUNG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20207001",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20207001",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. LENGSAR, KECAMATAN RONGGA, KAB. BANDUNG BARAT"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20207476",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20207476",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. CIPANAS NO.61 RT .02 RW..04, KEC CISARUA, KAB BANDUNG BARAT"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20207519",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20207519",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. cipongporagn, kcmtn ciparay, kab bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20207764",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20207764",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Ciloa Rt .01 Rw..06, Kecamatan Cikalongwetan, Kb Bandung Barat"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20208296",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20208296",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. mnglyang n.18 sindangsar, kec. suksr, kb sumedang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20208820",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20208820",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun skaasih, kcamtan conggeang, kb. sumdang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20210039",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20210039",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. cikeruh, kec. karanngunggal, kb tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20210464",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20210464",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Dusun Awiluar Rt. 16 Rw  06, Kecamatan Karang Jaya, Kab. Tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20210641",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20210641",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. BANJAR NO. 140, KECAMATAN MANONJAYA, KAB TASIKMALAYA"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20210749",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20210749",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. weninggalih, kec bantarkalong, kb tasimkalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20211255",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20211255",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. cikapas, kcmtn baregbeg, kabupaten cims"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20211361",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20211361",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Girisetra, Kecamatan Kalipucang, Kb Pangandaran"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20211386",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20211386",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Dusun Sukamanah Rt. 024 Rw.. 007, Kecamatan Cimerak, Kabupaten Pangandaran"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20211396",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20211396",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun passian, kc. tambaksari, kb ciams"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20212204",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20212204",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "SUKAHURIP, KEC CIHAURBEUTI, KABUPATEN CIAMIS"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20212497",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20212497",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dsuun bantadrawa rt  003 rw 004 ds ciparakan kec. kalipucang kab. pangandaran, kcmtn kalipucang, kabupaten apngandaran"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20213082",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20213082",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. SALAMUDIN NO. 106 RT.. 05 RW. 03 DUSUN PON, KEC CILIMUS, KAB KUNINGAN"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20213261",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20213261",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Caracas No.35, Kecamatan Cilimus, Kab. Kuningan"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20213485",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20213485",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.ciherang,kecamatan ciawigebang,kabupaten kuningan"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20213587",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20213587",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "DUSUN CISAMPIH RT .022 RW,007, KCMTN MALEBER, KB KUNINGAN"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20214272",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20214272",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.rayaselatandusuniidshaurgeuliskec.bantarujeg-45464,kecbantarujeg,kbmajalengka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20214421",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20214421",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.k.h. abdul fatah, kcmtn cikjing, kbupatn majalngka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215245",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215245",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Ds Japurabakti, Kecamatan Astanajapura, Kabupaten Cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215307",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215307",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. ds dompyong kulon, kec. gebang, kabpatn cirebn"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215405",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215405",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. P. Cakrabuana, Kecamatan Sumber, Kabupaten Cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215665",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215665",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.raya rawadalem,kec.balongan,kab.indramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215751",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215751",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Balai Desa Sudimampir, Kec. Balongan, Kabupaten Indramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215815",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215815",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "lbok lungsemut, kecamatan tirsi, ka bindramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20215840",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20215840",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.malangsemirang,kecamatan jatibarang,kb indramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20217320",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20217320",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. kiraabandung rt. 0 3rw. 02, kec sukasari, kabp urwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20217336",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20217336",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp.serepong rt  01/01,kcmtn kiarapedes,kabupaten purwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20217527",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20217527",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RAYA SADANG ASRAMA YON ARMED 9 SADANG PURWAKARTA, KEC PURWAKARTA, KAB PURWAKARTA"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20218493",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20218493",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. GALIAN RT  03/03, KCMTN SUKAWANGI, KAB. BEKASI"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20218556",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20218556",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jln.rayasetukp.bahagiart01/04,kec.tambunselatan,kabupatenbekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20220503",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20220503",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl.Cimanggu Permai 1 No.1 Kec Tanah Sareal Kt Bogor, Kecamatan Tanah Sareal, Kta Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20220574",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20220574",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "j.l vetrean no. 37, kce. bogor tengah, kta bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20221445",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20221445",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.brawijayano.15,kec.gunungpuyuh,kotasukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20221634",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20221634",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jalan mredeka 2 no. 220,k cmtn lembusritu, kta sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20221694",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20221694",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. limusnunggal no. 215, kcamatan cibereum, kota sukabmi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20222094",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20222094",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. dr. sutom no.33, kcmtn kesambi, kta cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20222110",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20222110",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.kutagara seltn n. 212, kcmtn pkalipn, kota crebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20222145",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20222145",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jln.giri indah,kecamatan harjamukti,kt cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20222312",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20222312",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.pengampon no.33,kec.lemah wungkuk,kota cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20222703",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20222703",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.suplierrayablokaa27tamanwismaasri,kcmtnbekasiutara,kotabekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20223624",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20223624",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.barito iv b jakamulya,kcmtn bekasi selatan,kta bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20224265",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20224265",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Ibu Ganirah No.71 Rt .002 Rw .004, Kcmtn Cimahi Selatan, Kta Cimahi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20224359",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20224359",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. urmah sakit umum no. 29,k ecamatan tawang, kta tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20224684",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20224684",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jln Air Tanjung, Kec Kawalu, Kota Tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20224698",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20224698",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Sindangrasa, Kec Cibeureum, Kota Tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225163",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225163",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jaln sudiro w no. 52, kecamatn banjar, kta banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225258",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225258",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. dewi sartikag ang jeruk rt.. 001 rw . 008 lingk. parunglesang, kec banjar, tka banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225288",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225288",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. moh hamim, kcmtn banjar, okta banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225323",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225323",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Lingkungan Pintusinga No 27, Kecamatan Banjar, Kota Banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225949",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225949",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Cisaat, Kec. Kadungora, Kab. Garut"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20225981",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20225981",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. CIUDIAN, KEC. SINGAJAYA, KABUPATEN GARUT"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20227062",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20227062",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Bangkonol, Kecamatan Sukawening, Kab. Garut"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228007",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228007",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. SUKA INDAH B.17 RT.004 RW..013, KEC CIMAHI TENGAH, KOTA CIMAHI"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228568",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228568",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. pasantren iv no.252 rt.006 rw.015, kcmtn cimahi utara, kta cimahi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228852",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228852",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl h muhasim no. 69, kec pncoran ms, kt depok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228876",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228876",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Duta Plaza No. 1, Kec Cimanggis, Kt Depok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228893",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228893",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl serua bulak rt  02/03,kecamatan bojongsari,kt depok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20228957",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20228957",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jln. pekapuarn kp babakan rt 05/22, kcmtn tapo,s kta depok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20229542",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20229542",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "pondokbungur,kcmtn pondoksalam,kabupaten purwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20230551",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20230551",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl Pasir Honje, Kec. Leuwiliang, Kb Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20230563",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20230563",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. maribaya rt.. 03/01, kecamtn jasinga, kab. bgr"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20232652",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20232652",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun bbkan, kcmtn casem, kb subang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20232858",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20232858",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "cinngah, kcmtn jalancagak, kb sbang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20233509",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20233509",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "nyalindng, kecamatn ksmlang, kb subang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20233841",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20233841",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Dusun Babakan, Kecamatan Buahdua, Kabupaten Sumedang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20236253",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20236253",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusunkarajan,kec.kotabaru,kabupatenkarawang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20236297",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20236297",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun konadng, kec. pedes, kb karawang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20236369",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20236369",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "DUSUN KRAJAN II, KECAMATAN LEMAHABANG, KAB. KARAWANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20238439",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20238439",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "cilubang, kecaamtan bogo rbarat, tka bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20238468",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20238468",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. cimang permi i, kc. tnh saral, kota bgr"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20244848",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20244848",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. sarijadi raya no.73, kecamatan sukasari, kt bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20244978",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20244978",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. leuwianyr, kcmtn bjongloa kdl, kt bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20245429",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20245429",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "pup sktr v blok 02 no 1-5 rt  06/027, kcmtn babelan, kabpten bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20245481",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20245481",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.golfselatanino.26,kecamatanarcamanik,ktabandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20245521",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20245521",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Jamaras 4 No.101, Kec. Mandalajati, Kt Bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20246095",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20246095",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.dukuh asih,kec.leuwimunding,kab.majalengka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20246178",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20246178",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. IR. H. JUANDA, KEC. JATIWANGI, KABUPATEN MAJALENGKA"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20251868",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20251868",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.k olonel achmad syam no4 6,b kcmtn jatinangor, kab sumedang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20252246",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20252246",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun cimuncagn, kecamatan panumbangan, kab. ciamis"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20252271",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20252271",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Dusun Sinargalih, Kecamatan Parigi, Kabupaten Pangandaran"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20254573",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20254573",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp.banara jaya 02/09,kec.pamijahan,kabupaten bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20254718",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20254718",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.h haris no.131 kp sukaraja rt.003 rw.010,kcmtn cimahi tengah,kt cimahi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20265247",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20265247",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp kecemk, kec banysari, kab karawang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_20267976",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "20267976",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Jalancagak - Sagalaherang Km. 1 No. B23, 24, 25, Kecamatan Jalancagak, Kab. Subang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_24100965",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "24100965",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp.babaka,n kec. simpenan, kab.s ukabmui"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69762664",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69762664",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.re.mrtadinta n.93 b, kec. cipedes, kta tasikmalya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69856915",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69856915",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.rayalelesno.5edsleles,kec.leles,kabupatengarut"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69917492",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69917492",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL.LETJEN S PARMAN, KECAMATAN CILEUNGSI, KAB BOGOR"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69943816",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69943816",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl raya pengasinan ii no 140b, kec. rawalumub, kta beksai"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69972992",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69972992",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. mutiara gading city blok s., kce. tarumajaya, kb beaksi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_69995771",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "69995771",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl wbawa mukti i gg h samin rt 01 rw 04, kc. jatiash, kt bkasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_70005212",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "70005212",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jalan Merdeka Kp Baru, Kecamatan Lembursitu, Kta Sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_70010542",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "70010542",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.buyut deling blok grewal rt.06 rw .03,kec weru,kabupaten cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sd_70038143",
+      "notes": "",
+      "school_level": "SD",
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "source_record_id": "70038143",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Manapa Rt.01 Rw .04, Kec. Cililin, Kabupaten Bandung Barat"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20200670",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20200670",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Kp. Pabuaran Kaum Ds. Cibanteng Rt. 03/02, Kec. Ciampea, Kb Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20200674",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20200674",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. abdul fatah km 4 ds. cinangka, kecamatan ciampea, kb bgoor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20202258",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20202258",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. bina karya, kec. simpenan, kab. suakbumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20203739",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20203739",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Pangeran Hidayatullah No. 62, Kec Cianjur, Kb Cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20206144",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20206144",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. ds ciptaharja no. 35, kcmtn cipatta, kab. bandung barat"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20208425",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20208425",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Sawah Menak - Jatimekar - Situraja - Sumedang, Kec Situraja, Kabupaten Sumedang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20209377",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20209377",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. otto iskandardinata no.66, kect arogong kaler, kabupaten gartu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20210746",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20210746",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.anggacandrano.133cukangkawung,kec.sodonghilir,kab.tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20210774",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20210774",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RAYA BOJONGGAMBIR, KEC BOJONGGAMBIR, KAB TASIKMALAYA"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20211499",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20211499",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.bojonghuni no.87 ciamis,kcmtn ciamis,kab.ciamis"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20211562",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20211562",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Pesantren Sindangsari Dusun Sindang Rt 006 Rw  002, Kcmtn Panawangan, Kb Ciamis"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20211578",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20211578",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Kartawijaya No. 600 Pamokolan Cihaurbeuti, Kec. Cihaurbeuti, Kabupaten Ciamis"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20214975",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20214975",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Desa Batembat Tengahtani, Kcmtn Tengah Tani, Kb Cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20214986",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20214986",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Kh. Zainal A., Kecamatan Karangwareng, Kb Cirebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20215977",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20215977",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. BY PASS KERTASEMAYA KM.37, KEC SUKAGUMIWANG, KABUPATEN INDRAMAYU"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20215990",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20215990",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.pubaratgabuskulon,kecgabuswetan,kabupatenindramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20216203",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20216203",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.dampuawangno.01,kcmtnkarangampel,kbindramayu"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20216952",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20216952",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. EMO KURNIAATMAJA NO. 1 SUBANG, KEC SUBANG, KB SUBANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20217784",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20217784",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. SINGAPERBANGSA, KEC. CILAMAYA WETAN, KAB. KARAWANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20219728",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20219728",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.dursasanano.8,kec.cicendo,ktbandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20219729",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20219729",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. BIMA NO. 9, KCMTN CICENDO, KTA BANDUNG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20219762",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20219762",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. aracmanik no. 31 rt 02 / rw  01, kecamatan mandalajati, kota bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20220335",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20220335",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. WALET NO 13, KEC TANAH SAREAL, KT BOGOR"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20220337",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20220337",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Btn Ciparigi No. 60, Kec Bogor Utara, Kt Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20220338",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20220338",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Kartini No. 1, Kecamatan Bogor Tengah, Kt Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20221558",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20221558",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. VETERAN I NO. 36 SUKABUMI, KEC CIKOLE, KT SUKABUMI"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20221563",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20221563",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. sarasa blok loasari no.1 sukabumi, ke ccibeureum, kota sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20222364",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20222364",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. WAHIDIN SUDIROHUSODO NO. 81, KECAMATAN KEJAKSAN, KOTA CIREBON"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20222370",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20222370",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl cipto mangnkusumo no.24, kec kesmbi, kta cirbon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20222379",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20222379",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. PULASAREN NO 01, KEC LEMAH WUNGKUK, KT CIREBON"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224106",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224106",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Terusan No. 32 Cimahi, Kecamatan Cimahi Tengah, Kta Cimahi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224108",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224108",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. MELONG RAYA NO. 172 CIJERAH, KEC. CIMAHI SELATAN, KTA CIMAHI"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224139",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224139",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. kpad sriwijaya ix no. 45 , kcmtn cimahi tngh, kt cimahi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224505",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224505",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.air tanjung no.25,kecamatan kawalu,kota tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224507",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224507",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.tentara pelajar no.58,kec.tawang,kta tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20224510",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20224510",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. r.. martdnata no.261, kcmtn indihiang, kt tasikmalya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20225276",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20225276",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Pesantren No.2, Kec. Langensari, Kota Banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20225279",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20225279",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.kh.mustofa no.1,kec.banjar,kt banjar"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20225280",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20225280",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. KH. MUHAMAD SANUSI, KEC LANGENSARI, KT BANJAR"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20227814",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20227814",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KOMPLEKS PERSEKOLAHAN SAWAH LEGA NAGROG, KEC. CICALENGKA, KAB. BANDUNG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20227871",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20227871",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. ray panglngan no. 332, kec. panglengan, kb bndung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20229746",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20229746",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Terusan Kapten Halim, Kcmtn Pasawahan, Kab Purwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20231715",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20231715",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Taman Wisma Asri Kav.7, Kec Bekasi Utara, Kota Bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20232329",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20232329",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Jakarta - Bogor Km 44, Kecamatan Cibinong, Kabupaten Bogor"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20235624",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20235624",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RD ALI SADIKIN, KEC TOMO, KAB. SUMEDANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20237998",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20237998",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. sunset ave grand wista, kcmtn tambun seltan, kabpaten bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20238019",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20238019",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. simpang tiga stu n. 18 tambun selatan, kecmtn tambun seltan, kab. bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20240400",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20240400",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. PEJUANG KP. MALANG RT .03/06, KCMTN PASEH, KAB. BANDUNG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20244679",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20244679",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. KH. BUNYAMIN NO. 03, KEC. SUSUKAN, KB CIREBON"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20244793",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20244793",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RAYA CIMANGGU NO. 87, KEC. CISALAK, KAB SUBANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20246383",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20246383",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl.Ibnu Sabil Kp.Pangkalan Rt. 02/08 Sukamekar Sukawangi, Kec Sukawangi, Kb Bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20251787",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20251787",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.raya cililin utara no.52,kcmtn cililin,kab.bandung barat"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20251847",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20251847",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. LANGKAPLANCAR DSN CIBEUREUM, KECAMATAN LANGKAPLANCAR, KB PANGANDARAN"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20254043",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20254043",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.rayacampaka,kecamatancampaka,kabupatenpurwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20258065",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20258065",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp.Narunggul, Kcmtn Rajapolah, Kab Tasikmalaya"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20264425",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20264425",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RAYA CANGKINGAN KEDOKANBUNDER, KEC. KEDOKAN BUNDER, KB INDRAMAYU"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20265284",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20265284",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. belakang pasar no. 14, kec. karawang barat, ka.b karawang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20268809",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20268809",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. RAYA SAWANGAN KM 2, KEC. PANCORAN MAS, KOTA DEPOK"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20271843",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20271843",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "KP. CIGARUNGSANG, RT . 02, RW. 01, KCMTN CILAWU, KAB. GARUT"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20272074",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20272074",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. h. mhiarja, kec. sukamakmur, kb boogr"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_20276416",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "20276416",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl raya ahnkam kampus labschool, kec jatisampurna, kat bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69774555",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69774555",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl Boulevard Utara Blok I Summarecon Bekasi, Kec. Bekasi Utara, Kt Bekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69857937",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69857937",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.kemangiino.11art.04rw.09,kec.sukmajaya,kotadepok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69889026",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69889026",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp.blukbukrt.01/02,kcmtnmuaragembong,kbbekasi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69892332",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69892332",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "blok ds rt..05 rw.20 ds kancana, kec ciikjing, kb majalengka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69896859",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69896859",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp.gunungbaturt.02rw.01,kecamatannaringgul,kab.cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69900793",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69900793",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "blokdalemrt.02rw.04ds.weragati,kecpalasah,kabmajalengka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69915781",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69915781",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jln.pengkolankondangjampangkulon,kecjampangkulon,kbsukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69919741",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69919741",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. bardua rt  01/01, kcmtn mlngbong, kbupatn garut"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69923800",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69923800",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Ds. Cibinong Jatiluhur Purwakarta, Kec Jatiluhur, Kabupaten Purwakarta"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69930653",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69930653",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. kh. saleh n. 446, kcmtn krngtengah, kb cianjr"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69942149",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69942149",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. akrmaat no. 55, kecamatang unungpuyuh, kota sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69947206",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69947206",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. perum karaba idnah i, kp. ipntu ari, kec. telukjambe timur, kab karawang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69964337",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69964337",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl.gandrungkp.gandrungrt/rw05/10,kcmtncisarua,kbbandungbarat"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69964626",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69964626",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. PENGAIRAN DS GEMPOL KEC. BANYUSARI KABUPATEN KARAWANG 41374, KEC. BANYUSARI, KABUPATEN KARAWANG"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69969195",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69969195",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. sunan gunung jati, kec. kapetakan, kabupaten icrebon"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69981895",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69981895",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Cijurai Rt02/02 Sukabumi, Kec. Cireunghas, Kabupaten Sukabumi"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69987316",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69987316",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. terusan kaum rt15/0 5pagaden, kcmtn pagaden, kabupaten suabng"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69989332",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69989332",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "kp. pondok ranggon rt. 01 rw  06, kecamaatn cimanggis, kota depok"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69992302",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69992302",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. rya cbesi n. 02 jatinangor sumedng, kcmtn jatinangr, kb smedang"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_69995692",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "69995692",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. SINDANGSARI NO.35 CIMERAK, PANGANDARAN, KEC CIMERAK, KAB. PANGANDARAN"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70001826",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70001826",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. JURAGO NO. 178 RT  33 RW  11, KECAMATAN CIGUGUR, KAB. PANGANDARAN"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70014071",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70014071",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Rd. H Mulya Sukarama 001/002, Kec. Leles, Kab. Cianjur"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70027600",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70027600",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. tentaar pelajar rt. 20 rw 05, kec. kadugede, kb kuningan"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70031480",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70031480",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "JL. SELACAU NO. 180, RT.01 RW.01, KEC. BATUJAJAR, KB BANDUNG BARAT"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70035731",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70035731",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Gandasari, Kasokandel, Majalengka, Kecamatan Kasokandel, Kab. Majalengka"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70038412",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70038412",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Jl. Raya Laswi No. 308, Kcmtn Baleendah, Kabupaten Bandung"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70039210",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70039210",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "jl. ir. sekarn blok cikedng rt .001 rw.001, kcmtan kuningan, kab. kuningan"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70040372",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70040372",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "dusun ii blok cipetir rt.003r w.002, kecamatan sindang agung, kb ukningan"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70040620",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70040620",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Dusun Karanganyar Rt.03 Rw.20, Kecamatan Rancah, Kab Ciamis"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70040919",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70040919",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Kp. Lekor Rt . 02 Rw.. 01, Kec Leles, Kabupaten Garut"
+    },
+    {
+      "annotator_id": "YT-01",
+      "base_address_id": "npsn_sma_70041954",
+      "notes": "",
+      "school_level": "SMA",
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "source_record_id": "70041954",
+      "source_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "text": "Komplek Pondok Pesantren Darul Huda Dsn Kliwon Rt . 001 Rw .001, Kec Garawangi, Kabupaten Kuningan"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

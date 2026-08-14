@@ -1,0 +1,12 @@
+{
+  "annotator_counts": {
+    "YT-01": 200
+  },
+  "assembled_at": "2026-08-14T13:38:30.312249+00:00",
+  "example_count": 200,
+  "level_counts": {
+    "SD": 108,
+    "SMA": 92
+  },
+  "schema_version": "1.0.0"
+}
