@@ -128,6 +128,24 @@ class ValidateCompletedRowsTest(unittest.TestCase):
 
 
 class AssembleTest(unittest.TestCase):
+    def test_assemble_accepts_a_semicolon_delimited_worksheet(self) -> None:
+        # Excel with an Indonesian locale re-saves CSV with ';' as the
+        # delimiter; a completed worksheet round-tripped through Excel must
+        # still assemble correctly.
+        with tempfile.TemporaryDirectory() as directory:
+            template_path = Path(directory) / "template.csv"
+            with template_path.open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.DictWriter(stream, fieldnames=MODULE.TEMPLATE_FIELDS, delimiter=";")
+                writer.writeheader()
+                writer.writerow(_template_row())
+            benchmark_path = Path(directory) / "benchmark.json"
+            summary_path = Path(directory) / "summary.json"
+
+            MODULE.assemble(template_path, benchmark_path, summary_path)
+
+            benchmark = json.loads(benchmark_path.read_text(encoding="utf-8"))
+            self.assertEqual(benchmark["example_count"], 1)
+
     def test_assemble_writes_benchmark_with_manifest_fields(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             template_path = Path(directory) / "template.csv"

@@ -3,8 +3,9 @@
 - Benchmark ID: `alamatin_human_noised_public_address_benchmark_v1`
 - Source catalog: `data/sources.json` version `1.6.0`, `source_id`
   `open_data_jabar_npsn_sd_2023` and `open_data_jabar_npsn_sma_2023`
-- Status: **candidates selected, human rewriting pending** -- this is not a
-  finished dataset yet.
+- Status: **assembled** -- 200 examples, human-rewritten and validated. See
+  `data/interim/school-address-benchmark/human-noised-benchmark.json`
+  (internal only; not yet redistributed publicly).
 
 ## What this is
 
@@ -74,6 +75,11 @@ after validating a human filled it in.**
      number, e.g. `YT-01`), not your real name.
    - `rewritten_address` must differ from `reference_address` -- copying it
      verbatim will fail assembly.
+
+   > Note: if the worksheet is opened and saved in Excel with an
+   > Indonesian-locale install, Excel re-saves CSV files with `;` as the
+   > delimiter instead of `,`. `assemble` sniffs the delimiter automatically,
+   > so this is safe either way.
 
 5. **Assemble and validate**:
 
