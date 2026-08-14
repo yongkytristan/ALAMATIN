@@ -1,0 +1,44 @@
+{
+  "kabupaten_kota_covered": 27,
+  "pool_size_after_filtering": {
+    "sd": 19311,
+    "sma": 1762
+  },
+  "schema_version": "1.0.0",
+  "seed": 20260814,
+  "selected_by_kabupaten_kota": {
+    "KABUPATEN BANDUNG": 8,
+    "KABUPATEN BANDUNG BARAT": 8,
+    "KABUPATEN BEKASI": 8,
+    "KABUPATEN BOGOR": 8,
+    "KABUPATEN CIAMIS": 8,
+    "KABUPATEN CIANJUR": 8,
+    "KABUPATEN CIREBON": 8,
+    "KABUPATEN GARUT": 8,
+    "KABUPATEN INDRAMAYU": 8,
+    "KABUPATEN KARAWANG": 8,
+    "KABUPATEN KUNINGAN": 8,
+    "KABUPATEN MAJALENGKA": 7,
+    "KABUPATEN PANGANDARAN": 7,
+    "KABUPATEN PURWAKARTA": 7,
+    "KABUPATEN SUBANG": 7,
+    "KABUPATEN SUKABUMI": 7,
+    "KABUPATEN SUMEDANG": 7,
+    "KABUPATEN TASIKMALAYA": 7,
+    "KOTA BANDUNG": 7,
+    "KOTA BANJAR": 7,
+    "KOTA BEKASI": 7,
+    "KOTA BOGOR": 7,
+    "KOTA CIMAHI": 7,
+    "KOTA CIREBON": 7,
+    "KOTA DEPOK": 7,
+    "KOTA SUKABUMI": 7,
+    "KOTA TASIKMALAYA": 7
+  },
+  "selected_by_level": {
+    "SD": 108,
+    "SMA": 92
+  },
+  "selected_count": 200,
+  "target": 200
+}

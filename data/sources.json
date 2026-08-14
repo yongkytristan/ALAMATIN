@@ -1,6 +1,6 @@
 {
-  "catalog_version": "1.5.0",
-  "reviewed_at": "2026-08-13",
+  "catalog_version": "1.6.0",
+  "reviewed_at": "2026-08-14",
   "purpose_vocabulary": [
     "administrative_hierarchy",
     "postal_code_reference",
@@ -142,6 +142,118 @@
         "Twenty curated examples are insufficient for model selection or performance claims.",
         "Synthetic examples do not measure real marketplace address distribution or error prevalence.",
         "This source must never be mixed into the sealed real test."
+      ]
+    },
+    {
+      "source_id": "open_data_jabar_npsn_sd_2023",
+      "name": "Daftar NPSN Sekolah Dasar (SD) Jawa Barat",
+      "decision": "use",
+      "purposes": [
+        "base_address_benchmark"
+      ],
+      "publisher": "Dinas Pendidikan Provinsi Jawa Barat via Open Data Jabar",
+      "landing_page_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-dasar-sd-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "accessed_at": "2026-08-14",
+      "snapshot": "Dataset ID 20081, data year 2023; 19,462 rows fetched 2026-08-14",
+      "license_review": {
+        "status": "internal_noncommercial_only",
+        "basis": "The dataset page's own metadata badge shows Creative Commons Attribution, but the standing Open Data Jabar terms finding already recorded for open_data_jabar_postal_2023 (personal non-commercial use only; no broader commercial reuse granted) governs the whole platform and has not been superseded.",
+        "redistribution": "metadata_and_synthetic_fixtures_only",
+        "attribution": "Open Data Jabar and Dinas Pendidikan Provinsi Jawa Barat, dataset ID and snapshot"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "Fields are limited to school name, NPSN, school status (negeri/swasta), kecamatan/kabupaten names, school address text, and data year. No principal/operator name, personal phone number, or household address field exists in this source.",
+        "controls": "Carry forward only the allowlisted public-facility fields in scripts/build_public_address_benchmark_candidates.py; never join to a personal record."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "npsn_sd_csv",
+            "url": "https://data.jabarprov.go.id/api-backend/bigdata/disdik/dftr_kd_sklh_dsr_sd_brdsrkn_sts_sklh_dan_kcmtn_di_jawa_barat?download=csv",
+            "filename": "open-data-jabar-npsn-sd-2023.csv",
+            "media_type": "text/csv"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Fetch all paginated rows with scripts/fetch_npsn_school_addresses.py; see documented_exceptions for why the generic download endpoint above could not be used directly.",
+        "Keep only the allowlisted public-facility fields; drop everything else.",
+        "Select a stratified candidate pool across kabupaten/kota and school level with scripts/build_public_address_benchmark_candidates.py.",
+        "Have a human rewrite each selected address naturally, as if typed at checkout, with scripts/build_human_noised_benchmark.py; this repository must never generate that text itself.",
+        "Record source_id, source_record_id (NPSN), base_address_id, source URL, and a pseudonymous annotator_id on every benchmark row."
+      ],
+      "limitations": [
+        "alamat_sekolah is free-form text without a kelurahan or postal-code field; it corroborates street/landmark form only, not a full administrative chain.",
+        "A school's registered address is a public facility record, not an independently verified precise geocode.",
+        "Use is limited to internal non-commercial work unless broader permission is recorded, consistent with the standing Open Data Jabar terms finding."
+      ],
+      "documented_exceptions": [
+        {
+          "exception_id": "scripted_pagination_acquisition_2026_08_14",
+          "approved_by": "project_owner",
+          "approved_on": "2026-08-14",
+          "scope": "How the raw NPSN SD rows were actually obtained, since the cataloged `?download=csv` endpoint returns an HTTP 403 Cloudflare challenge from this environment -- the same finding already recorded for open_data_jabar_postal_2023.",
+          "basis": "scripts/fetch_npsn_school_addresses.py requests the same paginated JSON endpoint the dataset's own preview page loads in a browser, using the same Referer/Origin/Accept headers a normal page view sends -- not a credential or access-control bypass. It is reproducible: a fixed endpoint, limit/skip pagination until the reported total_record is reached, and the fetched row count is checked against the reported total before any file is written.",
+          "policy_effect": "Documents the real acquisition path for reproducibility only. Does not change the standing internal_noncommercial_only license status or redistribution limit; any future redistribution of derived benchmark text needs its own dated review."
+        }
+      ]
+    },
+    {
+      "source_id": "open_data_jabar_npsn_sma_2023",
+      "name": "Daftar NPSN Sekolah Menengah Atas (SMA) Jawa Barat",
+      "decision": "use",
+      "purposes": [
+        "base_address_benchmark"
+      ],
+      "publisher": "Dinas Pendidikan Provinsi Jawa Barat via Open Data Jabar",
+      "landing_page_url": "https://opendata.jabarprov.go.id/id/dataset/daftar-nomor-pokok-sekolah-nasional-npsn-sekolah-menengah-atas-sma-berdasarkan-status-sekolah-dan-kabupatenkota-di-jawa-barat",
+      "accessed_at": "2026-08-14",
+      "snapshot": "Dataset ID 20078, data year 2023; 1,911 rows fetched 2026-08-14",
+      "license_review": {
+        "status": "internal_noncommercial_only",
+        "basis": "Same Open Data Jabar platform and standing terms finding as open_data_jabar_npsn_sd_2023 and open_data_jabar_postal_2023; the per-dataset Creative Commons Attribution badge has not superseded that finding.",
+        "redistribution": "metadata_and_synthetic_fixtures_only",
+        "attribution": "Open Data Jabar and Dinas Pendidikan Provinsi Jawa Barat, dataset ID and snapshot"
+      },
+      "pii_review": {
+        "status": "approved",
+        "finding": "Same field set as open_data_jabar_npsn_sd_2023: school name, NPSN, status, kecamatan/kabupaten, address text, and data year only.",
+        "controls": "Carry forward only the allowlisted public-facility fields in scripts/build_public_address_benchmark_candidates.py; never join to a personal record."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "npsn_sma_csv",
+            "url": "https://data.jabarprov.go.id/api-backend/bigdata/disdik/od_20078_daftar_nomor_pokok_sekolah_nasional_npsn_sekolah_m_v1?download=csv",
+            "filename": "open-data-jabar-npsn-sma-2023.csv",
+            "media_type": "text/csv"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Fetch all paginated rows with scripts/fetch_npsn_school_addresses.py; see documented_exceptions for why the generic download endpoint above could not be used directly.",
+        "Keep only the allowlisted public-facility fields; drop everything else.",
+        "Select a stratified candidate pool across kabupaten/kota and school level with scripts/build_public_address_benchmark_candidates.py.",
+        "Have a human rewrite each selected address naturally, as if typed at checkout, with scripts/build_human_noised_benchmark.py; this repository must never generate that text itself.",
+        "Record source_id, source_record_id (NPSN), base_address_id, source URL, and a pseudonymous annotator_id on every benchmark row."
+      ],
+      "limitations": [
+        "alamat_sekolah is free-form text without a kelurahan or postal-code field; it corroborates street/landmark form only, not a full administrative chain.",
+        "A school's registered address is a public facility record, not an independently verified precise geocode.",
+        "Use is limited to internal non-commercial work unless broader permission is recorded, consistent with the standing Open Data Jabar terms finding."
+      ],
+      "documented_exceptions": [
+        {
+          "exception_id": "scripted_pagination_acquisition_2026_08_14",
+          "approved_by": "project_owner",
+          "approved_on": "2026-08-14",
+          "scope": "How the raw NPSN SMA rows were actually obtained, since the cataloged `?download=csv` endpoint returns an HTTP 403 Cloudflare challenge from this environment -- the same finding already recorded for open_data_jabar_postal_2023.",
+          "basis": "scripts/fetch_npsn_school_addresses.py requests the same paginated JSON endpoint the dataset's own preview page loads in a browser, using the same Referer/Origin/Accept headers a normal page view sends -- not a credential or access-control bypass. It is reproducible: a fixed endpoint, limit/skip pagination until the reported total_record is reached, and the fetched row count is checked against the reported total before any file is written.",
+          "policy_effect": "Documents the real acquisition path for reproducibility only. Does not change the standing internal_noncommercial_only license status or redistribution limit; any future redistribution of derived benchmark text needs its own dated review."
+        }
       ]
     },
     {

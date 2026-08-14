@@ -1,7 +1,7 @@
 # Public data source decisions
 
-- Catalog version: `1.5.0`
-- Review date: 2026-08-13
+- Catalog version: `1.6.0`
+- Review date: 2026-08-14
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
 
@@ -21,6 +21,7 @@ Approval of a source does not approve every field in that source.
 | Bounded postal conflict validation | `kodepos_dev_rest_api` | Internal validation only; selected village-code detail calls, local ignored output, no redistribution |
 | Roads and landmarks | `osm_geofabrik_indonesia_2026_07_01` | Gazetteer/corroborating data only; coverage varies and ODbL applies |
 | Base address benchmark | `alamatin_synthetic_ner_review_v1` | Deterministic smoke benchmark only; no real-world or model-quality claim |
+| Human-noised public-address benchmark base pool (ALM-012) | `open_data_jabar_npsn_sd_2023`, `open_data_jabar_npsn_sma_2023` | Public-facility (school) addresses only, no personal fields; internal non-commercial use until a derived-benchmark redistribution review is recorded |
 
 The Open Data Jabar 2023 snapshot is approved as the restricted Jawa Barat MVP
 postal source. It is not a national postal authority. Pos Indonesia's official
@@ -235,6 +236,64 @@ scraped or copied from OSM, a gazetteer, or any real customer address.
   Barat roads or businesses, until ALM-009 (OSM extraction) is completed and
   integrated as an optional enhancement. This source must never be mixed
   into the sealed real test.
+
+## `open_data_jabar_npsn_sd_2023` / `open_data_jabar_npsn_sma_2023` — use with obligations
+
+Purpose: base pool for ALM-012's human-noised public-address benchmark.
+
+Fields are limited to school name, NPSN, school status, kecamatan/kabupaten
+name, address text, and data year -- no principal/operator name, personal
+phone number, or household address. A school's registered address is a
+public facility record, not a private residence.
+
+- Snapshot: dataset IDs 20081 (SD) and 20078 (SMA), data year 2023, 19,462 +
+  1,911 rows fetched 2026-08-14 with `scripts/fetch_npsn_school_addresses.py`.
+- Licensing decision: `internal_noncommercial_only`, same as
+  `open_data_jabar_postal_2023` -- the dataset page's own Creative Commons
+  Attribution badge does not supersede the standing Open Data Jabar terms
+  finding already recorded for that source. Redistribution of the raw fetch
+  or candidate pool is `metadata_and_synthetic_fixtures_only`.
+- PII decision: approved; the source has no personal fields to begin with,
+  and `scripts/build_public_address_benchmark_candidates.py` still allowlists
+  fields explicitly as defense in depth.
+
+### Documented exception — scripted pagination acquisition (2026-08-14)
+
+The cataloged `?download=csv` endpoint returns an HTTP 403 Cloudflare
+challenge from this environment, the same finding already recorded for
+`open_data_jabar_postal_2023`. `scripts/fetch_npsn_school_addresses.py`
+requests the paginated JSON endpoint the dataset's own preview page already
+loads in a browser, sending the same Referer/Origin/Accept headers a normal
+page view sends -- not a credential or access-control bypass. It is
+reproducible (fixed endpoint, `limit`/`skip` pagination until the reported
+`total_record` is reached, fetched row count checked against that total
+before any file is written) and does not change the standing
+`internal_noncommercial_only` license status. Full record:
+`data/sources.json` → both `open_data_jabar_npsn_*` entries →
+`documented_exceptions`.
+
+### Pipeline and the human-in-the-loop requirement
+
+1. `scripts/fetch_npsn_school_addresses.py` -- fetch raw rows (internal only,
+   `data/interim/school-address-benchmark/npsn-{sd,sma}-raw.json`).
+2. `scripts/build_public_address_benchmark_candidates.py` -- allowlist fields
+   and draw a deterministic, stratified 200-row candidate pool
+   (`candidates.csv` + `candidates-summary.json`).
+3. `scripts/build_human_noised_benchmark.py make-template` -- produce a blank
+   worksheet (`annotation-template.csv`) for a **real human** to fill in
+   `rewritten_address` (natural, checkout-style phrasing, no new personal
+   data) and a pseudonymous `annotator_id`.
+4. `scripts/build_human_noised_benchmark.py assemble` -- validate the
+   completed worksheet (non-empty fields, rewritten text must differ from the
+   reference address, a phone-number-like-sequence guard) and assemble the
+   governed benchmark manifest.
+
+Step 3 must be done by a person. Nothing in this repository may generate
+`rewritten_address` and label it human-written -- see
+`docs/public_address_benchmark.md` for the full walkthrough. Redistribution
+of the assembled benchmark text itself (as opposed to the raw source) needs
+its own dated review once real annotations exist, following the same pattern
+as the `jabar_postal_reference_v1_redistribution_2026_08_13` exception above.
 
 ## `pos_indonesia_postcode_search` — hold
 
