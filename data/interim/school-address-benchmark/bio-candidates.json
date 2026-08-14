@@ -1,0 +1,6244 @@
+{
+  "annotation_method": "automated_rule_based_v1",
+  "example_count": 200,
+  "examples": [
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20202104",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Sukamulya",
+        ",",
+        "Kec",
+        "Cikembar",
+        ",",
+        "Kab",
+        "Sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20202179",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "CIHAURSEAH",
+        ",",
+        "KCMTN",
+        "JAMPANGKULON",
+        ",",
+        "KB",
+        "SUKABUMI"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20203058",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.Gunung",
+        "Sentul",
+        ",",
+        "Kec",
+        "Ciemas",
+        ",",
+        "Kabupaten",
+        "Sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20203564",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp",
+        "cibatu",
+        "1",
+        ",",
+        "kmctn",
+        "cibinon",
+        ",",
+        "gk",
+        "abupaten",
+        "cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20204734",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "nagrak",
+        ",",
+        "kec",
+        "suakresmi",
+        ",",
+        "kab",
+        "cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20204928",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "CIMANGGU",
+        ",",
+        "KECAMATAN",
+        "CIBEBER",
+        ",",
+        "KAB",
+        "CIANJUR"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20204964",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Kp.CinawalaDs.PadajayaKec.Cikalongkulon'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Cinawala",
+        "Ds.",
+        "Padajaya",
+        "Kec.",
+        "Cikalongkulon",
+        "-",
+        "Cianjur",
+        ",",
+        "Kecamatan",
+        "Cikalongkulon",
+        ",",
+        "Kb",
+        "Cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20205760",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.tugupahlawan",
+        ",",
+        "kecamatanmajalaya",
+        ",",
+        "kabbandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20205838",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Pajaten",
+        "Rt",
+        "01",
+        "Rw.",
+        "02",
+        ",",
+        "Kecamatan",
+        "Kertasari",
+        ",",
+        "Kabupaten",
+        "Bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20206365",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "PASIRLAYUNG",
+        ",",
+        "KECAMATAN",
+        "CIMENYAN",
+        ",",
+        "KABUPATEN",
+        "BANDUNG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20207001",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "LENGSAR",
+        ",",
+        "KECAMATAN",
+        "RONGGA",
+        ",",
+        "KAB.",
+        "BANDUNG",
+        "BARAT"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20207476",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "I-JALAN",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "CIPANAS",
+        "NO.61",
+        "RT",
+        ".02",
+        "RW..04",
+        ",",
+        "KEC",
+        "CISARUA",
+        ",",
+        "KAB",
+        "BANDUNG",
+        "BARAT"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20207519",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "cipongporagn",
+        ",",
+        "kcmtn",
+        "ciparay",
+        ",",
+        "kab",
+        "bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20207764",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Ciloa",
+        "Rt",
+        ".01",
+        "Rw..06",
+        ",",
+        "Kecamatan",
+        "Cikalongwetan",
+        ",",
+        "Kb",
+        "Bandung",
+        "Barat"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20208296",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "mnglyang",
+        "n.18",
+        "sindangsar",
+        ",",
+        "kec.",
+        "suksr",
+        ",",
+        "kb",
+        "sumedang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20208820",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "skaasih",
+        ",",
+        "kcamtan",
+        "conggeang",
+        ",",
+        "kb.",
+        "sumdang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20210039",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "cikeruh",
+        ",",
+        "kec.",
+        "karanngunggal",
+        ",",
+        "kb",
+        "tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20210464",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Dusun",
+        "Awiluar",
+        "Rt.",
+        "16",
+        "Rw",
+        "06",
+        ",",
+        "Kecamatan",
+        "Karang",
+        "Jaya",
+        ",",
+        "Kab.",
+        "Tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20210641",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "BANJAR",
+        "NO.",
+        "140",
+        ",",
+        "KECAMATAN",
+        "MANONJAYA",
+        ",",
+        "KAB",
+        "TASIKMALAYA"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20210749",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "weninggalih",
+        ",",
+        "kec",
+        "bantarkalong",
+        ",",
+        "kb",
+        "tasimkalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20211255",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "cikapas",
+        ",",
+        "kcmtn",
+        "baregbeg",
+        ",",
+        "kabupaten",
+        "cims"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20211361",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Girisetra",
+        ",",
+        "Kecamatan",
+        "Kalipucang",
+        ",",
+        "Kb",
+        "Pangandaran"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20211386",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Dusun",
+        "Sukamanah",
+        "Rt.",
+        "024",
+        "Rw..",
+        "007",
+        ",",
+        "Kecamatan",
+        "Cimerak",
+        ",",
+        "Kabupaten",
+        "Pangandaran"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20211396",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "passian",
+        ",",
+        "kc.",
+        "tambaksari",
+        ",",
+        "kb",
+        "ciams"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20212204",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "SUKAHURIP",
+        ",",
+        "KEC",
+        "CIHAURBEUTI",
+        ",",
+        "KABUPATEN",
+        "CIAMIS"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20212497",
+      "flags": [
+        "long_unmatched_segment_needs_review:'dsuunbantadrawadsciparakankec.kalipucangkab.pangandaran'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dsuun",
+        "bantadrawa",
+        "rt",
+        "003",
+        "rw",
+        "004",
+        "ds",
+        "ciparakan",
+        "kec.",
+        "kalipucang",
+        "kab.",
+        "pangandaran",
+        ",",
+        "kcmtn",
+        "kalipucang",
+        ",",
+        "kabupaten",
+        "apngandaran"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20213082",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "SALAMUDIN",
+        "NO.",
+        "106",
+        "RT..",
+        "05",
+        "RW.",
+        "03",
+        "DUSUN",
+        "PON",
+        ",",
+        "KEC",
+        "CILIMUS",
+        ",",
+        "KAB",
+        "KUNINGAN"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20213261",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Caracas",
+        "No.35",
+        ",",
+        "Kecamatan",
+        "Cilimus",
+        ",",
+        "Kab.",
+        "Kuningan"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20213485",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.ciherang",
+        ",",
+        "kecamatan",
+        "ciawigebang",
+        ",",
+        "kabupaten",
+        "kuningan"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20213587",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "DUSUN",
+        "CISAMPIH",
+        "RT",
+        ".022",
+        "RW",
+        ",",
+        "007",
+        ",",
+        "KCMTN",
+        "MALEBER",
+        ",",
+        "KB",
+        "KUNINGAN"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20214272",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.rayaselatandusuniidshaurgeuliskec.bantarujeg-45464'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.rayaselatandusuniidshaurgeuliskec.bantarujeg-45464",
+        ",",
+        "kecbantarujeg",
+        ",",
+        "kbmajalengka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20214421",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.k.h.",
+        "abdul",
+        "fatah",
+        ",",
+        "kcmtn",
+        "cikjing",
+        ",",
+        "kbupatn",
+        "majalngka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215245",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Ds",
+        "Japurabakti",
+        ",",
+        "Kecamatan",
+        "Astanajapura",
+        ",",
+        "Kabupaten",
+        "Cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215307",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "ds",
+        "dompyong",
+        "kulon",
+        ",",
+        "kec.",
+        "gebang",
+        ",",
+        "kabpatn",
+        "cirebn"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215405",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "P.",
+        "Cakrabuana",
+        ",",
+        "Kecamatan",
+        "Sumber",
+        ",",
+        "Kabupaten",
+        "Cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215665",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.raya",
+        "rawadalem",
+        ",",
+        "kec.balongan",
+        ",",
+        "kab.indramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215751",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Balai",
+        "Desa",
+        "Sudimampir",
+        ",",
+        "Kec.",
+        "Balongan",
+        ",",
+        "Kabupaten",
+        "Indramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215815",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "lbok",
+        "lungsemut",
+        ",",
+        "kecamatan",
+        "tirsi",
+        ",",
+        "ka",
+        "bindramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20215840",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.malangsemirang",
+        ",",
+        "kecamatan",
+        "jatibarang",
+        ",",
+        "kb",
+        "indramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20217320",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "kiraabandung",
+        "rt.",
+        "0",
+        "3rw.",
+        "02",
+        ",",
+        "kec",
+        "sukasari",
+        ",",
+        "kabp",
+        "urwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20217336",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.serepong",
+        "rt",
+        "01",
+        "/",
+        "01",
+        ",",
+        "kcmtn",
+        "kiarapedes",
+        ",",
+        "kabupaten",
+        "purwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20217527",
+      "flags": [
+        "long_unmatched_segment_needs_review:'JL.RAYASADANGASRAMAYONARMED9SADANGPURWAKARTA'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RAYA",
+        "SADANG",
+        "ASRAMA",
+        "YON",
+        "ARMED",
+        "9",
+        "SADANG",
+        "PURWAKARTA",
+        ",",
+        "KEC",
+        "PURWAKARTA",
+        ",",
+        "KAB",
+        "PURWAKARTA"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20218493",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "GALIAN",
+        "RT",
+        "03",
+        "/",
+        "03",
+        ",",
+        "KCMTN",
+        "SUKAWANGI",
+        ",",
+        "KAB.",
+        "BEKASI"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20218556",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jln.rayasetukp.bahagiart01/04'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jln.rayasetukp.bahagiart01",
+        "/",
+        "04",
+        ",",
+        "kec.tambunselatan",
+        ",",
+        "kabupatenbekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20220503",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.CimangguPermai1KecTanahSarealKtBogor'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.Cimanggu",
+        "Permai",
+        "1",
+        "No.1",
+        "Kec",
+        "Tanah",
+        "Sareal",
+        "Kt",
+        "Bogor",
+        ",",
+        "Kecamatan",
+        "Tanah",
+        "Sareal",
+        ",",
+        "Kta",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20220574",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "j.l",
+        "vetrean",
+        "no.",
+        "37",
+        ",",
+        "kce.",
+        "bogor",
+        "tengah",
+        ",",
+        "kta",
+        "bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20221445",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.brawijayano.15",
+        ",",
+        "kec.gunungpuyuh",
+        ",",
+        "kotasukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20221634",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jalan",
+        "mredeka",
+        "2",
+        "no.",
+        "220",
+        ",",
+        "k",
+        "cmtn",
+        "lembusritu",
+        ",",
+        "kta",
+        "sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20221694",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "limusnunggal",
+        "no.",
+        "215",
+        ",",
+        "kcamatan",
+        "cibereum",
+        ",",
+        "kota",
+        "sukabmi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20222094",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "dr.",
+        "sutom",
+        "no.33",
+        ",",
+        "kcmtn",
+        "kesambi",
+        ",",
+        "kta",
+        "cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20222110",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.kutagara",
+        "seltn",
+        "n.",
+        "212",
+        ",",
+        "kcmtn",
+        "pkalipn",
+        ",",
+        "kota",
+        "crebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20222145",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jln.giri",
+        "indah",
+        ",",
+        "kecamatan",
+        "harjamukti",
+        ",",
+        "kt",
+        "cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20222312",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.pengampon",
+        "no.33",
+        ",",
+        "kec.lemah",
+        "wungkuk",
+        ",",
+        "kota",
+        "cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20222703",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.suplierrayablokaa27tamanwismaasri'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.suplierrayablokaa27tamanwismaasri",
+        ",",
+        "kcmtnbekasiutara",
+        ",",
+        "kotabekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20223624",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.barito",
+        "iv",
+        "b",
+        "jakamulya",
+        ",",
+        "kcmtn",
+        "bekasi",
+        "selatan",
+        ",",
+        "kta",
+        "bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20224265",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Ibu",
+        "Ganirah",
+        "No.71",
+        "Rt",
+        ".002",
+        "Rw",
+        ".004",
+        ",",
+        "Kcmtn",
+        "Cimahi",
+        "Selatan",
+        ",",
+        "Kta",
+        "Cimahi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20224359",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "urmah",
+        "sakit",
+        "umum",
+        "no.",
+        "29",
+        ",",
+        "k",
+        "ecamatan",
+        "tawang",
+        ",",
+        "kta",
+        "tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20224684",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jln",
+        "Air",
+        "Tanjung",
+        ",",
+        "Kec",
+        "Kawalu",
+        ",",
+        "Kota",
+        "Tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20224698",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Sindangrasa",
+        ",",
+        "Kec",
+        "Cibeureum",
+        ",",
+        "Kota",
+        "Tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225163",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jaln",
+        "sudiro",
+        "w",
+        "no.",
+        "52",
+        ",",
+        "kecamatn",
+        "banjar",
+        ",",
+        "kta",
+        "banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225258",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.dewisartikagangjerukrw.008lingk.parunglesang'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "dewi",
+        "sartikag",
+        "ang",
+        "jeruk",
+        "rt..",
+        "001",
+        "rw",
+        ".",
+        "008",
+        "lingk.",
+        "parunglesang",
+        ",",
+        "kec",
+        "banjar",
+        ",",
+        "tka",
+        "banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225288",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "moh",
+        "hamim",
+        ",",
+        "kcmtn",
+        "banjar",
+        ",",
+        "okta",
+        "banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225323",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Lingkungan",
+        "Pintusinga",
+        "No",
+        "27",
+        ",",
+        "Kecamatan",
+        "Banjar",
+        ",",
+        "Kota",
+        "Banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225949",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Cisaat",
+        ",",
+        "Kec.",
+        "Kadungora",
+        ",",
+        "Kab.",
+        "Garut"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20225981",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "CIUDIAN",
+        ",",
+        "KEC.",
+        "SINGAJAYA",
+        ",",
+        "KABUPATEN",
+        "GARUT"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20227062",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Bangkonol",
+        ",",
+        "Kecamatan",
+        "Sukawening",
+        ",",
+        "Kab.",
+        "Garut"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228007",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "SUKA",
+        "INDAH",
+        "B.17",
+        "RT.004",
+        "RW..013",
+        ",",
+        "KEC",
+        "CIMAHI",
+        "TENGAH",
+        ",",
+        "KOTA",
+        "CIMAHI"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228568",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-RT",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "pasantren",
+        "iv",
+        "no.252",
+        "rt.006",
+        "rw.015",
+        ",",
+        "kcmtn",
+        "cimahi",
+        "utara",
+        ",",
+        "kta",
+        "cimahi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228852",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "h",
+        "muhasim",
+        "no.",
+        "69",
+        ",",
+        "kec",
+        "pncoran",
+        "ms",
+        ",",
+        "kt",
+        "depok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228876",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Duta",
+        "Plaza",
+        "No.",
+        "1",
+        ",",
+        "Kec",
+        "Cimanggis",
+        ",",
+        "Kt",
+        "Depok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228893",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "serua",
+        "bulak",
+        "rt",
+        "02",
+        "/",
+        "03",
+        ",",
+        "kecamatan",
+        "bojongsari",
+        ",",
+        "kt",
+        "depok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20228957",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jln.",
+        "pekapuarn",
+        "kp",
+        "babakan",
+        "rt",
+        "05",
+        "/",
+        "22",
+        ",",
+        "kcmtn",
+        "tapo",
+        ",",
+        "s",
+        "kta",
+        "depok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20229542",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "pondokbungur",
+        ",",
+        "kcmtn",
+        "pondoksalam",
+        ",",
+        "kabupaten",
+        "purwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20230551",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl",
+        "Pasir",
+        "Honje",
+        ",",
+        "Kec.",
+        "Leuwiliang",
+        ",",
+        "Kb",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20230563",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "maribaya",
+        "rt..",
+        "03",
+        "/",
+        "01",
+        ",",
+        "kecamtn",
+        "jasinga",
+        ",",
+        "kab.",
+        "bgr"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20232652",
+      "flags": [],
+      "labels": [
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "bbkan",
+        ",",
+        "kcmtn",
+        "casem",
+        ",",
+        "kb",
+        "subang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20232858",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "cinngah",
+        ",",
+        "kcmtn",
+        "jalancagak",
+        ",",
+        "kb",
+        "sbang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20233509",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "nyalindng",
+        ",",
+        "kecamatn",
+        "ksmlang",
+        ",",
+        "kb",
+        "subang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20233841",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Dusun",
+        "Babakan",
+        ",",
+        "Kecamatan",
+        "Buahdua",
+        ",",
+        "Kabupaten",
+        "Sumedang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20236253",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusunkarajan",
+        ",",
+        "kec.kotabaru",
+        ",",
+        "kabupatenkarawang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20236297",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "konadng",
+        ",",
+        "kec.",
+        "pedes",
+        ",",
+        "kb",
+        "karawang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20236369",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "DUSUN",
+        "KRAJAN",
+        "II",
+        ",",
+        "KECAMATAN",
+        "LEMAHABANG",
+        ",",
+        "KAB.",
+        "KARAWANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20238439",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "cilubang",
+        ",",
+        "kecaamtan",
+        "bogo",
+        "rbarat",
+        ",",
+        "tka",
+        "bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20238468",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "cimang",
+        "permi",
+        "i",
+        ",",
+        "kc.",
+        "tnh",
+        "saral",
+        ",",
+        "kota",
+        "bgr"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20244848",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "sarijadi",
+        "raya",
+        "no.73",
+        ",",
+        "kecamatan",
+        "sukasari",
+        ",",
+        "kt",
+        "bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20244978",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "leuwianyr",
+        ",",
+        "kcmtn",
+        "bjongloa",
+        "kdl",
+        ",",
+        "kt",
+        "bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20245429",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "pup",
+        "sktr",
+        "v",
+        "blok",
+        "02",
+        "no",
+        "1-5",
+        "rt",
+        "06",
+        "/",
+        "027",
+        ",",
+        "kcmtn",
+        "babelan",
+        ",",
+        "kabpten",
+        "bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20245481",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.golfselatanino.26",
+        ",",
+        "kecamatanarcamanik",
+        ",",
+        "ktabandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20245521",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Jamaras",
+        "4",
+        "No.101",
+        ",",
+        "Kec.",
+        "Mandalajati",
+        ",",
+        "Kt",
+        "Bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20246095",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.dukuh",
+        "asih",
+        ",",
+        "kec.leuwimunding",
+        ",",
+        "kab.majalengka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20246178",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "IR.",
+        "H.",
+        "JUANDA",
+        ",",
+        "KEC.",
+        "JATIWANGI",
+        ",",
+        "KABUPATEN",
+        "MAJALENGKA"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20251868",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.k",
+        "olonel",
+        "achmad",
+        "syam",
+        "no4",
+        "6",
+        ",",
+        "b",
+        "kcmtn",
+        "jatinangor",
+        ",",
+        "kab",
+        "sumedang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20252246",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "cimuncagn",
+        ",",
+        "kecamatan",
+        "panumbangan",
+        ",",
+        "kab.",
+        "ciamis"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20252271",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Dusun",
+        "Sinargalih",
+        ",",
+        "Kecamatan",
+        "Parigi",
+        ",",
+        "Kabupaten",
+        "Pangandaran"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20254573",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.banara",
+        "jaya",
+        "02",
+        "/",
+        "09",
+        ",",
+        "kec.pamijahan",
+        ",",
+        "kabupaten",
+        "bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20254718",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.h",
+        "haris",
+        "no.131",
+        "kp",
+        "sukaraja",
+        "rt.003",
+        "rw.010",
+        ",",
+        "kcmtn",
+        "cimahi",
+        "tengah",
+        ",",
+        "kt",
+        "cimahi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20265247",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp",
+        "kecemk",
+        ",",
+        "kec",
+        "banysari",
+        ",",
+        "kab",
+        "karawang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_20267976",
+      "flags": [],
+      "labels": [
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "O",
+        "B-DETAIL_LOKASI",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Jalancagak",
+        "-",
+        "Sagalaherang",
+        "Km.",
+        "1",
+        "No.",
+        "B23",
+        ",",
+        "24",
+        ",",
+        "25",
+        ",",
+        "Kecamatan",
+        "Jalancagak",
+        ",",
+        "Kab.",
+        "Subang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_24100965",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.babaka",
+        ",",
+        "n",
+        "kec.",
+        "simpenan",
+        ",",
+        "kab.s",
+        "ukabmui"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69762664",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.re.mrtadinta",
+        "n.93",
+        "b",
+        ",",
+        "kec.",
+        "cipedes",
+        ",",
+        "kta",
+        "tasikmalya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69856915",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.rayalelesno.5edsleles",
+        ",",
+        "kec.leles",
+        ",",
+        "kabupatengarut"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69917492",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.LETJEN",
+        "S",
+        "PARMAN",
+        ",",
+        "KECAMATAN",
+        "CILEUNGSI",
+        ",",
+        "KAB",
+        "BOGOR"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69943816",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "raya",
+        "pengasinan",
+        "ii",
+        "no",
+        "140b",
+        ",",
+        "kec.",
+        "rawalumub",
+        ",",
+        "kta",
+        "beksai"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69972992",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "mutiara",
+        "gading",
+        "city",
+        "blok",
+        "s.",
+        ",",
+        "kce.",
+        "tarumajaya",
+        ",",
+        "kb",
+        "beaksi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_69995771",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "wbawa",
+        "mukti",
+        "i",
+        "gg",
+        "h",
+        "samin",
+        "rt",
+        "01",
+        "rw",
+        "04",
+        ",",
+        "kc.",
+        "jatiash",
+        ",",
+        "kt",
+        "bkasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_70005212",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jalan",
+        "Merdeka",
+        "Kp",
+        "Baru",
+        ",",
+        "Kecamatan",
+        "Lembursitu",
+        ",",
+        "Kta",
+        "Sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_70010542",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.buyutdelingblokgrewalrw.03'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.buyut",
+        "deling",
+        "blok",
+        "grewal",
+        "rt.06",
+        "rw",
+        ".03",
+        ",",
+        "kec",
+        "weru",
+        ",",
+        "kabupaten",
+        "cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sd_70038143",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Manapa",
+        "Rt.01",
+        "Rw",
+        ".04",
+        ",",
+        "Kec.",
+        "Cililin",
+        ",",
+        "Kabupaten",
+        "Bandung",
+        "Barat"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20200670",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.Kp.PabuaranKaumDs.Cibanteng/02'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Kp.",
+        "Pabuaran",
+        "Kaum",
+        "Ds.",
+        "Cibanteng",
+        "Rt.",
+        "03",
+        "/",
+        "02",
+        ",",
+        "Kec.",
+        "Ciampea",
+        ",",
+        "Kb",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20200674",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "abdul",
+        "fatah",
+        "km",
+        "4",
+        "ds.",
+        "cinangka",
+        ",",
+        "kecamatan",
+        "ciampea",
+        ",",
+        "kb",
+        "bgoor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20202258",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "bina",
+        "karya",
+        ",",
+        "kec.",
+        "simpenan",
+        ",",
+        "kab.",
+        "suakbumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20203739",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Pangeran",
+        "Hidayatullah",
+        "No.",
+        "62",
+        ",",
+        "Kec",
+        "Cianjur",
+        ",",
+        "Kb",
+        "Cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20206144",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "ds",
+        "ciptaharja",
+        "no.",
+        "35",
+        ",",
+        "kcmtn",
+        "cipatta",
+        ",",
+        "kab.",
+        "bandung",
+        "barat"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20208425",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Sawah",
+        "Menak",
+        "-",
+        "Jatimekar",
+        "-",
+        "Situraja",
+        "-",
+        "Sumedang",
+        ",",
+        "Kec",
+        "Situraja",
+        ",",
+        "Kabupaten",
+        "Sumedang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20209377",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "otto",
+        "iskandardinata",
+        "no.66",
+        ",",
+        "kect",
+        "arogong",
+        "kaler",
+        ",",
+        "kabupaten",
+        "gartu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20210746",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.anggacandrano.133cukangkawung'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.anggacandrano.133cukangkawung",
+        ",",
+        "kec.sodonghilir",
+        ",",
+        "kab.tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20210774",
+      "flags": [],
+      "labels": [
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RAYA",
+        "BOJONGGAMBIR",
+        ",",
+        "KEC",
+        "BOJONGGAMBIR",
+        ",",
+        "KAB",
+        "TASIKMALAYA"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20211499",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.bojonghuni",
+        "no.87",
+        "ciamis",
+        ",",
+        "kcmtn",
+        "ciamis",
+        ",",
+        "kab.ciamis"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20211562",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.PesantrenSindangsariDusunSindang'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Pesantren",
+        "Sindangsari",
+        "Dusun",
+        "Sindang",
+        "Rt",
+        "006",
+        "Rw",
+        "002",
+        ",",
+        "Kcmtn",
+        "Panawangan",
+        ",",
+        "Kb",
+        "Ciamis"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20211578",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.KartawijayaPamokolanCihaurbeuti'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Kartawijaya",
+        "No.",
+        "600",
+        "Pamokolan",
+        "Cihaurbeuti",
+        ",",
+        "Kec.",
+        "Cihaurbeuti",
+        ",",
+        "Kabupaten",
+        "Ciamis"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20214975",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Desa",
+        "Batembat",
+        "Tengahtani",
+        ",",
+        "Kcmtn",
+        "Tengah",
+        "Tani",
+        ",",
+        "Kb",
+        "Cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20214986",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Kh.",
+        "Zainal",
+        "A.",
+        ",",
+        "Kecamatan",
+        "Karangwareng",
+        ",",
+        "Kb",
+        "Cirebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20215977",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "BY",
+        "PASS",
+        "KERTASEMAYA",
+        "KM.37",
+        ",",
+        "KEC",
+        "SUKAGUMIWANG",
+        ",",
+        "KABUPATEN",
+        "INDRAMAYU"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20215990",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.pubaratgabuskulon",
+        ",",
+        "kecgabuswetan",
+        ",",
+        "kabupatenindramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20216203",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.dampuawangno.01",
+        ",",
+        "kcmtnkarangampel",
+        ",",
+        "kbindramayu"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20216952",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "EMO",
+        "KURNIAATMAJA",
+        "NO.",
+        "1",
+        "SUBANG",
+        ",",
+        "KEC",
+        "SUBANG",
+        ",",
+        "KB",
+        "SUBANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20217784",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "SINGAPERBANGSA",
+        ",",
+        "KEC.",
+        "CILAMAYA",
+        "WETAN",
+        ",",
+        "KAB.",
+        "KARAWANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20219728",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.dursasanano.8",
+        ",",
+        "kec.cicendo",
+        ",",
+        "ktbandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20219729",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "BIMA",
+        "NO.",
+        "9",
+        ",",
+        "KCMTN",
+        "CICENDO",
+        ",",
+        "KTA",
+        "BANDUNG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20219762",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "aracmanik",
+        "no.",
+        "31",
+        "rt",
+        "02",
+        "/",
+        "rw",
+        "01",
+        ",",
+        "kecamatan",
+        "mandalajati",
+        ",",
+        "kota",
+        "bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20220335",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "WALET",
+        "NO",
+        "13",
+        ",",
+        "KEC",
+        "TANAH",
+        "SAREAL",
+        ",",
+        "KT",
+        "BOGOR"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20220337",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Btn",
+        "Ciparigi",
+        "No.",
+        "60",
+        ",",
+        "Kec",
+        "Bogor",
+        "Utara",
+        ",",
+        "Kt",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20220338",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Kartini",
+        "No.",
+        "1",
+        ",",
+        "Kecamatan",
+        "Bogor",
+        "Tengah",
+        ",",
+        "Kt",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20221558",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "VETERAN",
+        "I",
+        "NO.",
+        "36",
+        "SUKABUMI",
+        ",",
+        "KEC",
+        "CIKOLE",
+        ",",
+        "KT",
+        "SUKABUMI"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20221563",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.sarasablokloasarisukabumi'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "sarasa",
+        "blok",
+        "loasari",
+        "no.1",
+        "sukabumi",
+        ",",
+        "ke",
+        "ccibeureum",
+        ",",
+        "kota",
+        "sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20222364",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "WAHIDIN",
+        "SUDIROHUSODO",
+        "NO.",
+        "81",
+        ",",
+        "KECAMATAN",
+        "KEJAKSAN",
+        ",",
+        "KOTA",
+        "CIREBON"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20222370",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "cipto",
+        "mangnkusumo",
+        "no.24",
+        ",",
+        "kec",
+        "kesmbi",
+        ",",
+        "kta",
+        "cirbon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20222379",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "PULASAREN",
+        "NO",
+        "01",
+        ",",
+        "KEC",
+        "LEMAH",
+        "WUNGKUK",
+        ",",
+        "KT",
+        "CIREBON"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224106",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Terusan",
+        "No.",
+        "32",
+        "Cimahi",
+        ",",
+        "Kecamatan",
+        "Cimahi",
+        "Tengah",
+        ",",
+        "Kta",
+        "Cimahi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224108",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "MELONG",
+        "RAYA",
+        "NO.",
+        "172",
+        "CIJERAH",
+        ",",
+        "KEC.",
+        "CIMAHI",
+        "SELATAN",
+        ",",
+        "KTA",
+        "CIMAHI"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224139",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "kpad",
+        "sriwijaya",
+        "ix",
+        "no.",
+        "45",
+        ",",
+        "kcmtn",
+        "cimahi",
+        "tngh",
+        ",",
+        "kt",
+        "cimahi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224505",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.air",
+        "tanjung",
+        "no.25",
+        ",",
+        "kecamatan",
+        "kawalu",
+        ",",
+        "kota",
+        "tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224507",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.tentara",
+        "pelajar",
+        "no.58",
+        ",",
+        "kec.tawang",
+        ",",
+        "kta",
+        "tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20224510",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "r..",
+        "martdnata",
+        "no.261",
+        ",",
+        "kcmtn",
+        "indihiang",
+        ",",
+        "kt",
+        "tasikmalya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20225276",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Pesantren",
+        "No.2",
+        ",",
+        "Kec.",
+        "Langensari",
+        ",",
+        "Kota",
+        "Banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20225279",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.kh.mustofa",
+        "no.1",
+        ",",
+        "kec.banjar",
+        ",",
+        "kt",
+        "banjar"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20225280",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "KH.",
+        "MUHAMAD",
+        "SANUSI",
+        ",",
+        "KEC",
+        "LANGENSARI",
+        ",",
+        "KT",
+        "BANJAR"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20227814",
+      "flags": [
+        "long_unmatched_segment_needs_review:'KOMPLEKSPERSEKOLAHANSAWAHLEGANAGROG'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KOMPLEKS",
+        "PERSEKOLAHAN",
+        "SAWAH",
+        "LEGA",
+        "NAGROG",
+        ",",
+        "KEC.",
+        "CICALENGKA",
+        ",",
+        "KAB.",
+        "BANDUNG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20227871",
+      "flags": [],
+      "labels": [
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "ray",
+        "panglngan",
+        "no.",
+        "332",
+        ",",
+        "kec.",
+        "panglengan",
+        ",",
+        "kb",
+        "bndung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20229746",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Terusan",
+        "Kapten",
+        "Halim",
+        ",",
+        "Kcmtn",
+        "Pasawahan",
+        ",",
+        "Kab",
+        "Purwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20231715",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Taman",
+        "Wisma",
+        "Asri",
+        "Kav.7",
+        ",",
+        "Kec",
+        "Bekasi",
+        "Utara",
+        ",",
+        "Kota",
+        "Bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20232329",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Jakarta",
+        "-",
+        "Bogor",
+        "Km",
+        "44",
+        ",",
+        "Kecamatan",
+        "Cibinong",
+        ",",
+        "Kabupaten",
+        "Bogor"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20235624",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RD",
+        "ALI",
+        "SADIKIN",
+        ",",
+        "KEC",
+        "TOMO",
+        ",",
+        "KAB.",
+        "SUMEDANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20237998",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "sunset",
+        "ave",
+        "grand",
+        "wista",
+        ",",
+        "kcmtn",
+        "tambun",
+        "seltan",
+        ",",
+        "kabpaten",
+        "bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20238019",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.simpangtigastun.18tambunselatan'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "simpang",
+        "tiga",
+        "stu",
+        "n.",
+        "18",
+        "tambun",
+        "selatan",
+        ",",
+        "kecmtn",
+        "tambun",
+        "seltan",
+        ",",
+        "kab.",
+        "bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20240400",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "PEJUANG",
+        "KP.",
+        "MALANG",
+        "RT",
+        ".03",
+        "/",
+        "06",
+        ",",
+        "KCMTN",
+        "PASEH",
+        ",",
+        "KAB.",
+        "BANDUNG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20244679",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "KH.",
+        "BUNYAMIN",
+        "NO.",
+        "03",
+        ",",
+        "KEC.",
+        "SUSUKAN",
+        ",",
+        "KB",
+        "CIREBON"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20244793",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RAYA",
+        "CIMANGGU",
+        "NO.",
+        "87",
+        ",",
+        "KEC.",
+        "CISALAK",
+        ",",
+        "KAB",
+        "SUBANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20246383",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.IbnuSabilKp.Pangkalan/08SukamekarSukawangi'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.Ibnu",
+        "Sabil",
+        "Kp.Pangkalan",
+        "Rt.",
+        "02",
+        "/",
+        "08",
+        "Sukamekar",
+        "Sukawangi",
+        ",",
+        "Kec",
+        "Sukawangi",
+        ",",
+        "Kb",
+        "Bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20251787",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.raya",
+        "cililin",
+        "utara",
+        "no.52",
+        ",",
+        "kcmtn",
+        "cililin",
+        ",",
+        "kab.bandung",
+        "barat"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20251847",
+      "flags": [],
+      "labels": [
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "LANGKAPLANCAR",
+        "DSN",
+        "CIBEUREUM",
+        ",",
+        "KECAMATAN",
+        "LANGKAPLANCAR",
+        ",",
+        "KB",
+        "PANGANDARAN"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20254043",
+      "flags": [],
+      "labels": [
+        "B-KECAMATAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.rayacampaka",
+        ",",
+        "kecamatancampaka",
+        ",",
+        "kabupatenpurwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20258065",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.Narunggul",
+        ",",
+        "Kcmtn",
+        "Rajapolah",
+        ",",
+        "Kab",
+        "Tasikmalaya"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20264425",
+      "flags": [
+        "long_unmatched_segment_needs_review:'JL.RAYACANGKINGANKEDOKANBUNDER'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RAYA",
+        "CANGKINGAN",
+        "KEDOKANBUNDER",
+        ",",
+        "KEC.",
+        "KEDOKAN",
+        "BUNDER",
+        ",",
+        "KB",
+        "INDRAMAYU"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20265284",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "belakang",
+        "pasar",
+        "no.",
+        "14",
+        ",",
+        "kec.",
+        "karawang",
+        "barat",
+        ",",
+        "ka.b",
+        "karawang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20268809",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "RAYA",
+        "SAWANGAN",
+        "KM",
+        "2",
+        ",",
+        "KEC.",
+        "PANCORAN",
+        "MAS",
+        ",",
+        "KOTA",
+        "DEPOK"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20271843",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI",
+        "O",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "KP.",
+        "CIGARUNGSANG",
+        ",",
+        "RT",
+        ".",
+        "02",
+        ",",
+        "RW.",
+        "01",
+        ",",
+        "KCMTN",
+        "CILAWU",
+        ",",
+        "KAB.",
+        "GARUT"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20272074",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "h.",
+        "mhiarja",
+        ",",
+        "kec.",
+        "sukamakmur",
+        ",",
+        "kb",
+        "boogr"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_20276416",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jlrayaahnkamkampuslabschool'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl",
+        "raya",
+        "ahnkam",
+        "kampus",
+        "labschool",
+        ",",
+        "kec",
+        "jatisampurna",
+        ",",
+        "kat",
+        "bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69774555",
+      "flags": [
+        "long_unmatched_segment_needs_review:'JlBoulevardUtaraBlokISummareconBekasi'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl",
+        "Boulevard",
+        "Utara",
+        "Blok",
+        "I",
+        "Summarecon",
+        "Bekasi",
+        ",",
+        "Kec.",
+        "Bekasi",
+        "Utara",
+        ",",
+        "Kt",
+        "Bekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69857937",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.kemangiino.11art.04rw.09",
+        ",",
+        "kec.sukmajaya",
+        ",",
+        "kotadepok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69889026",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.blukbukrt.01",
+        "/",
+        "02",
+        ",",
+        "kcmtnmuaragembong",
+        ",",
+        "kbbekasi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69892332",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-RW",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "blok",
+        "ds",
+        "rt..05",
+        "rw.20",
+        "ds",
+        "kancana",
+        ",",
+        "kec",
+        "ciikjing",
+        ",",
+        "kb",
+        "majalengka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69896859",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.gunungbaturt.02rw.01",
+        ",",
+        "kecamatannaringgul",
+        ",",
+        "kab.cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69900793",
+      "flags": [
+        "long_unmatched_segment_needs_review:'blokdalemrt.02rw.04ds.weragati'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "blokdalemrt.02rw.04ds.weragati",
+        ",",
+        "kecpalasah",
+        ",",
+        "kabmajalengka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69915781",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jln.pengkolankondangjampangkulon'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jln.pengkolankondangjampangkulon",
+        ",",
+        "kecjampangkulon",
+        ",",
+        "kbsukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69919741",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "bardua",
+        "rt",
+        "01",
+        "/",
+        "01",
+        ",",
+        "kcmtn",
+        "mlngbong",
+        ",",
+        "kbupatn",
+        "garut"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69923800",
+      "flags": [
+        "long_unmatched_segment_needs_review:'Jl.Ds.CibinongJatiluhurPurwakarta'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Ds.",
+        "Cibinong",
+        "Jatiluhur",
+        "Purwakarta",
+        ",",
+        "Kec",
+        "Jatiluhur",
+        ",",
+        "Kabupaten",
+        "Purwakarta"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69930653",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "kh.",
+        "saleh",
+        "n.",
+        "446",
+        ",",
+        "kcmtn",
+        "krngtengah",
+        ",",
+        "kb",
+        "cianjr"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69942149",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "akrmaat",
+        "no.",
+        "55",
+        ",",
+        "kecamatang",
+        "unungpuyuh",
+        ",",
+        "kota",
+        "sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69947206",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI",
+        "I-DETAIL_LOKASI",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "perum",
+        "karaba",
+        "idnah",
+        "i",
+        ",",
+        "kp.",
+        "ipntu",
+        "ari",
+        ",",
+        "kec.",
+        "telukjambe",
+        "timur",
+        ",",
+        "kab",
+        "karawang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69964337",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RW",
+        "B-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.gandrungkp.gandrungrt",
+        "/",
+        "rw05",
+        "/",
+        "10",
+        ",",
+        "kcmtncisarua",
+        ",",
+        "kbbandungbarat"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69964626",
+      "flags": [
+        "long_unmatched_segment_needs_review:'JL.PENGAIRANDSGEMPOLKEC.BANYUSARIKABUPATENKARAWANG'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-KODEPOS",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "PENGAIRAN",
+        "DS",
+        "GEMPOL",
+        "KEC.",
+        "BANYUSARI",
+        "KABUPATEN",
+        "KARAWANG",
+        "41374",
+        ",",
+        "KEC.",
+        "BANYUSARI",
+        ",",
+        "KABUPATEN",
+        "KARAWANG"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69969195",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "sunan",
+        "gunung",
+        "jati",
+        ",",
+        "kec.",
+        "kapetakan",
+        ",",
+        "kabupaten",
+        "icrebon"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69981895",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Cijurai",
+        "Rt02",
+        "/",
+        "02",
+        "Sukabumi",
+        ",",
+        "Kec.",
+        "Cireunghas",
+        ",",
+        "Kabupaten",
+        "Sukabumi"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69987316",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "terusan",
+        "kaum",
+        "rt15",
+        "/",
+        "0",
+        "5pagaden",
+        ",",
+        "kcmtn",
+        "pagaden",
+        ",",
+        "kabupaten",
+        "suabng"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69989332",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "kp.",
+        "pondok",
+        "ranggon",
+        "rt.",
+        "01",
+        "rw",
+        "06",
+        ",",
+        "kecamaatn",
+        "cimanggis",
+        ",",
+        "kota",
+        "depok"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69992302",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.ryacbesin.02jatinangorsumedng'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "rya",
+        "cbesi",
+        "n.",
+        "02",
+        "jatinangor",
+        "sumedng",
+        ",",
+        "kcmtn",
+        "jatinangr",
+        ",",
+        "kb",
+        "smedang"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_69995692",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "B-JALAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "SINDANGSARI",
+        "NO.35",
+        "CIMERAK",
+        ",",
+        "PANGANDARAN",
+        ",",
+        "KEC",
+        "CIMERAK",
+        ",",
+        "KAB.",
+        "PANGANDARAN"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70001826",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "JURAGO",
+        "NO.",
+        "178",
+        "RT",
+        "33",
+        "RW",
+        "11",
+        ",",
+        "KECAMATAN",
+        "CIGUGUR",
+        ",",
+        "KAB.",
+        "PANGANDARAN"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70014071",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Rd.",
+        "H",
+        "Mulya",
+        "Sukarama",
+        "001",
+        "/",
+        "002",
+        ",",
+        "Kec.",
+        "Leles",
+        ",",
+        "Kab.",
+        "Cianjur"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70027600",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "tentaar",
+        "pelajar",
+        "rt.",
+        "20",
+        "rw",
+        "05",
+        ",",
+        "kec.",
+        "kadugede",
+        ",",
+        "kb",
+        "kuningan"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70031480",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-RT",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "JL.",
+        "SELACAU",
+        "NO.",
+        "180",
+        ",",
+        "RT.01",
+        "RW.01",
+        ",",
+        "KEC.",
+        "BATUJAJAR",
+        ",",
+        "KB",
+        "BANDUNG",
+        "BARAT"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70035731",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Gandasari",
+        ",",
+        "Kasokandel",
+        ",",
+        "Majalengka",
+        ",",
+        "Kecamatan",
+        "Kasokandel",
+        ",",
+        "Kab.",
+        "Majalengka"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70038412",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-NOMOR",
+        "I-NOMOR",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Jl.",
+        "Raya",
+        "Laswi",
+        "No.",
+        "308",
+        ",",
+        "Kcmtn",
+        "Baleendah",
+        ",",
+        "Kabupaten",
+        "Bandung"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70039210",
+      "flags": [
+        "long_unmatched_segment_needs_review:'jl.ir.sekarnblokcikedngrt.001'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "jl.",
+        "ir.",
+        "sekarn",
+        "blok",
+        "cikedng",
+        "rt",
+        ".001",
+        "rw.001",
+        ",",
+        "kcmtan",
+        "kuningan",
+        ",",
+        "kab.",
+        "kuningan"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70040372",
+      "flags": [
+        "rt_token_has_trailing_noise:'rt.003r'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "dusun",
+        "ii",
+        "blok",
+        "cipetir",
+        "rt.003r",
+        "w.002",
+        ",",
+        "kecamatan",
+        "sindang",
+        "agung",
+        ",",
+        "kb",
+        "ukningan"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70040620",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "B-RT",
+        "B-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Dusun",
+        "Karanganyar",
+        "Rt.03",
+        "Rw.20",
+        ",",
+        "Kecamatan",
+        "Rancah",
+        ",",
+        "Kab",
+        "Ciamis"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70040919",
+      "flags": [],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "B-RW",
+        "I-RW",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Kp.",
+        "Lekor",
+        "Rt",
+        ".",
+        "02",
+        "Rw..",
+        "01",
+        ",",
+        "Kec",
+        "Leles",
+        ",",
+        "Kabupaten",
+        "Garut"
+      ]
+    },
+    {
+      "annotation_method": "automated_rule_based_v1",
+      "base_address_id": "npsn_sma_70041954",
+      "flags": [
+        "long_unmatched_segment_needs_review:'KomplekPondokPesantrenDarulHudaDsnKliwonRt.001Rw.001'"
+      ],
+      "labels": [
+        "B-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "I-JALAN",
+        "O",
+        "B-KECAMATAN",
+        "I-KECAMATAN",
+        "O",
+        "B-KOTA_KABUPATEN",
+        "I-KOTA_KABUPATEN"
+      ],
+      "status": "candidate",
+      "tokens": [
+        "Komplek",
+        "Pondok",
+        "Pesantren",
+        "Darul",
+        "Huda",
+        "Dsn",
+        "Kliwon",
+        "Rt",
+        ".",
+        "001",
+        "Rw",
+        ".001",
+        ",",
+        "Kec",
+        "Garawangi",
+        ",",
+        "Kabupaten",
+        "Kuningan"
+      ]
+    }
+  ],
+  "flagged_count": 28,
+  "schema_version": "1.0.0"
+}

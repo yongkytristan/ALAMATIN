@@ -34,6 +34,7 @@ from .reference_hierarchy import (
     normalize_name,
     normalize_region_code,
 )
+from .tokenizer import tokenize
 
 __all__ = [
     "BIO_LABELS",
@@ -63,5 +64,6 @@ __all__ = [
     "nearest_rank_percentile",
     "normalize_name",
     "normalize_region_code",
+    "tokenize",
     "validate_bio_sequence",
 ]
