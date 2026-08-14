@@ -60,10 +60,19 @@ class BenchmarkAssemblyError(ValueError):
     """Raised when the annotation worksheet is missing or violates a rule."""
 
 
+def _sniff_delimiter(sample: str) -> str:
+    try:
+        return csv.Sniffer().sniff(sample, delimiters=",;").delimiter
+    except csv.Error:
+        return ","
+
+
 def _read_csv_rows(path: Path, required_fields: tuple[str, ...]) -> list[dict[str, str]]:
     try:
         with path.open("r", encoding="utf-8-sig", newline="") as stream:
-            reader = csv.DictReader(stream)
+            sample = stream.read(4096)
+            stream.seek(0)
+            reader = csv.DictReader(stream, delimiter=_sniff_delimiter(sample))
             missing = set(required_fields) - set(reader.fieldnames or ())
             if missing:
                 raise BenchmarkAssemblyError(
