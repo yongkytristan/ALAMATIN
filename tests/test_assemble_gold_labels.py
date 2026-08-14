@@ -66,6 +66,38 @@ class AssembleTest(unittest.TestCase):
         self.assertEqual(example["labels"], ["B-DETAIL_LOKASI", "I-DETAIL_LOKASI"])
         self.assertEqual(example["annotation_provenance"], "double_annotated_adjudicated")
 
+    def test_o_decision_does_not_wipe_finer_human_sub_spans_it_overlaps(self) -> None:
+        # A disagreement row sourced from "automated added a coarser span the
+        # human didn't have" carries the automated pass's own (misaligned)
+        # boundary. Adjudicating that row to "O" must not destroy the
+        # human's correct, finer-grained sub-spans that fall inside it.
+        candidates = {
+            "examples": [
+                {
+                    "base_address_id": "A",
+                    "tokens": ["Kp.", "Foo", "Kec.", "Bar"],
+                    "labels": ["B-JALAN", "I-JALAN", "I-JALAN", "I-JALAN"],
+                }
+            ]
+        }
+        human_labels_by_id = {
+            "A": {
+                "tokens": ["Kp.", "Foo", "Kec.", "Bar"],
+                "labels": ["B-JALAN", "I-JALAN", "B-KECAMATAN", "I-KECAMATAN"],
+                "annotator_id": "YT-01",
+            }
+        }
+        payload = MODULE.assemble(
+            candidates,
+            manifest={"sampled_ids": ["A"]},
+            human_labels_by_id=human_labels_by_id,
+            adjudication_rows=[
+                {"base_address_id": "A", "start": "0", "end": "4", "adjudicated_label": "O"},
+            ],
+        )
+        example = next(e for e in payload["examples"] if e["base_address_id"] == "A")
+        self.assertEqual(example["labels"], ["B-JALAN", "I-JALAN", "B-KECAMATAN", "I-KECAMATAN"])
+
     def test_raises_when_a_sampled_example_was_never_reviewed(self) -> None:
         with self.assertRaises(MODULE.GoldAssemblyError):
             MODULE.assemble(

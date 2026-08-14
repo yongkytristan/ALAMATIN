@@ -227,6 +227,20 @@ Examples:
 - A postal code conflicting with the named kelurahan is still labeled
   `KODEPOS`; record a hierarchy-conflict flag for the validator.
 
+#### Rule clarification log
+
+- 2026-08-14 (ALM-013 double annotation): a kecamatan or kabupaten/kota name
+  sometimes appears twice in the same address -- once bare, with no
+  designator, and again later with its proper designator (for example
+  `...CIMERAK, PANGANDARAN, KEC CIMERAK, KAB. PANGANDARAN`). Decision
+  (project owner, based on the human double-annotation review): label only
+  the properly designated occurrence; leave the earlier bare, redundant
+  repeat as `O` rather than double-labeling the same administrative unit
+  twice. This also covers the case where the kecamatan and kabupaten/kota
+  share the same base name (for example `Kecamatan Banjar` inside `Kota
+  Banjar`) -- use the designator word to disambiguate which occurrence is
+  which, never lexical similarity alone.
+
 ## 6. Positive, negative, and noisy examples
 
 ### Positive
