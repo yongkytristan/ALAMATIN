@@ -43,6 +43,44 @@ class ParseSpansTest(unittest.TestCase):
 
 
 class MainIntegrationTest(unittest.TestCase):
+    def test_accepts_a_semicolon_delimited_worksheet(self) -> None:
+        # Excel with an Indonesian locale re-saves CSV with ';' as the
+        # delimiter; a completed worksheet round-tripped through Excel must
+        # still be readable.
+        with tempfile.TemporaryDirectory() as directory:
+            candidates_path = Path(directory) / "candidates.json"
+            candidates_path.write_text(
+                json.dumps(
+                    {
+                        "examples": [
+                            {
+                                "base_address_id": "npsn_sd_1",
+                                "tokens": ["Jl.", "Mawar"],
+                                "labels": ["B-JALAN", "I-JALAN"],
+                                "flags": [],
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            worksheet_path = Path(directory) / "worksheet.csv"
+            worksheet_path.write_text(
+                "base_address_id;indexed_tokens;spans;annotator_id;notes\n"
+                "npsn_sd_1;0:Jl. 1:Mawar;JALAN:0-2;YT-01;\n",
+                encoding="utf-8",
+            )
+            exit_code = MODULE.main(
+                [
+                    "--candidates", str(candidates_path),
+                    "--worksheet", str(worksheet_path),
+                    "--agreement", str(Path(directory) / "agreement.json"),
+                    "--adjudication", str(Path(directory) / "adjudication.csv"),
+                    "--human-labels", str(Path(directory) / "human.json"),
+                ]
+            )
+            self.assertEqual(exit_code, 0)
+
     def test_perfect_agreement_yields_no_adjudication_rows(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             candidates_path = Path(directory) / "candidates.json"

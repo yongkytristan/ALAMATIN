@@ -53,6 +53,13 @@ class AgreementError(ValueError):
     """Raised when the completed worksheet cannot be scored safely."""
 
 
+def _sniff_delimiter(sample: str) -> str:
+    try:
+        return csv.Sniffer().sniff(sample, delimiters=",;").delimiter
+    except csv.Error:
+        return ","
+
+
 def parse_spans(spans_text: str, token_count: int, base_address_id: str) -> list[str]:
     labels = ["O"] * token_count
     spans_text = spans_text.strip()
@@ -98,7 +105,9 @@ def main(argv: list[str] | None = None) -> int:
             for example in json.loads(args.candidates.read_text(encoding="utf-8"))["examples"]
         }
         with args.worksheet.open("r", encoding="utf-8-sig", newline="") as stream:
-            worksheet_rows = list(csv.DictReader(stream))
+            sample = stream.read(4096)
+            stream.seek(0)
+            worksheet_rows = list(csv.DictReader(stream, delimiter=_sniff_delimiter(sample)))
         if not worksheet_rows:
             raise AgreementError("worksheet has no rows")
 
