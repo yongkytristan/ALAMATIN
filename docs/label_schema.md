@@ -47,6 +47,10 @@ Include:
 
 - road designators when present: `Jalan`, `Jl.`, `Jln.`, `Jaln`;
 - named alleys or access routes: `Gang Melati`, `Gg. Kelinci`;
+- a named kampung or dusun (hamlet) used in place of a formal road name, for
+  example `Kp. Cihaurseah` or `Dusun Karanganyar`, when no `Jalan`/`Gang` name
+  is present. It plays the same navigational role as a road name in these
+  addresses -- see the rule clarification log at the end of this section;
 - the complete proper name and ordinal attached to the road.
 
 Exclude:
@@ -61,6 +65,21 @@ Boundary examples:
 - `Jl. Mawar No. 7` → `Jl. Mawar` is `JALAN`; `No. 7` is `NOMOR`.
 - `Gang Melati Blok C2` → `Gang Melati` is `JALAN`; `Blok C2` is
   `DETAIL_LOKASI`.
+- `Kp. Cihaurseah` (no road name present) → `JALAN`.
+- `Jl. Mawar, Kp. Cihaurseah` (both present) → `Jl. Mawar` is `JALAN`;
+  `Kp. Cihaurseah` is `DETAIL_LOKASI`, since the road name already resolves
+  the navigational role and the kampung becomes a supporting locality detail.
+
+#### Rule clarification log
+
+- 2026-08-14 (ALM-013): the rural school-address benchmark (ALM-012)
+  surfaced many addresses that name only a kampung or dusun, with no formal
+  road at all (for example `KP. CIHAURSEAH`, `Dusun Karanganyar Rt.03
+  Rw.20`). Decision (project owner): label a kampung/dusun name as `JALAN`
+  when it is the only navigational identifier present, and as
+  `DETAIL_LOKASI` when a formal `Jalan`/`Gang` name is also present. This
+  does not change `ENTITY_TYPES`, `BIO_LABELS`, or any existing labeled
+  example; it fills a gap the original schema draft did not anticipate.
 
 ### `NOMOR`
 
