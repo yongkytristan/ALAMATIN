@@ -1,0 +1,11 @@
+{
+  "access_control_location": "data/private/sealed-real-test/ (gitignored, local to custodian only)",
+  "content_sha256": "7ccab3d2ef9177e12e2c38f46464fc2ddc8f3aa3dfeead315865419ed24ca55d",
+  "created_at": "2026-08-14T15:01:02.044901+00:00",
+  "custodian": "Data & Research Lead (project owner); must not also act as ML & Evaluation Lead",
+  "example_count": 130,
+  "note": "No example IDs, label distribution, or content are included here by design -- see evaluation_protocol.md section 7. The full manifest (ordered IDs, per-item hashes) exists only in the custodian's restricted copy.",
+  "schema_version": "1.0.0",
+  "split_version": "sealed_real_test_v1",
+  "taxonomy_version": "1.0.0"
+}

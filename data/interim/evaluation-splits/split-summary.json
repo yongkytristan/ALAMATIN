@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-08-14T15:01:02.044901+00:00",
+  "schema_version": "1.0.0",
+  "splits": {
+    "real_dev": {
+      "example_count": 70,
+      "sha256": "78c21983daee396ab482e0994316bcf720aa8f485287697fbd7ce56905dc7567"
+    },
+    "sealed_real_test": {
+      "content_sha256": "7ccab3d2ef9177e12e2c38f46464fc2ddc8f3aa3dfeead315865419ed24ca55d",
+      "example_count": 130,
+      "manifest": "sealed-test-boundary-manifest.json"
+    },
+    "synthetic_dev": {
+      "example_count": 750,
+      "sha256": "3d8a4592f7acbce2fa1961f3b68bad2f476451d362dc92729f6a7bbdf853142c"
+    },
+    "synthetic_test": {
+      "example_count": 750,
+      "sha256": "dba3312e02782b7b9fd5fdd0bd4b97b4b207167bf4a81e72d8a4b08b312a0e38"
+    },
+    "synthetic_train": {
+      "example_count": 4500,
+      "sha256": "15e7de1d976ac367cd4a8b599296133d8f7793dc3d7434c276185da936893080"
+    }
+  }
+}
