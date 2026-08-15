@@ -77,6 +77,17 @@ class ExtractFromBlocksTest(unittest.TestCase):
         self.assertEqual(streets[0]["lat"], -6.9)
 
 
+class TagAllowlistTest(unittest.TestCase):
+    def test_addr_tag_names_are_not_double_prefixed(self) -> None:
+        # Regression test: _addr_tags keeps the full "addr:*" key, so the
+        # allowlist must append addr_tag_names as-is -- previously this
+        # re-prepended "addr:" and produced entries like "addr:addr:rt".
+        allowlist = MODULE._build_tag_allowlist(["addr:rt", "addr:rw"])
+        self.assertIn("addr:rt", allowlist)
+        self.assertIn("addr:rw", allowlist)
+        self.assertNotIn("addr:addr:rt", allowlist)
+
+
 class DedupeTest(unittest.TestCase):
     def test_collapses_repeated_way_segments_of_the_same_named_road(self) -> None:
         rows = [
