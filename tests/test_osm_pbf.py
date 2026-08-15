@@ -103,8 +103,11 @@ def _build_primitive_block(stringtable: list[str], dense_bytes: bytes | None, wa
 
 class ParsePrimitiveBlockTest(unittest.TestCase):
     def test_parses_dense_nodes_with_tags(self) -> None:
-        # stringtable: 0="" 1="amenity" 2="school" 3="name" 4="SDN Contoh"
-        stringtable = ["amenity", "school", "name", "SDN Contoh"]
+        # Real Geofabrik files leave stringtable index 0 unused/blank so it is
+        # safe to reuse as the DenseNodes keys_vals terminator; this fixture
+        # follows that convention explicitly rather than relying on the
+        # reader to invent it (see _parse_stringtable's docstring).
+        stringtable = ["", "amenity", "school", "name", "SDN Contoh"]
         # Two nodes: first tagged (amenity=school, name=SDN Contoh), second untagged.
         dense = _build_dense_nodes(
             ids=[100, 1],  # id0=100 (delta from 0), id1=101 (delta +1)
@@ -138,7 +141,7 @@ class ParsePrimitiveBlockTest(unittest.TestCase):
         self.assertAlmostEqual(nodes[0].lon, 1e-9 * (7 + 1000 * 200))
 
     def test_parses_a_way_with_tags_and_node_refs(self) -> None:
-        stringtable = ["highway", "primary", "name", "Jalan Test"]
+        stringtable = ["", "highway", "primary", "name", "Jalan Test"]
         way = _build_way(way_id=55, keys=[1, 3], vals=[2, 4], refs_delta=[100, 1, 1])
         block = _build_primitive_block(stringtable, None, [way])
         nodes, ways = osm_pbf.parse_primitive_block(block)
@@ -155,6 +158,16 @@ class ParsePrimitiveBlockTest(unittest.TestCase):
         _, ways = osm_pbf.parse_primitive_block(block)
         self.assertEqual(ways[0].tags, {})
 
+    def test_stringtable_index_0_is_not_artificially_reserved(self) -> None:
+        # Regression test: the reader must not prepend its own blank entry --
+        # a file's string table is 0-indexed exactly as encoded. Getting this
+        # wrong shifts every tag lookup off by one against real data.
+        stringtable = ["highway", "primary", "name", "Jalan Test"]
+        way = _build_way(way_id=1, keys=[0, 2], vals=[1, 3], refs_delta=[5])
+        block = _build_primitive_block(stringtable, None, [way])
+        _, ways = osm_pbf.parse_primitive_block(block)
+        self.assertEqual(ways[0].tags, {"highway": "primary", "name": "Jalan Test"})
+
 
 class BlobAndFileLevelTest(unittest.TestCase):
     def _write_pbf(self, path: Path, blocks: list[tuple[str, bytes, bool]]) -> None:
@@ -170,7 +183,7 @@ class BlobAndFileLevelTest(unittest.TestCase):
                 stream.write(blob)
 
     def test_reads_a_raw_uncompressed_block(self) -> None:
-        block = _build_primitive_block(["highway", "residential"], None, [_build_way(1, [1], [2], [10])])
+        block = _build_primitive_block(["", "highway", "residential"], None, [_build_way(1, [1], [2], [10])])
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "test.osm.pbf"
             self._write_pbf(path, [("OSMHeader", b"", False), ("OSMData", block, False)])
@@ -180,9 +193,8 @@ class BlobAndFileLevelTest(unittest.TestCase):
             self.assertEqual(ways[0].tags, {"highway": "residential"})
 
     def test_reads_a_zlib_compressed_block(self) -> None:
-        block = _build_primitive_block(["amenity", "hospital"], None, [])
         dense = _build_dense_nodes(ids=[1], lats=[1], lons=[1], keys_vals=[1, 2, 0])
-        block = _build_primitive_block(["amenity", "hospital"], dense, [])
+        block = _build_primitive_block(["", "amenity", "hospital"], dense, [])
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "test.osm.pbf"
             self._write_pbf(path, [("OSMHeader", b"", False), ("OSMData", block, True)])
@@ -199,8 +211,8 @@ class BlobAndFileLevelTest(unittest.TestCase):
                 list(osm_pbf.iter_primitive_blocks(path))
 
     def test_multiple_blocks_are_all_yielded(self) -> None:
-        block_a = _build_primitive_block(["highway", "primary"], None, [_build_way(1, [1], [2], [5])])
-        block_b = _build_primitive_block(["highway", "secondary"], None, [_build_way(2, [1], [2], [6])])
+        block_a = _build_primitive_block(["", "highway", "primary"], None, [_build_way(1, [1], [2], [5])])
+        block_b = _build_primitive_block(["", "highway", "secondary"], None, [_build_way(2, [1], [2], [6])])
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "test.osm.pbf"
             self._write_pbf(

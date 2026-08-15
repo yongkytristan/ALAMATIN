@@ -170,7 +170,15 @@ def _decode_blob(blob_bytes: bytes) -> bytes:
 # ---------------------------------------------------------------------------
 
 def _parse_stringtable(data: bytes) -> list[str]:
-    strings = [""]
+    """Parse ``StringTable.s`` as-is: index 0 is whatever the file encodes as
+    its first entry, not an artificial reserved blank. Writers conventionally
+    leave that first entry unused so 0 is safe to use as the DenseNodes
+    keys_vals terminator, but that is a convention of well-formed files, not
+    something this reader should impose itself -- doing so previously shifted
+    every string-table lookup off by one against real Geofabrik data.
+    """
+
+    strings: list[str] = []
     for field_number, wire_type, start, end in _iter_fields(data):
         if field_number == 1 and wire_type == 2:
             strings.append(data[start:end].decode("utf-8", errors="replace"))
