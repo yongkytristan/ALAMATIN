@@ -1,6 +1,6 @@
 {
-  "catalog_version": "1.6.0",
-  "reviewed_at": "2026-08-14",
+  "catalog_version": "1.7.0",
+  "reviewed_at": "2026-08-15",
   "purpose_vocabulary": [
     "administrative_hierarchy",
     "postal_code_reference",
@@ -105,6 +105,59 @@
         "Community coverage and tag consistency vary by region.",
         "OSM is corroborating evidence, not an authority for administrative or postal correctness.",
         "Derived databases distributed outside the team remain subject to ODbL obligations."
+      ]
+    },
+    {
+      "source_id": "osm_geofabrik_java_2026_08_14",
+      "name": "OpenStreetMap Java extract via Geofabrik (ALM-009 MVP scope)",
+      "decision": "use",
+      "purposes": [
+        "street_landmark_reference"
+      ],
+      "publisher": "OpenStreetMap contributors; extract produced by Geofabrik GmbH",
+      "landing_page_url": "https://download.geofabrik.de/asia/indonesia/java.html",
+      "accessed_at": "2026-08-15",
+      "snapshot": "Geofabrik java-260814.osm.pbf, produced 2026-08-14",
+      "license_review": {
+        "status": "use_with_obligations",
+        "basis": "OpenStreetMap data is licensed under ODbL 1.0.",
+        "redistribution": "odbl_only",
+        "attribution": "Copyright OpenStreetMap contributors; link to https://www.openstreetmap.org/copyright and identify ODbL"
+      },
+      "pii_review": {
+        "status": "approved_with_controls",
+        "finding": "The public Geofabrik extract removes contributor user names, user IDs, and changeset IDs. OSM objects can still contain free-text tags.",
+        "controls": "Allowlist only name, highway, amenity, place, and addr:* tags. Reject contact/phone/website/free-text tags not needed by the task. Do not ingest history extracts."
+      },
+      "acquisition": {
+        "mode": "download",
+        "artifacts": [
+          {
+            "artifact_id": "osm_pbf",
+            "url": "https://download.geofabrik.de/asia/indonesia/java-260814.osm.pbf",
+            "filename": "java-260814.osm.pbf",
+            "media_type": "application/vnd.openstreetmap.data+pbf",
+            "checksum_url": "https://download.geofabrik.de/asia/indonesia/java-260814.osm.pbf.md5",
+            "checksum_algorithm": "md5"
+          }
+        ]
+      },
+      "transformation_plan": [
+        "Verify the upstream MD5 and record an additional SHA-256 in the acquisition manifest.",
+        "Parse the PBF with a stdlib-only reader (src/alamatin/osm_pbf.py); no third-party protobuf/OSM library, per the standing dependency-free decision (DEC-002).",
+        "Clip to the Jawa Barat/Bandung Raya MVP bounding box; do not claim Java-wide or national coverage.",
+        "Allowlist name/highway/amenity/place/addr:* tags; drop contributor metadata and unrelated free text.",
+        "Deduplicate by (name, tag-derived category, rounded coordinate) without discarding genuinely distinct nearby features.",
+        "Record source_id, OSM object type/id, snapshot date, and ODbL attribution in the derived manifest.",
+        "Stage only -- do not integrate into scripts/generate_synthetic_addresses.py or regenerate data/synthetic/*.json in this pass, to avoid invalidating the ML lead's in-progress fine-tuning on the current dataset."
+      ],
+      "limitations": [
+        "Java-wide file, but output is clipped to the Jawa Barat/Bandung Raya MVP bounding box only; this is not national or even Java-wide coverage.",
+        "Community coverage and tag consistency vary by region and cannot be assumed complete.",
+        "OSM is corroborating evidence, not an authority for administrative or postal correctness.",
+        "A way is included if any of its referenced nodes falls inside the bounding box; a way's full geometry may extend outside it.",
+        "Derived databases distributed outside the team remain subject to ODbL obligations.",
+        "Supersedes osm_geofabrik_indonesia_2026_07_01 for this MVP acquisition only -- that broader Indonesia-wide entry was cataloged but never fetched, and remains the candidate for a later national-scope decision."
       ]
     },
     {
