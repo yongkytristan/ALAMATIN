@@ -23,7 +23,8 @@ class ExtractFromBlocksTest(unittest.TestCase):
     def test_way_inside_bbox_via_referenced_node_is_kept(self) -> None:
         node = OsmNode(id=1, lat=-6.9, lon=107.6, tags={})
         way = OsmWay(id=10, node_ids=(1,), tags={"highway": "primary", "name": "Jl. Test"})
-        streets, landmarks, counts = MODULE.extract_from_blocks([([node], [way])], BBOX)
+        blocks = [([node], [way])]
+        streets, landmarks, counts = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(len(streets), 1)
         self.assertEqual(streets[0]["name"], "Jl. Test")
         self.assertEqual(counts["street_way_candidates"], 1)
@@ -31,32 +32,49 @@ class ExtractFromBlocksTest(unittest.TestCase):
     def test_way_outside_bbox_is_dropped(self) -> None:
         node = OsmNode(id=1, lat=0.0, lon=0.0, tags={})  # far outside BBOX
         way = OsmWay(id=10, node_ids=(1,), tags={"highway": "primary", "name": "Jl. Jauh"})
-        streets, landmarks, counts = MODULE.extract_from_blocks([([node], [way])], BBOX)
+        blocks = [([node], [way])]
+        streets, landmarks, counts = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(streets, [])
 
     def test_way_with_no_relevant_tags_is_dropped_even_if_in_bbox(self) -> None:
         node = OsmNode(id=1, lat=-6.9, lon=107.6, tags={})
         way = OsmWay(id=10, node_ids=(1,), tags={"surface": "asphalt"})  # no highway/addr
-        streets, _, counts = MODULE.extract_from_blocks([([node], [way])], BBOX)
+        blocks = [([node], [way])]
+        streets, _, counts = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(streets, [])
         self.assertEqual(counts["ways_seen"], 1)
 
     def test_landmark_node_in_bbox_is_kept(self) -> None:
         node = OsmNode(id=1, lat=-6.9, lon=107.6, tags={"amenity": "school", "name": "SDN Contoh"})
-        streets, landmarks, counts = MODULE.extract_from_blocks([([node], [])], BBOX)
+        blocks = [([node], [])]
+        streets, landmarks, counts = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(len(landmarks), 1)
         self.assertEqual(landmarks[0]["category"], "school")
         self.assertEqual(counts["nodes_in_bbox"], 1)
 
     def test_addr_tags_are_captured_on_both_nodes_and_ways(self) -> None:
         node = OsmNode(id=1, lat=-6.9, lon=107.6, tags={"addr:housenumber": "12", "amenity": "cafe", "name": "Kafe X"})
-        streets, landmarks, _ = MODULE.extract_from_blocks([([node], [])], BBOX)
+        blocks = [([node], [])]
+        streets, landmarks, _ = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(landmarks[0]["addr_tags"], {"addr:housenumber": "12"})
 
     def test_way_with_no_seen_node_coordinate_is_dropped(self) -> None:
         way = OsmWay(id=10, node_ids=(999,), tags={"highway": "primary", "name": "Jl. Hilang"})
-        streets, _, _ = MODULE.extract_from_blocks([([], [way])], BBOX)
+        blocks = [([], [way])]
+        streets, _, _ = MODULE.extract_from_blocks(blocks, blocks, BBOX)
         self.assertEqual(streets, [])
+
+    def test_way_representative_uses_second_in_bbox_node_when_first_is_outside(self) -> None:
+        # Regression test: a way can start outside the bbox and cross into it.
+        # The representative lookup must find that in-bbox node even though
+        # it isn't the way's first referenced node.
+        outside = OsmNode(id=1, lat=0.0, lon=0.0, tags={})
+        inside = OsmNode(id=2, lat=-6.9, lon=107.6, tags={})
+        way = OsmWay(id=10, node_ids=(1, 2), tags={"highway": "primary", "name": "Jl. Lintas"})
+        blocks = [([outside, inside], [way])]
+        streets, _, _ = MODULE.extract_from_blocks(blocks, blocks, BBOX)
+        self.assertEqual(len(streets), 1)
+        self.assertEqual(streets[0]["lat"], -6.9)
 
 
 class DedupeTest(unittest.TestCase):

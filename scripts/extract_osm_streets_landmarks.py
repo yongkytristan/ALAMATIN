@@ -50,27 +50,31 @@ def _addr_tags(tags: dict[str, str]) -> dict[str, str]:
     return {key: value for key, value in tags.items() if key.startswith(ADDR_TAG_PREFIX)}
 
 
-def extract_from_blocks(
+def _scan_landmarks_and_candidate_ways(
     blocks: Iterable[tuple[list[OsmNode], list[OsmWay]]], bbox: dict[str, float]
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
-    """Extract raw street/landmark candidate rows from a stream of PBF blocks.
+    """Pass 1: collect landmark rows and *candidate* way rows (no coordinates yet).
 
-    Assumes the file's nodes precede its ways (the standard OSM PBF/Geofabrik
-    convention) -- a way is matched against the bounding box using whichever
-    of its referenced node coordinates have already been seen. A way with no
-    previously-seen in-bbox node is dropped, which undercounts rather than
-    overcounts if that assumption is ever violated.
+    Landmarks are emitted immediately from node tags, same as before. For
+    ways, only each candidate's referenced node ids are recorded -- not every
+    in-bbox node's coordinates -- so this pass holds at most "node ids
+    referenced by highway/addr-tagged ways" in memory, instead of one entry
+    per in-bbox node of any kind. That distinction is what made the
+    single-pass version OOM against the full Java extract: most of the
+    file's blocks are plain nodes, so a dict keyed by every in-bbox node grew
+    to tens of millions of entries before a single way was ever read, while
+    the ways that actually need those coordinates are a much smaller subset.
+    Bounding-box filtering for ways is deferred to pass 2, once at least one
+    referenced node's actual coordinates are known.
     """
 
-    node_coords: dict[int, tuple[float, float]] = {}
-    street_rows: list[dict[str, Any]] = []
     landmark_rows: list[dict[str, Any]] = []
+    candidate_ways: list[dict[str, Any]] = []
     counts = {
         "nodes_seen": 0,
         "nodes_in_bbox": 0,
         "landmark_node_candidates": 0,
         "ways_seen": 0,
-        "street_way_candidates": 0,
     }
 
     for nodes, ways in blocks:
@@ -79,7 +83,6 @@ def extract_from_blocks(
             if not _in_bbox(node.lat, node.lon, bbox):
                 continue
             counts["nodes_in_bbox"] += 1
-            node_coords[node.id] = (node.lat, node.lon)
 
             category = node.tags.get("amenity") or node.tags.get("place")
             name = node.tags.get("name", "")
@@ -103,26 +106,82 @@ def extract_from_blocks(
             highway = way.tags.get("highway", "")
             name = way.tags.get("name", "")
             addr = _addr_tags(way.tags)
-            if not (highway or addr):
+            if not (highway or addr) or not way.node_ids:
                 continue
-            representative = next(
-                (node_coords[ref] for ref in way.node_ids if ref in node_coords), None
-            )
-            if representative is None:
-                continue
-            counts["street_way_candidates"] += 1
-            lat, lon = representative
-            street_rows.append(
+            candidate_ways.append(
                 {
-                    "osm_type": "way",
                     "osm_id": way.id,
                     "name": name,
                     "highway": highway,
-                    "lat": lat,
-                    "lon": lon,
                     "addr_tags": addr,
+                    "node_ids": way.node_ids,
                 }
             )
+
+    return landmark_rows, candidate_ways, counts
+
+
+def _resolve_way_coordinates(
+    blocks: Iterable[tuple[list[OsmNode], list[OsmWay]]],
+    needed_node_ids: set[int],
+    bbox: dict[str, float],
+) -> dict[int, tuple[float, float]]:
+    """Pass 2: look up in-bbox coordinates only for the node ids pass 1 needs.
+
+    Only in-bbox coordinates are kept (matching the single-pass version's
+    implicit filtering, where a node's coordinates were only ever recorded if
+    it was in-bbox) so a way's representative is guaranteed in-bbox once
+    resolved, with no extra bbox check needed at the call site.
+    """
+
+    resolved: dict[int, tuple[float, float]] = {}
+    for nodes, _ways in blocks:
+        for node in nodes:
+            if node.id in needed_node_ids and node.id not in resolved and _in_bbox(node.lat, node.lon, bbox):
+                resolved[node.id] = (node.lat, node.lon)
+    return resolved
+
+
+def extract_from_blocks(
+    first_pass_blocks: Iterable[tuple[list[OsmNode], list[OsmWay]]],
+    second_pass_blocks: Iterable[tuple[list[OsmNode], list[OsmWay]]],
+    bbox: dict[str, float],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
+    """Extract street/landmark candidate rows using two streaming passes.
+
+    Two independent block iterables are required (typically two separate
+    calls to ``iter_nodes_and_ways`` over the same file) because pass 2 needs
+    to re-read the node section after pass 1 has already determined which
+    node ids are actually needed as way representatives.
+    """
+
+    landmark_rows, candidate_ways, counts = _scan_landmarks_and_candidate_ways(first_pass_blocks, bbox)
+    needed_node_ids: set[int] = set()
+    for way in candidate_ways:
+        needed_node_ids.update(way["node_ids"])
+    node_coords = _resolve_way_coordinates(second_pass_blocks, needed_node_ids, bbox)
+
+    street_rows: list[dict[str, Any]] = []
+    counts["street_way_candidates"] = 0
+    for way in candidate_ways:
+        representative = next(
+            (node_coords[ref] for ref in way["node_ids"] if ref in node_coords), None
+        )
+        if representative is None:
+            continue
+        lat, lon = representative
+        counts["street_way_candidates"] += 1
+        street_rows.append(
+            {
+                "osm_type": "way",
+                "osm_id": way["osm_id"],
+                "name": way["name"],
+                "highway": way["highway"],
+                "lat": lat,
+                "lon": lon,
+                "addr_tags": way["addr_tags"],
+            }
+        )
 
     return street_rows, landmark_rows, counts
 
@@ -169,6 +228,30 @@ def _write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: tuple[str, ..
     temporary.replace(path)
 
 
+def _with_progress(
+    blocks: Iterable[tuple[list[OsmNode], list[OsmWay]]], label: str, every: int = 500
+) -> Iterable[tuple[list[OsmNode], list[OsmWay]]]:
+    """Print a running block count to stderr so a long run can be monitored."""
+
+    started_at = time.perf_counter()
+    count = 0
+    for nodes, ways in blocks:
+        count += 1
+        if count % every == 0:
+            elapsed = time.perf_counter() - started_at
+            print(f"{label}: {count} blocks ({elapsed:.0f}s elapsed)", file=sys.stderr, flush=True)
+        yield nodes, ways
+    print(f"{label}: done, {count} blocks total ({time.perf_counter() - started_at:.0f}s elapsed)", file=sys.stderr, flush=True)
+
+
+def _sha256_file(path: Path, chunk_size: int = 8 * 1024 * 1024) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(chunk_size), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pbf", type=Path, required=True)
@@ -183,8 +266,10 @@ def main(argv: list[str] | None = None) -> int:
             raise FileNotFoundError(f"PBF snapshot not found: {args.pbf}")
 
         started_at = time.perf_counter()
+        first_pass = _with_progress(iter_nodes_and_ways(args.pbf), "pass 1/2 (scan)")
+        second_pass = _with_progress(iter_nodes_and_ways(args.pbf), "pass 2/2 (resolve)")
         street_raw, landmark_raw, counts = extract_from_blocks(
-            iter_nodes_and_ways(args.pbf), JAWA_BARAT_BBOX
+            first_pass, second_pass, JAWA_BARAT_BBOX
         )
         streets = dedupe_streets(street_raw)
         landmarks = dedupe_landmarks(landmark_raw)
@@ -204,7 +289,7 @@ def main(argv: list[str] | None = None) -> int:
         _write_csv(args.output_dir / "streets.csv", streets, street_fields)
         _write_csv(args.output_dir / "landmarks.csv", landmarks, landmark_fields)
 
-        pbf_sha256 = hashlib.sha256(args.pbf.read_bytes()).hexdigest()
+        pbf_sha256 = _sha256_file(args.pbf)
         summary = {
             "source_id": SOURCE_ID,
             "snapshot": SNAPSHOT,
