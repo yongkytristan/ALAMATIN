@@ -60,7 +60,7 @@ NOMOR_PATTERN = re.compile(r"^(no|nomor|nomer)\.?0*(\d+[a-z]?)$")
 RT_MARKER_ONLY = re.compile(r"^rt\.{0,2}$")
 RW_MARKER_ONLY = re.compile(r"^rw\.{0,2}$")
 NOMOR_MARKER_ONLY = re.compile(r"^(no|nomor|nomer)\.?$")
-BARE_NUMBER = re.compile(r"^0*(\d+)[a-z]?$")
+BARE_NUMBER = re.compile(r"^\.{0,2}0*(\d+)[a-z]?$")
 KODEPOS_PATTERN = re.compile(r"^\d{5}$")
 
 
