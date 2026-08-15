@@ -34,6 +34,7 @@ from .reference_hierarchy import (
     normalize_name,
     normalize_region_code,
 )
+from .regex_baseline import tag_text, tag_tokens
 from .tokenizer import tokenize
 
 __all__ = [
@@ -64,6 +65,8 @@ __all__ = [
     "nearest_rank_percentile",
     "normalize_name",
     "normalize_region_code",
+    "tag_text",
+    "tag_tokens",
     "tokenize",
     "validate_bio_sequence",
 ]
