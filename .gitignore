@@ -41,6 +41,12 @@ artifacts/
 *.pth
 *.safetensors
 
+# Raw third-party downloads (e.g. OSM Geofabrik snapshots): large binary
+# extracts, never committed. Governance manifests alongside them (small
+# JSON, e.g. acquisition-manifest.json) are intentionally still tracked.
+*.osm.pbf
+*.pbf
+
 # Local tooling and OS files
 .idea/
 .vscode/

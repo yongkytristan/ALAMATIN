@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "osm_pbf",
+      "bytes": 895583152,
+      "filename": "java-260814.osm.pbf",
+      "sha256": "5f37ef22e3f37cedb205b30a507ac69b3855d0cb3ba070173150642a5b95dbea",
+      "upstream_checksum": {
+        "algorithm": "md5",
+        "url": "https://download.geofabrik.de/asia/indonesia/java-260814.osm.pbf.md5",
+        "value": "9d57e46d3be255a2ac66bbff9c8ed7db"
+      },
+      "url": "https://download.geofabrik.de/asia/indonesia/java-260814.osm.pbf"
+    }
+  ],
+  "catalog_version": "1.7.0",
+  "manifest_version": "1.0.0",
+  "retrieved_at": "2026-08-15T16:05:33.336673Z",
+  "source_id": "osm_geofabrik_java_2026_08_14",
+  "source_snapshot": "Geofabrik java-260814.osm.pbf, produced 2026-08-14"
+}
