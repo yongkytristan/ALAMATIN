@@ -316,8 +316,8 @@
         "B-JALAN",
         "I-JALAN",
         "B-NOMOR",
-        "B-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
         "B-RW",
         "O",
         "B-KECAMATAN",
@@ -377,8 +377,8 @@
       "labels": [
         "B-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
         "B-RW",
         "O",
         "B-KECAMATAN",
@@ -863,9 +863,9 @@
       "labels": [
         "B-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
         "O",
         "B-DETAIL_LOKASI",
         "O",
@@ -1633,10 +1633,10 @@
         "I-JALAN",
         "I-JALAN",
         "B-NOMOR",
-        "B-JALAN",
-        "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-RW",
+        "I-RW",
         "O",
         "B-KECAMATAN",
         "I-KECAMATAN",
@@ -3183,17 +3183,15 @@
     {
       "annotation_method": "automated_rule_based_v1",
       "base_address_id": "npsn_sd_70010542",
-      "flags": [
-        "long_unmatched_segment_needs_review:'jl.buyutdelingblokgrewalrw.03'"
-      ],
+      "flags": [],
       "labels": [
         "B-JALAN",
         "I-JALAN",
         "I-JALAN",
         "I-JALAN",
         "B-RT",
-        "B-JALAN",
-        "I-JALAN",
+        "B-RW",
+        "I-RW",
         "O",
         "B-KECAMATAN",
         "I-KECAMATAN",
@@ -3226,8 +3224,8 @@
         "B-JALAN",
         "I-JALAN",
         "B-RT",
-        "B-JALAN",
-        "I-JALAN",
+        "B-RW",
+        "I-RW",
         "O",
         "B-KECAMATAN",
         "I-KECAMATAN",
@@ -4757,9 +4755,9 @@
         "I-JALAN",
         "I-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
+        "B-JALAN",
         "I-JALAN",
         "O",
         "B-KECAMATAN",
@@ -6049,17 +6047,15 @@
     {
       "annotation_method": "automated_rule_based_v1",
       "base_address_id": "npsn_sma_70039210",
-      "flags": [
-        "long_unmatched_segment_needs_review:'jl.ir.sekarnblokcikedngrt.001'"
-      ],
+      "flags": [],
       "labels": [
         "B-JALAN",
         "I-JALAN",
         "I-JALAN",
         "I-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
         "B-RW",
         "O",
         "B-KECAMATAN",
@@ -6194,7 +6190,7 @@
       "annotation_method": "automated_rule_based_v1",
       "base_address_id": "npsn_sma_70041954",
       "flags": [
-        "long_unmatched_segment_needs_review:'KomplekPondokPesantrenDarulHudaDsnKliwonRt.001Rw.001'"
+        "long_unmatched_segment_needs_review:'KomplekPondokPesantrenDarulHudaDsnKliwonRt.001'"
       ],
       "labels": [
         "B-JALAN",
@@ -6207,8 +6203,8 @@
         "I-JALAN",
         "I-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RW",
+        "I-RW",
         "O",
         "B-KECAMATAN",
         "I-KECAMATAN",
@@ -6239,6 +6235,6 @@
       ]
     }
   ],
-  "flagged_count": 28,
+  "flagged_count": 26,
   "schema_version": "1.0.0"
 }

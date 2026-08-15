@@ -35,6 +35,13 @@ class TagTokensTest(unittest.TestCase):
         self.assertEqual(labels[tokens.index("RT")], "B-RT")
         self.assertEqual(labels[tokens.index("RW")], "B-RW")
 
+    def test_rt_rw_marker_with_a_leading_period_on_the_number_token(self) -> None:
+        # Real messy input sometimes has a space between the marker and a
+        # period-prefixed number, e.g. "RT .02" or "RW..04" (two tokens).
+        tokens, labels = self._tag("JL. CIPANAS NO.61 RT .02 RW..04")
+        self.assertEqual(labels[tokens.index("RT")], "B-RT")
+        self.assertEqual(labels[tokens.index(".02")], "I-RT")
+
     def test_glued_rt_rw(self) -> None:
         tokens, labels = self._tag("Jl. Mawar RT04 RW09")
         self.assertEqual(labels[tokens.index("RT04")], "B-RT")

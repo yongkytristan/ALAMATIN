@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-08-14T15:01:02.044901+00:00",
+  "created_at": "2026-08-15T08:16:26.157368+00:00",
   "example_count": 70,
   "examples": [
     {
@@ -126,8 +126,8 @@
         "B-JALAN",
         "I-JALAN",
         "B-NOMOR",
-        "B-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
         "B-RW",
         "O",
         "B-KECAMATAN",
@@ -187,8 +187,8 @@
       "labels": [
         "B-JALAN",
         "I-JALAN",
-        "I-JALAN",
-        "I-JALAN",
+        "B-RT",
+        "I-RT",
         "B-RW",
         "O",
         "B-KECAMATAN",

@@ -57,13 +57,23 @@ seed needed. Reports are written to `data/interim/baselines/` (internal
 only, since the `real_dev` report is derived from data that has no public
 redistribution decision yet).
 
-## Results (2026-08-15)
+## Results (2026-08-15, updated after the RT/RW leading-period fix below)
 
 | Dataset | Precision | Recall | F1 |
 |---|---:|---:|---:|
 | `synthetic_dev` (`val.json`, 750 examples) | 0.947 | 0.844 | 0.892 |
 | `synthetic_test` (`test.json`, 750 examples) | 0.958 | 0.851 | 0.902 |
-| `real_dev` (70 examples) | 0.922 | 0.861 | 0.890 |
+| `real_dev` (70 examples) | 0.922 | 0.869 | 0.895 |
+
+An earlier pass missed `RT`/`RW` markers followed by a period-prefixed
+number in a separate token (`RT .02`, `RW..04` -- real messy input found in
+the ALM-012 benchmark); `BARE_NUMBER` now allows up to two leading periods,
+matching the glued-token pattern's existing tolerance. This also corrected 5
+previously-wrong `automated_accepted` gold labels in
+`data/interim/school-address-benchmark/gold-labels.json` (found by manual
+inspection, not by the double-annotation sample -- a live example of the
+"automated_accepted portion isn't individually re-verified" limitation
+already disclosed for ALM-013).
 
 `RT`, `RW`, `NOMOR`, `KODEPOS`, and (once the bare-province fix landed)
 `PROVINSI` all score at or near 1.0 F1 -- these are the entities regex

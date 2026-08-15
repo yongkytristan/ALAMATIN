@@ -85,8 +85,8 @@
   "dataset": "data\\synthetic\\test.json",
   "example_count": 750,
   "latency_ms": {
-    "p50": 0.32970006577670574,
-    "p95": 0.5574999377131462,
+    "p50": 0.07790000017848797,
+    "p95": 0.13000000035390258,
     "sample_count": 750
   },
   "overall": {
