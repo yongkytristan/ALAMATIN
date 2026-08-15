@@ -4,7 +4,7 @@
 - Status: development smoke benchmark
 - Card version: `1.0.0`
 - NER schema: `1.0.0`
-- Source catalog: `data/sources.json` version `1.6.0`
+- Source catalog: `data/sources.json` version `1.7.0`
 
 ## Intended use
 
@@ -27,6 +27,7 @@ real-test result.
 | `pos_indonesia_postcode_search` | Candidate postal-code authority | No; explicitly excluded while its catalog decision is `hold` |
 | `alamatin_synthetic_train_v1` | Bulk NER train/validation/test corpus (ALM-010) | No; a separate corpus, not part of this 20-example smoke benchmark -- see [`docs/synthetic_generator.md`](../docs/synthetic_generator.md) |
 | `open_data_jabar_npsn_sd_2023`, `open_data_jabar_npsn_sma_2023` | Human-noised public-address benchmark base pool (ALM-012) | No; a separate, assembled 200-example benchmark, internal only -- see [`docs/public_address_benchmark.md`](../docs/public_address_benchmark.md) |
+| `osm_geofabrik_java_2026_08_14` | Jawa Barat/Bandung Raya road and landmark extraction (ALM-009) | No; staged only, not yet integrated into any training or benchmark dataset -- see [`docs/osm_extraction.md`](../docs/osm_extraction.md) |
 
 The source IDs are stable join keys. Future manifests must use these exact IDs,
 not publisher names or mutable URLs.

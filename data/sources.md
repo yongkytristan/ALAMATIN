@@ -1,7 +1,7 @@
 # Public data source decisions
 
-- Catalog version: `1.6.0`
-- Review date: 2026-08-14
+- Catalog version: `1.7.0`
+- Review date: 2026-08-15
 - Machine-readable catalog: [`sources.json`](sources.json)
 - Acquisition command: `python scripts/acquire_sources.py list`
 
@@ -20,6 +20,7 @@ Approval of a source does not approve every field in that source.
 | BPS/postal relationship cross-check | `bps_sig_code_relationship_2020` | On hold pending stable artifact and reuse terms |
 | Bounded postal conflict validation | `kodepos_dev_rest_api` | Internal validation only; selected village-code detail calls, local ignored output, no redistribution |
 | Roads and landmarks | `osm_geofabrik_indonesia_2026_07_01` | Gazetteer/corroborating data only; coverage varies and ODbL applies |
+| Roads and landmarks (ALM-009 MVP, staged) | `osm_geofabrik_java_2026_08_14` | Java extract clipped to Jawa Barat/Bandung Raya bbox; staged only, not yet integrated into the synthetic generator |
 | Base address benchmark | `alamatin_synthetic_ner_review_v1` | Deterministic smoke benchmark only; no real-world or model-quality claim |
 | Human-noised public-address benchmark base pool (ALM-012) | `open_data_jabar_npsn_sd_2023`, `open_data_jabar_npsn_sma_2023` | Public-facility (school) addresses only, no personal fields; internal non-commercial use until a derived-benchmark redistribution review is recorded |
 
@@ -189,6 +190,39 @@ Required attribution in products using the data:
 
 Link both "OpenStreetMap contributors" and ODbL disclosure to
 <https://www.openstreetmap.org/copyright> where the medium permits.
+
+## `osm_geofabrik_java_2026_08_14` — use with obligations (ALM-009 MVP scope)
+
+Purpose: road names (`highway`), landmark candidates (`amenity`/`place`), and
+`addr:*` tags, clipped to the Jawa Barat/Bandung Raya MVP bounding box.
+
+Supersedes `osm_geofabrik_indonesia_2026_07_01` for this acquisition only --
+that broader Indonesia-wide entry was cataloged in an earlier review but
+never actually fetched, and remains the candidate if a later national-scope
+decision is made. This entry downloads the smaller Java-only Geofabrik
+sub-extract instead of the whole-Indonesia file, since the MVP scope
+(`docs/decision-log.md`) is Jawa Barat/Bandung Raya, not national.
+
+- Provenance: OpenStreetMap contributors; Geofabrik Java extract
+  `java-260814.osm.pbf`, produced 2026-08-14.
+- License: ODbL 1.0, same obligations as the Indonesia-wide entry above.
+- PII decision: allowlist only `name`/`highway`/`amenity`/`place`/`addr:*`
+  tags; contributor identity metadata is already stripped by the public
+  Geofabrik extract, and history extracts are never used.
+- Parsing: a stdlib-only PBF reader (`src/alamatin/osm_pbf.py`) -- no
+  third-party protobuf or OSM library, per the standing dependency-free
+  decision (`docs/decision-log.md` DEC-002).
+- Geographic control: the file covers all of Java; output is clipped to the
+  Jawa Barat/Bandung Raya bounding box only, and the derived dataset must
+  never claim Java-wide or national coverage.
+- Staging only: this pass does not integrate results into
+  `scripts/generate_synthetic_addresses.py` or regenerate
+  `data/synthetic/*.json`, to avoid invalidating the ML lead's in-progress
+  fine-tuning on the current dataset. Integration is a separate, later step.
+
+Required attribution is identical to `osm_geofabrik_indonesia_2026_07_01`
+above: `Copyright OpenStreetMap contributors; data available under ODbL 1.0`,
+linked to <https://www.openstreetmap.org/copyright>.
 
 ## `alamatin_synthetic_ner_review_v1` — use
 

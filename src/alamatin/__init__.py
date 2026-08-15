@@ -34,6 +34,7 @@ from .reference_hierarchy import (
     normalize_name,
     normalize_region_code,
 )
+from .osm_pbf import OsmNode, OsmPbfError, OsmWay, iter_nodes_and_ways, iter_primitive_blocks
 from .regex_baseline import tag_text, tag_tokens
 from .tokenizer import tokenize
 
@@ -65,6 +66,11 @@ __all__ = [
     "nearest_rank_percentile",
     "normalize_name",
     "normalize_region_code",
+    "OsmNode",
+    "OsmPbfError",
+    "OsmWay",
+    "iter_nodes_and_ways",
+    "iter_primitive_blocks",
     "tag_text",
     "tag_tokens",
     "tokenize",
