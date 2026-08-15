@@ -62,6 +62,15 @@ class LabelExampleTest(unittest.TestCase):
         self.assertEqual(labels[tokens.index("rt.03")], "B-RT")
         self.assertEqual(labels[tokens.index("rw.07")], "B-RW")
 
+    def test_rt_rw_marker_with_a_leading_period_on_the_number_token(self) -> None:
+        # Real messy input: "RT .02 RW..04" -- a space before a
+        # period-prefixed number token, found in the real ALM-012 benchmark.
+        tokens, labels, _ = self._labels(
+            "JL. CIPANAS NO.61 RT .02 RW..04, KEC CISARUA, KAB BANDUNG BARAT", "CISARUA", "KABUPATEN BANDUNG BARAT"
+        )
+        self.assertEqual(labels[tokens.index("RT")], "B-RT")
+        self.assertEqual(labels[tokens.index(".02")], "I-RT")
+
     def test_glued_designator_and_name_still_matches_known_value(self) -> None:
         tokens, labels, flags = self._labels("jl.rayaselatan,kecbantarujeg,kbmajalengka", "BANTARUJEG", "KABUPATEN MAJALENGKA")
         self.assertEqual(labels[tokens.index("kecbantarujeg")], "B-KECAMATAN")
