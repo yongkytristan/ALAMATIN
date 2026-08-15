@@ -1,0 +1,100 @@
+{
+  "baseline": "regex_rule_v1",
+  "by_type": {
+    "DETAIL_LOKASI": {
+      "f1": null,
+      "false_negative": 143,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "JALAN": {
+      "f1": 0.9221556886227545,
+      "false_negative": 57,
+      "false_positive": 60,
+      "precision": 0.9203187250996016,
+      "recall": 0.924,
+      "true_positive": 693
+    },
+    "KECAMATAN": {
+      "f1": 0.7902592301649646,
+      "false_negative": 247,
+      "false_positive": 20,
+      "precision": 0.9617590822179732,
+      "recall": 0.6706666666666666,
+      "true_positive": 503
+    },
+    "KELURAHAN": {
+      "f1": 0.6634844868735084,
+      "false_negative": 333,
+      "false_positive": 90,
+      "precision": 0.8224852071005917,
+      "recall": 0.556,
+      "true_positive": 417
+    },
+    "KODEPOS": {
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "true_positive": 347
+    },
+    "KOTA_KABUPATEN": {
+      "f1": 0.9687292082501664,
+      "false_negative": 22,
+      "false_positive": 25,
+      "precision": 0.9667994687915007,
+      "recall": 0.9706666666666667,
+      "true_positive": 728
+    },
+    "NOMOR": {
+      "f1": 0.9960159362549801,
+      "false_negative": 0,
+      "false_positive": 6,
+      "precision": 0.9920634920634921,
+      "recall": 1.0,
+      "true_positive": 750
+    },
+    "PROVINSI": {
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "true_positive": 355
+    },
+    "RT": {
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "true_positive": 387
+    },
+    "RW": {
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "true_positive": 387
+    }
+  },
+  "dataset": "data\\synthetic\\test.json",
+  "example_count": 750,
+  "latency_ms": {
+    "p50": 0.32970006577670574,
+    "p95": 0.5574999377131462,
+    "sample_count": 750
+  },
+  "overall": {
+    "f1": 0.9010555391141363,
+    "false_negative": 802,
+    "false_positive": 201,
+    "precision": 0.9578439597315436,
+    "recall": 0.8506239523188676,
+    "true_positive": 4567
+  }
+}

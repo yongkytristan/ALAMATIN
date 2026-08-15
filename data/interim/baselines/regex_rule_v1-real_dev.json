@@ -1,0 +1,100 @@
+{
+  "baseline": "regex_rule_v1",
+  "by_type": {
+    "DETAIL_LOKASI": {
+      "f1": null,
+      "false_negative": 3,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "JALAN": {
+      "f1": 0.7792207792207794,
+      "false_negative": 19,
+      "false_positive": 15,
+      "precision": 0.8,
+      "recall": 0.759493670886076,
+      "true_positive": 60
+    },
+    "KECAMATAN": {
+      "f1": 0.9315068493150684,
+      "false_negative": 6,
+      "false_positive": 4,
+      "precision": 0.9444444444444444,
+      "recall": 0.918918918918919,
+      "true_positive": 68
+    },
+    "KELURAHAN": {
+      "f1": 0.6666666666666666,
+      "false_negative": 1,
+      "false_positive": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "true_positive": 2
+    },
+    "KODEPOS": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "KOTA_KABUPATEN": {
+      "f1": 0.9787234042553191,
+      "false_negative": 3,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.9583333333333334,
+      "true_positive": 69
+    },
+    "NOMOR": {
+      "f1": 0.9473684210526316,
+      "false_negative": 2,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.9,
+      "true_positive": 18
+    },
+    "PROVINSI": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "RT": {
+      "f1": 0.9473684210526316,
+      "false_negative": 1,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.9,
+      "true_positive": 9
+    },
+    "RW": {
+      "f1": 0.8571428571428571,
+      "false_negative": 3,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 0.75,
+      "true_positive": 9
+    }
+  },
+  "dataset": "data\\interim\\evaluation-splits\\real_dev.json",
+  "example_count": 70,
+  "latency_ms": {
+    "p50": 0.29930006712675095,
+    "p95": 0.5919999675825238,
+    "sample_count": 70
+  },
+  "overall": {
+    "f1": 0.8901515151515151,
+    "false_negative": 38,
+    "false_positive": 20,
+    "precision": 0.9215686274509803,
+    "recall": 0.8608058608058609,
+    "true_positive": 235
+  }
+}
