@@ -252,6 +252,17 @@ def _sha256_file(path: Path, chunk_size: int = 8 * 1024 * 1024) -> str:
     return digest.hexdigest()
 
 
+def _build_tag_allowlist(addr_tag_names: list[str]) -> list[str]:
+    """Build the governance manifest's declared tag allowlist.
+
+    ``addr_tag_names`` already carries the full ``addr:*`` key (see
+    ``_addr_tags``, which does not strip the prefix) -- it must be appended
+    as-is, not re-prefixed with ``addr:`` again.
+    """
+
+    return ["name", "highway", "amenity", "place"] + addr_tag_names
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pbf", type=Path, required=True)
@@ -303,7 +314,7 @@ def main(argv: list[str] | None = None) -> int:
                 "administrative-boundary clip, and does not claim Java-wide or "
                 "national coverage."
             ),
-            "tag_allowlist": ["name", "highway", "amenity", "place"] + [f"addr:{n}" for n in addr_tag_names],
+            "tag_allowlist": _build_tag_allowlist(addr_tag_names),
             "counts_before_cleaning": counts,
             "counts_after_cleaning": {
                 "streets_named_unique": len(streets),
