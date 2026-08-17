@@ -96,5 +96,20 @@ class LibpostalBaselineTest(unittest.TestCase):
         self.assertEqual(labels[tokens.index("Bandung")], "B-KOTA_KABUPATEN")
         self.assertEqual(labels[tokens.index("40111")], "B-KODEPOS")
 
+    def test_duplicate_surface_form_uses_first_available_span(self) -> None:
+        tokens = tokenize("Bandung Kabupaten Bandung")
+
+        def fake_parser(_: str):
+            return [
+                ("bandung", "city"),
+                ("kabupaten bandung", "city"),
+            ]
+
+        labels = tag_tokens(tokens, parser=fake_parser)
+
+        self.assertEqual(labels[0], "B-KOTA_KABUPATEN")
+        self.assertEqual(labels[1], "B-KOTA_KABUPATEN")
+        self.assertEqual(labels[2], "I-KOTA_KABUPATEN")
+
 if __name__ == "__main__":
     unittest.main()
