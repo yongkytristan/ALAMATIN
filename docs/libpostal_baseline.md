@@ -230,6 +230,31 @@ The benchmark must be run only on development/test splits whose access is allowe
 
 The sealed real test must not be used during ALM-016 implementation or mapping decisions.
 
+## Results
+
+Results below use the recorded environment above and exact-span evaluation.
+
+| Dataset | Precision | Recall | F1 |
+| --- | ---: | ---: | ---: |
+| `synthetic_dev` (`data/synthetic/val.json`, 750 examples) | 46.99% | 28.74% | 35.67% |
+| `real_dev` | Not run | Not run | Not run |
+
+Synthetic-dev inference latency was 0.20 ms at p50 and 0.65 ms at p95 across
+750 examples.
+
+### Per-entity observations
+
+- `JALAN`: 46.04% precision, 72.80% recall, and 56.40% F1 (546 true positives). It has relatively strong recall, but 640 false positives indicate that libpostal frequently assigns overly broad spans to `road`.
+- `NOMOR`: 81.69% precision, 67.20% recall, and 73.74% F1 (504 true positives), the strongest non-postcode mapped entity.
+- `RT`: no true positives; all 439 gold spans were missed because `RT` has no supported direct libpostal-to-ALAMATIN mapping.
+- `RW`: no true positives; all 439 gold spans were missed because `RW` has no supported direct libpostal-to-ALAMATIN mapping.
+- `KELURAHAN`: no true positives; all 750 gold spans were missed because `suburb` is intentionally unsupported.
+- `KECAMATAN`: 1 true positive, with 0.31% precision, 0.13% recall, and 0.19% F1. The unsupported administrative labels do not reliably match this entity.
+- `KOTA_KABUPATEN`: 7.73% precision, 6.80% recall, and 7.23% F1 (51 true positives), indicating substantial mismatch between libpostal's `city` interpretation and the ALAMATIN schema.
+- `PROVINSI`: 57.98% precision, 34.60% recall, and 43.34% F1 (109 true positives).
+- `KODEPOS`: 97.32% precision, 96.03% recall, and 96.67% F1 (363 true positives), making it the most reliable mapped entity in this run.
+- `DETAIL_LOKASI`: no true positives; all 155 gold spans were missed because there is no supported direct mapping.
+
 ## Expected incompatibilities
 
 The following limitations are expected and should be reported as measured behavior rather than treated automatically as adapter bugs:
