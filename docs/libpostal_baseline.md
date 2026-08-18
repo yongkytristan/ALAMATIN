@@ -19,6 +19,29 @@ libpostal requires both the native libpostal library and a compatible Python bin
 
 The exact native-library revision/build configuration and Python-binding version used for reported benchmark results must be recorded before those results are treated as reproducible evidence.
 
+### Recorded environment
+
+The current ALM-016 development environment is recorded below. Update this
+record whenever a benchmark is run with a different environment.
+
+#### Native libpostal
+
+- Revision/tag: `v1.1.4` (Homebrew `libpostal` formula)
+- Build flags: default Homebrew arm64 Sonoma bottle; no custom native build flags
+- Data model: default libpostal model
+- Installation method: Homebrew (`brew install libpostal`)
+
+#### Python binding
+
+- Package: `postal`
+- Version/revision: `1.1.11`
+
+#### Operating system and runtime
+
+- OS: macOS `14.7.1` (build `23H222`)
+- Architecture: `arm64`
+- Python: `3.11.8`
+
 Development environments that do not have libpostal installed may still run adapter unit tests by injecting a deterministic fake parser. Real benchmark execution requires the native parser.
 
 For MacOS
