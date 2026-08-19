@@ -49,7 +49,7 @@ For MacOS
 ```bash
 brew install libpostal
 python3 -m venv Env
-source Env/activate/bin
+source Env/bin/activate
 ```
 
 After this, the installation of postal on pip will not work. You should follow these steps:
@@ -58,7 +58,7 @@ After this, the installation of postal on pip will not work. You should follow t
 export CFLAGS="-I$(brew --prefix libpostal)/include"
 export LDFLAGS="-L$(brew --prefix libpostal)/lib"
 export PKG_CONFIG_PATH="$(brew --prefix libpostal)/lib/pkgconfig"
-pip install postal
+pip install postal==1.1.11
 ```
 
 ## Output mapping
@@ -234,12 +234,12 @@ The sealed real test must not be used during ALM-016 implementation or mapping d
 
 Results below use the recorded environment above and exact-span evaluation.
 
-| Dataset | Precision | Recall | F1 |
-| --- | ---: | ---: | ---: |
-| `synthetic_dev` (`data/synthetic/val.json`, 750 examples) | 46.99% | 28.74% | 35.67% |
-| `real_dev` | Not run | Not run | Not run |
+| Dataset                                                   | Precision |  Recall |      F1 |
+| --------------------------------------------------------- | --------: | ------: | ------: |
+| `synthetic_dev` (`data/synthetic/val.json`, 750 examples) |    52.02% |  28.73% |  37.01% |
+| `real_dev`                                                |   Not run | Not run | Not run |
 
-Synthetic-dev inference latency was 0.20 ms at p50 and 0.65 ms at p95 across
+Synthetic-dev inference latency was 0.19 ms at p50 and 0.70 ms at p95 across
 750 examples.
 
 ### Per-entity observations
@@ -249,7 +249,7 @@ Synthetic-dev inference latency was 0.20 ms at p50 and 0.65 ms at p95 across
 - `RT`: no true positives; all 439 gold spans were missed because `RT` has no supported direct libpostal-to-ALAMATIN mapping.
 - `RW`: no true positives; all 439 gold spans were missed because `RW` has no supported direct libpostal-to-ALAMATIN mapping.
 - `KELURAHAN`: no true positives; all 750 gold spans were missed because `suburb` is intentionally unsupported.
-- `KECAMATAN`: 1 true positive, with 0.31% precision, 0.13% recall, and 0.19% F1. The unsupported administrative labels do not reliably match this entity.
+- `KECAMATAN`: no true positives; all 750 gold spans were missed because `city_district` is intentionally unsupported.
 - `KOTA_KABUPATEN`: 7.73% precision, 6.80% recall, and 7.23% F1 (51 true positives), indicating substantial mismatch between libpostal's `city` interpretation and the ALAMATIN schema.
 - `PROVINSI`: 57.98% precision, 34.60% recall, and 43.34% F1 (109 true positives).
 - `KODEPOS`: 97.32% precision, 96.03% recall, and 96.67% F1 (363 true positives), making it the most reliable mapped entity in this run.
@@ -300,8 +300,12 @@ Benchmark numbers must only be added to this document after the implementation, 
 
 ## Current status
 
-The adapter and runner are being implemented for ALM-016.
+The `libpostal_v1` adapter, runner, conservative label mapping, and
+synthetic-development evaluation are implemented.
 
-The initial Indonesia-specific smoke test has been completed and informed the conservative mapping policy documented above.
+The initial `synthetic_dev` result is reported below. The result must
+be regenerated after every mapping-policy change before it is used as
+evaluation evidence.
 
-Full development-set metrics and latency results are not yet reported. They must not be replaced by estimates or placeholder performance claims.
+Evaluation on additional allowed development splits remains separate
+work. The sealed real test must not be opened for ALM-016 development.
