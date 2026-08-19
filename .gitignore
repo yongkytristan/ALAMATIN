@@ -18,6 +18,9 @@ dist/
 build/
 *.egg-info/
 
+# Virtual Environments
+Env/
+
 # JavaScript / web
 node_modules/
 .next/

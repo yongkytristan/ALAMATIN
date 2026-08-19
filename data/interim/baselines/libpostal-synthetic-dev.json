@@ -1,0 +1,100 @@
+{
+  "baseline": "libpostal_v1",
+  "by_type": {
+    "DETAIL_LOKASI": {
+      "f1": null,
+      "false_negative": 155,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "JALAN": {
+      "f1": 0.5640495867768596,
+      "false_negative": 204,
+      "false_positive": 640,
+      "precision": 0.46037099494097805,
+      "recall": 0.728,
+      "true_positive": 546
+    },
+    "KECAMATAN": {
+      "f1": null,
+      "false_negative": 750,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "KELURAHAN": {
+      "f1": null,
+      "false_negative": 750,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "KODEPOS": {
+      "f1": 0.9667110519307589,
+      "false_negative": 15,
+      "false_positive": 10,
+      "precision": 0.9731903485254692,
+      "recall": 0.9603174603174603,
+      "true_positive": 363
+    },
+    "KOTA_KABUPATEN": {
+      "f1": 0.07234042553191489,
+      "false_negative": 699,
+      "false_positive": 609,
+      "precision": 0.07727272727272727,
+      "recall": 0.068,
+      "true_positive": 51
+    },
+    "NOMOR": {
+      "f1": 0.737381126554499,
+      "false_negative": 246,
+      "false_positive": 113,
+      "precision": 0.8168557536466775,
+      "recall": 0.672,
+      "true_positive": 504
+    },
+    "PROVINSI": {
+      "f1": 0.43339960238568587,
+      "false_negative": 206,
+      "false_positive": 79,
+      "precision": 0.5797872340425532,
+      "recall": 0.346031746031746,
+      "true_positive": 109
+    },
+    "RT": {
+      "f1": null,
+      "false_negative": 439,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "RW": {
+      "f1": null,
+      "false_negative": 439,
+      "false_positive": 0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive": 0
+    }
+  },
+  "dataset": "data/synthetic/val.json",
+  "example_count": 750,
+  "latency_ms": {
+    "p50": 0.19308300034026615,
+    "p95": 0.6991250002101879,
+    "sample_count": 750
+  },
+  "overall": {
+    "f1": 0.3701176470588235,
+    "false_negative": 3903,
+    "false_positive": 1451,
+    "precision": 0.5201719576719577,
+    "recall": 0.2872534696859021,
+    "true_positive": 1573
+  }
+}
