@@ -16,7 +16,6 @@ LIBPOSTAL_TO_ALAMATIN = {
     "postcode": "KODEPOS",
     "city": "KOTA_KABUPATEN",
     "state": "PROVINSI",
-    "city_district": "KECAMATAN",
 }
 
 

@@ -111,5 +111,25 @@ class LibpostalBaselineTest(unittest.TestCase):
         self.assertEqual(labels[1], "B-KOTA_KABUPATEN")
         self.assertEqual(labels[2], "I-KOTA_KABUPATEN")
 
+    def test_city_district_is_intentionally_unsupported(self) -> None:
+        tokens = tokenize("RW 04 Bandung")
+
+        def fake_parser(_: str):
+            return [
+                ("rw", "city_district"),
+                ("bandung", "city"),
+            ]
+
+        labels = tag_tokens(tokens, parser=fake_parser)
+
+        self.assertEqual(labels[tokens.index("RW")], "O")
+        self.assertEqual(
+            labels[tokens.index("Bandung")],
+            "B-KOTA_KABUPATEN",
+        )
+
+        valid, reason = validate_bio_sequence(labels)
+        self.assertTrue(valid, reason)
+
 if __name__ == "__main__":
     unittest.main()
