@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "alamatin-mbert-ner-targeted-v2-seed42",
+  "base_model": {
+    "name": "bert-base-multilingual-cased",
+    "revision": "3f076fdb1ab68d5b2880cb87a0886f315b8146f8"
+  },
+  "parent_checkpoint": {
+    "release": "ner-v1.0.0",
+    "artifact_path": "models/ner-v1-release/ner-v1",
+    "model_sha256": "fc2d1560862d66f388bb58e83486d77dfbc22f67455c70e388887e33b39c63bd"
+  },
+  "dataset": {
+    "train": [
+      "data/synthetic/train.json",
+      "data/synthetic-v2-targeted/train-augmentation.json"
+    ],
+    "dev": "data/synthetic/val.json",
+    "real_dev_comparison_only": "data/interim/evaluation-splits/real_dev.json"
+  },
+  "traceability": {
+    "source_issue": "ALM-019",
+    "action_ids": ["ALM019-A01", "ALM019-A02", "ALM019-A03", "ALM019-A04"],
+    "training_uses_real_dev": false,
+    "checkpoint_selection_split": "synthetic_dev"
+  },
+  "selection_policy": {
+    "frozen_before_candidate_run": true,
+    "synthetic_dev_f1_floor": 0.994360788969044,
+    "minimum_real_dev_f1_gain": 0.01,
+    "minimum_critical_exact_match_gain_examples": 5,
+    "maximum_raw_invalid_bio_examples": 14,
+    "ranking": [
+      "eligibility_constraints",
+      "real_dev_critical_exact_match",
+      "real_dev_micro_f1",
+      "synthetic_dev_f1"
+    ]
+  },
+  "output_dir": "models/ner-targeted-v2",
+  "seed": 42,
+  "max_length": 512,
+  "training": {
+    "learning_rate": 0.00001,
+    "per_device_train_batch_size": 16,
+    "per_device_eval_batch_size": 16,
+    "num_train_epochs": 2,
+    "weight_decay": 0.01,
+    "logging_steps": 50,
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "save_total_limit": 2,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "f1",
+    "greater_is_better": true,
+    "report_to": "none"
+  }
+}

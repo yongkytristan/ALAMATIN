@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "selection": {
+    "split": "synthetic_dev",
+    "metric": "f1",
+    "selected_checkpoint": "checkpoint-1410",
+    "selected_epoch": 5.0,
+    "value": 0.9946162971074003
+  },
+  "train": {
+    "loss": 0.20763540637831315,
+    "runtime_seconds": 223.6354,
+    "samples_per_second": 100.61,
+    "steps_per_second": 6.305
+  },
+  "dev": {
+    "accuracy": 0.9982041071289138,
+    "f1": 0.9946162971074003,
+    "loss": 0.008964168839156628,
+    "precision": 0.9939813970454131,
+    "recall": 0.9952520087655223,
+    "example_count": 750
+  },
+  "test": {
+    "accuracy": 0.9977788354751705,
+    "f1": 0.9944144479612735,
+    "loss": 0.008977147750556469,
+    "precision": 0.9940442955518333,
+    "recall": 0.9947848761408083,
+    "example_count": 750
+  },
+  "parameters": {
+    "trainable": 311061,
+    "total_with_adapter": 177590058,
+    "trainable_ratio": 0.001751570
+  }
+}

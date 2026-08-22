@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "release": {
+    "repository": "yongkytristan/ALAMATIN-internal",
+    "tag": "ner-v1.0.0",
+    "url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/tag/ner-v1.0.0"
+  },
+  "asset": {
+    "name": "ner-v1-inference.tar",
+    "bytes": 712084480,
+    "sha256": "0dcb9d4266bdfc419f6e29ccaf7482f9006bc96f2c4948a469efb1fe9931b0f5",
+    "download_url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/download/ner-v1.0.0/ner-v1-inference.tar"
+  },
+  "contents": [
+    "config.json",
+    "model.safetensors",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "ner-v1.json",
+    "ner-v1.lock",
+    "metrics.json",
+    "label_map.json",
+    "run_manifest.json",
+    "smoke_prediction.json",
+    "verify_ner_v1_artifact.py",
+    "ner-v1.md"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "candidate_id": "ner-lora-kevin-seed42",
+  "source": {
+    "pull_request": "yongkytristan/ALAMATIN-internal#9",
+    "commit": "866303afffb178e8b5910764b303db0b7c500d7f"
+  },
+  "candidate": {
+    "synthetic_dev_f1": 0.9946162971074003,
+    "synthetic_test_f1": 0.9944144479612735,
+    "real_dev_micro_f1": 0.6489184692179701,
+    "real_dev_critical_exact_match": {
+      "numerator": 12,
+      "denominator": 70,
+      "rate": 0.17142857142857143
+    },
+    "raw_invalid_bio_examples": 26,
+    "adapter_sha256": "3a36b985a6c96071d8f0b12084ea2094499e46e9a3427fdcaff6993947a89a6a"
+  },
+  "selected_baseline": {
+    "candidate_id": "ner-targeted-v2",
+    "synthetic_dev_f1": 0.9994520547945206,
+    "real_dev_micro_f1": 0.7832167832167831,
+    "real_dev_critical_exact_match": {
+      "numerator": 37,
+      "denominator": 70,
+      "rate": 0.5285714285714286
+    },
+    "raw_invalid_bio_examples": 8
+  },
+  "delta_against_selected": {
+    "synthetic_dev_f1": -0.004835757687120301,
+    "real_dev_micro_f1": -0.134298313998813,
+    "critical_exact_match_examples": -25,
+    "raw_invalid_bio_examples": 18
+  },
+  "frozen_selection_gates": {
+    "synthetic_dev_f1_floor": {
+      "threshold": 0.994360788969044,
+      "actual": 0.9946162971074003,
+      "passed": true
+    },
+    "minimum_real_dev_f1_gain_over_v1": {
+      "threshold": 0.01,
+      "actual": -0.02800460770510688,
+      "passed": false
+    },
+    "minimum_critical_exact_match_gain_over_v1_examples": {
+      "threshold": 5,
+      "actual": -3,
+      "passed": false
+    },
+    "maximum_raw_invalid_bio_examples": {
+      "threshold": 14,
+      "actual": 26,
+      "passed": false
+    }
+  },
+  "eligible_for_final_selection": false,
+  "decision": "Retain as an ALM-036 LoRA ablation result; do not replace ner-targeted-v2."
+}

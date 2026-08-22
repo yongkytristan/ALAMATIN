@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "alamatin-mbert-ner-v1-seed42",
+  "completed_at": "2026-08-20T15:33:23Z",
+  "base_model": {
+    "name": "bert-base-multilingual-cased",
+    "revision": "3f076fdb1ab68d5b2880cb87a0886f315b8146f8"
+  },
+  "seed": 42,
+  "python": "3.12.4",
+  "packages": {
+    "accelerate": "1.14.0",
+    "datasets": "5.0.1",
+    "numpy": "2.2.0",
+    "seqeval": "1.2.2",
+    "torch": "2.5.1+cpu",
+    "transformers": "5.0.0"
+  },
+  "datasets": {
+    "train": {
+      "path": "data/synthetic/train.json",
+      "canonical_json_sha256": "ce84d65b810867bc936a227ead5050dcaafad31d72ed69073507d30fe6392a53"
+    },
+    "dev": {
+      "path": "data/synthetic/val.json",
+      "canonical_json_sha256": "0d22a2c85e50d7fee7f7512a3bcb29e0eef93c0ab78b56cc16dce264a34516e1"
+    },
+    "test": {
+      "path": "data/synthetic/test.json",
+      "canonical_json_sha256": "73afc76161c6e0ee67ba357002960177fe04e2e6c3a6e8a46dee3603a51e7c9d"
+    }
+  },
+  "selection": {
+    "split": "synthetic_dev",
+    "metric": "eval_f1",
+    "selected_checkpoint": "checkpoint-1410",
+    "selected_epoch": 5,
+    "selected_value": 0.999360788969044
+  },
+  "artifact_files": {
+    "config.json": {
+      "bytes": 1903,
+      "sha256": "4470370315f1e2467a12cf39349c2f7ea7c4fca8b4ff2166d2f643bda3596146"
+    },
+    "model.safetensors": {
+      "bytes": 709139324,
+      "sha256": "fc2d1560862d66f388bb58e83486d77dfbc22f67455c70e388887e33b39c63bd"
+    },
+    "tokenizer.json": {
+      "bytes": 2919460,
+      "sha256": "7d76a4d25ebe8f217654f1039bd991bfc96e7c2cd36e6d28aff941783ed1e9c8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 337,
+      "sha256": "76cd3c68e3643f6097b8e735984067bbc2bcc149f0f4d8c50e4639e48dcadac5"
+    }
+  },
+  "source_notebook": "src/alamatin/bert-ner-reviewed.ipynb",
+  "training_config": {
+    "path": "configs/ner-v1.json",
+    "sha256": "4cb7e86132a74027f67d9e26d02125023f67f6fd7b108c52dbbe6860826d9d0b"
+  },
+  "dependency_lock": {
+    "path": "requirements/ner-v1.lock",
+    "sha256": "12f5e02cc6cff16aff958a600ba34db7ef270aa7c8d2e7c1d86625b83f862de6"
+  },
+  "metrics": {
+    "path": "experiments/ner-v1/metrics.json",
+    "sha256": "ad93885b2e2477a4f548f234a08d0edf915bf7b3078dd3b310e614e96d675900"
+  },
+  "label_map": {
+    "path": "experiments/ner-v1/label_map.json",
+    "sha256": "fa43a9e8437ae2ce84659893e866a3eda69658c685459246b40cdc26fb5d9a57"
+  },
+  "smoke_prediction": "experiments/ner-v1/smoke_prediction.json"
+}
