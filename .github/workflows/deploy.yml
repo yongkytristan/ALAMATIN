@@ -46,6 +46,20 @@ jobs:
       - name: Run test suite
         run: python -m unittest discover -s tests
 
+      # The node installs this lock with --require-hashes. Resolving it here for
+      # the deploy target's interpreter and platform turns a bad pin or a
+      # missing hash into a failed check instead of a failed deploy.
+      - name: Verify the dependency lock resolves for the deploy target
+        run: |
+          if ! grep -qE '^[[:space:]]*[^[:space:]#]' requirements.lock; then
+            echo "requirements.lock declares no dependencies; nothing to resolve."
+            exit 0
+          fi
+          python -m pip install --dry-run --require-hashes \
+            -r requirements.lock --only-binary :all: \
+            --python-version 3.11 --implementation cp --abi cp311 \
+            --platform manylinux2014_x86_64 --target "$RUNNER_TEMP/lockcheck"
+
       # "Pipeline first, code later" is a deliberate state: the runtime modules
       # still live in the internal repository. Fail loudly here rather than
       # shipping an empty skeleton that would look like a successful deploy.

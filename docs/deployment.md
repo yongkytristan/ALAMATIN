@@ -10,15 +10,18 @@ The runtime code is now present: the API, contracts, quality gate, validator,
 normalizer, and PII redaction have been synced from the internal repository, so
 the `verify` job's deployability guard passes and a deploy can proceed.
 
-Two things still block a *useful* deploy, and both are outside this pipeline:
+The ASGI server is now pinned: `uvicorn==0.52.4` with hashes in
+`requirements.lock`, recorded as DEC-005 in
+[`decision-log.md`](decision-log.md). The service entrypoint is
+`alamatin.api:app`. Verified end to end on the node: the lock installs under
+`pip install --require-hashes` and `uvicorn 0.52.4` runs on CPython 3.11.13.
+The `verify` job also resolves the lock for the deploy target's interpreter and
+platform, so a bad pin or missing hash fails a check rather than a deploy.
 
-1. **No ASGI server is declared.** `requirements.lock` still declares no
-   dependencies. `src/alamatin/api.py` is a dependency-free ASGI application,
-   but something has to serve it. The service entrypoint is
-   `alamatin.api:app`, for example `uvicorn alamatin.api:app`. Adding the
-   server to the lock file is a stack decision that must be recorded first,
-   per this repository's dependency policy, and the lock file must carry
-   hashes because the activation script installs with `--require-hashes`.
+Two things still block a *useful* deploy:
+
+1. **The deploy key is not registered yet.** See "Registering the deploy key"
+   below — this must be done through the Dewacloud dashboard.
 
 2. **The default `app` has no pipeline wired.** `create_app()` defaults to an
    unconfigured parse/validate handler and an unconfigured dependency probe.
@@ -65,8 +68,8 @@ Surveyed directly over SSH on 22 August 2026:
 | OS | AlmaLinux 9.7 |
 | Login | `root`, home `/root` |
 | System Python | 3.9.25 (`/usr/bin/python3`) — **cannot run this codebase** |
-| Available | `python3.11`, `python3.12` via `dnf` |
-| ASGI server | `uvicorn` and `gunicorn` both absent; `pip3` present |
+| Deploy interpreter | `python3.11` (3.11.13) — installed 22 August 2026 |
+| ASGI server | none preinstalled; supplied per release from `requirements.lock` |
 | Supervision | `systemctl` and `jem` present; `supervisorctl` absent |
 | Disk | 449 GB free |
 
@@ -87,7 +90,8 @@ claimed success. It also rebuilds the shared virtualenv if it finds one built
 from a different Python version, so a bad environment cannot survive later
 deploys.
 
-Install the interpreter on the node once:
+This has already been done on the current node. On a rebuilt or replacement
+node, install it again:
 
 ```bash
 dnf install -y python3.11
