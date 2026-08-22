@@ -1,0 +1,30 @@
+# Single service. No database, no cache, no external dependency: the reference
+# is a file in the image and the pipeline performs no outbound calls.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alamatin-api:local
+    ports:
+      - "8000:8000"
+    # Reported as unhealthy rather than merely running when the pipeline cannot
+    # answer, which is the distinction the health contract exists to make.
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - |
+          import sys, urllib.request
+          sys.exit(0 if urllib.request.urlopen("http://127.0.0.1:8000/health", timeout=4).status == 200 else 1)
+      interval: 15s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    restart: unless-stopped
+    # Nothing is written at runtime; a read-only root filesystem makes that
+    # explicit and catches any accidental write.
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
