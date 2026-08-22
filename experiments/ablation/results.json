@@ -1,0 +1,422 @@
+{
+  "evaluator": {
+    "module": "alamatin.evaluation_metrics",
+    "note": "one evaluator for every row, which is what makes the rows comparable"
+  },
+  "failure_cases": [
+    {
+      "address_text": "Jln. Kelapa Gading Nomer 128 Rt 13 Rw 03, Ds. Pajawankidul Lebakwangi, Kab Kuningan Provinsi Jawa Barat",
+      "categories": [
+        "abbreviation",
+        "case_title",
+        "separator"
+      ],
+      "example_id": "SYN-0001685-01",
+      "failure_signature": {
+        "missed": [
+          "JALAN",
+          "KECAMATAN",
+          "KELURAHAN"
+        ],
+        "spurious": [
+          "JALAN",
+          "KELURAHAN",
+          "KELURAHAN"
+        ]
+      },
+      "gold_components": {
+        "JALAN": "Jln. Kelapa Gading",
+        "KECAMATAN": "Lebakwangi",
+        "KELURAHAN": "Ds. Pajawankidul",
+        "KOTA_KABUPATEN": "Kab Kuningan",
+        "NOMOR": "Nomer 128",
+        "PROVINSI": "Provinsi Jawa Barat",
+        "RT": "Rt 13",
+        "RW": "Rw 03"
+      },
+      "missed_critical_spans": [
+        "JALAN",
+        "KECAMATAN",
+        "KELURAHAN"
+      ],
+      "predicted_components": {
+        "JALAN": "Jln.",
+        "KELURAHAN": "Kelapa Gading",
+        "KOTA_KABUPATEN": "Kab Kuningan",
+        "NOMOR": "Nomer 128",
+        "PROVINSI": "Provinsi Jawa Barat",
+        "RT": "Rt 13",
+        "RW": "Rw 03"
+      },
+      "spurious_critical_spans": [
+        "JALAN",
+        "KELURAHAN",
+        "KELURAHAN"
+      ],
+      "synthetic": true
+    },
+    {
+      "address_text": "jl. kecapi no 61, desa majalaya majalaya kab. karawang",
+      "categories": [
+        "abbreviation",
+        "case_lower",
+        "missing_kodepos",
+        "missing_provinsi",
+        "separator"
+      ],
+      "example_id": "SYN-0001735-02",
+      "failure_signature": {
+        "missed": [
+          "JALAN",
+          "KECAMATAN",
+          "KELURAHAN"
+        ],
+        "spurious": [
+          "JALAN",
+          "KECAMATAN",
+          "KELURAHAN"
+        ]
+      },
+      "gold_components": {
+        "JALAN": "jl. kecapi",
+        "KECAMATAN": "majalaya",
+        "KELURAHAN": "desa majalaya",
+        "KOTA_KABUPATEN": "kab. karawang",
+        "NOMOR": "no 61"
+      },
+      "missed_critical_spans": [
+        "JALAN",
+        "KECAMATAN",
+        "KELURAHAN"
+      ],
+      "predicted_components": {
+        "JALAN": "jl.",
+        "KECAMATAN": "kecapi",
+        "KELURAHAN": "desa majalaya majalaya",
+        "KOTA_KABUPATEN": "kab. karawang",
+        "NOMOR": "no 61"
+      },
+      "spurious_critical_spans": [
+        "JALAN",
+        "KECAMATAN",
+        "KELURAHAN"
+      ],
+      "synthetic": true
+    },
+    {
+      "address_text": "Jln Kelapa Gading No 229 RT 09 RW 05 Biru, Majalaya, Kabupaten Bandung Provinsi Jawa Barat",
+      "categories": [
+        "abbreviation",
+        "missing_kodepos",
+        "separator"
+      ],
+      "example_id": "SYN-0001525-00",
+      "failure_signature": {
+        "missed": [
+          "JALAN",
+          "KECAMATAN",
+          "KELURAHAN"
+        ],
+        "spurious": [
+          "JALAN",
+          "KELURAHAN"
+        ]
+      },
+      "gold_components": {
+        "JALAN": "Jln Kelapa Gading",
+        "KECAMATAN": "Majalaya",
+        "KELURAHAN": "Biru",
+        "KOTA_KABUPATEN": "Kabupaten Bandung",
+        "NOMOR": "No 229",
+        "PROVINSI": "Provinsi Jawa Barat",
+        "RT": "RT 09",
+        "RW": "RW 05"
+      },
+      "missed_critical_spans": [
+        "JALAN",
+        "KECAMATAN",
+        "KELURAHAN"
+      ],
+      "predicted_components": {
+        "JALAN": "Jln",
+        "KELURAHAN": "Kelapa Gading",
+        "KOTA_KABUPATEN": "Kabupaten Bandung",
+        "NOMOR": "No 229",
+        "PROVINSI": "Provinsi Jawa Barat",
+        "RT": "RT 09",
+        "RW": "RW 05"
+      },
+      "spurious_critical_spans": [
+        "JALAN",
+        "KELURAHAN"
+      ],
+      "synthetic": true
+    },
+    {
+      "address_text": "Nomer 147 Jln Veteran Samping Taman Kota Tanjung Sari, Agrabinnta, Kabupaten Cianjur",
+      "categories": [
+        "abbreviation",
+        "case_title",
+        "missing_kodepos",
+        "missing_provinsi",
+        "separator",
+        "typo"
+      ],
+      "example_id": "SYN-0001560-00",
+      "failure_signature": {
+        "missed": [
+          "JALAN",
+          "KECAMATAN",
+          "KELURAHAN"
+        ],
+        "spurious": [
+          "JALAN",
+          "KOTA_KABUPATEN"
+        ]
+      },
+      "gold_components": {
+        "DETAIL_LOKASI": "Samping Taman Kota",
+        "JALAN": "Jln Veteran",
+        "KECAMATAN": "Agrabinnta",
+        "KELURAHAN": "Tanjung Sari",
+        "KOTA_KABUPATEN": "Kabupaten Cianjur",
+        "NOMOR": "Nomer 147"
+      },
+      "missed_critical_spans": [
+        "JALAN",
+        "KECAMATAN",
+        "KELURAHAN"
+      ],
+      "predicted_components": {
+        "JALAN": "Jln Veteran Samping Taman",
+        "KOTA_KABUPATEN": "Kota Tanjung Sari",
+        "NOMOR": "Nomer 147"
+      },
+      "spurious_critical_spans": [
+        "JALAN",
+        "KOTA_KABUPATEN"
+      ],
+      "synthetic": true
+    }
+  ],
+  "interpretation_limits": [
+    "The synthetic split is generated and must not be read as a proxy for real input. Note it is not uniformly easier: entity F1 is similar to the sealed run (0.892 here against 0.898 sealed), but critical exact match is markedly lower (0.393 here against 0.669 sealed), because the generator injects abbreviation, casing, and separator noise more aggressively than the sealed addresses exhibit. The sealed run remains the measurement of record for real input.",
+    "libpostal and the NER candidates could not be executed here. Their numbers are recorded prior measurements, and the NER figures come from the selection split rather than this exact file.",
+    "Stage latencies are measured independently and are not additive. The complete pipeline is roughly two orders of magnitude slower than extraction because the administrative validator searches the 5,957-row reference per call; that is the cost centre, not the extractor.",
+    "No row supports a claim about delivery outcomes."
+  ],
+  "latency": {
+    "complete_pipeline": {
+      "mean": 21.16859839701404,
+      "p50": 28.247899957932532,
+      "p95": 34.41149997524917,
+      "p99": 37.09899995010346,
+      "sample_count": 2250
+    },
+    "extraction": {
+      "mean": 0.10882826832433541,
+      "p50": 0.10269996710121632,
+      "p95": 0.16469997353851795,
+      "p99": 0.20340003538876772,
+      "sample_count": 2250
+    },
+    "extraction_plus_normalizer": {
+      "mean": 0.17773537875877488,
+      "p50": 0.17090002074837685,
+      "p95": 0.2500000409781933,
+      "p99": 0.3477000864222646,
+      "sample_count": 2250
+    },
+    "hardware": {
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+      "python": "3.12.4"
+    },
+    "protocol": {
+      "clock": "time.perf_counter",
+      "concurrency": "single process, single thread",
+      "note": "each stage is timed independently, so the stage figures are not additive: extraction is re-run inside the normalizer measurement",
+      "percentile_method": "nearest rank",
+      "timed_repeats": 3,
+      "warmup_iterations": 50
+    }
+  },
+  "measured_here": {
+    "complete_system": {
+      "example_count": 750,
+      "quality_gate_status_counts": {
+        "PERLU_KONFIRMASI": 618,
+        "SIAP_DIPROSES": 26,
+        "TIDAK_VALID": 106
+      }
+    },
+    "extractor_only": {
+      "critical_exact_match": {
+        "denominator": 750,
+        "numerator": 295,
+        "rate": 0.3933333333333333
+      },
+      "entity": {
+        "f1": 0.8923433426667954,
+        "false_negative": 855,
+        "false_positive": 260,
+        "precision": 0.9467322270026634,
+        "recall": 0.8438641344046749,
+        "true_positive": 4621
+      },
+      "entity_by_type": {
+        "DETAIL_LOKASI": {
+          "f1": null,
+          "false_negative": 155,
+          "false_positive": 0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "JALAN": {
+          "f1": 0.8893333333333333,
+          "false_negative": 83,
+          "false_positive": 83,
+          "precision": 0.8893333333333333,
+          "recall": 0.8893333333333333,
+          "true_positive": 667
+        },
+        "KECAMATAN": {
+          "f1": 0.7783094098883572,
+          "false_negative": 262,
+          "false_positive": 16,
+          "precision": 0.9682539682539683,
+          "recall": 0.6506666666666666,
+          "true_positive": 488
+        },
+        "KELURAHAN": {
+          "f1": 0.6433021806853583,
+          "false_negative": 337,
+          "false_positive": 121,
+          "precision": 0.7734082397003745,
+          "recall": 0.5506666666666666,
+          "true_positive": 413
+        },
+        "KODEPOS": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 378
+        },
+        "KOTA_KABUPATEN": {
+          "f1": 0.9727574750830564,
+          "false_negative": 18,
+          "false_positive": 23,
+          "precision": 0.9695364238410596,
+          "recall": 0.976,
+          "true_positive": 732
+        },
+        "NOMOR": {
+          "f1": 0.9887936717205009,
+          "false_negative": 0,
+          "false_positive": 17,
+          "precision": 0.9778357235984355,
+          "recall": 1.0,
+          "true_positive": 750
+        },
+        "PROVINSI": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 315
+        },
+        "RT": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 439
+        },
+        "RW": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "true_positive": 439
+        }
+      },
+      "system": "regex-baseline-v1"
+    },
+    "extractor_plus_normalizer_plus_validator": {
+      "valid_chain_count": 26,
+      "valid_chain_rate": 0.034666666666666665,
+      "validator_reason_codes": {
+        "ADMINISTRATIVE_CONFLICT": 106,
+        "MISSING_ADMINISTRATIVE_FIELDS": 441,
+        "REFERENCE_COVERAGE_GAP": 177,
+        "VALID_ADMINISTRATIVE_CHAIN": 26
+      }
+    },
+    "extractor_plus_validator": {
+      "valid_chain_count": 26,
+      "valid_chain_rate": 0.034666666666666665,
+      "validator_reason_codes": {
+        "ADMINISTRATIVE_CONFLICT": 106,
+        "MISSING_ADMINISTRATIVE_FIELDS": 441,
+        "REFERENCE_COVERAGE_GAP": 177,
+        "VALID_ADMINISTRATIVE_CHAIN": 26
+      }
+    },
+    "normalizer_contribution": {
+      "additional_valid_chains": 0,
+      "changes_by_rule": {
+        "component_capitalization_v1": 1444,
+        "designator_dictionary_v1": 2489,
+        "rt_rw_three_digit_v1": 878
+      },
+      "examples_changed": 748,
+      "note": "additional_valid_chains counts addresses that only reach a reference-backed valid chain once deterministic normalization has run. The change counts are reported alongside it so a zero contribution is not mistaken for the normalizer doing nothing: it rewrites designators, capitalization, and RT/RW padding, and the validator already tolerates that variation.",
+      "total_changes": 4811
+    }
+  },
+  "recorded_prior_measurements": {
+    "libpostal_v1": {
+      "available_here": false,
+      "entity_f1": 0.3701176470588235,
+      "entity_precision": 0.5201719576719577,
+      "entity_recall": 0.2872534696859021,
+      "latency_p50_ms": 0.19308300034026615,
+      "latency_p95_ms": 0.6991250002101879,
+      "reason": "the `postal` module is not installed in this environment",
+      "source": "data/interim/baselines/libpostal-synthetic-dev.json",
+      "split": "data/synthetic/val.json"
+    },
+    "ner_targeted_v2": {
+      "available_here": false,
+      "entity_f1": 0.9994520547945206,
+      "latency_p50_ms": null,
+      "latency_p95_ms": null,
+      "reason": "model weights are a 712 MB release asset excluded by .gitignore; not served by the release candidate",
+      "source": "experiments/ner-final-candidate/comparison.json",
+      "split": "data/synthetic dev split used during selection"
+    },
+    "ner_v1_0_0": {
+      "available_here": false,
+      "entity_f1": 0.999360788969044,
+      "latency_p50_ms": null,
+      "latency_p95_ms": null,
+      "reason": "model weights are a release asset, as above",
+      "source": "experiments/ner-final-candidate/comparison.json",
+      "split": "data/synthetic dev split used during selection"
+    }
+  },
+  "schema_version": "1.0.0",
+  "split": {
+    "canonical_sha256": "0d22a2c85e50d7fee7f7512a3bcb29e0eef93c0ab78b56cc16dce264a34516e1",
+    "example_count": 750,
+    "note": "synthetic split, chosen because the sealed set is authorized for one opening which is already spent",
+    "path": "data/synthetic/val.json"
+  }
+}
