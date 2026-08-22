@@ -23,7 +23,9 @@ FAKE_PHONE = "0812" + "3456789"
 FAKE_GOOGLE_KEY = "AIza" + "b" * 35
 FAKE_AWS_KEY = "AKIA" + "B" * 16
 FAKE_ASSIGNMENT = 'api_key = "' + "z" * 20 + '"'
-FAKE_KEY_HEADER = "-----BEGIN OPENSSH PRIVATE KEY-----"
+# Assembled at runtime so this source file contains no key-header literal:
+# scripts/check_repository.py scans tracked source text and would flag it.
+FAKE_KEY_HEADER = "-----BEGIN " + "OPENSSH" + " PRIVATE KEY-----"
 
 
 class RuleDetectionTest(unittest.TestCase):
