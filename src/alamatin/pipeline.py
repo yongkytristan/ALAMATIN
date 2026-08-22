@@ -260,8 +260,15 @@ class AddressPipeline:
     ) -> PipelineResult:
         """Run every stage and return a validated contract document."""
 
-        if not isinstance(address_text, str) or not address_text.strip():
+        if not isinstance(address_text, str):
+            raise TypeError("address_text must be a string")
+        if not address_text:
             raise PipelineError("address_text is required")
+        # Whitespace-only text is deliberately NOT an error. It extracts no
+        # components, so the frozen gate answers PERLU_KONFIRMASI with
+        # MISSING_ADMINISTRATIVE_FIELDS -- the same answer punctuation-only text
+        # gets. Rejecting it instead surfaced a client input problem as a
+        # retryable 503, which a client would retry forever.
 
         pii = process_pii(address_text)
         # Everything downstream reads the PII-safe text, never the raw input.
