@@ -13,7 +13,8 @@ the `verify` job's deployability guard passes and a deploy can proceed.
 The ASGI server is now pinned: `uvicorn==0.52.4` with hashes in
 `requirements.lock`, recorded as DEC-005 in
 [`decision-log.md`](decision-log.md). The service entrypoint is
-`alamatin.api:app`. Verified end to end on the node: the lock installs under
+`alamatin.service:app` (see [`integration.md`](integration.md); `alamatin.api:app`
+is the transport with unconfigured handlers and answers `503` by design). Verified end to end on the node: the lock installs under
 `pip install --require-hashes` and `uvicorn 0.52.4` runs on CPython 3.11.13.
 The `verify` job also resolves the lock for the deploy target's interpreter and
 platform, so a bad pin or missing hash fails a check rather than a deploy.
@@ -23,7 +24,15 @@ Two things still block a *useful* deploy:
 1. **The deploy key is not registered yet.** See "Registering the deploy key"
    below — this must be done through the Dewacloud dashboard.
 
-2. **The default `app` has no pipeline wired.** `create_app()` defaults to an
+2. ~~**The default `app` has no pipeline wired.**~~ Resolved by ALM-028. The
+   service entrypoint is now **`alamatin.service:app`**, which wires the real
+   pipeline; `/health` returns `200 healthy`. A deployment still serving
+   `alamatin.api:app` will keep answering `503`, so update the systemd unit's
+   `ExecStart` accordingly and only then set `DEWACLOUD_HEALTH_URL`.
+   See [`integration.md`](integration.md).
+
+   Historic note, kept because it explains the `503` in earlier runs:
+   `create_app()` defaults to an
    unconfigured parse/validate handler and an unconfigured dependency probe.
    Verified against the synced tree with a real Uvicorn run:
 

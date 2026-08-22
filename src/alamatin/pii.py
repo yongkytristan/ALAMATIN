@@ -192,6 +192,20 @@ def _recipient_name_detections(text: str) -> list[_Detection]:
     return detections
 
 
+def _blank_spans(text: str, detections: Iterable[_Detection]) -> str:
+    """Replace each detected span with spaces, preserving every offset.
+
+    Used to hide already-detected PII from a later detector without shifting
+    indices, so detections found in the blanked text still address the original.
+    """
+
+    characters = list(text)
+    for detection in detections:
+        for index in range(detection.start, min(detection.end, len(characters))):
+            characters[index] = " "
+    return "".join(characters)
+
+
 def _non_overlapping(detections: Iterable[_Detection]) -> list[_Detection]:
     selected: list[_Detection] = []
     for item in sorted(detections, key=lambda value: (value.start, value.end)):
@@ -239,8 +253,14 @@ def process_pii(
 
     phones = _phone_detections(text)
     warnings: list[str] = []
+    # Name detection runs against text whose phone spans are blanked out. A phone
+    # sitting inside the candidate window -- "Penerima: Budi Santoso 0812..." --
+    # otherwise makes the candidate fail the name check, and the name survives
+    # redaction even though the phone is caught. Blanking with spaces rather than
+    # removing keeps every offset aligned with the original string.
+    text_for_names = _blank_spans(text, phones)
     try:
-        names = _name_detector(text)
+        names = _name_detector(text_for_names)
     except Exception:  # fail open without exposing exception content or raw input
         names = []
         warnings.append("RECIPIENT_NAME_EXTRACTION_FAILED")
