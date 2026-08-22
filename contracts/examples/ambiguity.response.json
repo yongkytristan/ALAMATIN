@@ -1,0 +1,23 @@
+{
+  "document_type": "address_parse_response", "schema_version": "1.0.0", "request_id": "req_ambiguity_001",
+  "versions": {"contract": "1.0.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1", "validator": "validator-v1", "reference_data": "jabar-reference-v1", "quality_gate": "quality-gate-v1"},
+  "pii": {
+    "address_text": {"value": "Kelurahan Sukamaju, Jawa Barat", "source": "rule_extracted", "confirmed": false},
+    "redacted_text": {"value": "Kelurahan Sukamaju, Jawa Barat", "source": "rule_extracted", "confirmed": false},
+    "entities": [], "reason_codes": [], "warnings": []
+  },
+  "components": [{"field": "KELURAHAN", "result": {"value": "Sukamaju", "source": "extracted_by_model", "confirmed": false, "model_score": 0.91, "previous_value": null}}],
+  "normalized_address": {"value": "Kelurahan Sukamaju, Jawa Barat", "source": "normalized_by_dictionary", "confirmed": false, "model_score": null, "previous_value": null},
+  "quality_gate": {
+    "status": "PERLU_KONFIRMASI",
+    "issues": [{"reason_code": "AMBIGUOUS_ADMINISTRATIVE_CANDIDATES", "severity": "medium", "message": "Nama kelurahan cocok dengan lebih dari satu rantai wilayah pada referensi.", "affected_fields": ["KELURAHAN", "KECAMATAN", "KOTA_KABUPATEN"], "clarification_question": "Kecamatan dan kota/kabupaten mana yang benar untuk kelurahan tujuan?", "source_reason_code": "AMBIGUOUS_ADMINISTRATIVE_CANDIDATES"}],
+    "rules": {"version": "quality-gate-v1", "precedence": [
+      {"status": "TIDAK_VALID", "when": "at least one high-severity issue exists"},
+      {"status": "PERLU_KONFIRMASI", "when": "at least one medium-severity issue exists"},
+      {"status": "SIAP_DIPROSES", "when": "no quality issue exists"}
+    ]}
+  },
+  "corrections": [{"correction_id": "corr_city_001", "field": "KOTA_KABUPATEN", "previous_value": {"value": "", "source": "user_input", "confirmed": false}, "proposed_value": {"value": "Kota Bandung", "source": "inferred_from_hierarchy", "confirmed": false}, "rule_id": "ambiguous_parent_candidate_v1", "decision": "requires_confirmation", "applied": false, "user_confirmation": null}],
+  "geocoding": {"status": "AMBIGUOUS", "consent": true, "provider": "synthetic-geocoder", "precision": "region", "latitude": null, "longitude": null, "components": [], "error_code": null},
+  "audit_trail": [{"sequence": 1, "stage": "validator", "action": "retain_ambiguous_candidates", "actor": "system", "rule_id": "exact_hierarchy_v1", "previous_values": [], "resulting_values": [{"field": "KELURAHAN", "value": "Sukamaju", "source": "extracted_by_model", "confirmed": false}]}]
+}

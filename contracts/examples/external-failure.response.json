@@ -1,0 +1,22 @@
+{
+  "document_type": "address_parse_response", "schema_version": "1.0.0", "request_id": "req_external_failure_001",
+  "versions": {"contract": "1.0.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1", "validator": "validator-v1", "reference_data": "jabar-reference-v1", "quality_gate": "quality-gate-v1"},
+  "pii": {
+    "address_text": {"value": "Jalan Merdeka No. 10, Kota Bandung", "source": "rule_extracted", "confirmed": false},
+    "redacted_text": {"value": "Jalan Merdeka No. 10, Kota Bandung", "source": "rule_extracted", "confirmed": false},
+    "entities": [], "reason_codes": [], "warnings": []
+  },
+  "components": [{"field": "JALAN", "result": {"value": "Jalan Merdeka", "source": "extracted_by_model", "confirmed": false, "model_score": 0.95, "previous_value": null}}],
+  "normalized_address": {"value": "Jalan Merdeka No. 10, Kota Bandung", "source": "normalized_by_dictionary", "confirmed": false, "model_score": null, "previous_value": null},
+  "quality_gate": {
+    "status": "SIAP_DIPROSES", "issues": [],
+    "rules": {"version": "quality-gate-v1", "precedence": [
+      {"status": "TIDAK_VALID", "when": "at least one high-severity issue exists"},
+      {"status": "PERLU_KONFIRMASI", "when": "at least one medium-severity issue exists"},
+      {"status": "SIAP_DIPROSES", "when": "no quality issue exists"}
+    ]}
+  },
+  "corrections": [],
+  "geocoding": {"status": "EXTERNAL_FAILURE", "consent": true, "provider": "synthetic-geocoder", "precision": null, "latitude": null, "longitude": null, "components": [], "error_code": "UPSTREAM_TIMEOUT"},
+  "audit_trail": [{"sequence": 1, "stage": "geocoding", "action": "record_external_failure", "actor": "external_service", "rule_id": null, "previous_values": [], "resulting_values": []}]
+}

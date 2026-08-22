@@ -1,0 +1,44 @@
+{
+  "document_type": "address_parse_response",
+  "schema_version": "1.0.0",
+  "request_id": "req_success_001",
+  "versions": {
+    "contract": "1.0.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1",
+    "validator": "validator-v1", "reference_data": "jabar-reference-v1", "quality_gate": "quality-gate-v1"
+  },
+  "pii": {
+    "address_text": {"value": "Jl. Asia Afrika No. 1, Braga, Sumur Bandung, Kota Bandung 40111", "source": "rule_extracted", "confirmed": false},
+    "redacted_text": {"value": "Jl. Asia Afrika No. 1, Braga, Sumur Bandung, Kota Bandung 40111", "source": "rule_extracted", "confirmed": false},
+    "entities": [], "reason_codes": [], "warnings": []
+  },
+  "components": [
+    {"field": "JALAN", "result": {"value": "Jalan Asia Afrika", "source": "extracted_by_model", "confirmed": false, "model_score": 0.98, "previous_value": null}},
+    {"field": "KODEPOS", "result": {"value": "40111", "source": "confirmed_by_user", "confirmed": true, "model_score": null, "previous_value": {"value": "40112", "source": "user_input", "confirmed": false}}}
+  ],
+  "normalized_address": {"value": "Jalan Asia Afrika No. 1, Kelurahan Braga, Kecamatan Sumur Bandung, Kota Bandung 40111", "source": "normalized_by_dictionary", "confirmed": false, "model_score": null, "previous_value": null},
+  "quality_gate": {
+    "status": "SIAP_DIPROSES", "issues": [],
+    "rules": {"version": "quality-gate-v1", "precedence": [
+      {"status": "TIDAK_VALID", "when": "at least one high-severity issue exists"},
+      {"status": "PERLU_KONFIRMASI", "when": "at least one medium-severity issue exists"},
+      {"status": "SIAP_DIPROSES", "when": "no quality issue exists"}
+    ]}
+  },
+  "corrections": [{
+    "correction_id": "corr_postcode_001", "field": "KODEPOS",
+    "previous_value": {"value": "40112", "source": "user_input", "confirmed": false},
+    "proposed_value": {"value": "40111", "source": "confirmed_by_user", "confirmed": true},
+    "rule_id": "hierarchy_postcode_v1", "decision": "confirmed", "applied": true,
+    "user_confirmation": {"confirmed": true, "source": "confirmed_by_user", "confirmed_at": "2026-08-21T12:00:00Z"}
+  }],
+  "geocoding": {
+    "status": "SUCCESS", "consent": true, "provider": "synthetic-geocoder", "precision": "street",
+    "latitude": {"value": -6.9218, "source": "returned_by_geocoder"},
+    "longitude": {"value": 107.6071, "source": "returned_by_geocoder"},
+    "components": [], "error_code": null
+  },
+  "audit_trail": [
+    {"sequence": 1, "stage": "model", "action": "extract_components", "actor": "system", "rule_id": null, "previous_values": [], "resulting_values": [{"field": "JALAN", "value": "Jalan Asia Afrika", "source": "extracted_by_model", "confirmed": false}]},
+    {"sequence": 2, "stage": "correction", "action": "confirm_postcode", "actor": "user", "rule_id": "hierarchy_postcode_v1", "previous_values": [{"field": "KODEPOS", "value": "40112", "source": "user_input", "confirmed": false}], "resulting_values": [{"field": "KODEPOS", "value": "40111", "source": "confirmed_by_user", "confirmed": true}]}
+  ]
+}
