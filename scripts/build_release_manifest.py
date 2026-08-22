@@ -187,7 +187,9 @@ def build() -> dict[str, object]:
         "p1_features": P1_DECISIONS,
         "sealed_test": {
             "authorized_openings": 1,
-            "opened": False,
+            # Derived from the published result rather than hand-maintained, so
+            # the record cannot claim the test is still sealed after a run.
+            "opened": (ROOT / "experiments" / "sealed-evaluation" / "results.json").is_file(),
             "authorization": (
                 "The project owner authorized exactly one opening of the sealed "
                 "test against this release candidate."
