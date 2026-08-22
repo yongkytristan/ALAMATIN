@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "selection": {
+    "split": "synthetic_dev",
+    "metric": "eval_f1",
+    "selected_checkpoint": "checkpoint-1410",
+    "selected_epoch": 5,
+    "value": 0.999360788969044
+  },
+  "dev": {
+    "eval_accuracy": 0.9996876708050285,
+    "eval_f1": 0.999360788969044,
+    "eval_loss": 0.0022232590708881617,
+    "eval_precision": 0.9994520547945206,
+    "eval_recall": 0.9992695398100804,
+    "example_count": 750
+  },
+  "test": {
+    "eval_accuracy": 0.9994447088687927,
+    "eval_f1": 0.9989755052621774,
+    "eval_loss": 0.00488318270072341,
+    "eval_precision": 0.9990685543964233,
+    "eval_recall": 0.9988824734587446,
+    "example_count": 750
+  },
+  "dev_history": [
+    {"epoch": 1, "eval_f1": 0.9976264378309293, "eval_loss": 0.005210347473621368},
+    {"epoch": 2, "eval_f1": 0.9990867579908678, "eval_loss": 0.003537604585289955},
+    {"epoch": 3, "eval_f1": 0.9990869247626004, "eval_loss": 0.002826262265443802},
+    {"epoch": 4, "eval_f1": 0.9988131105633159, "eval_loss": 0.0020316834561526775},
+    {"epoch": 5, "eval_f1": 0.999360788969044, "eval_loss": 0.0022232590708881617}
+  ],
+  "note": "Metrics are from the saved executed notebook using the governed synthetic train/dev/test splits. The test split was evaluated once after training."
+}

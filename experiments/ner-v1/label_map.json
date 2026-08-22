@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "entity_types": [
+    "JALAN",
+    "NOMOR",
+    "RT",
+    "RW",
+    "KELURAHAN",
+    "KECAMATAN",
+    "KOTA_KABUPATEN",
+    "PROVINSI",
+    "KODEPOS",
+    "DETAIL_LOKASI"
+  ],
+  "labels": [
+    "O",
+    "B-JALAN", "I-JALAN",
+    "B-NOMOR", "I-NOMOR",
+    "B-RT", "I-RT",
+    "B-RW", "I-RW",
+    "B-KELURAHAN", "I-KELURAHAN",
+    "B-KECAMATAN", "I-KECAMATAN",
+    "B-KOTA_KABUPATEN", "I-KOTA_KABUPATEN",
+    "B-PROVINSI", "I-PROVINSI",
+    "B-KODEPOS", "I-KODEPOS",
+    "B-DETAIL_LOKASI", "I-DETAIL_LOKASI"
+  ]
+}

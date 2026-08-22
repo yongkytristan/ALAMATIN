@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "alamatin-mbert-ner-lora-kevin-seed42",
+  "source": {
+    "pull_request": "yongkytristan/ALAMATIN-internal#9",
+    "commit": "866303afffb178e8b5910764b303db0b7c500d7f"
+  },
+  "config": "configs/ner-lora-kevin.json",
+  "base_model": {
+    "name": "bert-base-multilingual-cased",
+    "revision": "3f076fdb1ab68d5b2880cb87a0886f315b8146f8"
+  },
+  "seed": 42,
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.1,
+    "target_modules": ["query", "value"],
+    "bias": "none"
+  },
+  "training": {
+    "learning_rate": 0.0002,
+    "train_batch_size": 16,
+    "eval_batch_size": 16,
+    "epochs": 5
+  },
+  "environment": {
+    "python": "3.12.4",
+    "torch": "2.13.0+cu132",
+    "transformers": "5.0.0",
+    "datasets": "5.0.1",
+    "accelerate": "1.14.0",
+    "peft": "0.20.0",
+    "seqeval": "1.2.2",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_memory_mib": 4096
+  },
+  "datasets": {
+    "train": {
+      "path": "data/synthetic/train.json",
+      "examples": 4500,
+      "canonical_json_sha256": "ce84d65b810867bc936a227ead5050dcaafad31d72ed69073507d30fe6392a53"
+    },
+    "dev": {
+      "path": "data/synthetic/val.json",
+      "examples": 750,
+      "canonical_json_sha256": "0d22a2c85e50d7fee7f7512a3bcb29e0eef93c0ab78b56cc16dce264a34516e1"
+    },
+    "test": {
+      "path": "data/synthetic/test.json",
+      "examples": 750,
+      "canonical_json_sha256": "73afc76161c6e0ee67ba357002960177fe04e2e6c3a6e8a46dee3603a51e7c9d"
+    }
+  },
+  "artifact": {
+    "path": "models/ner-lora-kevin/inference",
+    "tracked_in_git": false,
+    "adapter_bytes": 1251124,
+    "adapter_sha256": "3a36b985a6c96071d8f0b12084ea2094499e46e9a3427fdcaff6993947a89a6a"
+  },
+  "sealed_test_accessed": false
+}

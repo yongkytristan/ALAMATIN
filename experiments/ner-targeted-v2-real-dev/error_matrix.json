@@ -1,0 +1,274 @@
+{
+  "case_count": 36,
+  "information_boundary": {
+    "evidence_source": "sealed-test-boundary-manifest.json only",
+    "sealed_content_sha256": "ef3477f338a81526f7cd8173f5a18ab1dc9dd954f48a7273575964c3e8e767c6",
+    "sealed_example_count": 130,
+    "sealed_split_id": "sealed_real_test_v1",
+    "sealed_test_opened": false
+  },
+  "matrix": {
+    "categories": {
+      "abbreviation": {
+        "case_ids": [
+          "RD-npsn_sd_20204964",
+          "RD-npsn_sd_20207476",
+          "RD-npsn_sd_20207764",
+          "RD-npsn_sd_20213082",
+          "RD-npsn_sd_20217527",
+          "RD-npsn_sd_20218493",
+          "RD-npsn_sd_20220503",
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sd_20225288",
+          "RD-npsn_sd_20228893",
+          "RD-npsn_sd_20244978",
+          "RD-npsn_sd_20251868",
+          "RD-npsn_sd_20267976",
+          "RD-npsn_sd_24100965",
+          "RD-npsn_sd_69972992",
+          "RD-npsn_sma_20200670",
+          "RD-npsn_sma_20214986",
+          "RD-npsn_sma_20215977",
+          "RD-npsn_sma_20221558",
+          "RD-npsn_sma_20222379",
+          "RD-npsn_sma_20224106",
+          "RD-npsn_sma_20224139",
+          "RD-npsn_sma_20224510",
+          "RD-npsn_sma_20227814",
+          "RD-npsn_sma_20229746",
+          "RD-npsn_sma_20237998",
+          "RD-npsn_sma_20271843",
+          "RD-npsn_sma_20276416",
+          "RD-npsn_sma_69774555",
+          "RD-npsn_sma_69942149",
+          "RD-npsn_sma_69981895",
+          "RD-npsn_sma_69987316",
+          "RD-npsn_sma_69992302",
+          "RD-npsn_sma_70040919",
+          "RD-npsn_sma_70041954"
+        ],
+        "critical_failure_count": 32,
+        "error_case_count": 35,
+        "error_rate": 0.5737704918032787,
+        "exposure_count": 61,
+        "severity": "P0"
+      },
+      "ambiguous_region": {
+        "case_ids": [
+          "RD-npsn_sd_20220503",
+          "RD-npsn_sd_20225288",
+          "RD-npsn_sd_20267976"
+        ],
+        "critical_failure_count": 3,
+        "error_case_count": 3,
+        "error_rate": 1.0,
+        "exposure_count": 3,
+        "severity": "P0"
+      },
+      "conflict": {
+        "case_ids": [
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sma_20237998"
+        ],
+        "critical_failure_count": 2,
+        "error_case_count": 2,
+        "error_rate": 0.5,
+        "exposure_count": 4,
+        "severity": "P0"
+      },
+      "landmark": {
+        "case_ids": [
+          "RD-npsn_sd_20267976",
+          "RD-npsn_sma_20271843"
+        ],
+        "critical_failure_count": 1,
+        "error_case_count": 2,
+        "error_rate": 1.0,
+        "exposure_count": 2,
+        "severity": "P1"
+      },
+      "missing_field": {
+        "case_ids": [
+          "RD-npsn_sd_20225288"
+        ],
+        "critical_failure_count": 1,
+        "error_case_count": 1,
+        "error_rate": 1.0,
+        "exposure_count": 1,
+        "severity": "P1"
+      },
+      "other_surface_form": {
+        "case_ids": [],
+        "critical_failure_count": 0,
+        "error_case_count": 0,
+        "error_rate": 0.0,
+        "exposure_count": 1,
+        "severity": "not_observed"
+      },
+      "rt_rw": {
+        "case_ids": [
+          "RD-npsn_sd_20207476",
+          "RD-npsn_sd_20207764",
+          "RD-npsn_sd_20213082",
+          "RD-npsn_sd_20218493",
+          "RD-npsn_sd_20228893",
+          "RD-npsn_sma_20200670",
+          "RD-npsn_sma_20271843",
+          "RD-npsn_sma_69964337",
+          "RD-npsn_sma_69981895",
+          "RD-npsn_sma_69987316",
+          "RD-npsn_sma_70040919",
+          "RD-npsn_sma_70041954"
+        ],
+        "critical_failure_count": 9,
+        "error_case_count": 12,
+        "error_rate": 0.8,
+        "exposure_count": 15,
+        "severity": "P0"
+      },
+      "typo": {
+        "case_ids": [
+          "RD-npsn_sd_20220503",
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sd_20228893",
+          "RD-npsn_sd_20244978",
+          "RD-npsn_sd_24100965",
+          "RD-npsn_sd_69972992",
+          "RD-npsn_sma_20221558",
+          "RD-npsn_sma_20222379",
+          "RD-npsn_sma_20224106",
+          "RD-npsn_sma_20224139",
+          "RD-npsn_sma_20224510",
+          "RD-npsn_sma_20276416",
+          "RD-npsn_sma_69774555",
+          "RD-npsn_sma_69942149",
+          "RD-npsn_sma_69964337",
+          "RD-npsn_sma_69987316",
+          "RD-npsn_sma_69992302"
+        ],
+        "critical_failure_count": 17,
+        "error_case_count": 17,
+        "error_rate": 0.5483870967741935,
+        "exposure_count": 31,
+        "severity": "P0"
+      }
+    },
+    "components": {
+      "annotation": {
+        "case_count": 0,
+        "case_ids": [],
+        "evidence_status": "confirmed_absent",
+        "interpretation": "No confirmed annotation defect; provenance is retained for review."
+      },
+      "generator": {
+        "case_count": 36,
+        "case_ids": [
+          "RD-npsn_sd_20204964",
+          "RD-npsn_sd_20207476",
+          "RD-npsn_sd_20207764",
+          "RD-npsn_sd_20213082",
+          "RD-npsn_sd_20217527",
+          "RD-npsn_sd_20218493",
+          "RD-npsn_sd_20220503",
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sd_20225288",
+          "RD-npsn_sd_20228893",
+          "RD-npsn_sd_20244978",
+          "RD-npsn_sd_20251868",
+          "RD-npsn_sd_20267976",
+          "RD-npsn_sd_24100965",
+          "RD-npsn_sd_69972992",
+          "RD-npsn_sma_20200670",
+          "RD-npsn_sma_20214986",
+          "RD-npsn_sma_20215977",
+          "RD-npsn_sma_20221558",
+          "RD-npsn_sma_20222379",
+          "RD-npsn_sma_20224106",
+          "RD-npsn_sma_20224139",
+          "RD-npsn_sma_20224510",
+          "RD-npsn_sma_20227814",
+          "RD-npsn_sma_20229746",
+          "RD-npsn_sma_20237998",
+          "RD-npsn_sma_20271843",
+          "RD-npsn_sma_20276416",
+          "RD-npsn_sma_69774555",
+          "RD-npsn_sma_69942149",
+          "RD-npsn_sma_69964337",
+          "RD-npsn_sma_69981895",
+          "RD-npsn_sma_69987316",
+          "RD-npsn_sma_69992302",
+          "RD-npsn_sma_70040919",
+          "RD-npsn_sma_70041954"
+        ],
+        "evidence_status": "hypothesis",
+        "interpretation": "Suspected coverage gap only; requires ALM-020 controlled ablation."
+      },
+      "model": {
+        "case_count": 36,
+        "case_ids": [
+          "RD-npsn_sd_20204964",
+          "RD-npsn_sd_20207476",
+          "RD-npsn_sd_20207764",
+          "RD-npsn_sd_20213082",
+          "RD-npsn_sd_20217527",
+          "RD-npsn_sd_20218493",
+          "RD-npsn_sd_20220503",
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sd_20225288",
+          "RD-npsn_sd_20228893",
+          "RD-npsn_sd_20244978",
+          "RD-npsn_sd_20251868",
+          "RD-npsn_sd_20267976",
+          "RD-npsn_sd_24100965",
+          "RD-npsn_sd_69972992",
+          "RD-npsn_sma_20200670",
+          "RD-npsn_sma_20214986",
+          "RD-npsn_sma_20215977",
+          "RD-npsn_sma_20221558",
+          "RD-npsn_sma_20222379",
+          "RD-npsn_sma_20224106",
+          "RD-npsn_sma_20224139",
+          "RD-npsn_sma_20224510",
+          "RD-npsn_sma_20227814",
+          "RD-npsn_sma_20229746",
+          "RD-npsn_sma_20237998",
+          "RD-npsn_sma_20271843",
+          "RD-npsn_sma_20276416",
+          "RD-npsn_sma_69774555",
+          "RD-npsn_sma_69942149",
+          "RD-npsn_sma_69964337",
+          "RD-npsn_sma_69981895",
+          "RD-npsn_sma_69987316",
+          "RD-npsn_sma_69992302",
+          "RD-npsn_sma_70040919",
+          "RD-npsn_sma_70041954"
+        ],
+        "evidence_status": "observed",
+        "interpretation": "Observed exact-span disagreement after deterministic BIO repair."
+      },
+      "normalizer": {
+        "case_count": null,
+        "case_ids": [],
+        "evidence_status": "not_observable",
+        "interpretation": "Not observable: this run evaluates NER only and does not execute normalization."
+      },
+      "validator": {
+        "case_count": 8,
+        "case_ids": [
+          "RD-npsn_sd_20217527",
+          "RD-npsn_sd_20224359",
+          "RD-npsn_sd_20267976",
+          "RD-npsn_sd_69972992",
+          "RD-npsn_sma_20200670",
+          "RD-npsn_sma_20237998",
+          "RD-npsn_sma_69942149",
+          "RD-npsn_sma_70041954"
+        ],
+        "evidence_status": "observed",
+        "interpretation": "Observed raw invalid BIO output that required orphan-I repair."
+      }
+    }
+  },
+  "schema_version": "1.0.0",
+  "split": "real_dev"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "verified_at": "2026-08-21T12:20:00Z",
+  "artifact_model_sha256": "fc2d1560862d66f388bb58e83486d77dfbc22f67455c70e388887e33b39c63bd",
+  "coverage_dataset": {
+    "path": "data/synthetic/test.json",
+    "canonical_json_sha256": "73afc76161c6e0ee67ba357002960177fe04e2e6c3a6e8a46dee3603a51e7c9d"
+  },
+  "entity_coverage": {
+    "JALAN": {"example_index": 0},
+    "NOMOR": {"example_index": 0},
+    "RT": {"example_index": 0},
+    "RW": {"example_index": 0},
+    "KELURAHAN": {"example_index": 0},
+    "KECAMATAN": {"example_index": 0},
+    "KOTA_KABUPATEN": {"example_index": 0},
+    "PROVINSI": {"example_index": 0},
+    "KODEPOS": {"example_index": 0},
+    "DETAIL_LOKASI": {"example_index": 15}
+  },
+  "result": "passed"
+}

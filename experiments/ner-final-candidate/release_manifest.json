@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "release": {
+    "repository": "yongkytristan/ALAMATIN-internal",
+    "tag": "ner-final-candidate-v1.0.0",
+    "url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/tag/ner-final-candidate-v1.0.0"
+  },
+  "asset": {
+    "name": "ner-final-candidate.tar",
+    "bytes": 712125440,
+    "sha256": "b556eb708c935a354a7e0f397837cb53b162f4f8d73ec049160f918ab16ad83a",
+    "download_url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/download/ner-final-candidate-v1.0.0/ner-final-candidate.tar"
+  },
+  "selected_model": {
+    "candidate_id": "ner-targeted-v2",
+    "model_file": "model.safetensors",
+    "bytes": 709139324,
+    "sha256": "95523cfe19fcd729e2113aade5472c518fbc7a3bfcf171077d70cd7158afc0fa"
+  },
+  "contents": [
+    "comparison.json",
+    "config.json",
+    "generate-targeted-augmentation.py",
+    "model-card.md",
+    "model.safetensors",
+    "ner-v1.lock",
+    "real-dev-metrics.json",
+    "run-manifest.json",
+    "select-final-candidate.py",
+    "targeted-data-config.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "train-targeted-candidate.py",
+    "training-config.json",
+    "training-metrics.json",
+    "verify-artifact.py"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "by_type": {
+    "DETAIL_LOKASI": {
+      "f1": 0.0,
+      "false_negative": 3,
+      "false_positive": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "true_positive": 0
+    },
+    "JALAN": {
+      "f1": 0.6029411764705883,
+      "false_negative": 37,
+      "false_positive": 17,
+      "precision": 0.7068965517241379,
+      "recall": 0.5256410256410257,
+      "true_positive": 41
+    },
+    "KECAMATAN": {
+      "f1": 0.7445255474452555,
+      "false_negative": 23,
+      "false_positive": 12,
+      "precision": 0.8095238095238095,
+      "recall": 0.6891891891891891,
+      "true_positive": 51
+    },
+    "KELURAHAN": {
+      "f1": 0.10714285714285715,
+      "false_negative": 0,
+      "false_positive": 50,
+      "precision": 0.05660377358490566,
+      "recall": 1.0,
+      "true_positive": 3
+    },
+    "KODEPOS": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "KOTA_KABUPATEN": {
+      "f1": 0.9645390070921985,
+      "false_negative": 4,
+      "false_positive": 1,
+      "precision": 0.9855072463768116,
+      "recall": 0.9444444444444444,
+      "true_positive": 68
+    },
+    "NOMOR": {
+      "f1": 0.7826086956521738,
+      "false_negative": 2,
+      "false_positive": 8,
+      "precision": 0.6923076923076923,
+      "recall": 0.9,
+      "true_positive": 18
+    },
+    "PROVINSI": {
+      "f1": null,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": null,
+      "recall": null,
+      "true_positive": 0
+    },
+    "RT": {
+      "f1": 0.5454545454545454,
+      "false_negative": 3,
+      "false_positive": 12,
+      "precision": 0.42857142857142855,
+      "recall": 0.75,
+      "true_positive": 9
+    },
+    "RW": {
+      "f1": 0.5925925925925926,
+      "false_negative": 4,
+      "false_positive": 7,
+      "precision": 0.5333333333333333,
+      "recall": 0.6666666666666666,
+      "true_positive": 8
+    }
+  },
+  "critical_exact_match": {
+    "denominator": 70,
+    "numerator": 15,
+    "rate": 0.21428571428571427
+  },
+  "diagnostic_latency_ms": {
+    "p50_ms": 227.0054624968907,
+    "p95_ms": 277.4092625040794,
+    "sample_count": 70
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.4"
+  },
+  "error_example_count": 59,
+  "example_count": 70,
+  "latency_note": "Diagnostic batched CPU model-forward timing; not the ALM-034 production latency benchmark.",
+  "overall": {
+    "f1": 0.676923076923077,
+    "false_negative": 76,
+    "false_positive": 113,
+    "precision": 0.6366559485530546,
+    "recall": 0.7226277372262774,
+    "true_positive": 198
+  },
+  "raw_invalid_bio": {
+    "example_count": 14,
+    "repair_count": 16
+  },
+  "schema_version": "1.0.0",
+  "split": "real_dev",
+  "system": {
+    "checkpoint": "ner-v1.0.0",
+    "decoder": "orphan_i_to_b_v1",
+    "model_sha256": "fc2d1560862d66f388bb58e83486d77dfbc22f67455c70e388887e33b39c63bd"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "generator_version": "2.0.0-targeted",
+  "seed": 20260821,
+  "example_count": 3000,
+  "reference": "data/final/jabar-postal-final-merged.csv",
+  "output": "data/synthetic-v2-targeted/train-augmentation.json",
+  "source_finding": "ALM-019",
+  "action_id": "ALM019-A02",
+  "constraints": {
+    "uses_real_dev_records": false,
+    "train_only": true,
+    "uses_generic_street_and_landmark_names": true,
+    "uses_governed_public_administrative_chains": true
+  }
+}
