@@ -51,14 +51,17 @@ export const confirmationFixture: ReviewResult = {
   }).map((item) => item.field === "KODEPOS" ? {
     ...item, suggestion: "40115", state: "suggested", source: "reference", modelScore: 0.76,
   } : item),
+  // An unapplied suggestion is CORRECTION_REQUIRES_CONFIRMATION at medium
+  // severity, which is what yields PERLU_KONFIRMASI. Marking it high would make
+  // the frozen gate return TIDAK_VALID instead.
   issues: [{
-    id: "postal-conflict",
-    severity: "high",
-    title: "Kode pos perlu dipastikan",
-    message: "Kode pos pada input berbeda dengan referensi wilayah untuk Kelurahan Citarum.",
-    reasonCode: "POSTAL_CODE_CONFLICT",
-    affectedFields: ["KODEPOS", "KELURAHAN"],
-    question: "Gunakan kode pos referensi 40115 untuk alamat ini?",
+    id: "postal-correction",
+    severity: "medium",
+    title: "Koreksi menunggu konfirmasi",
+    message: "Referensi wilayah menyarankan kode pos lain untuk Kelurahan Citarum. Koreksi belum diterapkan.",
+    reasonCode: "CORRECTION_REQUIRES_CONFIRMATION",
+    affectedFields: ["KODEPOS"],
+    question: "Apakah koreksi kode pos yang disarankan boleh diterapkan?",
   }],
   versions: { model: "alamatin-ner 0.4", normalizer: "0.3.1", validator: "0.5.0", reference: "wilayah-id 2026.07" },
 };
@@ -70,14 +73,18 @@ export const invalidFixture: ReviewResult = {
   normalizedAddress: "Sukamaju, Jawa Barat",
   isFinal: false,
   components: base({ KELURAHAN: "Sukamaju", PROVINSI: "Jawa Barat", DETAIL_LOKASI: "Dekat lapangan utama" }),
+  // TIDAK_VALID requires a high-severity, reference-supported conflict.
+  // Ambiguity is medium in the frozen gate, so this demonstrates an actual
+  // administrative conflict instead. Only ADMINISTRATIVE_FIELDS may appear in a
+  // high-severity issue (ALM-024), so DETAIL_LOKASI is not listed.
   issues: [{
-    id: "ambiguous-village",
+    id: "admin-conflict",
     severity: "high",
-    title: "Wilayah belum dapat ditentukan",
-    message: "Ada beberapa kelurahan bernama Sukamaju. Kecamatan dan kota/kabupaten dibutuhkan.",
-    reasonCode: "AMBIGUOUS_ADMIN_AREA",
-    affectedFields: ["KELURAHAN", "KECAMATAN", "KOTA_KABUPATEN"],
-    question: "Di kecamatan dan kota/kabupaten mana alamat ini berada?",
+    title: "Komponen wilayah bertentangan",
+    message: "Kecamatan yang disebut tidak berada di kota/kabupaten yang disebut menurut referensi wilayah.",
+    reasonCode: "ADMINISTRATIVE_CONFLICT",
+    affectedFields: ["KECAMATAN", "KOTA_KABUPATEN"],
+    question: "Mohon periksa kecamatan dan kota/kabupaten; nilai mana yang sesuai dengan alamat tujuan?",
   }],
   versions: { model: "alamatin-ner 0.4", normalizer: "0.3.1", validator: "0.5.0", reference: "wilayah-id 2026.07" },
 };

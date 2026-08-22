@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { DEMO_ADDRESSES } from "@/lib/fixtures";
 import { parseAddress, validateAddress } from "@/lib/api";
-import type { AddressComponent, ComponentState, ReviewResult, ReviewStatus } from "@/lib/types";
+import type { AddressComponent, AddressField, ComponentState, ReviewResult, ReviewStatus } from "@/lib/types";
 import {
   AlertIcon, ArrowIcon, CheckIcon, ChevronIcon, CloseIcon, CopyIcon, EditIcon,
   PinIcon, RefreshIcon, ShieldIcon, SparkIcon, TrashIcon,
@@ -95,8 +95,12 @@ function StatusBanner({ result, dirty }: { result: ReviewResult; dirty: boolean 
 }
 
 function ComponentsPanel({
-  components, onEdit,
-}: { components: AddressComponent[]; onEdit: (field: AddressComponent["field"], value: string) => void }) {
+  components, redactedInput, onEdit,
+}: {
+  components: AddressComponent[];
+  redactedInput: string;
+  onEdit: (field: AddressComponent["field"], value: string) => void;
+}) {
   const [editing, setEditing] = useState<AddressComponent["field"] | null>(null);
   return (
     <section className="panel component-panel">
@@ -104,8 +108,16 @@ function ComponentsPanel({
         <div><span className="step-number">01</span><div><h3>Komponen alamat</h3><p>Nilai yang berhasil dikenali</p></div></div>
         <span className="field-count">{components.filter((item) => item.value).length}/10 terisi</span>
       </div>
-      <div className="recognized-strip" aria-label="Token alamat yang dikenali">
+      {/* The redacted text comes from the API's PII section. It is shown instead
+          of the raw input, and instead of a line rebuilt from parsed components:
+          a rebuilt line silently drops any PII the parser did not classify, such
+          as a recipient name or phone number, so it is not safe to display. */}
+      <div className="redacted-strip" aria-label="Input setelah redaksi PII">
         <span>INPUT TEREDUKSI</span>
+        <p className="redacted-text">{redactedInput}</p>
+      </div>
+      <div className="recognized-strip" aria-label="Token alamat yang dikenali">
+        <span>KOMPONEN DIKENALI</span>
         <p>{components.filter((item) => item.value).map((item) => (
           <mark className={`token-${item.field.toLowerCase()}`} key={item.field} title={item.label}>{item.value}</mark>
         ))}</p>
@@ -140,7 +152,10 @@ function ComponentsPanel({
 
 function IssuesPanel({
   result, onResolve,
-}: { result: ReviewResult; onResolve: (choice: "confirm" | "reject") => void }) {
+}: {
+  result: ReviewResult;
+  onResolve: (field: AddressField, choice: "confirm" | "reject") => void;
+}) {
   if (!result.issues.length) return (
     <section className="panel clean-panel">
       <span className="clean-icon"><ShieldIcon size={23}/></span>
@@ -160,12 +175,32 @@ function IssuesPanel({
           <p>{issue.message}</p>
           <div className="affected-fields">{issue.affectedFields.map((field) => <span key={field}>{field.replace("KOTA_KABUPATEN", "KOTA/KAB.")}</span>)}</div>
           {issue.question && <div className="clarification"><span className="question-mark">?</span><strong>{issue.question}</strong></div>}
-          {issue.reasonCode === "POSTAL_CODE_CONFLICT" && (
-            <div className="issue-actions">
-              <button className="primary small" onClick={() => onResolve("confirm")}><CheckIcon size={16}/> Gunakan 40115</button>
-              <button className="secondary small" onClick={() => onResolve("reject")}><CloseIcon size={16}/> Pertahankan 40114</button>
-            </div>
-          )}
+          {/* Actions are driven by whichever affected field actually carries an
+              unresolved suggestion, not by a specific reason code. The previous
+              version was gated on a reason code the frozen contract does not
+              define, so it never rendered against real API data. */}
+          {issue.affectedFields
+            .map((field) => result.components.find((item) => item.field === field))
+            .filter((item): item is AddressComponent =>
+              Boolean(item?.suggestion) && item?.state === "suggested")
+            .map((item) => (
+              <div className="issue-actions" key={item.field}>
+                <button
+                  className="primary small"
+                  onClick={() => onResolve(item.field, "confirm")}
+                  aria-label={`Gunakan ${item.suggestion} untuk ${item.label}`}
+                >
+                  <CheckIcon size={16}/> Gunakan {item.suggestion}
+                </button>
+                <button
+                  className="secondary small"
+                  onClick={() => onResolve(item.field, "reject")}
+                  aria-label={item.value ? `Pertahankan ${item.value} untuk ${item.label}` : `Tolak saran untuk ${item.label}`}
+                >
+                  <CloseIcon size={16}/> {item.value ? `Pertahankan ${item.value}` : "Tolak saran"}
+                </button>
+              </div>
+            ))}
         </article>
       ))}
     </section>
@@ -238,10 +273,10 @@ export function AddressReview() {
     setDirty(true);
   };
 
-  const resolveIssue = (choice: "confirm" | "reject") => {
+  const resolveIssue = (field: AddressField, choice: "confirm" | "reject") => {
     setResult((current) => current && ({
       ...current,
-      components: current.components.map((item) => item.field === "KODEPOS" ? {
+      components: current.components.map((item) => item.field === field ? {
         ...item,
         previousValue: item.value,
         value: choice === "confirm" ? (item.suggestion ?? item.value) : item.value,
@@ -316,7 +351,7 @@ export function AddressReview() {
               <>
                 <StatusBanner result={result} dirty={dirty}/>
                 {dirty && <button className="revalidate-bar" onClick={revalidate} disabled={loading}><RefreshIcon size={17}/>{loading ? "Memvalidasi perubahan…" : "Validasi ulang perubahan"}<ArrowIcon size={17}/></button>}
-                <ComponentsPanel components={result.components} onEdit={editComponent}/>
+                <ComponentsPanel components={result.components} redactedInput={result.redactedInput} onEdit={editComponent}/>
                 <IssuesPanel result={result} onResolve={resolveIssue}/>
                 <OutputPanel result={result} dirty={dirty}/>
                 <details className="technical-details">

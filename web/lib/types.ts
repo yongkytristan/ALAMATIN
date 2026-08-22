@@ -1,6 +1,7 @@
 export type ReviewStatus = "SIAP_DIPROSES" | "PERLU_KONFIRMASI" | "TIDAK_VALID";
 export type ComponentState = "original" | "suggested" | "confirmed" | "rejected" | "user-edited";
-export type Severity = "high" | "medium" | "low";
+// The quality gate emits only these two; "low" is not a severity it produces.
+export type Severity = "high" | "medium";
 
 export type AddressField =
   | "JALAN"

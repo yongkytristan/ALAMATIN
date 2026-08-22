@@ -232,3 +232,27 @@ footer span { font: 500 9px "DM Mono", monospace; letter-spacing: .09em; } foote
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* PII-redacted input, shown in place of the raw address. */
+.redacted-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px dashed var(--border, #d5d9e0);
+  border-radius: 10px;
+  background: var(--surface-muted, #f7f8fa);
+}
+.redacted-strip > span {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #6b7280);
+}
+.redacted-text {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
