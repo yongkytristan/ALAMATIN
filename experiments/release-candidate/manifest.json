@@ -171,8 +171,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "2cf24344eae6c59c707e9a9fe55906e02eec056e",
-    "describe": "2cf2434",
+    "built_from_commit": "120cabf58aa7bda099defcceb930dc3f80cf7316",
+    "describe": "rc-1.0.0",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",
@@ -181,6 +181,6 @@
     "authorized_openings": 1,
     "declaration_provenance": "Recorded on the project owner's instruction. Per-member confirmations from the other collaborators are not recorded here.",
     "no_tuning_declaration": "No model, rule, threshold, or reference change may be made in response to the sealed result. If the evaluator itself is found to be wrong, the correction is documented and both runs are reported; the better number is never quietly selected.",
-    "opened": false
+    "opened": true
   }
 }

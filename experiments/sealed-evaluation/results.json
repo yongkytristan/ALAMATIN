@@ -1,0 +1,205 @@
+{
+  "dataset": {
+    "canonical_sha256": "ef3477f338a81526f7cd8173f5a18ab1dc9dd954f48a7273575964c3e8e767c6",
+    "content_published": false,
+    "example_count": 130,
+    "per_item_digests_verified": 130,
+    "split_version": "sealed_real_test_v1",
+    "taxonomy_version": "1.0.0"
+  },
+  "evaluator_correction_policy": "If an evaluator defect is found after this run, the correction is documented here together with both the original and corrected numbers. The better result is never selected quietly.",
+  "evaluator_corrections": [],
+  "metrics": {
+    "by_annotation_provenance": {
+      "automated_accepted": {
+        "critical_exact_match": {
+          "denominator": 93,
+          "numerator": 62,
+          "rate": 0.6666666666666666
+        },
+        "entity": {
+          "f1": 0.9004329004329004,
+          "false_negative": 41,
+          "false_positive": 28,
+          "precision": 0.9176470588235294,
+          "recall": 0.8838526912181303,
+          "true_positive": 312
+        },
+        "example_count": 93
+      },
+      "double_annotated_adjudicated": {
+        "critical_exact_match": {
+          "denominator": 20,
+          "numerator": 9,
+          "rate": 0.45
+        },
+        "entity": {
+          "f1": 0.8404255319148937,
+          "false_negative": 20,
+          "false_positive": 10,
+          "precision": 0.8876404494382022,
+          "recall": 0.797979797979798,
+          "true_positive": 79
+        },
+        "example_count": 20
+      },
+      "double_annotated_agreed": {
+        "critical_exact_match": {
+          "denominator": 17,
+          "numerator": 16,
+          "rate": 0.9411764705882353
+        },
+        "entity": {
+          "f1": 0.975609756097561,
+          "false_negative": 1,
+          "false_positive": 2,
+          "precision": 0.967741935483871,
+          "recall": 0.9836065573770492,
+          "true_positive": 60
+        },
+        "example_count": 17
+      }
+    },
+    "conflict_or_ambiguity_recall": {
+      "definition": "gold positive = the frozen validator reports a conflict or ambiguity on the gold components; predicted positive = the gate returned TIDAK_VALID or PERLU_KONFIRMASI",
+      "false_negative": 0,
+      "recall": 1.0,
+      "true_positive": 1
+    },
+    "critical_exact_match": {
+      "denominator": 130,
+      "numerator": 87,
+      "rate": 0.6692307692307692
+    },
+    "entity_by_type": {
+      "DETAIL_LOKASI": {
+        "f1": null,
+        "false_negative": 4,
+        "false_positive": 0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive": 0
+      },
+      "JALAN": {
+        "f1": 0.7870036101083032,
+        "false_negative": 30,
+        "false_positive": 29,
+        "precision": 0.7898550724637681,
+        "recall": 0.7841726618705036,
+        "true_positive": 109
+      },
+      "KECAMATAN": {
+        "f1": 0.9662921348314606,
+        "false_negative": 8,
+        "false_positive": 1,
+        "precision": 0.9923076923076923,
+        "recall": 0.9416058394160584,
+        "true_positive": 129
+      },
+      "KELURAHAN": {
+        "f1": 0.23529411764705885,
+        "false_negative": 4,
+        "false_positive": 9,
+        "precision": 0.18181818181818182,
+        "recall": 0.3333333333333333,
+        "true_positive": 2
+      },
+      "KODEPOS": {
+        "f1": 1.0,
+        "false_negative": 0,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "true_positive": 1
+      },
+      "KOTA_KABUPATEN": {
+        "f1": 0.9657794676806085,
+        "false_negative": 8,
+        "false_positive": 1,
+        "precision": 0.9921875,
+        "recall": 0.9407407407407408,
+        "true_positive": 127
+      },
+      "NOMOR": {
+        "f1": 0.9743589743589743,
+        "false_negative": 2,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.95,
+        "true_positive": 38
+      },
+      "PROVINSI": {
+        "f1": null,
+        "false_negative": 0,
+        "false_positive": 0,
+        "precision": null,
+        "recall": null,
+        "true_positive": 0
+      },
+      "RT": {
+        "f1": 0.9824561403508771,
+        "false_negative": 1,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.9655172413793104,
+        "true_positive": 28
+      },
+      "RW": {
+        "f1": 0.8717948717948718,
+        "false_negative": 5,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.7727272727272727,
+        "true_positive": 17
+      }
+    },
+    "entity_overall": {
+      "f1": 0.898406374501992,
+      "false_negative": 62,
+      "false_positive": 40,
+      "precision": 0.9185336048879837,
+      "recall": 0.8791423001949318,
+      "true_positive": 451
+    },
+    "extraction_latency_ms": {
+      "p50": 0.07229996845126152,
+      "p95": 0.11289992835372686,
+      "protocol": "one timed call to tag_tokens per address, no warmup, single process, measured with time.perf_counter",
+      "sample_count": 130
+    },
+    "false_correction_rate": {
+      "definition": "emitted correction proposals whose proposed value does not equal the gold value for that field, over all proposals",
+      "denominator": 0,
+      "numerator": 0,
+      "rate": null
+    },
+    "quality_gate_status_counts": {
+      "PERLU_KONFIRMASI": 127,
+      "TIDAK_VALID": 3
+    },
+    "reason_code_counts": {
+      "ADMINISTRATIVE_CONFLICT": 2,
+      "KELURAHAN_TIDAK_DITEMUKAN": 4,
+      "KODEPOS_TIDAK_COCOK": 1,
+      "MISSING_ADMINISTRATIVE_FIELDS": 123
+    }
+  },
+  "run": {
+    "commit": "120cabf58aa7bda099defcceb930dc3f80cf7316",
+    "openings_used": 1,
+    "operator": "Yongky Alexander Tristan <tristanyongky@gmail.com>",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.4",
+    "release_tag": "rc-1.0.0",
+    "started_at_utc": "2026-08-22T18:20:54.575000+00:00"
+  },
+  "schema_version": "1.0.0",
+  "system": {
+    "contract": "1.0.0",
+    "extractor": "regex-baseline-v1",
+    "normalizer": "normalizer-v1",
+    "quality_gate": "quality-gate-v1",
+    "reference_data": "jabar-reference-v1",
+    "validator": "jabar-reference-v1"
+  }
+}
