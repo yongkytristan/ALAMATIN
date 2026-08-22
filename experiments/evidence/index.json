@@ -1,0 +1,317 @@
+{
+  "claims": [
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "0.8984",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-entity-f1",
+      "pointer": [
+        "metrics",
+        "entity_overall",
+        "f1"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Entity F1 on the sealed real test set",
+      "status": "measured",
+      "value": 0.898406374501992
+    },
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "0.9185",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-entity-precision",
+      "pointer": [
+        "metrics",
+        "entity_overall",
+        "precision"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Entity precision on the sealed real test set",
+      "status": "measured",
+      "value": 0.9185336048879837
+    },
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "0.8791",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-entity-recall",
+      "pointer": [
+        "metrics",
+        "entity_overall",
+        "recall"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Entity recall on the sealed real test set",
+      "status": "measured",
+      "value": 0.8791423001949318
+    },
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "0.6692",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-critical-exact-match",
+      "pointer": [
+        "metrics",
+        "critical_exact_match",
+        "rate"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Critical exact match on the sealed real test set",
+      "status": "measured",
+      "value": 0.6692307692307692
+    },
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "0",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-ready-count",
+      "pointer": [
+        "metrics",
+        "quality_gate_status_counts",
+        "SIAP_DIPROSES"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Sealed addresses reaching SIAP_DIPROSES",
+      "status": "measured",
+      "value": 0
+    },
+    {
+      "artifact": "experiments/sealed-evaluation/results.json",
+      "display": "123",
+      "documents": [
+        "docs/evaluation-results.md"
+      ],
+      "id": "sealed-missing-admin-count",
+      "pointer": [
+        "metrics",
+        "reason_code_counts",
+        "MISSING_ADMINISTRATIVE_FIELDS"
+      ],
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "Sealed addresses reporting MISSING_ADMINISTRATIVE_FIELDS",
+      "status": "measured",
+      "value": 123
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "0.8923",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "ablation-regex-f1",
+      "pointer": [
+        "measured_here",
+        "extractor_only",
+        "entity",
+        "f1"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Shipped extractor entity F1 on the synthetic validation split",
+      "status": "measured",
+      "value": 0.8923433426667954
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "0.3933",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "ablation-regex-critical-exact-match",
+      "pointer": [
+        "measured_here",
+        "extractor_only",
+        "critical_exact_match",
+        "rate"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Shipped extractor critical exact match on the synthetic validation split",
+      "status": "measured",
+      "value": 0.3933333333333333
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "0",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "ablation-normalizer-contribution",
+      "pointer": [
+        "measured_here",
+        "normalizer_contribution",
+        "additional_valid_chains"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Additional valid administrative chains contributed by the normalizer",
+      "status": "measured",
+      "value": 0
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "4,811",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "ablation-normalizer-changes",
+      "pointer": [
+        "measured_here",
+        "normalizer_contribution",
+        "total_changes"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Normalization changes applied on the synthetic validation split",
+      "status": "measured",
+      "value": 4811
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "0.3701",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "ablation-libpostal-f1",
+      "pointer": [
+        "recorded_prior_measurements",
+        "libpostal_v1",
+        "entity_f1"
+      ],
+      "script": "scripts/run_libpostal_baseline.py",
+      "statement": "libpostal entity F1 on the same split (recorded prior measurement)",
+      "status": "measured",
+      "value": 0.3701176470588235
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "0.1027",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "latency-extraction-p50",
+      "pointer": [
+        "latency",
+        "extraction",
+        "p50"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Extraction latency p50 in milliseconds",
+      "status": "measured",
+      "value": 0.10269996710121632
+    },
+    {
+      "artifact": "experiments/ablation/results.json",
+      "display": "28.2479",
+      "documents": [
+        "docs/ablation-and-latency.md"
+      ],
+      "id": "latency-pipeline-p50",
+      "pointer": [
+        "latency",
+        "complete_pipeline",
+        "p50"
+      ],
+      "script": "scripts/run_ablation.py",
+      "statement": "Complete pipeline latency p50 in milliseconds",
+      "status": "measured",
+      "value": 28.247899957932532
+    },
+    {
+      "artifact": "experiments/release-candidate/manifest.json",
+      "display": "regex-baseline-v1",
+      "documents": [
+        "docs/release-candidate.md",
+        "docs/evaluation-results.md"
+      ],
+      "id": "release-extractor-version",
+      "pointer": [
+        "declared_versions",
+        "extractor"
+      ],
+      "script": "scripts/build_release_manifest.py",
+      "statement": "Extractor served by the release candidate",
+      "status": "measured",
+      "value": "regex-baseline-v1"
+    },
+    {
+      "artifact": "experiments/release-candidate/manifest.json",
+      "display": "16",
+      "documents": [
+        "docs/release-candidate.md"
+      ],
+      "id": "release-frozen-file-count",
+      "pointer": [
+        "frozen_files"
+      ],
+      "script": "scripts/build_release_manifest.py",
+      "statement": "Files frozen in the release candidate",
+      "status": "measured",
+      "value": 16
+    }
+  ],
+  "not_measured": [
+    {
+      "id": "study-median-time",
+      "reason": "no user-study session has been run; see docs/user-study-protocol.md",
+      "script": "scripts/analyze_user_study.py",
+      "statement": "Median seconds to decision, manual versus ALAMATIN",
+      "status": "not_measured",
+      "would_come_from": "data/private/user-study/session-records.json"
+    },
+    {
+      "id": "study-critical-error-recall",
+      "reason": "no user-study session has been run",
+      "script": "scripts/analyze_user_study.py",
+      "statement": "Recall of critical address errors, manual versus ALAMATIN",
+      "status": "not_measured",
+      "would_come_from": "data/private/user-study/session-records.json"
+    },
+    {
+      "id": "study-false-corrections",
+      "reason": "no user-study session has been run",
+      "script": "scripts/analyze_user_study.py",
+      "statement": "False corrections accepted by participants",
+      "status": "not_measured",
+      "would_come_from": "data/private/user-study/session-records.json"
+    },
+    {
+      "id": "sealed-false-correction-rate",
+      "reason": "the release candidate emitted zero correction proposals, so the rate has no denominator; see docs/evaluation-results.md",
+      "script": "scripts/run_sealed_evaluation.py",
+      "statement": "False correction rate on the sealed set",
+      "status": "not_measured",
+      "would_come_from": "experiments/sealed-evaluation/results.json"
+    },
+    {
+      "id": "ner-head-to-head",
+      "reason": "model weights are a release asset excluded from the repository and not served; the recorded NER figures come from the selection split",
+      "script": "scripts/run_ablation.py",
+      "statement": "Fine-tuned NER versus the shipped baseline on one split",
+      "status": "not_measured",
+      "would_come_from": "experiments/ablation/results.json"
+    },
+    {
+      "id": "delivery-outcomes",
+      "reason": "the frozen scope forbids the claim and nothing in this project measures a downstream outcome",
+      "script": null,
+      "statement": "Any effect on delivery success, returns, or failed deliveries",
+      "status": "out_of_scope",
+      "would_come_from": null
+    }
+  ],
+  "policy": "Values are read from artifacts at build time and never typed into this index. A document citing a claim must contain the artifact's value, so a stale number fails a check instead of looking authoritative.",
+  "problems": [],
+  "schema_version": "1.0.0",
+  "summary": {
+    "measured": 15,
+    "not_measured": 6,
+    "problems": 0
+  }
+}

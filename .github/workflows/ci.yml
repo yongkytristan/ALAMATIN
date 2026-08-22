@@ -30,3 +30,12 @@ jobs:
       # and fails on any failure, error, or privacy finding.
       - name: QA report
         run: python scripts/qa_report.py
+
+      # ALM-034: a frozen component changed without re-freezing must fail.
+      - name: Verify the release candidate has not drifted
+        run: python scripts/build_release_manifest.py --verify
+
+      # ALM-038: a number quoted in a document that its artifact does not hold
+      # must fail here rather than reach a reader.
+      - name: Verify the evidence index
+        run: python scripts/build_evidence_index.py

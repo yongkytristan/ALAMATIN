@@ -71,11 +71,11 @@ earns its place in the decision path.
 Protocol: 50 warmup iterations, 3 timed repeats over all 750 examples,
 `time.perf_counter`, nearest-rank percentiles, single process and single thread.
 
-| Stage | p50 | p95 | p99 | n |
-|---|---|---|---|---|
-| extraction | 0.1043 ms | 0.1664 ms | 0.1990 ms | 2,250 |
-| extraction + normalizer | 0.1723 ms | 0.2517 ms | 0.3238 ms | 2,250 |
-| complete pipeline | 28.5093 ms | 34.9781 ms | 37.9596 ms | 2,250 |
+| Stage | p50 | p95 | p99 |
+|---|---|---|---|
+| extraction | 0.1027 | 0.1647 | 0.2034 ms |
+| extraction + normalizer | 0.1709 | 0.2500 | 0.3477 ms |
+| complete pipeline | 28.2479 | 34.4115 | 37.0990 ms |
 
 Hardware: `Intel64 Family 6 Model 154 Stepping 3, GenuineIntel`, Windows, CPython
 3.12 — the full platform string is in the artifact.
@@ -84,7 +84,7 @@ Stage figures are measured independently and are **not additive**: extraction is
 re-run inside the normalizer measurement.
 
 **The cost centre is the validator, not the model.** The complete pipeline is
-roughly 270× slower than extraction because the administrative validator searches
+roughly 275x slower than extraction because the administrative validator searches
 the 5,957-row reference on every call. At 28.5 ms p50 this is comfortable for a
 single-address review UI, but it is the number to attack first if throughput ever
 matters, and it is not where an observer would guess.
