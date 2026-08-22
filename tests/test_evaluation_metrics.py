@@ -2,9 +2,15 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+import sys
 import unittest
 
-from src.alamatin.evaluation_metrics import (
+# Resolved from this file rather than the working directory: importing through
+# "src." only worked when the suite happened to be run from the repository root.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from alamatin.evaluation_metrics import (  # noqa: E402
     binary_recall,
     canonical_json_sha256,
     critical_exact_match,

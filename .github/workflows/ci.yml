@@ -18,5 +18,15 @@ jobs:
           python-version: "3.11"
       - name: Validate tracked files and repository policy
         run: python scripts/check_repository.py
-      - name: Run placeholder test suite
+      - name: Run test suite
         run: python -m unittest discover -s tests -v
+
+      # ALM-032: a secret or a raw phone number reaching a tracked file must
+      # fail the build, not wait for someone to remember to look.
+      - name: Scan for secrets and raw PII
+        run: python scripts/qa_privacy_scan.py
+
+      # Records critical-path coverage and every skipped test with its reason,
+      # and fails on any failure, error, or privacy finding.
+      - name: QA report
+        run: python scripts/qa_report.py

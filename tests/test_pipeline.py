@@ -197,6 +197,22 @@ class PipelineSafetyTest(unittest.TestCase):
             self.assertIn(stage, stages)
         self.assertTrue(all(event["actor"] == "system" for event in trail))
 
+    def test_empty_input_is_rejected_but_whitespace_is_processed(self) -> None:
+        pipeline = build_pipeline()
+        with self.assertRaisesRegex(PipelineError, "address_text is required"):
+            pipeline.process("", request_id="req_empty_0001")
+        # Whitespace-only is deliberately answered rather than rejected: it
+        # extracts no components, so the frozen gate reports missing
+        # administrative context. Rejecting it turned a client input problem
+        # into a retryable server failure.
+        result = pipeline.process("   ", request_id="req_blank_0001")
+        self.assertEqual(result.status, "PERLU_KONFIRMASI")
+
+    def test_non_string_input_is_a_type_error(self) -> None:
+        pipeline = build_pipeline()
+        with self.assertRaises(TypeError):
+            pipeline.process(None, request_id="req_type_00001")
+
     def test_audit_trail_records_no_pii_values(self) -> None:
         result = self.pipeline.process(MIXED_PII, request_id="req_audit_002")
         serialized = json.dumps(result.document["audit_trail"], ensure_ascii=False)
@@ -234,13 +250,8 @@ class PipelineUnitTest(unittest.TestCase):
 
         self.assertFalse(set(extracted) - set(ENTITY_TYPES))
 
-    def test_blank_input_is_rejected(self) -> None:
-        class _Stub:
-            reference_version = "x"
-
-        pipeline = AddressPipeline.__new__(AddressPipeline)
-        with self.assertRaisesRegex(PipelineError, "address_text is required"):
-            AddressPipeline.process(pipeline, "   ", request_id="req_blank_001")
+    def test_decode_bio_ignores_o_labels(self) -> None:
+        self.assertEqual(decode_bio(["a", "b"], ["O", "O"]), {})
 
 
 if __name__ == "__main__":
