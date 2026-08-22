@@ -1,0 +1,25 @@
+# Everything the running service does not need. Keeping the image minimal also
+# keeps governed data out of it by default: data/ is excluded here and the one
+# approved reference file is copied explicitly in the Dockerfile.
+.git
+.github
+.worktrees
+**/__pycache__
+**/*.py[cod]
+.venv*
+node_modules
+web/node_modules
+web/.next
+tests
+docs
+experiments
+configs
+data
+static
+notebooks
+*.ipynb
+*.md
+!requirements.lock
+.env
+.env.*
+!.env.example
