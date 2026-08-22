@@ -1,0 +1,8 @@
+{
+  "expected_input": "data/private/user-study/session-records.json",
+  "metrics": null,
+  "note": "No placeholder figures are emitted. A dash or a zero in a results table reads as a finding, so an absent measurement is reported as absent.",
+  "reason": "no user-study session has been run; see docs/user-study-protocol.md",
+  "schema_version": "1.0.0",
+  "status": "not_measured"
+}

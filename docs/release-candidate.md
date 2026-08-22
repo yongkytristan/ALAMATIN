@@ -19,24 +19,24 @@ Sixteen files. Anything not listed must not be able to change an answer â€” that
 is what makes the freeze meaningful, and a test asserts the whole decision path
 is covered.
 
-| File | SHA-256 (16) | Bytes |
+| File | SHA-256 (first 16) | Bytes |
 |---|---|---|
-| `src/alamatin/regex_baseline.py` | `484c02269e826328…` | 9,295 |
-| `src/alamatin/tokenizer.py` | `7b3a98adb14406a8…` | 811 |
-| `src/alamatin/label_schema.py` | `a7dc10f9d659d276…` | 1,491 |
-| `src/alamatin/address_normalizer.py` | `388e691d6f65db35…` | 12,045 |
-| `src/alamatin/reference_hierarchy.py` | `f8ea46fc6bf599e6…` | 12,930 |
-| `src/alamatin/administrative_validator.py` | `476442b319e9b506…` | 10,597 |
-| `src/alamatin/quality_gate.py` | `34c7ec90eec75074…` | 12,276 |
-| `src/alamatin/pii.py` | `c5a04010b458a601…` | 10,312 |
-| `src/alamatin/pipeline.py` | `a2bd60275a3c0738…` | 14,171 |
-| `src/alamatin/output_contract.py` | `1534739a8bb21a5b…` | 11,736 |
-| `src/alamatin/api.py` | `f65e984c08397a6d…` | 14,813 |
-| `src/alamatin/service.py` | `b43f2ee1e012d0eb…` | 4,576 |
-| `src/alamatin/geocoding.py` | `ecf6d3b12d020338…` | 10,424 |
-| `contracts/address-api.v1.schema.json` | `6a1aba697812e6e9…` | 12,268 |
-| `data/processed/jabar-reference-v1-verified.json` | `855ec337f3a56603…` | 8,219,958 |
-| `requirements.lock` | `cb402d202ee71ebf…` | 2,352 |
+| `src/alamatin/regex_baseline.py` | `484c02269e826328...` | 9,295 |
+| `src/alamatin/tokenizer.py` | `7b3a98adb14406a8...` | 811 |
+| `src/alamatin/label_schema.py` | `a7dc10f9d659d276...` | 1,491 |
+| `src/alamatin/address_normalizer.py` | `388e691d6f65db35...` | 12,045 |
+| `src/alamatin/reference_hierarchy.py` | `f8ea46fc6bf599e6...` | 12,930 |
+| `src/alamatin/administrative_validator.py` | `476442b319e9b506...` | 10,597 |
+| `src/alamatin/quality_gate.py` | `34c7ec90eec75074...` | 12,276 |
+| `src/alamatin/pii.py` | `c5a04010b458a601...` | 10,312 |
+| `src/alamatin/pipeline.py` | `a2bd60275a3c0738...` | 14,171 |
+| `src/alamatin/output_contract.py` | `1534739a8bb21a5b...` | 11,736 |
+| `src/alamatin/api.py` | `f65e984c08397a6d...` | 14,813 |
+| `src/alamatin/service.py` | `b43f2ee1e012d0eb...` | 4,576 |
+| `src/alamatin/geocoding.py` | `ecf6d3b12d020338...` | 10,424 |
+| `contracts/address-api.v1.schema.json` | `6a1aba697812e6e9...` | 12,268 |
+| `data/processed/jabar-reference-v1-verified.json` | `855ec337f3a56603...` | 8,219,958 |
+| `requirements.lock` | `cb402d202ee71ebf...` | 2,352 |
 
 ## Declared versions
 
