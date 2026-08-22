@@ -21,3 +21,19 @@ overwrite previous decisions; add a superseding entry that links to the old one.
   stack is frozen.
 - Rationale: avoids selecting dependencies before architecture decisions.
 - Consequences: `requirements.lock` remains intentionally empty for now.
+
+## DEC-003 - Freeze the single-address product scope and claim boundary
+
+- Date: 2026-08-22
+- Status: proposed until the whole-team approval record in the scope-freeze PR
+  is complete; accepted immediately after all approvals are recorded.
+- Decision: freeze ALAMATIN `1.0.0` as a Jawa Barat, single-address,
+  pre-fulfillment quality gate with the status and claim semantics in
+  [`product-scope.md`](product-scope.md). Geocoding and batch processing remain
+  optional P1 work; P2 remains post-submission backlog.
+- Rationale: the persona interviews support an explainable pre-waybill check,
+  while current evidence does not support delivery-risk, failed-delivery, or
+  verified-location claims.
+- Consequences: new scope enters the backlog; P1/P2 cannot delay the release;
+  unsupported claims and incomplete optional paths must be removed rather than
+  represented by placeholders.

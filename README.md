@@ -1,8 +1,11 @@
 # ALAMATIN
 
-ALAMATIN is a pre-fulfillment address quality gate for informal Indonesian
-addresses. The repository currently contains the project skeleton and working
-agreements; product implementation is tracked separately in GitHub Issues.
+ALAMATIN is a pre-fulfillment address quality gate that helps Indonesian seller
+operators identify incomplete, ambiguous, or administratively conflicting
+address components and request human confirmation before a waybill is created.
+
+The frozen Jawa Barat release scope, operational meanings, priority cut-line,
+and allowed claims are defined in [docs/product-scope.md](docs/product-scope.md).
 
 ## Current status
 
