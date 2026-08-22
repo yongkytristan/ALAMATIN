@@ -1,0 +1,203 @@
+name: Deploy to Dewacloud
+
+# Auto-deploy on every push to main, plus a manual button for re-deploys and
+# rollbacks. Deployment is gated on the same checks that guard a pull request,
+# so a red main never reaches the server.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      release_ref:
+        description: "Commit SHA or tag to deploy (defaults to the current ref)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+# One deploy at a time. An in-progress run is allowed to finish rather than
+# being cancelled, because interrupting rsync or a service restart can leave
+# the node half-updated.
+concurrency:
+  group: dewacloud-deploy
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: "3.11"
+  DEFAULT_REMOTE_ROOT: /home/jelastic/alamatin
+
+jobs:
+  verify:
+    name: Verify release candidate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_ref || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Validate tracked files and repository policy
+        run: python scripts/check_repository.py
+
+      - name: Run test suite
+        run: python -m unittest discover -s tests
+
+      # "Pipeline first, code later" is a deliberate state: the runtime modules
+      # still live in the internal repository. Fail loudly here rather than
+      # shipping an empty skeleton that would look like a successful deploy.
+      - name: Confirm a deployable application is present
+        run: |
+          missing=0
+          for path in src/alamatin/api.py contracts/address-api.v1.schema.json; do
+            if [ ! -e "$path" ]; then
+              echo "::error title=Nothing to deploy::Required path '$path' is missing."
+              missing=1
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo "The deploy pipeline is ready, but the runtime code has not landed here yet."
+            echo "Sync the API, contracts, and web application from the internal repository first."
+            exit 1
+          fi
+          echo "Deployable application present."
+
+  deploy:
+    name: Deploy to Dewacloud
+    needs: verify
+    runs-on: ubuntu-latest
+    # Add required reviewers or a branch rule to this environment in repository
+    # settings if the team wants a manual gate before release.
+    environment:
+      name: production
+      url: ${{ vars.DEWACLOUD_APP_URL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_ref || github.sha }}
+
+      # Every connection detail is configuration, never a literal in this file:
+      # this repository is public, and the target must be rotatable without a
+      # code change. Missing configuration is reported as one clear list rather
+      # than as an opaque ssh failure later.
+      - name: Check deployment configuration
+        env:
+          HOST: ${{ secrets.DEWACLOUD_SSH_HOST }}
+          USER_NAME: ${{ secrets.DEWACLOUD_SSH_USER }}
+          PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
+          KEY: ${{ secrets.DEWACLOUD_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEWACLOUD_SSH_KNOWN_HOSTS }}
+        run: |
+          missing=""
+          [ -z "$HOST" ] && missing="$missing DEWACLOUD_SSH_HOST"
+          [ -z "$USER_NAME" ] && missing="$missing DEWACLOUD_SSH_USER"
+          [ -z "$PORT" ] && missing="$missing DEWACLOUD_SSH_PORT"
+          [ -z "$KEY" ] && missing="$missing DEWACLOUD_SSH_KEY"
+          [ -z "$KNOWN_HOSTS" ] && missing="$missing DEWACLOUD_SSH_KNOWN_HOSTS"
+          if [ -n "$missing" ]; then
+            echo "::error title=Missing deployment secrets::Set:$missing"
+            echo "See docs/deployment.md for how to generate each value."
+            exit 1
+          fi
+          echo "Deployment configuration present."
+
+      - name: Build deploy payload
+        run: |
+          rm -rf .deploy && mkdir -p .deploy
+          # Ship only what the service needs to run. Tests, docs, notebooks and
+          # the governed data directories are deliberately excluded.
+          cp -r src contracts requirements.lock .deploy/
+          [ -d web ] && cp -r web .deploy/
+          mkdir -p .deploy/scripts/deploy
+          cp scripts/deploy/activate_release.sh .deploy/scripts/deploy/
+          echo "${{ inputs.release_ref || github.sha }}" > .deploy/RELEASE_SHA
+          find .deploy -name '__pycache__' -type d -prune -exec rm -rf {} +
+          find .deploy -name '*.py[co]' -delete
+          echo "Payload size: $(du -sh .deploy | cut -f1)"
+
+      - name: Configure SSH
+        env:
+          KEY: ${{ secrets.DEWACLOUD_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEWACLOUD_SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # Pinned host keys rather than ssh-keyscan: accepting whatever key the
+          # host presents at deploy time would hand the deploy key to any
+          # man-in-the-middle.
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      # Releases are unpacked beside each other and swapped by moving a symlink,
+      # so a failed upload never leaves a partially written tree serving
+      # traffic, and the previous release stays on disk for rollback.
+      - name: Upload release
+        env:
+          HOST: ${{ secrets.DEWACLOUD_SSH_HOST }}
+          USER_NAME: ${{ secrets.DEWACLOUD_SSH_USER }}
+          PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+        run: |
+          RELEASE="$(date -u +%Y%m%d%H%M%S)-$(echo "$GITHUB_SHA" | cut -c1-12)"
+          echo "RELEASE=$RELEASE" >> "$GITHUB_ENV"
+          SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
+          echo "Uploading release $RELEASE"
+          ssh $SSH_OPTS "$USER_NAME@$HOST" \
+            "mkdir -p '$REMOTE_ROOT/releases/$RELEASE' '$REMOTE_ROOT/shared'"
+          rsync -az --delete -e "ssh $SSH_OPTS" \
+            .deploy/ "$USER_NAME@$HOST:$REMOTE_ROOT/releases/$RELEASE/"
+
+      # The activation script is streamed over stdin and given its inputs as
+      # positional arguments, so the workflow never has to escape shell
+      # metacharacters into a remote heredoc.
+      - name: Install dependencies and activate release
+        env:
+          HOST: ${{ secrets.DEWACLOUD_SSH_HOST }}
+          USER_NAME: ${{ secrets.DEWACLOUD_SSH_USER }}
+          PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+          RESTART_COMMAND: ${{ secrets.DEWACLOUD_RESTART_COMMAND }}
+        run: |
+          SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
+          ssh $SSH_OPTS "$USER_NAME@$HOST" \
+            bash -s -- "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" \
+            < scripts/deploy/activate_release.sh
+
+      - name: Verify deployed health endpoint
+        if: vars.DEWACLOUD_HEALTH_URL != ''
+        env:
+          HEALTH_URL: ${{ vars.DEWACLOUD_HEALTH_URL }}
+        run: |
+          echo "Probing $HEALTH_URL"
+          for attempt in $(seq 1 10); do
+            code=$(curl -sS -o /tmp/health.json -w '%{http_code}' --max-time 10 "$HEALTH_URL" || echo 000)
+            if [ "$code" = "200" ]; then
+              echo "Healthy after $attempt attempt(s):"
+              cat /tmp/health.json
+              exit 0
+            fi
+            # 503 is the API contract's "app alive, critical dependency failed"
+            # signal, so surface it as a distinct outcome rather than a timeout.
+            if [ "$code" = "503" ]; then
+              echo "attempt $attempt: HTTP 503 (app alive, dependency degraded)"
+            else
+              echo "attempt $attempt: HTTP $code"
+            fi
+            sleep 6
+          done
+          echo "::error title=Health check failed::No 200 response after the deploy."
+          cat /tmp/health.json 2>/dev/null || true
+          exit 1
+
+      - name: Report rollback instructions on failure
+        if: failure()
+        env:
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+        run: |
+          echo "::warning title=Deploy failed::The previous release is still on the node."
+          echo "Roll back by re-running this workflow with 'release_ref' set to the last good commit,"
+          echo "or on the node point $REMOTE_ROOT/current at the previous entry in $REMOTE_ROOT/releases."
