@@ -116,7 +116,41 @@ jobs:
             echo "See docs/deployment.md for how to generate each value."
             exit 1
           fi
-          echo "Deployment configuration present."
+
+          # These values are pasted into a web form, so they routinely pick up a
+          # trailing newline or stray spaces. Shape is validated here, without
+          # echoing any value: GitHub masks secrets in logs, so an invalid host
+          # surfaces later only as "Could not resolve hostname ***", which says
+          # nothing about which secret is wrong or why.
+          # Edge whitespace only. Collapsing internal spaces too would turn
+          # "gate.example.com -p 3022" into a string that still matches the
+          # hostname character class and slip through.
+          trim() { printf '%s' "$1" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//'; }
+          bad=""
+          case "$(trim "$HOST")" in
+            *[!A-Za-z0-9.-]*|'') bad="$bad DEWACLOUD_SSH_HOST(expected-a-bare-hostname)";;
+          esac
+          case "$(trim "$USER_NAME")" in
+            *[!A-Za-z0-9._-]*|'') bad="$bad DEWACLOUD_SSH_USER(expected-a-bare-username)";;
+          esac
+          case "$(trim "$PORT")" in
+            ''|*[!0-9]*) bad="$bad DEWACLOUD_SSH_PORT(expected-digits-only)";;
+          esac
+          case "$KEY" in
+            *"PRIVATE KEY"*) ;;
+            *) bad="$bad DEWACLOUD_SSH_KEY(expected-a-PEM-private-key)";;
+          esac
+          case "$KEY" in
+            "ssh-"*) bad="$bad DEWACLOUD_SSH_KEY(looks-like-a-public-key)";;
+          esac
+          if [ -n "$bad" ]; then
+            echo "::error title=Malformed deployment secrets::Fix:$bad"
+            echo "A hostname must be just the host, e.g. gate.infra.dewacloud.com --"
+            echo "no user@ prefix, no -p flag, no surrounding ssh command."
+            echo "See docs/deployment.md."
+            exit 1
+          fi
+          echo "Deployment configuration present and well-formed."
 
       - name: Build deploy payload
         run: |
@@ -158,6 +192,12 @@ jobs:
         run: |
           RELEASE="$(date -u +%Y%m%d%H%M%S)-$(echo "$GITHUB_SHA" | cut -c1-12)"
           echo "RELEASE=$RELEASE" >> "$GITHUB_ENV"
+          # Strip whitespace a web-form paste may have introduced, so a stray
+          # newline cannot become part of the hostname or port.
+          trim() { printf '%s' "$1" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//'; }
+          HOST="$(trim "$HOST")"
+          USER_NAME="$(trim "$USER_NAME")"
+          PORT="$(trim "$PORT")"
           SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
           echo "Uploading release $RELEASE"
           ssh $SSH_OPTS "$USER_NAME@$HOST" \
@@ -178,6 +218,12 @@ jobs:
           # The node's system python3 is 3.9, which cannot run this codebase.
           NODE_PYTHON: ${{ vars.DEWACLOUD_PYTHON || 'python3.11' }}
         run: |
+          # Strip whitespace a web-form paste may have introduced, so a stray
+          # newline cannot become part of the hostname or port.
+          trim() { printf '%s' "$1" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//'; }
+          HOST="$(trim "$HOST")"
+          USER_NAME="$(trim "$USER_NAME")"
+          PORT="$(trim "$PORT")"
           SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
           ssh $SSH_OPTS "$USER_NAME@$HOST" \
             bash -s -- "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" "$NODE_PYTHON" \
