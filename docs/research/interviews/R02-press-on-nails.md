@@ -216,10 +216,10 @@ Waktunya ada, tapi saya tidak punya tombol buat benerin alamatnya di sistem. Yan
 
 **34. Dari seluruh proses yang dibahas, sebutkan dan urutkan lima masalah paling penting berdasarkan dampaknya.**
 
-1. Produk kuku custom yang gagal antar jadi rusak/rugi total karena tidak bisa dijual lagi.  
-2. Pembeli anak kos/pelajar sering cuma nulis nama gedung tanpa nomor kamar/patokan.  
-3. Penjual kena penalti performa toko kalau coba batalkan pesanan yang alamatnya ngawur.  
-4. Nomor HP pembeli mati/tidak ada WhatsApp-nya pas kurir nyari rumah.  
+1. Produk kuku custom yang gagal antar jadi rusak/rugi total karena tidak bisa dijual lagi.
+2. Pembeli anak kos/pelajar sering cuma nulis nama gedung tanpa nomor kamar/patokan.
+3. Penjual kena penalti performa toko kalau coba batalkan pesanan yang alamatnya ngawur.
+4. Nomor HP pembeli mati/tidak ada WhatsApp-nya pas kurir nyari rumah.
 5. Penjual tidak bisa edit atau benerin alamat di sistem kalau ada salah ketik.
 
 **35. Mana yang didukung pengalaman langsung dan mana yang masih berupa dugaan?**

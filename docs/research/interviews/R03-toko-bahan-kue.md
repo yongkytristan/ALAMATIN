@@ -170,10 +170,10 @@ Waktunya ada beberapa jam sebelum mobil kurir jemput, tapi toko gak punya akses 
 ### H. Prioritas akhir
 
 **34. Dari seluruh proses yang dibahas, sebutkan dan urutkan lima masalah paling penting berdasarkan dampaknya.**
-1. Bahan kue rawan lumer/pecah/kadaluwarsa kalau kurir muter-muter kelamaan di jalan.  
-2. Pembeli malas mengisi nomor bangunan atau patokan toko dengan jelas.  
-3. Toko kena denda poin pelanggaran kalau terpaksa membatalkan pesanan berisiko.  
-4. Nomor telepon pembeli di sistem gak nyambung ke WhatsApp pas kurir mau antar.  
+1. Bahan kue rawan lumer/pecah/kadaluwarsa kalau kurir muter-muter kelamaan di jalan.
+2. Pembeli malas mengisi nomor bangunan atau patokan toko dengan jelas.
+3. Toko kena denda poin pelanggaran kalau terpaksa membatalkan pesanan berisiko.
+4. Nomor telepon pembeli di sistem gak nyambung ke WhatsApp pas kurir mau antar.
 5. Pihak penjual gak punya akses buat membetulkan data resi yang cacat.
 
 **35. Mana yang didukung pengalaman langsung dan mana yang masih berupa dugaan?**

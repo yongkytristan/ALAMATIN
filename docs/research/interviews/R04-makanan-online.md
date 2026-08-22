@@ -170,10 +170,10 @@ Waktunya ada beberapa menit sebelum pesanan siap jalan, tapi toko gak punya akse
 ### H. Prioritas akhir
 
 **34. Dari seluruh proses yang dibahas, sebutkan dan urutkan lima masalah paling penting berdasarkan dampaknya.**
-1. Makanan basi dan modal bahan masakan hangus total kalau kurir nyasar kelamaan di jalan.  
-2. Titik peta (pinpoint) ojol melenceng jauh dari alamat asli yang diketik pembeli.  
-3. Nomor HP pembeli gak bisa dihubungi atau gak ada WhatsApp-nya pas kurir sampai di lokasi.  
-4. Penjual kena penalti performa toko kalau coba membatalkan orderan yang alamatnya ngawur.  
+1. Makanan basi dan modal bahan masakan hangus total kalau kurir nyasar kelamaan di jalan.
+2. Titik peta (pinpoint) ojol melenceng jauh dari alamat asli yang diketik pembeli.
+3. Nomor HP pembeli gak bisa dihubungi atau gak ada WhatsApp-nya pas kurir sampai di lokasi.
+4. Penjual kena penalti performa toko kalau coba membatalkan orderan yang alamatnya ngawur.
 5. Pembeli tidak mencantumkan patokan rumah/kamar kos/kantor dengan jelas.
 
 **35. Mana yang didukung pengalaman langsung dan mana yang masih berupa dugaan?**
