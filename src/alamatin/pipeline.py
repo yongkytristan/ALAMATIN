@@ -23,6 +23,7 @@ from .address_normalizer import (
     normalize_address,
 )
 from .administrative_validator import AdministrativeValidator
+from .geocoding import GeocodingService
 from .label_schema import ENTITY_TYPES
 from .output_contract import CONTRACT_VERSION, validate_contract_document
 from .pii import PIIProcessingResult, process_pii
@@ -117,6 +118,7 @@ class AddressPipeline:
         extractor: Extractor = regex_extractor,
         model_version: str = REGEX_EXTRACTOR_VERSION,
         normalizer_version: str = NORMALIZER_VERSION,
+        geocoding: GeocodingService | None = None,
     ) -> None:
         if not isinstance(validator, AdministrativeValidator):
             raise TypeError("validator must be an AdministrativeValidator")
@@ -132,6 +134,9 @@ class AddressPipeline:
         self.extractor = extractor
         self.model_version = model_version
         self.normalizer_version = normalizer_version
+        # Disabled unless a provider is injected. Geocoding is P1, so the
+        # default path performs no external call and reports "not requested".
+        self.geocoding = geocoding or GeocodingService()
 
     # -- stages ---------------------------------------------------------------
 
@@ -273,6 +278,12 @@ class AddressPipeline:
         quality = evaluate_quality_gate(
             validation, normalization_changes=normalization.changes
         )
+        # Resolved after the gate on purpose: a geocoder result must never
+        # change the operational status. An external failure cannot turn a
+        # locally valid address into TIDAK_VALID.
+        geocoding = self.geocoding.resolve(
+            pii.address_text, consent=geocoding_consent, alamatin_values=values
+        )
 
         components = [
             {
@@ -324,21 +335,11 @@ class AddressPipeline:
             },
             "quality_gate": quality.to_response_dict(),
             "corrections": self._corrections(normalization.changes),
-            # The parse path never geocodes, so the result is explicitly
-            # NOT_REQUESTED rather than a silent external call. "consent" reports
-            # whether consent was *exercised* for a geocoding result, so it stays
-            # false here even when the request granted it: nothing was looked up.
-            # The contract enforces that pairing.
-            "geocoding": {
-                "status": "NOT_REQUESTED",
-                "consent": False,
-                "provider": None,
-                "precision": None,
-                "latitude": None,
-                "longitude": None,
-                "components": [],
-                "error_code": None,
-            },
+            # Delegated to the geocoding service, which refuses to call out
+            # without both explicit consent and a configured provider. With the
+            # default disabled service this is always an explicit
+            # "not requested", so the P0 decision path is unchanged.
+            "geocoding": geocoding.block,
             "audit_trail": self._audit_trail(
                 pii,
                 extracted,

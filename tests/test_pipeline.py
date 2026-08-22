@@ -22,6 +22,8 @@ from alamatin.pipeline import (  # noqa: E402
 )
 from alamatin.reference_hierarchy import ReferenceHierarchy  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "tests"))
+
 REFERENCE = ROOT / "data" / "processed" / "jabar-reference-v1-verified.json"
 
 # Real Jawa Barat chain, verified present in the governed reference.
@@ -243,3 +245,67 @@ class PipelineUnitTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+@unittest.skipUnless(
+    REFERENCE.exists(),
+    "governed reference not present in this repository; see data/sources.md",
+)
+class PipelineGeocodingTest(unittest.TestCase):
+    """Geocoding is delegated, off by default, and never changes the status."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.reference = ReferenceHierarchy.from_document(
+            json.loads(REFERENCE.read_text(encoding="utf-8"))
+        )
+
+    def pipeline(self, geocoding=None) -> AddressPipeline:
+        validator = AdministrativeValidator(
+            self.reference, reference_version="jabar-reference-v1"
+        )
+        return AddressPipeline(validator, geocoding=geocoding)
+
+    def test_default_pipeline_never_geocodes(self) -> None:
+        from alamatin.geocoding import GeocodingService
+
+        result = self.pipeline().process(READY, request_id="req_geo_off001")
+        self.assertFalse(GeocodingService().enabled)
+        self.assertEqual(result.document["geocoding"]["status"], "NOT_REQUESTED")
+
+    def test_consent_and_a_provider_produce_a_real_result(self) -> None:
+        from test_geocoding import SpyProvider, rooftop
+        from alamatin.geocoding import GeocodingService
+
+        provider = SpyProvider(rooftop())
+        result = self.pipeline(GeocodingService(provider)).process(
+            READY, request_id="req_geo_on0001", geocoding_consent=True
+        )
+        self.assertEqual(provider.calls and len(provider.calls), 1)
+        self.assertEqual(result.document["geocoding"]["status"], "SUCCESS")
+        validate_contract_document(result.document)
+
+    def test_a_geocoder_failure_does_not_invalidate_a_ready_address(self) -> None:
+        from test_geocoding import SpyProvider
+        from alamatin.geocoding import GeocodeTimeout, GeocodingService
+
+        result = self.pipeline(
+            GeocodingService(SpyProvider(error=GeocodeTimeout()))
+        ).process(READY, request_id="req_geo_fail01", geocoding_consent=True)
+        self.assertEqual(result.document["geocoding"]["status"], "EXTERNAL_FAILURE")
+        # The address decision is untouched.
+        self.assertEqual(result.status, "SIAP_DIPROSES")
+        validate_contract_document(result.document)
+
+    def test_the_provider_receives_pii_safe_text_only(self) -> None:
+        from test_geocoding import SpyProvider, rooftop
+        from alamatin.geocoding import GeocodingService
+
+        provider = SpyProvider(rooftop())
+        self.pipeline(GeocodingService(provider)).process(
+            MIXED_PII, request_id="req_geo_pii001", geocoding_consent=True
+        )
+        sent = provider.calls[0]
+        # A third party must never receive the recipient's name or phone.
+        self.assertNotIn(RAW_NAME, sent)
+        self.assertNotIn(RAW_PHONE, sent)
