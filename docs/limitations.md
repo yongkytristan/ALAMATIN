@@ -60,7 +60,12 @@ validator already tolerates the variation it removes. Evidence:
   quoted as "100% recall".
 - **The user study has not been run.** No participant has been recruited and no
   session held, so every study figure is `not_measured`. The protocol, task
-  generator, instrument, and analysis harness exist and are tested. Evidence:
+  generator, instrument, and analysis harness exist and are tested; running the
+  sessions was descoped from `1.0.0` by
+  [`decision-log.md`](decision-log.md) DEC-007. The comparison it was to supply
+  — manual review against ALAMATIN on time, correct decisions, critical-error
+  recall, and false corrections — is therefore **unmeasured**, and nothing here
+  stands in for it. Evidence:
   [`user-study-protocol.md`](user-study-protocol.md),
   [`evidence-index.md`](evidence-index.md).
 

@@ -1,6 +1,11 @@
 # User-study protocol (ALM-037)
 
-## Status: materials complete, sessions not run
+## Status: apparatus shipped, execution descoped from 1.0.0
+
+Running the sessions was descoped from the `1.0.0` submission by
+[`decision-log.md`](decision-log.md) DEC-007. What ships is the apparatus; what
+moves to post-submission work is the execution.
+
 
 Everything that can be built without people is built and tested:
 
@@ -15,10 +20,15 @@ Everything that can be built without people is built and tested:
 | **Session execution and data collection** | **not done — requires people** |
 
 No participant has been recruited and no session has been run, so **no result
-exists**. Nothing in this repository reports a user-study outcome, and the two
-execution items above are deliberately left unticked on the issue. Recording a
+exists**. Nothing in this repository reports a user-study outcome. Recording a
 participant who does not exist would be fabricated research data, which is not
-something a submission can carry.
+something a submission can carry — so the two execution rows above stay marked
+not done, and DEC-007 records that as a scope decision rather than an omission.
+
+The apparatus is complete enough that a facilitator's first session produces
+analysable data: the task sets are already counterbalanced, the instrument is
+emitted alongside them, and the ALM-038 harness reads the resulting records
+without modification.
 
 ## Question
 

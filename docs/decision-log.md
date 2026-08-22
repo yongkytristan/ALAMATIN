@@ -84,3 +84,32 @@ auditable rather than silent.
 - Consequences: new scope enters the backlog; P1/P2 cannot delay the release;
   unsupported claims and incomplete optional paths must be removed rather than
   represented by placeholders.
+
+## DEC-007 — Descope the user-study execution from the 1.0.0 submission
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- Decision: ALM-037's deliverable for `1.0.0` is the **study apparatus**, not a
+  study result. The protocol, counterbalanced task generator, recording
+  instrument, anonymisation schema, and the ALM-038 analysis harness are the
+  shipped artifacts. Recruiting participants and running sessions moves to
+  post-submission work.
+- Rationale: the sessions require target-like participants and a facilitator,
+  neither of which the remaining submission window can supply. The alternative
+  considered and rejected was recording sessions that did not happen, which
+  would be fabricated research data.
+- Consequences:
+  - No user-study number may be quoted anywhere. Every study field stays
+    `not_measured` in [`../experiments/evidence/index.json`](../experiments/evidence/index.json),
+    and the analysis harness must keep reporting `not_measured` rather than
+    defaulting to a value.
+  - The comparison this study was to supply — manual review against ALAMATIN on
+    time, correct decisions, critical-error recall, and false corrections —
+    remains **unmeasured**, and no claim may stand in for it. Recorded in
+    [`limitations.md`](limitations.md).
+  - The apparatus must stay runnable: whoever runs the study later inherits a
+    tested generator, instrument, and analysis path, so their first session
+    produces analysable data with no rework.
+  - ALM-037 and ALM-038 close against this reduced scope. Their checklists were
+    rewritten to the delivered scope on this date, with the execution items
+    moved to the post-submission backlog rather than silently ticked.
