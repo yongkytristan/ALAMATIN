@@ -156,11 +156,26 @@ jobs:
         run: |
           rm -rf .deploy && mkdir -p .deploy
           # Ship only what the service needs to run. Tests, docs, notebooks and
-          # the governed data directories are deliberately excluded.
+          # the governed data directories are deliberately excluded -- except the
+          # one reference artifact the pipeline loads at import time, named
+          # explicitly rather than by copying data/ wholesale.
           cp -r src contracts requirements.lock .deploy/
           [ -d web ] && cp -r web .deploy/
-          mkdir -p .deploy/scripts/deploy
+          mkdir -p .deploy/scripts/deploy .deploy/data/processed
           cp scripts/deploy/activate_release.sh .deploy/scripts/deploy/
+          cp data/processed/jabar-reference-v1-verified.json .deploy/data/processed/
+
+          # Assert the payload can actually boot. ALM-028 made the service load
+          # the reference at import time, and a missing file here surfaced only
+          # as a 502 after the release was already activated.
+          missing=0
+          for path in src/alamatin/service.py contracts/address-api.v1.schema.json                       data/processed/jabar-reference-v1-verified.json requirements.lock; do
+            if [ ! -s ".deploy/$path" ]; then
+              echo "::error title=Incomplete payload::Missing or empty: $path"
+              missing=1
+            fi
+          done
+          [ "$missing" -eq 0 ] || exit 1
           echo "${{ inputs.release_ref || github.sha }}" > .deploy/RELEASE_SHA
           find .deploy -name '__pycache__' -type d -prune -exec rm -rf {} +
           find .deploy -name '*.py[co]' -delete
