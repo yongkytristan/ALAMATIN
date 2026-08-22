@@ -1,0 +1,4 @@
+{
+  "document_type": "address_parse_request", "schema_version": "1.0.0", "request_id": "req_external_failure_001",
+  "input": {"address_text": "Jalan Merdeka No. 10, Kota Bandung", "geocoding_consent": true}
+}

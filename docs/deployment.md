@@ -6,13 +6,35 @@ can be triggered manually for a re-deploy or rollback.
 
 ## Current status
 
-The pipeline is complete but **not yet functional**, by design. The runtime
-modules (`src/alamatin/api.py`, `contracts/`, the quality gate, the validator,
-the normalizer) still live only in the internal repository, and `web/` here
-holds a placeholder README. The `verify` job checks for
-`src/alamatin/api.py` and `contracts/address-api.v1.schema.json` and fails with
-an explicit message when they are absent, so a push cannot quietly deploy an
-empty skeleton. Deploys begin working once that code is synced here.
+The runtime code is now present: the API, contracts, quality gate, validator,
+normalizer, and PII redaction have been synced from the internal repository, so
+the `verify` job's deployability guard passes and a deploy can proceed.
+
+Two things still block a *useful* deploy, and both are outside this pipeline:
+
+1. **No ASGI server is declared.** `requirements.lock` still declares no
+   dependencies. `src/alamatin/api.py` is a dependency-free ASGI application,
+   but something has to serve it. The service entrypoint is
+   `alamatin.api:app`, for example `uvicorn alamatin.api:app`. Adding the
+   server to the lock file is a stack decision that must be recorded first,
+   per this repository's dependency policy, and the lock file must carry
+   hashes because the activation script installs with `--require-hashes`.
+
+2. **The default `app` has no pipeline wired.** `create_app()` defaults to an
+   unconfigured parse/validate handler and an unconfigured dependency probe.
+   Verified against the synced tree with a real Uvicorn run:
+
+   ```
+   GET  /health              -> 503  status=degraded  app=alive
+   POST /parse               -> 503  PIPELINE_UNAVAILABLE
+   POST /parse (bad json)    -> 400  INVALID_JSON
+   ```
+
+   This is correct behaviour, not a bug: the app is alive and reports honestly
+   that a critical dependency is missing. But it means **`/health` will return
+   `503` until real handlers are wired**, so leave `DEWACLOUD_HEALTH_URL`
+   unset for now. The deploy skips the health check when it is unset; setting
+   it too early would fail every deploy for the wrong reason.
 
 ## What the pipeline does
 

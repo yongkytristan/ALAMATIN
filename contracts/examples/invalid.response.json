@@ -1,0 +1,23 @@
+{
+  "document_type": "address_parse_response", "schema_version": "1.0.0", "request_id": "req_invalid_001",
+  "versions": {"contract": "1.0.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1", "validator": "validator-v1", "reference_data": "jabar-reference-v1", "quality_gate": "quality-gate-v1"},
+  "pii": {
+    "address_text": {"value": "Braga, Sumur Bandung, Kota Bandung 99999", "source": "rule_extracted", "confirmed": false},
+    "redacted_text": {"value": "Braga, Sumur Bandung, Kota Bandung 99999", "source": "rule_extracted", "confirmed": false},
+    "entities": [], "reason_codes": [], "warnings": []
+  },
+  "components": [{"field": "KODEPOS", "result": {"value": "99999", "source": "extracted_by_model", "confirmed": false, "model_score": 0.97, "previous_value": null}}],
+  "normalized_address": {"value": "Kelurahan Braga, Kecamatan Sumur Bandung, Kota Bandung 99999", "source": "normalized_by_dictionary", "confirmed": false, "model_score": null, "previous_value": null},
+  "quality_gate": {
+    "status": "TIDAK_VALID",
+    "issues": [{"reason_code": "KODEPOS_TIDAK_COCOK", "severity": "high", "message": "Kode pos bertentangan dengan rantai wilayah pada referensi administratif yang digunakan.", "affected_fields": ["KODEPOS"], "clarification_question": "Kode pos mana yang benar untuk kelurahan dan kecamatan tujuan?", "source_reason_code": "ADMINISTRATIVE_CONFLICT"}],
+    "rules": {"version": "quality-gate-v1", "precedence": [
+      {"status": "TIDAK_VALID", "when": "at least one high-severity issue exists"},
+      {"status": "PERLU_KONFIRMASI", "when": "at least one medium-severity issue exists"},
+      {"status": "SIAP_DIPROSES", "when": "no quality issue exists"}
+    ]}
+  },
+  "corrections": [{"correction_id": "corr_postcode_002", "field": "KODEPOS", "previous_value": {"value": "99999", "source": "user_input", "confirmed": false}, "proposed_value": {"value": "40111", "source": "inferred_from_hierarchy", "confirmed": false}, "rule_id": "hierarchy_postcode_v1", "decision": "requires_confirmation", "applied": false, "user_confirmation": null}],
+  "geocoding": {"status": "NOT_REQUESTED", "consent": false, "provider": null, "precision": null, "latitude": null, "longitude": null, "components": [], "error_code": null},
+  "audit_trail": [{"sequence": 1, "stage": "validator", "action": "detect_postcode_conflict", "actor": "system", "rule_id": "exact_hierarchy_v1", "previous_values": [], "resulting_values": [{"field": "KODEPOS", "value": "99999", "source": "extracted_by_model", "confirmed": false}]}]
+}

@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://alamatin.local/contracts/address-api.v1.schema.json",
+  "title": "ALAMATIN address review contract v1",
+  "oneOf": [
+    {"$ref": "#/$defs/request"},
+    {"$ref": "#/$defs/batchRequest"},
+    {"$ref": "#/$defs/response"},
+    {"$ref": "#/$defs/errorResponse"}
+  ],
+  "$defs": {
+    "source": {
+      "enum": [
+        "user_input",
+        "rule_extracted",
+        "extracted_by_model",
+        "normalized_by_dictionary",
+        "inferred_from_hierarchy",
+        "returned_by_geocoder",
+        "confirmed_by_user"
+      ]
+    },
+    "field": {
+      "enum": [
+        "JALAN", "NOMOR", "RT", "RW", "KELURAHAN", "KECAMATAN",
+        "KOTA_KABUPATEN", "PROVINSI", "KODEPOS", "DETAIL_LOKASI"
+      ]
+    },
+    "basicValue": {
+      "type": "object",
+      "required": ["value", "source", "confirmed"],
+      "properties": {
+        "value": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"},
+        "confirmed": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "resultValue": {
+      "type": "object",
+      "required": ["value", "source", "confirmed", "model_score", "previous_value"],
+      "properties": {
+        "value": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"},
+        "confirmed": {"type": "boolean"},
+        "model_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "previous_value": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/basicValue"}
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "request": {
+      "type": "object",
+      "required": ["document_type", "schema_version", "request_id", "input"],
+      "properties": {
+        "document_type": {"const": "address_parse_request"},
+        "schema_version": {"const": "1.0.0"},
+        "request_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{7,63}$"},
+        "input": {
+          "type": "object",
+          "required": ["address_text", "geocoding_consent"],
+          "properties": {
+            "address_text": {"type": "string", "minLength": 1},
+            "geocoding_consent": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "batchRequest": {
+      "type": "object",
+      "required": ["document_type", "schema_version", "request_id", "items"],
+      "properties": {
+        "document_type": {"const": "address_batch_request"},
+        "schema_version": {"const": "1.0.0"},
+        "request_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{7,63}$"},
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "required": ["address_text", "geocoding_consent"],
+            "properties": {
+              "address_text": {"type": "string", "minLength": 1},
+              "geocoding_consent": {"type": "boolean"}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "piiEntity": {
+      "type": "object",
+      "required": ["type", "start", "end", "redacted_value"],
+      "properties": {
+        "type": {"enum": ["PHONE", "RECIPIENT_NAME"]},
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 0},
+        "redacted_value": {"enum": ["[PHONE_REDACTED]", "[NAME_REDACTED]"]}
+      },
+      "additionalProperties": false
+    },
+    "pii": {
+      "type": "object",
+      "required": ["address_text", "redacted_text", "entities", "reason_codes", "warnings"],
+      "properties": {
+        "address_text": {"$ref": "#/$defs/basicValue"},
+        "redacted_text": {"$ref": "#/$defs/basicValue"},
+        "entities": {"type": "array", "items": {"$ref": "#/$defs/piiEntity"}},
+        "reason_codes": {"type": "array", "items": {"type": "string"}},
+        "warnings": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "component": {
+      "type": "object",
+      "required": ["field", "result"],
+      "properties": {
+        "field": {"$ref": "#/$defs/field"},
+        "result": {"$ref": "#/$defs/resultValue"}
+      },
+      "additionalProperties": false
+    },
+    "qualityIssue": {
+      "type": "object",
+      "required": ["reason_code", "severity", "message", "affected_fields", "clarification_question", "source_reason_code"],
+      "properties": {
+        "reason_code": {"enum": ["KODEPOS_TIDAK_COCOK", "KELURAHAN_TIDAK_DITEMUKAN", "ADMINISTRATIVE_CONFLICT", "MISSING_ADMINISTRATIVE_FIELDS", "AMBIGUOUS_ADMINISTRATIVE_CANDIDATES", "CORRECTION_REQUIRES_CONFIRMATION"]},
+        "severity": {"enum": ["high", "medium"]},
+        "message": {"type": "string", "minLength": 1},
+        "affected_fields": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/field"}},
+        "clarification_question": {"type": "string", "pattern": "[?]$"},
+        "source_reason_code": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "qualityGate": {
+      "type": "object",
+      "required": ["status", "issues", "rules"],
+      "properties": {
+        "status": {"enum": ["SIAP_DIPROSES", "PERLU_KONFIRMASI", "TIDAK_VALID"]},
+        "issues": {"type": "array", "items": {"$ref": "#/$defs/qualityIssue"}},
+        "rules": {
+          "type": "object",
+          "required": ["version", "precedence"],
+          "properties": {
+            "version": {"const": "quality-gate-v1"},
+            "precedence": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "required": ["status", "when"],
+                "properties": {
+                  "status": {"enum": ["SIAP_DIPROSES", "PERLU_KONFIRMASI", "TIDAK_VALID"]},
+                  "when": {"type": "string", "minLength": 1}
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "userConfirmation": {
+      "type": "object",
+      "required": ["confirmed", "source", "confirmed_at"],
+      "properties": {
+        "confirmed": {"const": true},
+        "source": {"const": "confirmed_by_user"},
+        "confirmed_at": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "correction": {
+      "type": "object",
+      "required": ["correction_id", "field", "previous_value", "proposed_value", "rule_id", "decision", "applied", "user_confirmation"],
+      "properties": {
+        "correction_id": {"type": "string", "minLength": 1},
+        "field": {"$ref": "#/$defs/field"},
+        "previous_value": {"$ref": "#/$defs/basicValue"},
+        "proposed_value": {"$ref": "#/$defs/basicValue"},
+        "rule_id": {"type": "string", "minLength": 1},
+        "decision": {"enum": ["requires_confirmation", "confirmed", "rejected"]},
+        "applied": {"type": "boolean"},
+        "user_confirmation": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/userConfirmation"}
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "versionInfo": {
+      "type": "object",
+      "required": ["contract", "model", "normalizer", "validator", "reference_data", "quality_gate"],
+      "properties": {
+        "contract": {"const": "1.0.0"},
+        "model": {"type": "string", "minLength": 1},
+        "normalizer": {"type": "string", "minLength": 1},
+        "validator": {"type": "string", "minLength": 1},
+        "reference_data": {"type": "string", "minLength": 1},
+        "quality_gate": {"const": "quality-gate-v1"}
+      },
+      "additionalProperties": false
+    },
+    "auditValue": {
+      "type": "object",
+      "required": ["field", "value", "source", "confirmed"],
+      "properties": {
+        "field": {"$ref": "#/$defs/field"},
+        "value": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"},
+        "confirmed": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "auditEvent": {
+      "type": "object",
+      "required": ["sequence", "stage", "action", "actor", "rule_id", "previous_values", "resulting_values"],
+      "properties": {
+        "sequence": {"type": "integer", "minimum": 1},
+        "stage": {"enum": ["pii", "model", "normalizer", "validator", "quality_gate", "correction", "geocoding"]},
+        "action": {"type": "string", "minLength": 1},
+        "actor": {"enum": ["system", "user", "external_service"]},
+        "rule_id": {"type": ["string", "null"]},
+        "previous_values": {"type": "array", "items": {"$ref": "#/$defs/auditValue"}},
+        "resulting_values": {"type": "array", "items": {"$ref": "#/$defs/auditValue"}}
+      },
+      "additionalProperties": false
+    },
+    "coordinateValue": {
+      "type": "object",
+      "required": ["value", "source"],
+      "properties": {
+        "value": {"type": "number"},
+        "source": {"const": "returned_by_geocoder"}
+      },
+      "additionalProperties": false
+    },
+    "geocoding": {
+      "type": "object",
+      "required": ["status", "consent", "provider", "precision", "latitude", "longitude", "components", "error_code"],
+      "properties": {
+        "status": {"enum": ["NOT_REQUESTED", "SUCCESS", "AMBIGUOUS", "EXTERNAL_FAILURE"]},
+        "consent": {"type": "boolean"},
+        "provider": {"type": ["string", "null"]},
+        "precision": {"type": ["string", "null"]},
+        "latitude": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/coordinateValue"}]},
+        "longitude": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/coordinateValue"}]},
+        "components": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+        "error_code": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "response": {
+      "type": "object",
+      "required": ["document_type", "schema_version", "request_id", "versions", "pii", "components", "normalized_address", "quality_gate", "corrections", "geocoding", "audit_trail"],
+      "properties": {
+        "document_type": {"const": "address_parse_response"},
+        "schema_version": {"const": "1.0.0"},
+        "request_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{7,63}$"},
+        "versions": {"$ref": "#/$defs/versionInfo"},
+        "pii": {"$ref": "#/$defs/pii"},
+        "components": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+        "normalized_address": {"$ref": "#/$defs/resultValue"},
+        "quality_gate": {"$ref": "#/$defs/qualityGate"},
+        "corrections": {"type": "array", "items": {"$ref": "#/$defs/correction"}},
+        "geocoding": {"$ref": "#/$defs/geocoding"},
+        "audit_trail": {"type": "array", "items": {"$ref": "#/$defs/auditEvent"}}
+      },
+      "additionalProperties": false
+    },
+    "errorDetail": {
+      "type": "object",
+      "required": ["field", "code", "message"],
+      "properties": {
+        "field": {"type": ["string", "null"]},
+        "code": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "errorResponse": {
+      "type": "object",
+      "required": ["document_type", "schema_version", "request_id", "error"],
+      "properties": {
+        "document_type": {"const": "api_error"},
+        "schema_version": {"const": "1.0.0"},
+        "request_id": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{7,63}$"}
+          ]
+        },
+        "error": {
+          "type": "object",
+          "required": ["code", "message", "retryable", "details"],
+          "properties": {
+            "code": {"type": "string", "minLength": 1},
+            "message": {"type": "string", "minLength": 1},
+            "retryable": {"type": "boolean"},
+            "details": {"type": "array", "items": {"$ref": "#/$defs/errorDetail"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
