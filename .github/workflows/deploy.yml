@@ -161,10 +161,12 @@ jobs:
           PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
           REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
           RESTART_COMMAND: ${{ secrets.DEWACLOUD_RESTART_COMMAND }}
+          # The node's system python3 is 3.9, which cannot run this codebase.
+          NODE_PYTHON: ${{ vars.DEWACLOUD_PYTHON || 'python3.11' }}
         run: |
           SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
           ssh $SSH_OPTS "$USER_NAME@$HOST" \
-            bash -s -- "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" \
+            bash -s -- "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" "$NODE_PYTHON" \
             < scripts/deploy/activate_release.sh
 
       - name: Verify deployed health endpoint

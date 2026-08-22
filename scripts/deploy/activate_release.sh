@@ -7,13 +7,18 @@
 # an inlined heredoc so the workflow never has to escape shell metacharacters,
 # and so this logic stays reviewable in version control.
 #
-# Usage: bash activate_release.sh ROOT RELEASE [RESTART_COMMAND]
+# Usage: bash activate_release.sh ROOT RELEASE [RESTART_COMMAND] [PYTHON_BIN]
 
 set -euo pipefail
 
 ROOT="${1:?deploy root is required}"
 RELEASE="${2:?release name is required}"
 RESTART_COMMAND="${3:-}"
+# Not plain "python3": the Dewacloud node ships AlmaLinux 9's system Python
+# 3.9, and this codebase uses dataclass(slots=True), which is 3.10+. Building
+# the virtualenv from python3 there produces an environment the application
+# cannot import.
+PYTHON_BIN="${4:-python3.11}"
 
 RELEASE_DIR="$ROOT/releases/$RELEASE"
 SHARED_VENV="$ROOT/shared/venv"
@@ -25,11 +30,49 @@ KEEP_RELEASES=5
 }
 cd "$RELEASE_DIR"
 
+# Fail here, with the reason, rather than letting the service crash on import
+# after a deploy that reported success.
+if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
+  echo "error: interpreter '$PYTHON_BIN' not found on this node." >&2
+  echo "       Install it (AlmaLinux: dnf install -y python3.11) or set the" >&2
+  echo "       DEWACLOUD_PYTHON repository variable to an interpreter that exists." >&2
+  exit 1
+fi
+if ! "$PYTHON_BIN" - <<'PYCHECK'
+import sys
+from dataclasses import dataclass
+try:
+    @dataclass(frozen=True, slots=True)
+    class _Probe:
+        value: int
+except TypeError:
+    sys.exit(1)
+PYCHECK
+then
+  echo "error: '$PYTHON_BIN' ($("$PYTHON_BIN" -V 2>&1)) does not support" >&2
+  echo "       dataclass(slots=True), which this application requires." >&2
+  echo "       Python 3.10 or newer is needed." >&2
+  exit 1
+fi
+echo "Using interpreter: $PYTHON_BIN ($("$PYTHON_BIN" -V 2>&1))"
+
 # A virtualenv shared across releases keeps deploys fast. The lock file is
 # still applied on every deploy, so a dependency change takes effect.
+#
+# An existing virtualenv is also checked, not just reused: one built earlier
+# from a different interpreter would otherwise survive every later deploy and
+# keep breaking the application silently.
+if [ -d "$SHARED_VENV" ]; then
+  want="$("$PYTHON_BIN" -c 'import sys;print("%d.%d"%sys.version_info[:2])')"
+  have="$("$SHARED_VENV/bin/python" -c 'import sys;print("%d.%d"%sys.version_info[:2])' 2>/dev/null || echo none)"
+  if [ "$want" != "$have" ]; then
+    echo "Rebuilding shared virtualenv: found Python $have, need $want"
+    rm -rf "$SHARED_VENV"
+  fi
+fi
 if [ ! -d "$SHARED_VENV" ]; then
   echo "Creating shared virtualenv..."
-  python3 -m venv "$SHARED_VENV"
+  "$PYTHON_BIN" -m venv "$SHARED_VENV"
 fi
 "$SHARED_VENV/bin/python" -m pip install --upgrade pip >/dev/null
 

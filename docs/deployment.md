@@ -56,6 +56,72 @@ Because releases are unpacked side by side and activated by a symlink swap, a
 failed upload or a failed dependency install leaves the previous release
 serving traffic untouched.
 
+## The target node
+
+Surveyed directly over SSH on 22 August 2026:
+
+| Property | Value |
+|---|---|
+| OS | AlmaLinux 9.7 |
+| Login | `root`, home `/root` |
+| System Python | 3.9.25 (`/usr/bin/python3`) — **cannot run this codebase** |
+| Available | `python3.11`, `python3.12` via `dnf` |
+| ASGI server | `uvicorn` and `gunicorn` both absent; `pip3` present |
+| Supervision | `systemctl` and `jem` present; `supervisorctl` absent |
+| Disk | 449 GB free |
+
+### The node's Python is too old
+
+This codebase uses `dataclass(slots=True)` in `api.py`, `quality_gate.py`,
+`administrative_validator.py`, and `address_normalizer.py`. That parameter is
+Python 3.10+, and the node's `python3` is 3.9:
+
+```
+python3 (Python 3.9.25) -> dataclass() got an unexpected keyword argument 'slots'
+```
+
+So `activate_release.sh` defaults to `python3.11` rather than `python3`, and
+refuses to continue if the chosen interpreter is missing or too old. It reports
+the reason instead of letting the service crash on import after a deploy that
+claimed success. It also rebuilds the shared virtualenv if it finds one built
+from a different Python version, so a bad environment cannot survive later
+deploys.
+
+Install the interpreter on the node once:
+
+```bash
+dnf install -y python3.11
+```
+
+Override the default with the `DEWACLOUD_PYTHON` repository variable if a
+different interpreter is preferred.
+
+### Registering the deploy key
+
+**`ssh-copy-id` does not work here.** The Dewacloud SSH gateway
+(`SSH-2.0-JSSHProxy`) authenticates against the SSH keys registered on the
+*account*, not against the container's `~/.ssh/authorized_keys`. Running
+`ssh-copy-id` reports `Number of key(s) added: 1` and appends to
+`authorized_keys`, but the gateway never reads that file and the key is still
+refused:
+
+```
+debug1: Offering public key: alamatin_deploy ED25519 ...
+79503-9371@gate.infra.dewacloud.com: Permission denied (publickey,...).
+```
+
+Add the deploy key through the Dewacloud dashboard's SSH key settings instead,
+then verify with:
+
+```bash
+ssh -i ~/.ssh/alamatin_deploy -o IdentitiesOnly=yes -p 3022 \
+  79503-9371@gate.infra.dewacloud.com "echo OK"
+```
+
+`IdentitiesOnly=yes` matters: without it, ssh may silently succeed using a
+different key from your agent and hide the fact that the deploy key itself is
+not authorised.
+
 ## Required repository secrets
 
 Set these in **Settings → Secrets and variables → Actions → Secrets**. None of
