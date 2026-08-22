@@ -87,6 +87,17 @@ else
   echo "requirements.lock declares no dependencies; skipping install."
 fi
 
+# Boot check before activation. The application is imported exactly as the
+# service will import it, so a release that cannot start never becomes
+# "current" and the previous one keeps serving. Without this, a missing runtime
+# file surfaced only as a 502 after the swap had already happened.
+echo "Verifying the release can start..."
+if ! PYTHONPATH="$RELEASE_DIR/src" "$SHARED_VENV/bin/python" -c "import alamatin.service" 2>&1; then
+  echo "error: the release failed to import alamatin.service; not activating it." >&2
+  echo "       The previous release is untouched and still serving." >&2
+  exit 1
+fi
+
 # Atomic swap: create the new link beside the live one and rename over it, so
 # no request ever observes a missing or half-written "current".
 echo "Activating $RELEASE..."
