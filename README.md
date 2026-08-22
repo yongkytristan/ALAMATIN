@@ -130,3 +130,16 @@ Use `.env.example` only as a template. Actual credentials belong in an ignored
 `.env` file or the deployment platform's secret store. Public-address datasets
 must still pass provenance, licensing, redistribution, and PII reviews before
 use. See [docs/artifact-policy.md](docs/artifact-policy.md).
+
+Address text is held for the lifetime of a request and no longer: nothing is
+cached, nothing is written to disk on the request path, and no log line contains
+address or exception text. Consent, logging, cache, retention, and the OSM
+attribution obligation are documented in
+[docs/data-handling.md](docs/data-handling.md).
+
+## Documentation
+
+[docs/README.md](docs/README.md) indexes every document. Start with
+[docs/architecture.md](docs/architecture.md) for how a request flows, and
+[docs/limitations.md](docs/limitations.md) for what the numbers do and do not
+support.

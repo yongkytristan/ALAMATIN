@@ -39,3 +39,8 @@ jobs:
       # must fail here rather than reach a reader.
       - name: Verify the evidence index
         run: python scripts/build_evidence_index.py
+
+      # ALM-039: an unfinished marker, a broken link, a mixed-encoding file, or a
+      # document missing from the index must fail before a reader meets it.
+      - name: Check documentation
+        run: python scripts/check_documentation.py
