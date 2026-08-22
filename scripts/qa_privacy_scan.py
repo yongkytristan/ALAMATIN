@@ -106,6 +106,11 @@ ALLOWLIST: dict[tuple[str, str], str] = {
     ("tests/test_build_human_noised_benchmark.py", "indonesian_mobile"): "synthetic number in a test asserting phone-like text is flagged",
     ("tests/test_pipeline.py", "indonesian_mobile"): "one synthetic number in the mixed-PII case",
     ("tests/test_service.py", "indonesian_mobile"): "one synthetic number in the mixed-PII case",
+    # Internal-only OSM extract. Two business landmarks (a cafe and a bar)
+    # have a phone number mis-entered into tag_addr:housenumber by an
+    # OpenStreetMap contributor. Business contact data published under ODbL,
+    # not recipient PII, and this file is never published.
+    ("data/interim/osm-extraction/landmarks.csv", "indonesian_mobile"): "OSM business phone mis-entered as a housenumber; ODbL business data, internal-only file",
     ("docs/pii-handling.md", "indonesian_mobile"): "documented example of a redacted number",
     ("docs/integration.md", "indonesian_mobile"): "documented example of a redacted number",
 }
