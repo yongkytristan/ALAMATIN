@@ -225,8 +225,15 @@ jobs:
           USER_NAME="$(trim "$USER_NAME")"
           PORT="$(trim "$PORT")"
           SSH_OPTS="-i $HOME/.ssh/deploy_key -p $PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes"
-          ssh $SSH_OPTS "$USER_NAME@$HOST" \
-            bash -s -- "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" "$NODE_PYTHON" \
+          # ssh does not preserve argument boundaries: it joins its command
+          # arguments into one string that the remote shell re-splits. Passing
+          # them directly silently drops an empty argument and splits any value
+          # containing spaces, so the arguments shift position. Quoting each one
+          # for the remote shell with printf %q keeps empties as '' and keeps a
+          # multi-word restart command in a single argument.
+          REMOTE_ARGS="$(printf '%q %q %q %q' \
+            "$REMOTE_ROOT" "$RELEASE" "$RESTART_COMMAND" "$NODE_PYTHON")"
+          ssh $SSH_OPTS "$USER_NAME@$HOST" "bash -s -- $REMOTE_ARGS" \
             < scripts/deploy/activate_release.sh
 
       - name: Verify deployed health endpoint
