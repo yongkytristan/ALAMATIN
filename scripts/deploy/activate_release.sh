@@ -112,8 +112,12 @@ fi
 
 if [ -n "$RESTART_COMMAND" ]; then
   echo "Restarting service..."
+  # stdin is closed for the restart command on purpose. This script is streamed
+  # to the node on stdin, so a command that reads stdin -- an interpreter, or
+  # anything prompting for confirmation -- would consume the rest of this file
+  # and the remainder would never run.
   # shellcheck disable=SC2086
-  eval "$RESTART_COMMAND"
+  eval "$RESTART_COMMAND" </dev/null
 else
   echo "warning: no restart command configured; the new release is on disk but" >&2
   echo "         the running service was not restarted." >&2
