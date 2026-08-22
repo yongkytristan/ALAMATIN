@@ -1,0 +1,186 @@
+{
+  "decision_rules": {
+    "critical_validation_fields": [
+      "KELURAHAN",
+      "KECAMATAN",
+      "KOTA_KABUPATEN",
+      "PROVINSI",
+      "KODEPOS"
+    ],
+    "entity_types": [
+      "JALAN",
+      "NOMOR",
+      "RT",
+      "RW",
+      "KELURAHAN",
+      "KECAMATAN",
+      "KOTA_KABUPATEN",
+      "PROVINSI",
+      "KODEPOS",
+      "DETAIL_LOKASI"
+    ],
+    "operational_statuses": [
+      "SIAP_DIPROSES",
+      "PERLU_KONFIRMASI",
+      "TIDAK_VALID"
+    ],
+    "reason_codes": [
+      "KODEPOS_TIDAK_COCOK",
+      "KELURAHAN_TIDAK_DITEMUKAN",
+      "ADMINISTRATIVE_CONFLICT",
+      "MISSING_ADMINISTRATIVE_FIELDS",
+      "AMBIGUOUS_ADMINISTRATIVE_CANDIDATES",
+      "CORRECTION_REQUIRES_CONFIRMATION"
+    ],
+    "severities": [
+      "high",
+      "medium"
+    ],
+    "status_precedence": [
+      {
+        "status": "TIDAK_VALID",
+        "when": "at least one high-severity issue exists"
+      },
+      {
+        "status": "PERLU_KONFIRMASI",
+        "when": "at least one medium-severity issue exists"
+      },
+      {
+        "status": "SIAP_DIPROSES",
+        "when": "no quality issue exists"
+      }
+    ],
+    "threshold_note": "the gate is deterministic; no score, threshold, or probability participates in the operational status",
+    "thresholds": null
+  },
+  "declared_versions": {
+    "contract": "1.0.0",
+    "extractor": "regex-baseline-v1",
+    "normalizer": "normalizer-v1",
+    "quality_gate": "quality-gate-v1",
+    "reference_data": "jabar-reference-v1",
+    "validator": "jabar-reference-v1"
+  },
+  "frozen_files": [
+    {
+      "bytes": 9295,
+      "path": "src/alamatin/regex_baseline.py",
+      "sha256": "484c02269e8263284a4477daf9657548e1b4033bf18601dcf3fa467dadeb7639"
+    },
+    {
+      "bytes": 811,
+      "path": "src/alamatin/tokenizer.py",
+      "sha256": "7b3a98adb14406a807183e0212573aaecec1b953be71d25790a78eb91fcd4cbd"
+    },
+    {
+      "bytes": 1491,
+      "path": "src/alamatin/label_schema.py",
+      "sha256": "a7dc10f9d659d276f9eb20f43417c434e193f2e662f18418a0655b975d89f77f"
+    },
+    {
+      "bytes": 12045,
+      "path": "src/alamatin/address_normalizer.py",
+      "sha256": "388e691d6f65db35f9d3b1f9a191c700886bab82b906522e09f20e695570514d"
+    },
+    {
+      "bytes": 12930,
+      "path": "src/alamatin/reference_hierarchy.py",
+      "sha256": "f8ea46fc6bf599e60e3a7d4af674939103994f827ef7c2b68eed125bfd7c52be"
+    },
+    {
+      "bytes": 10597,
+      "path": "src/alamatin/administrative_validator.py",
+      "sha256": "476442b319e9b5061a95b47ae41d4783782618ff5f9f80c245b21209e54724fd"
+    },
+    {
+      "bytes": 12276,
+      "path": "src/alamatin/quality_gate.py",
+      "sha256": "34c7ec90eec750748831a224a1f31f7452c680aa6b42a8262c49f27463c27bed"
+    },
+    {
+      "bytes": 10312,
+      "path": "src/alamatin/pii.py",
+      "sha256": "c5a04010b458a601d801ab1f727a4f2b18b55534462aa74ab491a9c78ce380e4"
+    },
+    {
+      "bytes": 14171,
+      "path": "src/alamatin/pipeline.py",
+      "sha256": "a2bd60275a3c07381b767f5d17678cfe9d553b9c0e25094b829214a3497591b6"
+    },
+    {
+      "bytes": 11736,
+      "path": "src/alamatin/output_contract.py",
+      "sha256": "1534739a8bb21a5b936ec550da5acee4e564a86d890bbed404f3227f6868df9c"
+    },
+    {
+      "bytes": 14813,
+      "path": "src/alamatin/api.py",
+      "sha256": "f65e984c08397a6dd27add54e71a356acdc680b397308da96433012b208c308d"
+    },
+    {
+      "bytes": 4576,
+      "path": "src/alamatin/service.py",
+      "sha256": "b43f2ee1e012d0eb77d5367b84b623fedb3dd84df1adc328d93dbe49f369ab60"
+    },
+    {
+      "bytes": 10424,
+      "path": "src/alamatin/geocoding.py",
+      "sha256": "ecf6d3b12d020338d82fec81d65b476b1ee3d808403ae2c457e45768475d5cce"
+    },
+    {
+      "bytes": 12268,
+      "path": "contracts/address-api.v1.schema.json",
+      "sha256": "6a1aba697812e6e97850d25e21980d3a68e26ffe0b4c9411cd5fbfe8a0f22946"
+    },
+    {
+      "bytes": 8219958,
+      "path": "data/processed/jabar-reference-v1-verified.json",
+      "sha256": "855ec337f3a56603f622e99c18ff4d67c1eb4d1af20c658b4306ccce096e1332"
+    },
+    {
+      "bytes": 2352,
+      "path": "requirements.lock",
+      "sha256": "cb402d202ee71ebf79503dedfec1403d25164e18d2fee70efa44a0113a30d7fe"
+    }
+  ],
+  "model_checkpoint": {
+    "note": "The fine-tuned candidate ner-targeted-v2 is a release asset recorded in experiments/ner-final-candidate/release_manifest.json and is not served. versions.model reports the extractor that actually ran, so no response claims a model that did not.",
+    "runtime_extractor": "regex-baseline-v1",
+    "served_in_release_candidate": false
+  },
+  "p1_features": {
+    "ALM-009 OSM street/landmark extraction": {
+      "in_release_candidate": false,
+      "reason": "evidence only; not a runtime dependency"
+    },
+    "ALM-016 libpostal comparison": {
+      "in_release_candidate": false,
+      "reason": "evidence only; not a runtime dependency"
+    },
+    "ALM-029 consent-gated geocoding": {
+      "in_release_candidate": false,
+      "reason": "implemented but disabled: no provider is configured, so no external call is possible and the parse path reports NOT_REQUESTED"
+    },
+    "ALM-030 map confirmation": {
+      "in_release_candidate": false,
+      "reason": "not implemented"
+    },
+    "ALM-031 batch CSV processing": {
+      "in_release_candidate": false,
+      "reason": "contract shape exists; the endpoint returns 501 FEATURE_NOT_ENABLED"
+    }
+  },
+  "release_candidate": {
+    "built_from_commit": "2cf24344eae6c59c707e9a9fe55906e02eec056e",
+    "describe": "2cf2434",
+    "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
+  },
+  "schema_version": "1.0.0",
+  "sealed_test": {
+    "authorization": "The project owner authorized exactly one opening of the sealed test against this release candidate.",
+    "authorized_openings": 1,
+    "declaration_provenance": "Recorded on the project owner's instruction. Per-member confirmations from the other collaborators are not recorded here.",
+    "no_tuning_declaration": "No model, rule, threshold, or reference change may be made in response to the sealed result. If the evaluator itself is found to be wrong, the correction is documented and both runs are reported; the better number is never quietly selected.",
+    "opened": false
+  }
+}
