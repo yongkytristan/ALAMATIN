@@ -31,6 +31,17 @@ The component tests cover the complete valid-address flow and the explicit confi
 
 Set `NEXT_PUBLIC_API_BASE_URL` to use real `POST /parse` and `POST /validate` endpoints. With no value set, `lib/api.ts` uses typed provisional fixtures. The API boundary is intentionally isolated because the ALM-025/026 schema is not final. Set `NEXT_PUBLIC_HEALTH_AVAILABLE=true` only when a safe health endpoint is actually connected; the health indicator is hidden by default.
 
+Load the schema through `address-contract.js`, which fetches the canonical
+`contracts/address-api.v1.schema.json`. Do not keep a frontend-only copy of the
+schema, and do not rename `model_score` to `confidence`: the frozen scope
+forbids presenting `model_score` as calibrated confidence.
+
+ALM-025 and ALM-026 are now frozen and merged, so the alignment noted under
+"Known limitations" is ready to be done. The request body must be
+`{"document_type": "address_parse_request", "schema_version": "1.0.0",
+"request_id": ..., "input": {"address_text": ..., "geocoding_consent": ...}}`;
+sending `{"address": ...}` returns HTTP 422 `REQUEST_VALIDATION_ERROR`.
+
 ## Interaction notes
 
 - Suggestions remain visually marked and cannot be copied until explicitly resolved and revalidated.
