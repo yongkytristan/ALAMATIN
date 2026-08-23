@@ -37,6 +37,7 @@ MISSING_ADMINISTRATIVE_FIELDS = VALIDATOR_MISSING_FIELDS
 AMBIGUOUS_ADMINISTRATIVE_CANDIDATES = VALIDATOR_AMBIGUOUS_CANDIDATES
 CORRECTION_REQUIRES_CONFIRMATION = "CORRECTION_REQUIRES_CONFIRMATION"
 MISSING_STREET_LOCATOR = "MISSING_STREET_LOCATOR"
+MISSING_HOUSE_LOCATOR = "MISSING_HOUSE_LOCATOR"
 
 QUALITY_REASON_CODES: tuple[str, ...] = (
     KODEPOS_TIDAK_COCOK,
@@ -46,6 +47,7 @@ QUALITY_REASON_CODES: tuple[str, ...] = (
     AMBIGUOUS_ADMINISTRATIVE_CANDIDATES,
     CORRECTION_REQUIRES_CONFIRMATION,
     MISSING_STREET_LOCATOR,
+    MISSING_HOUSE_LOCATOR,
 )
 
 STATUS_PRECEDENCE: tuple[tuple[str, str], ...] = (
@@ -548,6 +550,11 @@ def _issues_from_changes(
 #: perfectly that chain validates.
 STREET_LOCATOR_FIELDS: tuple[str, ...] = ("JALAN", "DETAIL_LOKASI")
 
+#: A street alone still does not name a door. Any one of these pins the address
+#: down within the street: a house number, an RT/RW pair, or a block/landmark
+#: detail. RT/RW counts because it is how a kampung address is normally written.
+HOUSE_LOCATOR_FIELDS: tuple[str, ...] = ("NOMOR", "RT", "RW", "DETAIL_LOKASI")
+
 
 def _street_locator_issues(
     submitted: Mapping[str, str] | None,
@@ -559,11 +566,8 @@ def _street_locator_issues(
     governed reference cannot check a street name. Asking is allowed; declaring
     is not.
 
-    Deliberately does **not** require NOMOR. On the real_dev split 71% of
-    genuine addresses carry no house number and 53% carry no house-level
-    locator of any kind -- "KP. CIMANGGU, KECAMATAN CIBEBER, KAB CIANJUR" is a
-    normal kampung address, not a defect. A rule that flagged half of all valid
-    addresses would teach sellers to ignore the flag.
+    A house-level locator is checked separately by _house_locator_issues, so a
+    street with no door still raises its own issue.
     """
 
     if submitted is None:
@@ -590,6 +594,48 @@ def _street_locator_issues(
     )
 
 
+def _house_locator_issues(
+    submitted: Mapping[str, str] | None,
+) -> tuple[QualityIssue, ...]:
+    """Flag a street with no way to pick a door inside it.
+
+    Named directly by the target user (R01, fulfillment): a package failed
+    after three days because the address was "hanya nama perumahan tanpa nomor
+    rumah", and the warning they asked for was one line naming the missing part
+    -- "misalnya nomor rumah tidak ada".
+
+    RT, RW, and DETAIL_LOKASI satisfy the requirement alongside NOMOR, because
+    a kampung address is normally written that way and a courier can work with
+    it. Requiring NOMOR alone would flag those.
+
+    Medium, never high, for the same reason as the street rule: the governed
+    reference cannot check a house number, so this asks rather than declares.
+    """
+
+    if submitted is None:
+        return ()
+    for field in HOUSE_LOCATOR_FIELDS:
+        value = submitted.get(field)
+        if isinstance(value, str) and value.strip():
+            return ()
+    return (
+        QualityIssue(
+            reason_code=MISSING_HOUSE_LOCATOR,
+            severity="medium",
+            message=(
+                "Alamat ini menyebut jalan atau kampung, tetapi belum "
+                "menyebutkan nomor rumah, RT/RW, atau blok, sehingga kurir "
+                "tidak dapat memilih satu rumah di sepanjang jalan tersebut."
+            ),
+            affected_fields=("NOMOR",),
+            clarification_question=(
+                "Berapa nomor rumah, RT/RW, atau blok alamat tujuan?"
+            ),
+            source_reason_code=MISSING_HOUSE_LOCATOR,
+        ),
+    )
+
+
 def evaluate_quality_gate(
     validation: AdministrativeValidationResult,
     *,
@@ -607,6 +653,7 @@ def evaluate_quality_gate(
     issues = (
         _issues_from_validation(validation, submitted)
         + _street_locator_issues(submitted)
+        + _house_locator_issues(submitted)
         + _issues_from_changes(normalization_changes)
     )
     return QualityGateResult(status=_status_from_issues(issues), issues=issues)
@@ -619,6 +666,7 @@ __all__ = [
     "KELURAHAN_TIDAK_DITEMUKAN",
     "KODEPOS_TIDAK_COCOK",
     "MISSING_ADMINISTRATIVE_FIELDS",
+    "MISSING_HOUSE_LOCATOR",
     "MISSING_STREET_LOCATOR",
     "PERLU_KONFIRMASI",
     "QUALITY_REASON_CODES",
@@ -630,6 +678,7 @@ __all__ = [
     "SEVERITIES",
     "SIAP_DIPROSES",
     "STATUS_PRECEDENCE",
+    "HOUSE_LOCATOR_FIELDS",
     "STREET_LOCATOR_FIELDS",
     "TIDAK_VALID",
     "evaluate_quality_gate",

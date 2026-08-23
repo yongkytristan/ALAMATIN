@@ -70,11 +70,12 @@ class PublishedResultTest(unittest.TestCase):
     DOCUMENTED_DRIFT = {
         # DEC-008: the v1.1 JALAN span rules postdate the sealed run.
         "extractor": ("regex-baseline-v1", "regex-baseline-v1.1"),
-        # DEC-010: contract 1.1.0 adds MISSING_STREET_LOCATOR. The sealed status
-        # distribution is unaffected -- the new rule can only add issues, and
-        # SIAP_DIPROSES was already 0 of 130 -- and the entity metrics are
+        # DEC-010 and its amendment: contract 1.1.0 added
+        # MISSING_STREET_LOCATOR, 1.2.0 added MISSING_HOUSE_LOCATOR. The sealed
+        # status distribution is unaffected -- both rules can only add issues,
+        # and SIAP_DIPROSES was already 0 of 130 -- and the entity metrics are
         # extraction metrics that no gate rule touches.
-        "contract": ("1.0.0", "1.1.0"),
+        "contract": ("1.0.0", "1.2.0"),
     }
 
     def test_only_documented_components_differ_from_the_frozen_release(self) -> None:

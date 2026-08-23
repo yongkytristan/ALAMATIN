@@ -235,3 +235,35 @@ auditable rather than silent.
     extraction metrics no gate rule touches. The sealed drift allowance is now
     an explicit table naming each component and the decision that authorised it.
   - The release candidate is re-frozen around contract `1.1.0`.
+
+### Amendment, 2026-08-23 — a house locator is required after all
+
+The decision above skipped `NOMOR` on the strength of 71% of `real_dev`
+addresses carrying none. **That evidence came from the wrong population.**
+`real_dev` is 200 *school* addresses from the NPSN dataset (108 SD, 92 SMA), and
+a school is a landmark in its own right, so `JL. PASIRLAYUNG, KECAMATAN
+CIMENYAN` identifies it. This product serves sellers shipping to homes, where a
+street with no door does not.
+
+The target-domain evidence says the opposite, and it was already in the
+repository. R01 (fulfillment) reported a package that looked normal for three
+days, failed, and returned after eight -- "ternyata hanya nama perumahan tanpa
+nomor rumah" -- and, asked what warning would help, answered "satu baris yang
+menyebut bagian mana yang bermasalah dan alasannya, misalnya nomor rumah tidak
+ada".
+
+- Decision: a second medium issue, `MISSING_HOUSE_LOCATOR`, when none of
+  `NOMOR`, `RT`, `RW`, or `DETAIL_LOKASI` carries a value. Contract `1.1.0` ->
+  `1.2.0`, additive on the same terms: requests still accept `1.0.0`.
+- `RT`, `RW`, and `DETAIL_LOKASI` satisfy it alongside `NOMOR`, because a kampung
+  address is normally written that way and a courier can work with it. Requiring
+  `NOMOR` alone would flag those.
+- Two separate codes rather than one "incomplete", because R01 asked for the
+  line to name *which* part is missing.
+- Severity stays medium for the same reason as the street rule: the reference
+  cannot check a house number, so this asks rather than declares.
+- **Limitation, stated rather than measured away:** there is no consumer-address
+  benchmark, so the false-positive rate of this rule on the target population is
+  unmeasured. The 53%-of-school-addresses figure does not describe it. What
+  bounds the cost is the severity: a flagged address gets a question, not a
+  rejection.

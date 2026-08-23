@@ -2,7 +2,7 @@
 
 ALM-025 freezes the shared request/response contract at
 `contracts/address-api.v1.schema.json`. It is a JSON Schema draft 2020-12
-document with contract version `1.1.0`. Backend code loads that exact file via
+document with contract version `1.2.0`. Backend code loads that exact file via
 `alamatin.output_contract`; the browser uses the same repository-relative path
 from `web/address-contract.js`. There is no generated or separately maintained
 frontend copy.
@@ -46,16 +46,17 @@ A high-severity issue may only affect `ADMINISTRATIVE_FIELDS`: `KELURAHAN`,
 `KECAMATAN`, `KOTA_KABUPATEN`, `PROVINSI`, and `KODEPOS`. Those are the only
 components the governed reference can contradict, so they are the only evidence
 that can reach `TIDAK_VALID`. `JALAN`, `NOMOR`, `RT`, `RW`, and `DETAIL_LOKASI`
-can still carry a medium issue such as `CORRECTION_REQUIRES_CONFIRMATION` or
-`MISSING_STREET_LOCATOR`. This
+can still carry a medium issue such as `CORRECTION_REQUIRES_CONFIRMATION`,
+`MISSING_STREET_LOCATOR`, or `MISSING_HOUSE_LOCATOR`. This
 matches the boundary enforced by the quality gate and frozen in
 [`docs/product-scope.md`](product-scope.md), which forbids claiming that a
 non-critical component's absence or form proves an address invalid.
 
-## Version 1.1.0
+## Versions 1.1.0 and 1.2.0
 
-Additive, recorded as DEC-010: `MISSING_STREET_LOCATOR` joins the `reason_code`
-enum, and `versions.contract` plus response `schema_version` become `1.1.0`.
+Both additive. `1.1.0` (DEC-010) adds `MISSING_STREET_LOCATOR`; `1.2.0`
+(DEC-010's amendment) adds `MISSING_HOUSE_LOCATOR`. `versions.contract` and the
+response `schema_version` are now `1.2.0`.
 
 **Requests still accept `1.0.0`.** The request examples in
 [`../contracts/examples/`](../contracts/examples/) deliberately stay at `1.0.0`
