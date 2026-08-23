@@ -197,3 +197,41 @@ auditable rather than silent.
     demonstrated nothing; and the fixture path routed by substring, which
     mis-classified an address as soon as its wording changed. Routing now
     matches the demo constants themselves.
+
+## DEC-010 — Require a street locator, and deliberately not a house number
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- Problem: `Kel. Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111`
+  returned `SIAP_DIPROSES`. The administrative chain was perfect and the address
+  was undeliverable -- nothing named a street, a kampung, or a landmark.
+- Decision: a medium-severity `MISSING_STREET_LOCATOR` issue when neither
+  `JALAN` nor `DETAIL_LOKASI` carries a value. Status becomes
+  `PERLU_KONFIRMASI`.
+- **`NOMOR` is deliberately not required.** On the `real_dev` split 71% of
+  genuine addresses carry no house number and 53% carry no house-level locator
+  of any kind. `KP. CIMANGGU, KECAMATAN CIBEBER, KAB CIANJUR` is a normal
+  kampung address, not a defect. A rule that flagged half of all valid addresses
+  would teach sellers to ignore the flag, so the requested "street and number"
+  check ships as street only, with the measurement recorded here.
+- Severity is medium, never high. [`product-scope.md`](product-scope.md) forbids
+  treating the absence of `JALAN` as proof an address is invalid, because the
+  governed reference cannot check a street name. Asking is allowed; declaring is
+  not.
+- Contract amendment, `1.0.0` -> `1.1.0`:
+  - `MISSING_STREET_LOCATOR` is appended to the `reason_code` enum. The existing
+    six keep their meaning and order, so a consumer switching on them still
+    works.
+  - Requests accept `1.0.0` **or** `1.1.0`; responses declare `1.1.0`. No client
+    breaks, and the request examples stay at `1.0.0` on purpose as the proof.
+  - `versions.contract` moves to `1.1.0` in the same amendment.
+- Consequences:
+  - `evaluate_quality_gate`'s `submitted` mapping now affects the status through
+    this one rule. That was previously prose-only (DEC-009), so the test
+    asserting it could not affect the status was restated to cover the conflict
+    path specifically, with this rule named as the declared exception.
+  - The sealed evaluation's figures are unaffected: the rule can only add
+    issues, `SIAP_DIPROSES` was already `0 of 130`, and the entity metrics are
+    extraction metrics no gate rule touches. The sealed drift allowance is now
+    an explicit table naming each component and the decision that authorised it.
+  - The release candidate is re-frozen around contract `1.1.0`.

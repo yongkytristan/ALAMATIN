@@ -32,6 +32,7 @@ from alamatin.quality_gate import (  # noqa: E402
     KELURAHAN_TIDAK_DITEMUKAN,
     KODEPOS_TIDAK_COCOK,
     MISSING_ADMINISTRATIVE_FIELDS,
+    MISSING_STREET_LOCATOR,
     PERLU_KONFIRMASI,
     QUALITY_REASON_CODES,
     SIAP_DIPROSES,
@@ -229,6 +230,15 @@ class QualityGateReasonCodeTests(unittest.TestCase):
             CORRECTION_REQUIRES_CONFIRMATION: evaluate_quality_gate(
                 valid_result(), normalization_changes=(pending_correction(),)
             ),
+            # An administratively perfect chain with nothing to find inside it.
+            MISSING_STREET_LOCATOR: evaluate_quality_gate(
+                valid_result(),
+                submitted={
+                    "KELURAHAN": "Braga",
+                    "KECAMATAN": "Sumur Bandung",
+                    "KOTA_KABUPATEN": "Kota Bandung",
+                },
+            ),
         }
         # A near-miss input that must NOT raise this reason code. A valid chain
         # would be a trivially passing negative for every code at once, so each
@@ -274,6 +284,13 @@ class QualityGateReasonCodeTests(unittest.TestCase):
                 normalization_changes=(
                     confirm_correction(pending_correction(), user_confirmed=True),
                 ),
+            ),
+            # A kampung name with no house number: the most likely confusion,
+            # and it must NOT fire. On real_dev 71% of genuine addresses carry
+            # no NOMOR at all.
+            MISSING_STREET_LOCATOR: evaluate_quality_gate(
+                valid_result(),
+                submitted={"JALAN": "Kampung Cimanggu", "KELURAHAN": "Braga"},
             ),
         }
         self.assertEqual(set(outcomes), set(QUALITY_REASON_CODES))

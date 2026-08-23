@@ -35,7 +35,8 @@ absence or form proves an address invalid.
 
 Non-critical fields can still produce a medium issue. A pending semantic
 suggestion on `JALAN`, for example, yields `CORRECTION_REQUIRES_CONFIRMATION`
-and `PERLU_KONFIRMASI`.
+and `PERLU_KONFIRMASI`; an address naming no street-level locator at all yields
+`MISSING_STREET_LOCATOR` and the same status.
 
 This set is deliberately narrower than `CRITICAL_ENTITY_TYPES` in
 `alamatin.evaluation_metrics`, which also scores `JALAN` and `NOMOR`. The two
@@ -57,6 +58,7 @@ status decision deterministic.
 | `AMBIGUOUS_ADMINISTRATIVE_CANDIDATES` | medium | `KELURAHAN`, `KECAMATAN`, `KOTA_KABUPATEN` | More than one reference chain remains possible. |
 | `KELURAHAN_TIDAK_DITEMUKAN` | medium | `KELURAHAN` | The village is absent from the current reference version; this is a coverage gap, not proof that the address is wrong. |
 | `CORRECTION_REQUIRES_CONFIRMATION` | medium | Fields with unapplied semantic suggestions | A non-deterministic correction still requires explicit user action. |
+| `MISSING_STREET_LOCATOR` | medium | `JALAN` | Neither `JALAN` nor `DETAIL_LOKASI` names a street, kampung, or landmark, so a valid administrative chain still has no delivery point. `NOMOR` is not required: 71% of real evaluation addresses have none (DEC-010). |
 
 The first and fifth codes preserve the minimum user-facing codes in the main
 execution plan. `source_reason_code` retains the upstream validator reason so

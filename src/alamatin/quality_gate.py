@@ -36,6 +36,7 @@ ADMINISTRATIVE_CONFLICT = VALIDATOR_ADMINISTRATIVE_CONFLICT
 MISSING_ADMINISTRATIVE_FIELDS = VALIDATOR_MISSING_FIELDS
 AMBIGUOUS_ADMINISTRATIVE_CANDIDATES = VALIDATOR_AMBIGUOUS_CANDIDATES
 CORRECTION_REQUIRES_CONFIRMATION = "CORRECTION_REQUIRES_CONFIRMATION"
+MISSING_STREET_LOCATOR = "MISSING_STREET_LOCATOR"
 
 QUALITY_REASON_CODES: tuple[str, ...] = (
     KODEPOS_TIDAK_COCOK,
@@ -44,6 +45,7 @@ QUALITY_REASON_CODES: tuple[str, ...] = (
     MISSING_ADMINISTRATIVE_FIELDS,
     AMBIGUOUS_ADMINISTRATIVE_CANDIDATES,
     CORRECTION_REQUIRES_CONFIRMATION,
+    MISSING_STREET_LOCATOR,
 )
 
 STATUS_PRECEDENCE: tuple[tuple[str, str], ...] = (
@@ -541,6 +543,53 @@ def _issues_from_changes(
     )
 
 
+#: A courier needs a street or a landmark to find a door inside a village. An
+#: address that names only the administrative chain is not deliverable, however
+#: perfectly that chain validates.
+STREET_LOCATOR_FIELDS: tuple[str, ...] = ("JALAN", "DETAIL_LOKASI")
+
+
+def _street_locator_issues(
+    submitted: Mapping[str, str] | None,
+) -> tuple[QualityIssue, ...]:
+    """Flag an address that validates administratively but cannot be delivered.
+
+    Medium, never high. The frozen scope (docs/product-scope.md) forbids
+    treating the absence of JALAN as proof an address is invalid, because the
+    governed reference cannot check a street name. Asking is allowed; declaring
+    is not.
+
+    Deliberately does **not** require NOMOR. On the real_dev split 71% of
+    genuine addresses carry no house number and 53% carry no house-level
+    locator of any kind -- "KP. CIMANGGU, KECAMATAN CIBEBER, KAB CIANJUR" is a
+    normal kampung address, not a defect. A rule that flagged half of all valid
+    addresses would teach sellers to ignore the flag.
+    """
+
+    if submitted is None:
+        return ()
+    for field in STREET_LOCATOR_FIELDS:
+        value = submitted.get(field)
+        if isinstance(value, str) and value.strip():
+            return ()
+    return (
+        QualityIssue(
+            reason_code=MISSING_STREET_LOCATOR,
+            severity="medium",
+            message=(
+                "Alamat ini belum menyebutkan nama jalan, kampung, atau patokan "
+                "lokasi, sehingga kurir tidak memiliki titik antar di dalam "
+                "kelurahan/desa tujuan."
+            ),
+            affected_fields=("JALAN",),
+            clarification_question=(
+                "Apa nama jalan, kampung, atau patokan lokasi alamat tujuan?"
+            ),
+            source_reason_code=MISSING_STREET_LOCATOR,
+        ),
+    )
+
+
 def evaluate_quality_gate(
     validation: AdministrativeValidationResult,
     *,
@@ -555,8 +604,10 @@ def evaluate_quality_gate(
         raise TypeError("submitted must be a mapping of field to value")
     # `submitted` only enriches prose. It never participates in the status,
     # which stays a function of reason codes and severities alone.
-    issues = _issues_from_validation(validation, submitted) + _issues_from_changes(
-        normalization_changes
+    issues = (
+        _issues_from_validation(validation, submitted)
+        + _street_locator_issues(submitted)
+        + _issues_from_changes(normalization_changes)
     )
     return QualityGateResult(status=_status_from_issues(issues), issues=issues)
 
@@ -568,6 +619,7 @@ __all__ = [
     "KELURAHAN_TIDAK_DITEMUKAN",
     "KODEPOS_TIDAK_COCOK",
     "MISSING_ADMINISTRATIVE_FIELDS",
+    "MISSING_STREET_LOCATOR",
     "PERLU_KONFIRMASI",
     "QUALITY_REASON_CODES",
     "QUALITY_STATUSES",
@@ -578,6 +630,7 @@ __all__ = [
     "SEVERITIES",
     "SIAP_DIPROSES",
     "STATUS_PRECEDENCE",
+    "STREET_LOCATOR_FIELDS",
     "TIDAK_VALID",
     "evaluate_quality_gate",
 ]

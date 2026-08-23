@@ -102,6 +102,7 @@ const REASON_TITLES: Record<string, string> = {
   MISSING_ADMINISTRATIVE_FIELDS: "Komponen wilayah belum lengkap",
   AMBIGUOUS_ADMINISTRATIVE_CANDIDATES: "Wilayah ambigu",
   CORRECTION_REQUIRES_CONFIRMATION: "Koreksi menunggu konfirmasi",
+  MISSING_STREET_LOCATOR: "Nama jalan atau patokan belum ada",
 };
 
 /**
@@ -141,6 +142,9 @@ export function buildParseRequest(
 ) {
   return {
     document_type: "address_parse_request" as const,
+    // Deliberately 1.0.0: contract 1.1.0 is additive on the response side
+    // and still accepts 1.0.0 requests, so nothing is gained by bumping
+    // what clients send, and keeping it proves backwards compatibility.
     schema_version: "1.0.0" as const,
     request_id: options.requestId ?? newRequestId(),
     input: {
