@@ -48,7 +48,7 @@ class RunRegexBaselineTest(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
 
             report = json.loads(output_path.read_text(encoding="utf-8"))
-            self.assertEqual(report["baseline"], "regex_baseline_v1_1")
+            self.assertEqual(report["baseline"], "regex_baseline_v1_2")
             self.assertEqual(report["overall"]["f1"], 1.0)
             self.assertEqual(report["latency_ms"]["sample_count"], 1)
 

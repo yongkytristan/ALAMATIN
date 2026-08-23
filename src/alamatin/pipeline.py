@@ -38,7 +38,7 @@ from .regex_baseline import tag_text
 # contract requires versions.model to name what actually ran, so behaviour
 # must never change under a version that already has published numbers
 # attached to it.
-REGEX_EXTRACTOR_VERSION = "regex-baseline-v1.1"
+REGEX_EXTRACTOR_VERSION = "regex-baseline-v1.2"
 NORMALIZER_VERSION = "normalizer-v1"
 
 #: A callable that turns PII-safe address text into raw component values.

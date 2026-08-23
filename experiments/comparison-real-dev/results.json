@@ -20,14 +20,14 @@
     "libpostal_v1"
   ],
   "ranking_by_entity_f1": [
-    "regex_baseline (regex-baseline-v1.1)",
+    "regex_baseline (regex-baseline-v1.2)",
     "ner_targeted_v2",
     "ner_v1.0.0",
     "ner_lora_kevin"
   ],
   "rows": [
     {
-      "approach": "regex_baseline (regex-baseline-v1.1)",
+      "approach": "regex_baseline (regex-baseline-v1.2)",
       "critical_exact_match": {
         "denominator": 70,
         "numerator": 51,
@@ -222,8 +222,8 @@
       },
       "kind": "rule",
       "latency_ms": {
-        "p50_ms": 0.056299963034689426,
-        "p95_ms": 0.09550002869218588,
+        "p50_ms": 0.05909998435527086,
+        "p95_ms": 0.1097000204026699,
         "sample_count": 70
       },
       "measured": true,

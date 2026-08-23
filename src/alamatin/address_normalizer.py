@@ -160,7 +160,12 @@ def _normalize_designator(field: str, value: str) -> str:
 def _normalize_rt_rw(field: str, value: str) -> str:
     if field not in {"RT", "RW"}:
         return value
-    match = re.fullmatch(rf"(?i)(?:{field})?\.?\s*0*(\d{{1,3}})", value)
+    # Trailing dots are accepted because a period used as a separator attaches
+    # to the number: "RW. 6. Kel. Braga" yields the value "RW. 6.". Without
+    # this, canonicalisation silently gave up and the raw text reached the
+    # validator, which then disagreed with the comma-separated spelling of the
+    # same address.
+    match = re.fullmatch(rf"(?i)(?:{field})?\.{{0,2}}\s*0*(\d{{1,3}})\.{{0,2}}", value)
     if not match:
         return value
     return f"{field} {int(match.group(1)):03d}"
@@ -169,7 +174,13 @@ def _normalize_rt_rw(field: str, value: str) -> str:
 def _normalize_postcode(field: str, value: str) -> str:
     if field != "KODEPOS":
         return value
-    match = re.fullmatch(r"(\d{2})\s+(\d{3})", value)
+    # A sentence-ending period is part of the punctuation, not the postcode.
+    # Leaving it attached made the validator compare "40111." with "40111" and
+    # report a conflict on a correct address.
+    trimmed = value.rstrip(".")
+    if re.fullmatch(r"\d{5}", trimmed):
+        return trimmed
+    match = re.fullmatch(r"(\d{2})\s+(\d{3})", trimmed)
     return "".join(match.groups()) if match else value
 
 

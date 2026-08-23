@@ -106,7 +106,7 @@ class RecomputationAgreesWithRecordedMetricsTest(unittest.TestCase):
 
     def test_regex_row_reproduces_its_recorded_baseline_file(self) -> None:
         recorded_path = (
-            ROOT / "data" / "interim" / "baselines" / "regex_baseline_v1_1-real_dev.json"
+            ROOT / "data" / "interim" / "baselines" / "regex_baseline_v1_2-real_dev.json"
         )
         if not recorded_path.is_file():
             self.skipTest("recorded regex baseline file is not present")

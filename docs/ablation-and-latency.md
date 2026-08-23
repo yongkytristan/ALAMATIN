@@ -20,12 +20,12 @@ quietly folded into a column they did not earn.
 | Approach | Entity F1 | Measured here | Note |
 |---|---|---|---|
 | libpostal v1 | 0.3701 | no | `postal` module not installed; recorded from `data/interim/baselines/libpostal-synthetic-dev.json`, same split |
-| **regex baseline v1.1** (shipped) | **0.8922** | **yes** | this run |
+| **regex baseline v1.2** (shipped) | **0.8922** | **yes** | this run |
 | NER v1.0.0 | 0.9994 | no | weights are a 712 MB release asset; **selection split, not this file** |
 | NER targeted v2 | 0.9995 | no | as above; not served by the release candidate |
 
 The regex figure reproduces the previously recorded
-`regex_baseline_v1_1-synthetic_dev.json` value of 0.8922 exactly, which is a useful
+`regex_baseline_v1_2-synthetic_dev.json` value of 0.8922 exactly, which is a useful
 check that the evaluator has not drifted. The v1 rules scored 0.8923 on this
 same split, so the JALAN span rules added in v1.1 cost 0.0001 here while
 gaining 0.0202 on real addresses -- see
@@ -76,9 +76,9 @@ Protocol: 50 warmup iterations, 3 timed repeats over all 750 examples,
 
 | Stage | p50 | p95 | p99 |
 |---|---|---|---|
-| extraction | 0.1019 | 0.1628 | 0.2145 ms |
+| extraction | 0.1043 | 0.1639 | 0.2034 ms |
 | extraction + normalizer | 0.1709 | 0.2500 | 0.3477 ms |
-| complete pipeline | 27.8771 | 33.9470 | 36.3619 ms |
+| complete pipeline | 28.3974 | 35.1852 | 38.2451 ms |
 
 Hardware: `Intel64 Family 6 Model 154 Stepping 3, GenuineIntel`, Windows, CPython
 3.12 — the full platform string is in the artifact.
@@ -87,8 +87,8 @@ Stage figures are measured independently and are **not additive**: extraction is
 re-run inside the normalizer measurement.
 
 **The cost centre is the validator, not the model.** The complete pipeline is
-roughly 274x slower than extraction because the administrative validator searches
-the 5,957-row reference on every call. At 27.9 ms p50 this is comfortable for a
+roughly 272x slower than extraction because the administrative validator searches
+the 5,957-row reference on every call. At 28.4 ms p50 this is comfortable for a
 single-address review UI, but it is the number to attack first if throughput ever
 matters, and it is not where an observer would guess.
 

@@ -267,3 +267,54 @@ ada".
   unmeasured. The 53%-of-school-addresses figure does not describe it. What
   bounds the cost is the severity: a flagged address gets a question, not a
   rejection.
+- Any **one** house locator satisfies the rule; it is an OR, not an AND. Two
+  stricter shapes were considered on 2026-08-23 and declined by the project
+  owner:
+
+  | Option | Rule | Passes on `real_dev` |
+  |---|---|---|
+  | **A (chosen)** | any one of `NOMOR`, `RT`, `RW`, `DETAIL_LOKASI` | 47% |
+  | B | `NOMOR`, or (`RT` **and** `RW`), or `DETAIL_LOKASI` | 40% |
+  | C | `NOMOR` **and** `RT` **and** `RW` | 4% |
+
+  C is wrong for any population, not merely this one: on a formal street `RT`/`RW`
+  is genuinely optional, and in a kampung a house number often does not exist --
+  0 of the 17 kampung-style addresses in `real_dev` carry one. Requiring it would
+  ask a seller for something that cannot be supplied.
+
+  **Accepted consequence of choosing A:** `RT` without `RW`, or `RW` without
+  `RT`, passes, and that does not truly pin one house -- RT 03 exists in every
+  RW. Three `real_dev` addresses are in that state. Option B would close it for
+  a cost of three addresses. It is left open deliberately; if it is revisited,
+  B is the shape to adopt, not C.
+
+  As above, the percentages come from 200 **school** addresses and must not be
+  read as an estimate for consumer addresses.
+
+## DEC-011 — Numeric tokens tolerate a trailing period
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- Reported from use: in `Jl. Braga No. 5, RT. 5, RW. 6. Kel. Braga, ...` the `RW`
+  field was not detected. A period used as a separator attaches to the token
+  before it, so the tokenizer yields `RW.` then `6.`, and every numeric pattern
+  allowed leading dots but not trailing ones. The number was silently dropped.
+- Affected six patterns, not one: `RT_PATTERN`, `RW_PATTERN`, `NOMOR_PATTERN`,
+  `NOMOR_MARKER_ONLY`, `BARE_NUMBER`, and `KODEPOS_PATTERN`. All now accept up to
+  two trailing dots, symmetrically with the leading dots they already allowed.
+- **The first attempt made things worse and that is the part worth remembering.**
+  Fixing detection alone let the value `40111.` reach the administrative
+  validator, which compared it with `40111` and reported a conflict -- a correct
+  address declared `TIDAK_VALID` at high severity. Detection without
+  canonicalisation converted a missing field into a false rejection.
+  `_normalize_rt_rw` and `_normalize_postcode` were fixed in the same change.
+- Extractor bumped to `regex-baseline-v1.2` and the release re-frozen, per the
+  DEC-008 rule that behaviour must not change under a version with published
+  numbers attached.
+- **No measurable effect on either benchmark.** `real_dev` and `synthetic_dev`
+  both score exactly as before: entity F1 `0.9149` and `0.8922`. The pattern does
+  not occur in either. The evidence for this change is the reproduced input, not
+  a metric -- and that is stated rather than dressed up as an improvement.
+- Related finding: the synthetic generator's `separator` noise inserts commas
+  only, never periods, which is why 5,250 generated examples never exercised
+  this path. Another instance of synthetic coverage not matching real input.
