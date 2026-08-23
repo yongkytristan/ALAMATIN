@@ -169,6 +169,34 @@ class HouseLocatorRuleTest(unittest.TestCase):
                 )
 
 
+class MessageAccuracyTest(unittest.TestCase):
+    """The message must not describe input the address does not contain."""
+
+    def _house_message(self, **submitted: str) -> str:
+        issue = next(
+            i for i in gate(**submitted).issues if i.reason_code == MISSING_HOUSE_LOCATOR
+        )
+        return issue.message
+
+    def test_it_mentions_the_street_only_when_one_was_named(self) -> None:
+        with_street = self._house_message(JALAN="Jalan Braga")
+        self.assertIn("menyebut jalan atau kampung", with_street)
+
+    def test_it_does_not_claim_a_street_that_is_absent(self) -> None:
+        # Previously both cases shared one sentence, so an address naming no
+        # street was told it named one.
+        without_street = self._house_message()
+        self.assertNotIn("menyebut jalan atau kampung", without_street)
+        self.assertNotIn("sepanjang jalan tersebut", without_street)
+
+    def test_both_wordings_still_name_what_is_missing(self) -> None:
+        for message in (self._house_message(JALAN="Jalan Braga"), self._house_message()):
+            with self.subTest(message=message[:40]):
+                self.assertIn("nomor rumah", message)
+                self.assertIn("RT/RW", message)
+                self.assertIn("blok", message)
+
+
 class BothRulesTogetherTest(unittest.TestCase):
     def test_an_address_missing_both_reports_both(self) -> None:
         # One line per missing part is what the target user asked for, rather
