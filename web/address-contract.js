@@ -1,5 +1,5 @@
 // The browser and Python backend intentionally consume the same canonical file.
-export const ADDRESS_CONTRACT_VERSION = "1.1.0";
+export const ADDRESS_CONTRACT_VERSION = "1.2.0";
 export const ADDRESS_CONTRACT_PATH = "contracts/address-api.v1.schema.json";
 
 export async function loadAddressContract(fetchImpl = fetch) {

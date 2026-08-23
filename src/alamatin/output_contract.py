@@ -11,9 +11,10 @@ from .administrative_validator import ADMINISTRATIVE_FIELDS
 from .quality_gate import PERLU_KONFIRMASI, SIAP_DIPROSES, TIDAK_VALID
 
 
-# 1.1.0 adds the MISSING_STREET_LOCATOR reason code. Additive: requests may
-# still declare 1.0.0, so no existing client breaks (DEC-010).
-CONTRACT_VERSION = "1.1.0"
+# 1.1.0 added MISSING_STREET_LOCATOR; 1.2.0 adds MISSING_HOUSE_LOCATOR. Both
+# additive: requests may still declare 1.0.0, so no existing client breaks
+# (DEC-010 and its amendment).
+CONTRACT_VERSION = "1.2.0"
 CONTRACT_RELATIVE_PATH = "contracts/address-api.v1.schema.json"
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONTRACT_PATH = ROOT / CONTRACT_RELATIVE_PATH

@@ -32,6 +32,7 @@ from alamatin.quality_gate import (  # noqa: E402
     KELURAHAN_TIDAK_DITEMUKAN,
     KODEPOS_TIDAK_COCOK,
     MISSING_ADMINISTRATIVE_FIELDS,
+    MISSING_HOUSE_LOCATOR,
     MISSING_STREET_LOCATOR,
     PERLU_KONFIRMASI,
     QUALITY_REASON_CODES,
@@ -239,6 +240,10 @@ class QualityGateReasonCodeTests(unittest.TestCase):
                     "KOTA_KABUPATEN": "Kota Bandung",
                 },
             ),
+            # A street with no door: R01's returned-package case.
+            MISSING_HOUSE_LOCATOR: evaluate_quality_gate(
+                valid_result(), submitted={"JALAN": "Perum Griya Asri"}
+            ),
         }
         # A near-miss input that must NOT raise this reason code. A valid chain
         # would be a trivially passing negative for every code at once, so each
@@ -285,12 +290,17 @@ class QualityGateReasonCodeTests(unittest.TestCase):
                     confirm_correction(pending_correction(), user_confirmed=True),
                 ),
             ),
-            # A kampung name with no house number: the most likely confusion,
-            # and it must NOT fire. On real_dev 71% of genuine addresses carry
-            # no NOMOR at all.
+            # A kampung name is a street locator, so the street code must not
+            # fire even though this address has no house number.
             MISSING_STREET_LOCATOR: evaluate_quality_gate(
                 valid_result(),
                 submitted={"JALAN": "Kampung Cimanggu", "KELURAHAN": "Braga"},
+            ),
+            # RT/RW pins the door, so the house code must not fire for the
+            # kampung addresses that are written that way.
+            MISSING_HOUSE_LOCATOR: evaluate_quality_gate(
+                valid_result(),
+                submitted={"JALAN": "Kampung Cimanggu", "RT": "03", "RW": "05"},
             ),
         }
         self.assertEqual(set(outcomes), set(QUALITY_REASON_CODES))

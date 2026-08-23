@@ -31,7 +31,8 @@
       "MISSING_ADMINISTRATIVE_FIELDS",
       "AMBIGUOUS_ADMINISTRATIVE_CANDIDATES",
       "CORRECTION_REQUIRES_CONFIRMATION",
-      "MISSING_STREET_LOCATOR"
+      "MISSING_STREET_LOCATOR",
+      "MISSING_HOUSE_LOCATOR"
     ],
     "severities": [
       "high",
@@ -55,7 +56,7 @@
     "thresholds": null
   },
   "declared_versions": {
-    "contract": "1.1.0",
+    "contract": "1.2.0",
     "extractor": "regex-baseline-v1.1",
     "normalizer": "normalizer-v1",
     "quality_gate": "quality-gate-v1",
@@ -94,9 +95,9 @@
       "sha256": "476442b319e9b5061a95b47ae41d4783782618ff5f9f80c245b21209e54724fd"
     },
     {
-      "bytes": 23572,
+      "bytes": 25450,
       "path": "src/alamatin/quality_gate.py",
-      "sha256": "de9ee6376072b560a294a938c98e0c468cb41179b6fe3819b2fd5b7ad1477faf"
+      "sha256": "64fec54ec6b3fa42c60cc72c09627d3c570e745f4e203d8d29871215e2e6c1d0"
     },
     {
       "bytes": 10312,
@@ -109,9 +110,9 @@
       "sha256": "dcf607332aee994d9de0ccbdb3581c2863f4e031ec600dfa55013fea8e38df70"
     },
     {
-      "bytes": 11875,
+      "bytes": 11919,
       "path": "src/alamatin/output_contract.py",
-      "sha256": "a39b8ccc01744141b76533dcec2d89714b1078b930a52e6fce2de1ae53778f95"
+      "sha256": "0bb35c286ea6ae145ffafe8ad3a9958718bd15a8c17baee2899ba592649798dc"
     },
     {
       "bytes": 14813,
@@ -129,9 +130,9 @@
       "sha256": "ecf6d3b12d020338d82fec81d65b476b1ee3d808403ae2c457e45768475d5cce"
     },
     {
-      "bytes": 12314,
+      "bytes": 12357,
       "path": "contracts/address-api.v1.schema.json",
-      "sha256": "050515b43af1db7c92d2efc70de63d821fb81b72e86deaf9980ab82c71999378"
+      "sha256": "40e8b4c7fa09b21b8f20a3b697a1f02a3567fef984421144bfdd1d5350007889"
     },
     {
       "bytes": 8219958,
@@ -172,8 +173,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "88bd77f0ae43f1b8246466529224ee3cb24769b7",
-    "describe": "88bd77f",
+    "built_from_commit": "53d19ae76ec11a4fc01541fa6a3d4c331dcbe1b6",
+    "describe": "53d19ae",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",

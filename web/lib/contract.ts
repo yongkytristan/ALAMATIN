@@ -103,6 +103,7 @@ const REASON_TITLES: Record<string, string> = {
   AMBIGUOUS_ADMINISTRATIVE_CANDIDATES: "Wilayah ambigu",
   CORRECTION_REQUIRES_CONFIRMATION: "Koreksi menunggu konfirmasi",
   MISSING_STREET_LOCATOR: "Nama jalan atau patokan belum ada",
+  MISSING_HOUSE_LOCATOR: "Nomor rumah atau RT/RW belum ada",
 };
 
 /**
