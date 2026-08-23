@@ -636,15 +636,29 @@ def _house_locator_issues(
         value = submitted.get(field)
         if isinstance(value, str) and _BLOCK_PATTERN.search(value):
             return ()
+    # Two wordings, because one sentence cannot be true of both cases. When no
+    # street was named either, saying the address "menyebut jalan atau kampung"
+    # states something the address plainly does not do, and the reader is being
+    # told about their own input.
+    names_street = any(
+        isinstance(submitted.get(field), str) and submitted[field].strip()
+        for field in STREET_LOCATOR_FIELDS
+    )
+    message = (
+        "Alamat ini menyebut jalan atau kampung, tetapi belum menyebutkan "
+        "nomor rumah, RT/RW, atau blok, sehingga kurir tidak dapat memilih "
+        "satu rumah di sepanjang jalan tersebut."
+        if names_street
+        else (
+            "Alamat ini belum menyebutkan nomor rumah, RT/RW, atau blok, "
+            "sehingga tidak ada satu rumah tertentu yang dapat dituju."
+        )
+    )
     return (
         QualityIssue(
             reason_code=MISSING_HOUSE_LOCATOR,
             severity="medium",
-            message=(
-                "Alamat ini menyebut jalan atau kampung, tetapi belum "
-                "menyebutkan nomor rumah, RT/RW, atau blok, sehingga kurir "
-                "tidak dapat memilih satu rumah di sepanjang jalan tersebut."
-            ),
+            message=message,
             affected_fields=("NOMOR",),
             clarification_question=(
                 "Berapa nomor rumah, RT/RW, atau blok alamat tujuan?"

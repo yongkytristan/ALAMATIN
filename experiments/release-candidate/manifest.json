@@ -96,9 +96,9 @@
       "sha256": "85195a94ba4600be5e1b83502dd11f1ee3d480b7a84897b37a60288754c2b181"
     },
     {
-      "bytes": 28334,
+      "bytes": 28941,
       "path": "src/alamatin/quality_gate.py",
-      "sha256": "591026473be493ac52159c1739ec103975b225b4290932772260fd2fb15e1dfb"
+      "sha256": "ed3c070a52e3b8485dcddc7f2433a472f942a7868fc4d55fd6cb33351db37cad"
     },
     {
       "bytes": 10312,
@@ -174,8 +174,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "8ed370418e5ed716dadaac851da71a1f747a42bf",
-    "describe": "8ed3704",
+    "built_from_commit": "ffd38fc03e2e83d48ca24e6b653ff88e630dac1c",
+    "describe": "ffd38fc",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",
