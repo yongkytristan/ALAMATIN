@@ -47,7 +47,13 @@ DESIGNATOR_ENTITY_ORDER = (
 # text (an instruction, a stray word) from being silently absorbed into the
 # entity forever just because no further designator happens to follow it.
 MAX_SPAN_LENGTH = {
-    "JALAN": 5,
+    # 6, not 5: on the real_dev tuning partition 95% of gold JALAN spans are at
+    # most 5 tokens and 97.5% are at most 6, so 5 truncated a measurable tail of
+    # genuine street names ("jl. mutiara gading city blok s."). The cap is
+    # derived from that distribution rather than from whichever value scored
+    # best -- 8 scored higher on the tuning half by chasing a single 8-token
+    # example, which is fitting to one address, not a rule.
+    "JALAN": 6,
     "KELURAHAN": 4,
     "KECAMATAN": 4,
     "KOTA_KABUPATEN": 4,
@@ -192,8 +198,18 @@ def tag_tokens(tokens: list[str]) -> list[str]:
             continue
         designator_type = _match_designator(token)
         if designator_type is not None:
-            flush(index)
-            current_start, current_type = index, designator_type
+            # A second designator of the *same* entity type inside one segment
+            # continues the span instead of opening a rival one. Indonesian
+            # addresses stack street designators routinely -- "Jl. Kp. Pabuaran
+            # Kaum", "Jl. Gg. Melati" -- and flushing on the second marker split
+            # one street into two JALAN spans, so both were wrong. A designator
+            # of a *different* type still breaks the span, because that is a
+            # genuine change of field.
+            if current_start is not None and current_type == designator_type:
+                pass
+            else:
+                flush(index)
+                current_start, current_type = index, designator_type
         elif current_start is None:
             current_start, current_type = index, None
 

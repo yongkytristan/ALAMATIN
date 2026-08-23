@@ -64,9 +64,30 @@ class PublishedResultTest(unittest.TestCase):
         self.assertEqual(len(dataset["canonical_sha256"]), 64)
         self.assertEqual(dataset["per_item_digests_verified"], 130)
 
-    def test_the_system_versions_match_the_frozen_release(self) -> None:
+    def test_only_the_extractor_differs_from_the_frozen_release(self) -> None:
+        """The sealed run predates the v1.1 JALAN span rules (DEC-008).
+
+        The extractor is therefore allowed to differ, and only the extractor.
+        Asserting equality would fail forever; asserting nothing would let an
+        unnoticed change to the gate, normalizer, validator, or contract slip
+        past as if it had been evaluated.
+        """
+
         frozen = json.loads(RELEASE_MANIFEST.read_text(encoding="utf-8"))
-        self.assertEqual(self.report["system"], frozen["declared_versions"])
+        declared = dict(frozen["declared_versions"])
+        recorded = dict(self.report["system"])
+
+        sealed_extractor = recorded.pop("extractor", None)
+        served_extractor = declared.pop("extractor", None)
+        self.assertEqual(
+            recorded,
+            declared,
+            "a component other than the extractor changed after the sealed run; "
+            "the published sealed figures no longer describe the release for a "
+            "reason nothing has recorded",
+        )
+        self.assertEqual(sealed_extractor, "regex-baseline-v1")
+        self.assertEqual(served_extractor, "regex-baseline-v1.1")
 
     def test_the_release_manifest_records_the_opening(self) -> None:
         frozen = json.loads(RELEASE_MANIFEST.read_text(encoding="utf-8"))

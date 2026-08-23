@@ -34,7 +34,11 @@ from .regex_baseline import tag_text
 #: Identifier reported as ``versions.model`` for the rule baseline. It is
 #: deliberately not a model name: claiming a fine-tuned model that did not run
 #: would be an unsupported claim under the frozen scope.
-REGEX_EXTRACTOR_VERSION = "regex-baseline-v1"
+# Bumped from "regex-baseline-v1" when the JALAN span rules changed. The
+# contract requires versions.model to name what actually ran, so behaviour
+# must never change under a version that already has published numbers
+# attached to it.
+REGEX_EXTRACTOR_VERSION = "regex-baseline-v1.1"
 NORMALIZER_VERSION = "normalizer-v1"
 
 #: A callable that turns PII-safe address text into raw component values.
