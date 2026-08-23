@@ -70,12 +70,15 @@ class PublishedResultTest(unittest.TestCase):
     DOCUMENTED_DRIFT = {
         # DEC-008: the v1.1 JALAN span rules postdate the sealed run.
         "extractor": ("regex-baseline-v1", "regex-baseline-v1.2"),
-        # DEC-010 and its amendment: contract 1.1.0 added
-        # MISSING_STREET_LOCATOR, 1.2.0 added MISSING_HOUSE_LOCATOR. The sealed
-        # status distribution is unaffected -- both rules can only add issues,
-        # and SIAP_DIPROSES was already 0 of 130 -- and the entity metrics are
-        # extraction metrics that no gate rule touches.
-        "contract": ("1.0.0", "1.2.0"),
+        # Contract additions since the sealed run: 1.1.0 MISSING_STREET_LOCATOR
+        # (DEC-010), 1.2.0 MISSING_HOUSE_LOCATOR (its amendment), 1.3.0
+        # OUTSIDE_REFERENCE_COVERAGE (DEC-012). The first two can only add
+        # issues, and SIAP_DIPROSES was already 0 of 130. The third can only
+        # *replace* a high-severity conflict with a medium coverage issue, so it
+        # can move an address out of TIDAK_VALID but never into it -- and the
+        # sealed set is Jawa Barat only, so no sealed address triggers it. Entity
+        # metrics are extraction metrics that no gate rule touches.
+        "contract": ("1.0.0", "1.3.0"),
     }
 
     def test_only_documented_components_differ_from_the_frozen_release(self) -> None:

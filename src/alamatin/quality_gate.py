@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
+import re
 from dataclasses import dataclass
 
 from .address_normalizer import NormalizationChange
@@ -14,6 +15,7 @@ from .administrative_validator import (
     REFERENCE_COVERAGE_GAP as VALIDATOR_REFERENCE_COVERAGE_GAP,
     VALID_CHAIN,
     AdministrativeValidationResult,
+    within_reference_coverage,
 )
 from .label_schema import ENTITY_TYPES
 
@@ -38,6 +40,7 @@ AMBIGUOUS_ADMINISTRATIVE_CANDIDATES = VALIDATOR_AMBIGUOUS_CANDIDATES
 CORRECTION_REQUIRES_CONFIRMATION = "CORRECTION_REQUIRES_CONFIRMATION"
 MISSING_STREET_LOCATOR = "MISSING_STREET_LOCATOR"
 MISSING_HOUSE_LOCATOR = "MISSING_HOUSE_LOCATOR"
+OUTSIDE_REFERENCE_COVERAGE = "OUTSIDE_REFERENCE_COVERAGE"
 
 QUALITY_REASON_CODES: tuple[str, ...] = (
     KODEPOS_TIDAK_COCOK,
@@ -48,6 +51,7 @@ QUALITY_REASON_CODES: tuple[str, ...] = (
     CORRECTION_REQUIRES_CONFIRMATION,
     MISSING_STREET_LOCATOR,
     MISSING_HOUSE_LOCATOR,
+    OUTSIDE_REFERENCE_COVERAGE,
 )
 
 STATUS_PRECEDENCE: tuple[tuple[str, str], ...] = (
@@ -555,6 +559,16 @@ STREET_LOCATOR_FIELDS: tuple[str, ...] = ("JALAN", "DETAIL_LOKASI")
 #: detail. RT/RW counts because it is how a kampung address is normally written.
 HOUSE_LOCATOR_FIELDS: tuple[str, ...] = ("NOMOR", "RT", "RW", "DETAIL_LOKASI")
 
+#: A block or unit reference pins a door as well as a house number does, and it
+#: frequently arrives inside the street value rather than as its own field:
+#: docs/label_schema.md assigns "Blok C2" to DETAIL_LOKASI, but the real gold
+#: labels fold it into JALAN, and the extractor emits no DETAIL_LOKASI at all.
+#: Rather than resolve that annotation disagreement here -- following the schema
+#: measurably lowered real_dev entity F1, from 0.9149 to 0.9040 -- the rule reads
+#: the block wherever it lands. Recorded in DEC-012 for a later annotation
+#: decision.
+_BLOCK_PATTERN = re.compile(r"(?i)\b(?:blok|blk|kav|kavling|unit)\.?\s*[a-z0-9]")
+
 
 def _street_locator_issues(
     submitted: Mapping[str, str] | None,
@@ -618,6 +632,10 @@ def _house_locator_issues(
         value = submitted.get(field)
         if isinstance(value, str) and value.strip():
             return ()
+    for field in ("JALAN", "DETAIL_LOKASI"):
+        value = submitted.get(field)
+        if isinstance(value, str) and _BLOCK_PATTERN.search(value):
+            return ()
     return (
         QualityIssue(
             reason_code=MISSING_HOUSE_LOCATOR,
@@ -636,6 +654,45 @@ def _house_locator_issues(
     )
 
 
+def _outside_coverage_issue(
+    submitted: Mapping[str, str] | None,
+) -> tuple[QualityIssue, ...]:
+    """Replace a conflict verdict when the reference cannot speak at all.
+
+    `jabar-reference-v1` holds Jawa Barat rows only. A Jakarta address was being
+    declared TIDAK_VALID because a village called Menteng exists in Bogor: the
+    reference "contradicted" an address it has no rows for. That is precisely
+    what limitations.md forbids -- a coverage gap presented as proof the address
+    is wrong -- and it is the worst version of it, at high severity.
+
+    Medium, and no claim about correctness in either direction.
+    """
+
+    if submitted is None:
+        return ()
+    province = submitted.get("PROVINSI")
+    if within_reference_coverage(province if isinstance(province, str) else None):
+        return ()
+    named = _titlecase(str(province))
+    return (
+        QualityIssue(
+            reason_code=OUTSIDE_REFERENCE_COVERAGE,
+            severity="medium",
+            message=(
+                f"Alamat ini berada di {named}, di luar cakupan data wilayah "
+                "Jawa Barat yang digunakan, sehingga rantai wilayahnya belum "
+                "dapat diverifikasi. Status ini menandakan alamat belum "
+                "terverifikasi, bukan bahwa alamat salah."
+            ),
+            affected_fields=("PROVINSI",),
+            clarification_question=(
+                f"Apakah alamat tujuan memang berada di {named}?"
+            ),
+            source_reason_code=OUTSIDE_REFERENCE_COVERAGE,
+        ),
+    )
+
+
 def evaluate_quality_gate(
     validation: AdministrativeValidationResult,
     *,
@@ -650,8 +707,15 @@ def evaluate_quality_gate(
         raise TypeError("submitted must be a mapping of field to value")
     # `submitted` only enriches prose. It never participates in the status,
     # which stays a function of reason codes and severities alone.
+    # Checked first: outside the reference's provinces, its verdict carries no
+    # evidence, so the conflict issues it produced are replaced rather than
+    # reported alongside a coverage note that would contradict them.
+    outside = _outside_coverage_issue(submitted)
+    reference_issues = (
+        outside if outside else _issues_from_validation(validation, submitted)
+    )
     issues = (
-        _issues_from_validation(validation, submitted)
+        reference_issues
         + _street_locator_issues(submitted)
         + _house_locator_issues(submitted)
         + _issues_from_changes(normalization_changes)
@@ -668,6 +732,7 @@ __all__ = [
     "MISSING_ADMINISTRATIVE_FIELDS",
     "MISSING_HOUSE_LOCATOR",
     "MISSING_STREET_LOCATOR",
+    "OUTSIDE_REFERENCE_COVERAGE",
     "PERLU_KONFIRMASI",
     "QUALITY_REASON_CODES",
     "QUALITY_STATUSES",

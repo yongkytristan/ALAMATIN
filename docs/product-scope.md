@@ -109,7 +109,14 @@ returning `PERLU_KONFIRMASI`:
   is the failure the target user reported directly.
 
 `RT`/`RW` satisfy the second because that is how a kampung address is normally
-written. Both stay medium because the reference can check neither a street name
+written, and so does a block, kavling, or unit reference wherever the label puts
+it.
+
+A third rule concerns coverage rather than completeness: when an address names a
+province the reference holds no rows for, a medium `OUTSIDE_REFERENCE_COVERAGE`
+issue **replaces** any conflict the reference reported. Outside Jawa Barat the
+reference cannot contradict an address, and presenting its verdict as though it
+could is the coverage-gap-as-proof error this project forbids (DEC-012). Both stay medium because the reference can check neither a street name
 nor a house number, so they ask rather than declare. See
 [`decision-log.md`](decision-log.md) DEC-010 and its amendment.
 Names and phone numbers are handled as PII, not NER address components.

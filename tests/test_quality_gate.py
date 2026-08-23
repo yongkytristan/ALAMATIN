@@ -33,6 +33,7 @@ from alamatin.quality_gate import (  # noqa: E402
     KODEPOS_TIDAK_COCOK,
     MISSING_ADMINISTRATIVE_FIELDS,
     MISSING_HOUSE_LOCATOR,
+    OUTSIDE_REFERENCE_COVERAGE,
     MISSING_STREET_LOCATOR,
     PERLU_KONFIRMASI,
     QUALITY_REASON_CODES,
@@ -244,6 +245,21 @@ class QualityGateReasonCodeTests(unittest.TestCase):
             MISSING_HOUSE_LOCATOR: evaluate_quality_gate(
                 valid_result(), submitted={"JALAN": "Perum Griya Asri"}
             ),
+            # A province the reference holds no rows for. Its verdict, whatever
+            # it is, cannot be evidence about this address.
+            OUTSIDE_REFERENCE_COVERAGE: evaluate_quality_gate(
+                validation(
+                    status="invalid",
+                    reason=VALIDATOR_CONFLICT,
+                    affected=("KECAMATAN",),
+                    candidates=(candidate(),),
+                ),
+                submitted={
+                    "JALAN": "Jalan Sudirman",
+                    "NOMOR": "No. 1",
+                    "PROVINSI": "DKI Jakarta",
+                },
+            ),
         }
         # A near-miss input that must NOT raise this reason code. A valid chain
         # would be a trivially passing negative for every code at once, so each
@@ -301,6 +317,16 @@ class QualityGateReasonCodeTests(unittest.TestCase):
             MISSING_HOUSE_LOCATOR: evaluate_quality_gate(
                 valid_result(),
                 submitted={"JALAN": "Kampung Cimanggu", "RT": "03", "RW": "05"},
+            ),
+            # A Jawa Barat address is inside coverage, so the coverage code must
+            # not fire merely because a province was named.
+            OUTSIDE_REFERENCE_COVERAGE: evaluate_quality_gate(
+                valid_result(),
+                submitted={
+                    "JALAN": "Jalan Braga",
+                    "NOMOR": "No. 5",
+                    "PROVINSI": "Jawa Barat",
+                },
             ),
         }
         self.assertEqual(set(outcomes), set(QUALITY_REASON_CODES))

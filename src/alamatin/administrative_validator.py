@@ -38,6 +38,35 @@ VALIDATION_STATUSES: tuple[str, ...] = (
 )
 
 
+#: The provinces `jabar-reference-v1` covers. Outside them the reference holds
+#: no rows at all, so it can neither confirm nor contradict an address -- and a
+#: village name that happens to exist in Jawa Barat must not be read as evidence
+#: about an address in another province.
+REFERENCE_PROVINCE_ALIASES: frozenset[str] = frozenset(
+    {"jawabarat", "jabar", "jawabrat", "westjava"}
+)
+
+
+def within_reference_coverage(province: str | None) -> bool:
+    """Return whether the reference can speak about this province at all.
+
+    An absent province is treated as within coverage: silence is not a claim to
+    be somewhere else, and the address may still be a Jawa Barat one.
+    """
+
+    if province is None:
+        return True
+    cleaned = "".join(
+        character for character in province.lower() if character.isalnum()
+    )
+    if not cleaned:
+        return True
+    for alias in REFERENCE_PROVINCE_ALIASES:
+        if cleaned == alias or cleaned.endswith(alias):
+            return True
+    return False
+
+
 class AdministrativeValidationError(ValueError):
     """Raised for invalid validator inputs or configuration."""
 
@@ -331,7 +360,9 @@ __all__ = [
     "AdministrativeValidator",
     "MISSING_FIELDS",
     "REFERENCE_COVERAGE_GAP",
+    "REFERENCE_PROVINCE_ALIASES",
     "VALIDATION_STATUSES",
+    "within_reference_coverage",
     "VALID_CHAIN",
     "ValidationCandidate",
 ]

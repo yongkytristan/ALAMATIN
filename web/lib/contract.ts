@@ -104,6 +104,7 @@ const REASON_TITLES: Record<string, string> = {
   CORRECTION_REQUIRES_CONFIRMATION: "Koreksi menunggu konfirmasi",
   MISSING_STREET_LOCATOR: "Nama jalan atau patokan belum ada",
   MISSING_HOUSE_LOCATOR: "Nomor rumah atau RT/RW belum ada",
+  OUTSIDE_REFERENCE_COVERAGE: "Di luar cakupan data Jawa Barat",
 };
 
 /**
