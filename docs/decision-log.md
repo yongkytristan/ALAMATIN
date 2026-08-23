@@ -318,3 +318,80 @@ ada".
 - Related finding: the synthetic generator's `separator` noise inserts commas
   only, never periods, which is why 5,250 generated examples never exercised
   this path. Another instance of synthetic coverage not matching real input.
+
+## DEC-012 — Three false rejections, found by hand-testing the UI
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- All three shared a shape: a **correct** address was declared `TIDAK_VALID`, or
+  a complete one flagged incomplete. None was caught by 608 automated tests;
+  all three came from typing addresses into the running UI.
+
+### 1. An address outside Jawa Barat was declared invalid
+
+`Jl. Sudirman No. 1, Kel. Menteng, Kec. Menteng, Jakarta Pusat, DKI Jakarta
+10310` returned `TIDAK_VALID`, because a village named Menteng exists in Bogor:
+the reference "contradicted" an address it holds no rows for. This is the exact
+thing [`limitations.md`](limitations.md) forbids -- a coverage gap presented as
+proof the address is wrong -- in its worst form, at high severity.
+
+- Decision: a medium `OUTSIDE_REFERENCE_COVERAGE` issue **replaces** the
+  conflict when the submitted province is outside the reference's coverage. It
+  replaces rather than accompanies, because reporting both would state a
+  contradiction and then deny it carries evidence.
+- An absent province counts as inside coverage: silence is not a claim to be
+  elsewhere, and most Jawa Barat addresses omit the province.
+- **Known limitation:** the rule needs the province to have been extracted, and
+  the extractor recognises bare province forms only for Jawa Barat and DKI
+  Jakarta. A Jawa Tengah address therefore lands on
+  `KELURAHAN_TIDAK_DITEMUKAN` instead -- still medium, so still not a false
+  rejection, but the wrong reason. Recorded rather than fixed by widening a
+  province list this reference cannot adjudicate anyway.
+
+### 2. Nine designator spellings caused a false conflict
+
+The extractor recognises nine `KECAMATAN` spellings and ten for
+`KOTA_KABUPATEN`; the normalizer's hand-written patterns knew two and three.
+`kcmtn Sumur Bandung` was therefore extracted correctly and left
+uncanonicalised, and the validator compared it with `SUMUR BANDUNG`, found no
+match, and reported a conflict.
+
+- Decision: the normalizer's designator patterns are **derived** from the
+  extractor's own tuples, so the two lists cannot drift apart again. A test
+  asserts every spelling the extractor knows canonicalises.
+- `Kabupaten` and `Kota` keep separate canonical forms. Merging them would turn
+  a true rejection into a false pass: Kabupaten Bandung is not Kota Bandung.
+
+### 3. A named block did not count as a house locator
+
+`Perum Griya Asri Blok C2` was flagged `MISSING_HOUSE_LOCATOR`.
+
+- The clean fix looked like teaching the extractor to emit `DETAIL_LOKASI` for a
+  block, which is what [`label_schema.md`](label_schema.md) prescribes: "Gang
+  Melati Blok C2" splits into `JALAN` + `DETAIL_LOKASI`, and "unit/floor/block
+  is `DETAIL_LOKASI`".
+- **It was implemented, measured, and reverted.** Real-data entity F1 fell from
+  `0.9149` to `0.9040`, because the two `real_dev` gold examples containing a
+  block label it as part of `JALAN`, contrary to the documented schema. Two
+  mislabelled examples are not grounds for me to overrule the schema *or* the
+  annotations while shipping a measurable regression.
+- Decision: the house-locator rule reads a block, kavling, or unit reference
+  **wherever it lands**, including inside the `JALAN` value. Zero measured
+  change, and the reported bug is fixed.
+- **Open annotation question for the team:** the schema and the gold labels
+  disagree about blocks. Resolving it means either re-annotating those examples
+  or amending the schema. Left open deliberately, not silently decided.
+
+### Also found while fixing this
+
+A heredoc wrote the regex word-boundary escape as a literal backspace character
+(`0x08`) into `quality_gate.py`. It is invisible in an editor, the pattern
+compiled without error, and it silently matched nothing. Caught by printing the
+compiled pattern's `repr`. A test now asserts the pattern contains no control
+character, and every tracked Python file was scanned for the same defect.
+
+- Contract `1.2.0` -> `1.3.0`, additive on the established terms: the new code is
+  appended, the existing eight keep their meaning and order, requests still
+  accept `1.0.0`. Release re-frozen. The extractor is **unchanged** at
+  `regex-baseline-v1.2`, since the reverted block change was the only extraction
+  edit considered here.

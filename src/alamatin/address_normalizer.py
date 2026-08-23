@@ -9,6 +9,13 @@ import re
 import unicodedata
 
 from .label_schema import ENTITY_TYPES
+from .regex_baseline import (
+    JALAN_DESIGNATORS,
+    KECAMATAN_DESIGNATORS,
+    KELURAHAN_DESIGNATORS,
+    KOTA_KABUPATEN_DESIGNATORS,
+    PROVINSI_DESIGNATORS,
+)
 
 
 class ValueSource(str, Enum):
@@ -115,23 +122,71 @@ class NormalizationResult:
         }
 
 
+def _designator_pattern(*designators: str) -> re.Pattern[str]:
+    """Build a leading-designator matcher from the extractor's own spellings.
+
+    Derived rather than hand-written. The hand-written version knew only
+    "kecamatan|kec" while the extractor recognised nine spellings, so
+    "kcmtn Sumur Bandung" was extracted correctly and then left uncanonicalised;
+    the validator compared it with "SUMUR BANDUNG", found no match, and reported
+    an administrative conflict -- a correct address declared TIDAK_VALID. Nine
+    designator spellings did that. Deriving the pattern is what keeps the two
+    lists from drifting apart again.
+    """
+
+    ordered = sorted(set(designators), key=len, reverse=True)
+    alternation = "|".join(re.escape(value) for value in ordered)
+    return re.compile(rf"(?i)^(?:{alternation})\.{{0,2}}(?:\s+|$)")
+
+
+def _split_designators(designators: tuple[str, ...], *groups: tuple[str, ...]):
+    """Return the designators not claimed by a more specific group."""
+
+    claimed = {value for group in groups for value in group}
+    return tuple(value for value in designators if value not in claimed)
+
+
+_GANG_DESIGNATORS = ("gang", "gg")
+_KAMPUNG_DESIGNATORS = ("kampung", "kp", "dusun", "dsn")
+_DESA_DESIGNATORS = ("desa", "ds")
+#: "kota" and "kabupaten" are different administrative kinds sharing one field,
+#: so each keeps its own canonical form instead of one swallowing the other.
+_KABUPATEN_DESIGNATORS = tuple(
+    value for value in KOTA_KABUPATEN_DESIGNATORS if value.startswith(("kab", "kb"))
+)
+_KOTA_DESIGNATORS = tuple(
+    value for value in KOTA_KABUPATEN_DESIGNATORS if value not in _KABUPATEN_DESIGNATORS
+)
+
 _DESIGNATOR_PATTERNS: dict[str, tuple[tuple[re.Pattern[str], str], ...]] = {
     "JALAN": (
-        (re.compile(r"(?i)^(?:jalan|jln|jl)\.?(?:\s+|$)"), "Jalan "),
-        (re.compile(r"(?i)^(?:gang|gg)\.?(?:\s+|$)"), "Gang "),
-        (re.compile(r"(?i)^(?:kampung|kp)\.?(?:\s+|$)"), "Kampung "),
+        (
+            _designator_pattern(
+                *_split_designators(
+                    JALAN_DESIGNATORS, _GANG_DESIGNATORS, _KAMPUNG_DESIGNATORS
+                )
+            ),
+            "Jalan ",
+        ),
+        (_designator_pattern(*_GANG_DESIGNATORS), "Gang "),
+        (_designator_pattern(*_KAMPUNG_DESIGNATORS), "Kampung "),
     ),
-    "NOMOR": ((re.compile(r"(?i)^(?:nomor|no)\.?(?:\s+|$)"), "No. "),),
+    "NOMOR": ((_designator_pattern("nomor", "nomer", "no"), "No. "),),
     "KELURAHAN": (
-        (re.compile(r"(?i)^(?:kelurahan|kel)\.?(?:\s+|$)"), "Kelurahan "),
-        (re.compile(r"(?i)^(?:desa|ds)\.?(?:\s+|$)"), "Desa "),
+        (
+            _designator_pattern(
+                *_split_designators(KELURAHAN_DESIGNATORS, _DESA_DESIGNATORS)
+            ),
+            "Kelurahan ",
+        ),
+        (_designator_pattern(*_DESA_DESIGNATORS), "Desa "),
     ),
-    "KECAMATAN": ((re.compile(r"(?i)^(?:kecamatan|kec)\.?(?:\s+|$)"), "Kecamatan "),),
+    "KECAMATAN": ((_designator_pattern(*KECAMATAN_DESIGNATORS), "Kecamatan "),),
     "KOTA_KABUPATEN": (
-        (re.compile(r"(?i)^(?:kabupaten|kab)\.?(?:\s+|$)"), "Kabupaten "),
-        (re.compile(r"(?i)^kota\.?(?:\s+|$)"), "Kota "),
+        (_designator_pattern(*_KABUPATEN_DESIGNATORS), "Kabupaten "),
+        (_designator_pattern(*_KOTA_DESIGNATORS), "Kota "),
     ),
-    "PROVINSI": ((re.compile(r"(?i)^(?:provinsi|prov)\.?(?:\s+|$)"), "Provinsi "),),
+    "PROVINSI": ((_designator_pattern(*PROVINSI_DESIGNATORS), "Provinsi "),),
 }
 
 _TITLE_FIELDS = {

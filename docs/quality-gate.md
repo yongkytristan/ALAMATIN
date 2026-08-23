@@ -60,7 +60,8 @@ status decision deterministic.
 | `KELURAHAN_TIDAK_DITEMUKAN` | medium | `KELURAHAN` | The village is absent from the current reference version; this is a coverage gap, not proof that the address is wrong. |
 | `CORRECTION_REQUIRES_CONFIRMATION` | medium | Fields with unapplied semantic suggestions | A non-deterministic correction still requires explicit user action. |
 | `MISSING_STREET_LOCATOR` | medium | `JALAN` | Neither `JALAN` nor `DETAIL_LOKASI` names a street, kampung, or landmark, so a valid administrative chain still has no delivery point. |
-| `MISSING_HOUSE_LOCATOR` | medium | `NOMOR` | None of `NOMOR`, `RT`, `RW`, or `DETAIL_LOKASI` pins a door within the street. `RT`/`RW` satisfy it, because that is how a kampung address is written (DEC-010 amendment). |
+| `MISSING_HOUSE_LOCATOR` | medium | `NOMOR` | None of `NOMOR`, `RT`, `RW`, or `DETAIL_LOKASI` pins a door within the street. `RT`/`RW` satisfy it, because that is how a kampung address is written (DEC-010 amendment). A block, kavling, or unit reference also satisfies it, read from wherever the label puts it (DEC-012). |
+| `OUTSIDE_REFERENCE_COVERAGE` | medium | `PROVINSI` | The address names a province the reference holds no rows for, so its verdict is not evidence. Replaces a conflict rather than accompanying it (DEC-012). |
 
 The first and fifth codes preserve the minimum user-facing codes in the main
 execution plan. `source_reason_code` retains the upstream validator reason so

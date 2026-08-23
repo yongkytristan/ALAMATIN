@@ -2,7 +2,7 @@
 
 ALM-025 freezes the shared request/response contract at
 `contracts/address-api.v1.schema.json`. It is a JSON Schema draft 2020-12
-document with contract version `1.2.0`. Backend code loads that exact file via
+document with contract version `1.3.0`. Backend code loads that exact file via
 `alamatin.output_contract`; the browser uses the same repository-relative path
 from `web/address-contract.js`. There is no generated or separately maintained
 frontend copy.
@@ -52,11 +52,12 @@ matches the boundary enforced by the quality gate and frozen in
 [`docs/product-scope.md`](product-scope.md), which forbids claiming that a
 non-critical component's absence or form proves an address invalid.
 
-## Versions 1.1.0 and 1.2.0
+## Versions 1.1.0, 1.2.0, and 1.3.0
 
-Both additive. `1.1.0` (DEC-010) adds `MISSING_STREET_LOCATOR`; `1.2.0`
-(DEC-010's amendment) adds `MISSING_HOUSE_LOCATOR`. `versions.contract` and the
-response `schema_version` are now `1.2.0`.
+All additive. `1.1.0` (DEC-010) adds `MISSING_STREET_LOCATOR`; `1.2.0` (DEC-010's
+amendment) adds `MISSING_HOUSE_LOCATOR`; `1.3.0` (DEC-012) adds
+`OUTSIDE_REFERENCE_COVERAGE`. `versions.contract` and the response
+`schema_version` are now `1.3.0`.
 
 **Requests still accept `1.0.0`.** The request examples in
 [`../contracts/examples/`](../contracts/examples/) deliberately stay at `1.0.0`
