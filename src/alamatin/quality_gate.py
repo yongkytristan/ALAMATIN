@@ -650,8 +650,12 @@ def _house_locator_issues(
         "satu rumah di sepanjang jalan tersebut."
         if names_street
         else (
-            "Alamat ini belum menyebutkan nomor rumah, RT/RW, atau blok, "
-            "sehingga tidak ada satu rumah tertentu yang dapat dituju."
+            # Names the street too, because a deliverable address needs both a
+            # street and a house-level locator -- one alone does not identify a
+            # door. The overlap with MISSING_STREET_LOCATOR is deliberate: each
+            # issue must read correctly on its own.
+            "Alamat ini belum menyebutkan jalan, nomor rumah, RT/RW, atau "
+            "blok, sehingga tidak ada satu rumah tertentu yang dapat dituju."
         )
     )
     return (

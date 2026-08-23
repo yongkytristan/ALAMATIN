@@ -196,6 +196,20 @@ class MessageAccuracyTest(unittest.TestCase):
                 self.assertIn("RT/RW", message)
                 self.assertIn("blok", message)
 
+    def test_without_a_street_the_message_says_the_street_is_missing_too(self) -> None:
+        # A deliverable address needs both a street and a house-level locator;
+        # one alone does not identify a door. So when neither is present the
+        # message names both, and each issue reads correctly on its own even
+        # though MISSING_STREET_LOCATOR also fires.
+        message = self._house_message()
+        self.assertIn("belum menyebutkan jalan", message)
+
+    def test_with_a_street_the_message_does_not_ask_for_one(self) -> None:
+        # The other direction: an address that named its street must not be
+        # told the street is missing.
+        message = self._house_message(JALAN="Jalan Braga")
+        self.assertNotIn("belum menyebutkan jalan", message)
+
 
 class BothRulesTogetherTest(unittest.TestCase):
     def test_an_address_missing_both_reports_both(self) -> None:
