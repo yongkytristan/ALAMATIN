@@ -20,17 +20,20 @@ quietly folded into a column they did not earn.
 | Approach | Entity F1 | Measured here | Note |
 |---|---|---|---|
 | libpostal v1 | 0.3701 | no | `postal` module not installed; recorded from `data/interim/baselines/libpostal-synthetic-dev.json`, same split |
-| **regex baseline v1** (shipped) | **0.8923** | **yes** | this run |
+| **regex baseline v1.1** (shipped) | **0.8922** | **yes** | this run |
 | NER v1.0.0 | 0.9994 | no | weights are a 712 MB release asset; **selection split, not this file** |
 | NER targeted v2 | 0.9995 | no | as above; not served by the release candidate |
 
 The regex figure reproduces the previously recorded
-`regex_rule_v1-synthetic_dev.json` value of 0.8923 exactly, which is a useful
-check that the evaluator has not drifted.
+`regex_baseline_v1_1-synthetic_dev.json` value of 0.8922 exactly, which is a useful
+check that the evaluator has not drifted. The v1 rules scored 0.8923 on this
+same split, so the JALAN span rules added in v1.1 cost 0.0001 here while
+gaining 0.0202 on real addresses -- see
+[`approach-comparison.md`](approach-comparison.md).
 
 **Interpretation limit that matters:** the two NER rows come from the selection
 split, not from `val.json`, so they are *not* strictly comparable with the rows
-above them. Treating 0.9995 against 0.8923 as a like-for-like margin would be
+above them. Treating 0.9995 against 0.8922 as a like-for-like margin would be
 wrong. A genuine head-to-head needs the weights, and the release candidate does
 not serve them.
 
@@ -41,7 +44,7 @@ they are measured by whether a reference-backed verdict is reached.
 
 | Stage | Metric | Value |
 |---|---|---|
-| A. extractor only | entity F1 | 0.8923 |
+| A. extractor only | entity F1 | 0.8922 |
 | A. extractor only | critical exact match | 0.3933 |
 | B. extractor + validator | valid administrative chain | 26 / 750 = 0.0347 |
 | C. extractor + normalizer + validator | valid administrative chain | 26 / 750 = **0.0347** |
@@ -73,9 +76,9 @@ Protocol: 50 warmup iterations, 3 timed repeats over all 750 examples,
 
 | Stage | p50 | p95 | p99 |
 |---|---|---|---|
-| extraction | 0.1027 | 0.1647 | 0.2034 ms |
+| extraction | 0.1019 | 0.1628 | 0.2145 ms |
 | extraction + normalizer | 0.1709 | 0.2500 | 0.3477 ms |
-| complete pipeline | 28.2479 | 34.4115 | 37.0990 ms |
+| complete pipeline | 27.8771 | 33.9470 | 36.3619 ms |
 
 Hardware: `Intel64 Family 6 Model 154 Stepping 3, GenuineIntel`, Windows, CPython
 3.12 — the full platform string is in the artifact.
@@ -84,8 +87,8 @@ Stage figures are measured independently and are **not additive**: extraction is
 re-run inside the normalizer measurement.
 
 **The cost centre is the validator, not the model.** The complete pipeline is
-roughly 275x slower than extraction because the administrative validator searches
-the 5,957-row reference on every call. At 28.5 ms p50 this is comfortable for a
+roughly 274x slower than extraction because the administrative validator searches
+the 5,957-row reference on every call. At 27.9 ms p50 this is comfortable for a
 single-address review UI, but it is the number to attack first if throughput ever
 matters, and it is not where an observer would guess.
 

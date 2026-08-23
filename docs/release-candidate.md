@@ -46,7 +46,7 @@ traceable to the configuration that produced it.
 | Component | Version |
 |---|---|
 | Output contract | `1.0.0` |
-| Extractor | `regex-baseline-v1` |
+| Extractor | `regex-baseline-v1.1` |
 | Normalizer | `normalizer-v1` |
 | Validator | `jabar-reference-v1` |
 | Reference data | `jabar-reference-v1` |
@@ -65,7 +65,7 @@ looking for one, and so a future change that introduces one is visible as drift.
 ## Model checkpoint
 
 `served_in_release_candidate: false`. The runtime extractor is
-`regex-baseline-v1`, which lives in the repository. The fine-tuned candidate
+`regex-baseline-v1.1`, which lives in the repository. The fine-tuned candidate
 `ner-targeted-v2` is a 712 MB release asset recorded in
 `experiments/ner-final-candidate/release_manifest.json` with its SHA-256; it is
 in neither repository and is not served.
@@ -73,6 +73,25 @@ in neither repository and is not served.
 `versions.model` reports the extractor that actually ran, so no response claims a
 model that did not. Any accuracy figure quoted from the model evaluation
 describes that model, not this release candidate.
+
+## The sealed evaluation describes the previous extractor
+
+The sealed run (ALM-035) was executed against `regex-baseline-v1`. The release
+candidate now serves `regex-baseline-v1.1`, whose JALAN span rules changed after
+that run. So:
+
+- Every figure in [`evaluation-results.md`](evaluation-results.md) --
+  entity F1 `0.8984`, critical exact match `87/130`, `0 of 130` reaching
+  `SIAP_DIPROSES` -- describes `v1`, not what is served today.
+- The sealed set is **not** re-run to resynchronise them. It is authorised for
+  one opening, already spent, and a second opening would destroy the property
+  that makes its number worth quoting. A stale-but-honest number beats a fresh
+  number with no guarantee behind it.
+- The held-out estimate for `v1.1` is
+  [`approach-comparison.md`](approach-comparison.md): entity F1 `0.9027` on 35
+  real addresses no rule was tuned against.
+
+Recorded as `DEC-008` in [`decision-log.md`](decision-log.md).
 
 ## P1 features: all out
 

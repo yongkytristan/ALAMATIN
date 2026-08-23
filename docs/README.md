@@ -23,6 +23,7 @@ So this page cannot quietly fall behind the documentation it describes.
 | [evidence-index.md](evidence-index.md) | Every reportable number mapped to its artifact and script |
 | [evaluation-results.md](evaluation-results.md) | The one-time sealed evaluation of the release candidate |
 | [ablation-and-latency.md](ablation-and-latency.md) | Stage ablation, cross-approach comparison, latency, failure cases |
+| [approach-comparison.md](approach-comparison.md) | Head-to-head of every extraction approach on real addresses |
 | [evaluation_protocol.md](evaluation_protocol.md) | The frozen evaluation protocol |
 | [evaluation_splits_status.md](evaluation_splits_status.md) | Split provenance and status |
 | [release-candidate.md](release-candidate.md) | The freeze record and its checksums |

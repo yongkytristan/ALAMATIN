@@ -1,0 +1,870 @@
+{
+  "comparison": "extraction approaches on real addresses",
+  "method": {
+    "critical_entity_types": [
+      "JALAN",
+      "KECAMATAN",
+      "KELURAHAN",
+      "KODEPOS",
+      "KOTA_KABUPATEN",
+      "NOMOR",
+      "PROVINSI"
+    ],
+    "every_row_recomputed": true,
+    "matching": "exact span, micro-averaged over entity types",
+    "metric_module": "alamatin.evaluation_metrics",
+    "sealed_set_reason": "the sealed evaluation is a one-time protocol already opened; re-running approaches against it would void its guarantee",
+    "sealed_set_used": false
+  },
+  "not_measured": [
+    "libpostal_v1"
+  ],
+  "ranking_by_entity_f1": [
+    "regex_baseline (regex-baseline-v1.1)",
+    "ner_targeted_v2",
+    "ner_v1.0.0",
+    "ner_lora_kevin"
+  ],
+  "rows": [
+    {
+      "approach": "regex_baseline (regex-baseline-v1.1)",
+      "critical_exact_match": {
+        "denominator": 70,
+        "numerator": 51,
+        "rate": 0.7285714285714285
+      },
+      "entity": {
+        "f1": 0.9149338374291115,
+        "false_negative": 32,
+        "false_positive": 13,
+        "precision": 0.9490196078431372,
+        "recall": 0.8832116788321168,
+        "true_positive": 242
+      },
+      "entity_by_type": {
+        "DETAIL_LOKASI": {
+          "f1": null,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "JALAN": {
+          "f1": 0.8533333333333333,
+          "false_negative": 14,
+          "false_positive": 8,
+          "precision": 0.8888888888888888,
+          "recall": 0.8205128205128205,
+          "true_positive": 64
+        },
+        "KECAMATAN": {
+          "f1": 0.9315068493150684,
+          "false_negative": 6,
+          "false_positive": 4,
+          "precision": 0.9444444444444444,
+          "recall": 0.918918918918919,
+          "true_positive": 68
+        },
+        "KELURAHAN": {
+          "f1": 0.6666666666666666,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "KODEPOS": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "KOTA_KABUPATEN": {
+          "f1": 0.9787234042553191,
+          "false_negative": 3,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.9583333333333334,
+          "true_positive": 69
+        },
+        "NOMOR": {
+          "f1": 0.9473684210526316,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.9,
+          "true_positive": 18
+        },
+        "PROVINSI": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "RT": {
+          "f1": 0.9565217391304348,
+          "false_negative": 1,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.9166666666666666,
+          "true_positive": 11
+        },
+        "RW": {
+          "f1": 0.9090909090909091,
+          "false_negative": 2,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "true_positive": 10
+        }
+      },
+      "held_out": {
+        "critical_exact_match": {
+          "denominator": 35,
+          "numerator": 25,
+          "rate": 0.7142857142857143
+        },
+        "entity": {
+          "f1": 0.9027237354085603,
+          "false_negative": 16,
+          "false_positive": 9,
+          "precision": 0.928,
+          "recall": 0.8787878787878788,
+          "true_positive": 116
+        },
+        "entity_by_type": {
+          "DETAIL_LOKASI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "JALAN": {
+            "f1": 0.8219178082191781,
+            "false_negative": 8,
+            "false_positive": 5,
+            "precision": 0.8571428571428571,
+            "recall": 0.7894736842105263,
+            "true_positive": 30
+          },
+          "KECAMATAN": {
+            "f1": 0.9333333333333332,
+            "false_negative": 2,
+            "false_positive": 3,
+            "precision": 0.9210526315789473,
+            "recall": 0.9459459459459459,
+            "true_positive": 35
+          },
+          "KELURAHAN": {
+            "f1": 0.5,
+            "false_negative": 1,
+            "false_positive": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "true_positive": 1
+          },
+          "KODEPOS": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "KOTA_KABUPATEN": {
+            "f1": 0.9863013698630138,
+            "false_negative": 1,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.972972972972973,
+            "true_positive": 36
+          },
+          "NOMOR": {
+            "f1": 0.8571428571428571,
+            "false_negative": 2,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.75,
+            "true_positive": 6
+          },
+          "PROVINSI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "RT": {
+            "f1": 0.9090909090909091,
+            "false_negative": 1,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "true_positive": 5
+          },
+          "RW": {
+            "f1": 0.8571428571428571,
+            "false_negative": 1,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.75,
+            "true_positive": 3
+          }
+        }
+      },
+      "kind": "rule",
+      "latency_ms": {
+        "p50_ms": 0.056299963034689426,
+        "p95_ms": 0.09550002869218588,
+        "sample_count": 70
+      },
+      "measured": true,
+      "note": "the extractor the release candidate actually serves",
+      "recomputed_from": "live run in this repository",
+      "tuned_on_part_of_this_split": true
+    },
+    {
+      "approach": "libpostal_v1",
+      "critical_exact_match": null,
+      "entity": null,
+      "entity_by_type": null,
+      "kind": "external parser",
+      "measured": false,
+      "reason": "the native libpostal parser and its `postal` Python binding are not installed in this environment, and the adapter refuses to substitute a fake parser. Its recorded 0.3701 entity F1 is on synthetic-dev, a different split, so it is not carried into this table."
+    },
+    {
+      "approach": "ner_v1.0.0",
+      "critical_exact_match": {
+        "denominator": 70,
+        "numerator": 15,
+        "rate": 0.21428571428571427
+      },
+      "entity": {
+        "f1": 0.676923076923077,
+        "false_negative": 76,
+        "false_positive": 113,
+        "precision": 0.6366559485530546,
+        "recall": 0.7226277372262774,
+        "true_positive": 198
+      },
+      "entity_by_type": {
+        "DETAIL_LOKASI": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "JALAN": {
+          "f1": 0.6029411764705883,
+          "false_negative": 37,
+          "false_positive": 17,
+          "precision": 0.7068965517241379,
+          "recall": 0.5256410256410257,
+          "true_positive": 41
+        },
+        "KECAMATAN": {
+          "f1": 0.7445255474452555,
+          "false_negative": 23,
+          "false_positive": 12,
+          "precision": 0.8095238095238095,
+          "recall": 0.6891891891891891,
+          "true_positive": 51
+        },
+        "KELURAHAN": {
+          "f1": 0.10714285714285715,
+          "false_negative": 0,
+          "false_positive": 50,
+          "precision": 0.05660377358490566,
+          "recall": 1.0,
+          "true_positive": 3
+        },
+        "KODEPOS": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "KOTA_KABUPATEN": {
+          "f1": 0.9645390070921985,
+          "false_negative": 4,
+          "false_positive": 1,
+          "precision": 0.9855072463768116,
+          "recall": 0.9444444444444444,
+          "true_positive": 68
+        },
+        "NOMOR": {
+          "f1": 0.7826086956521738,
+          "false_negative": 2,
+          "false_positive": 8,
+          "precision": 0.6923076923076923,
+          "recall": 0.9,
+          "true_positive": 18
+        },
+        "PROVINSI": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "RT": {
+          "f1": 0.5454545454545454,
+          "false_negative": 3,
+          "false_positive": 12,
+          "precision": 0.42857142857142855,
+          "recall": 0.75,
+          "true_positive": 9
+        },
+        "RW": {
+          "f1": 0.5925925925925926,
+          "false_negative": 4,
+          "false_positive": 7,
+          "precision": 0.5333333333333333,
+          "recall": 0.6666666666666666,
+          "true_positive": 8
+        }
+      },
+      "held_out": {
+        "critical_exact_match": {
+          "denominator": 35,
+          "numerator": 8,
+          "rate": 0.22857142857142856
+        },
+        "entity": {
+          "f1": 0.704626334519573,
+          "false_negative": 33,
+          "false_positive": 50,
+          "precision": 0.6644295302013423,
+          "recall": 0.75,
+          "true_positive": 99
+        },
+        "entity_by_type": {
+          "DETAIL_LOKASI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 3,
+            "precision": 0.0,
+            "recall": null,
+            "true_positive": 0
+          },
+          "JALAN": {
+            "f1": 0.6363636363636364,
+            "false_negative": 17,
+            "false_positive": 7,
+            "precision": 0.75,
+            "recall": 0.5526315789473685,
+            "true_positive": 21
+          },
+          "KECAMATAN": {
+            "f1": 0.7605633802816901,
+            "false_negative": 10,
+            "false_positive": 7,
+            "precision": 0.7941176470588235,
+            "recall": 0.7297297297297297,
+            "true_positive": 27
+          },
+          "KELURAHAN": {
+            "f1": 0.13793103448275862,
+            "false_negative": 0,
+            "false_positive": 25,
+            "precision": 0.07407407407407407,
+            "recall": 1.0,
+            "true_positive": 2
+          },
+          "KODEPOS": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "KOTA_KABUPATEN": {
+            "f1": 0.9722222222222222,
+            "false_negative": 2,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.9459459459459459,
+            "true_positive": 35
+          },
+          "NOMOR": {
+            "f1": 0.7058823529411765,
+            "false_negative": 2,
+            "false_positive": 3,
+            "precision": 0.6666666666666666,
+            "recall": 0.75,
+            "true_positive": 6
+          },
+          "PROVINSI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "RT": {
+            "f1": 0.7692307692307692,
+            "false_negative": 1,
+            "false_positive": 2,
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "true_positive": 5
+          },
+          "RW": {
+            "f1": 0.6,
+            "false_negative": 1,
+            "false_positive": 3,
+            "precision": 0.5,
+            "recall": 0.75,
+            "true_positive": 3
+          }
+        }
+      },
+      "kind": "fine-tuned model",
+      "latency_ms": null,
+      "measured": true,
+      "note": "fine-tuned NER, first candidate",
+      "provenance": {
+        "bio_repairs_applied": 14,
+        "decoder": "orphan_i_to_b_v1",
+        "model_sha256": "fc2d1560862d66f388bb58e83486d77dfbc22f67455c70e388887e33b39c63bd"
+      },
+      "recomputed_from": "experiments/ner-v1-real-dev/predictions.json",
+      "tuned_on_part_of_this_split": false
+    },
+    {
+      "approach": "ner_targeted_v2",
+      "critical_exact_match": {
+        "denominator": 70,
+        "numerator": 37,
+        "rate": 0.5285714285714286
+      },
+      "entity": {
+        "f1": 0.7832167832167831,
+        "false_negative": 50,
+        "false_positive": 74,
+        "precision": 0.7516778523489933,
+        "recall": 0.8175182481751825,
+        "true_positive": 224
+      },
+      "entity_by_type": {
+        "DETAIL_LOKASI": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 9,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "JALAN": {
+          "f1": 0.7619047619047619,
+          "false_negative": 22,
+          "false_positive": 13,
+          "precision": 0.8115942028985508,
+          "recall": 0.717948717948718,
+          "true_positive": 56
+        },
+        "KECAMATAN": {
+          "f1": 0.863013698630137,
+          "false_negative": 11,
+          "false_positive": 9,
+          "precision": 0.875,
+          "recall": 0.8513513513513513,
+          "true_positive": 63
+        },
+        "KELURAHAN": {
+          "f1": 0.09090909090909091,
+          "false_negative": 2,
+          "false_positive": 18,
+          "precision": 0.05263157894736842,
+          "recall": 0.3333333333333333,
+          "true_positive": 1
+        },
+        "KODEPOS": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "KOTA_KABUPATEN": {
+          "f1": 0.9503546099290779,
+          "false_negative": 5,
+          "false_positive": 2,
+          "precision": 0.9710144927536232,
+          "recall": 0.9305555555555556,
+          "true_positive": 67
+        },
+        "NOMOR": {
+          "f1": 0.8636363636363635,
+          "false_negative": 1,
+          "false_positive": 5,
+          "precision": 0.7916666666666666,
+          "recall": 0.95,
+          "true_positive": 19
+        },
+        "PROVINSI": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "RT": {
+          "f1": 0.5625000000000001,
+          "false_negative": 3,
+          "false_positive": 11,
+          "precision": 0.45,
+          "recall": 0.75,
+          "true_positive": 9
+        },
+        "RW": {
+          "f1": 0.6428571428571429,
+          "false_negative": 3,
+          "false_positive": 7,
+          "precision": 0.5625,
+          "recall": 0.75,
+          "true_positive": 9
+        }
+      },
+      "held_out": {
+        "critical_exact_match": {
+          "denominator": 35,
+          "numerator": 20,
+          "rate": 0.5714285714285714
+        },
+        "entity": {
+          "f1": 0.8248175182481753,
+          "false_negative": 19,
+          "false_positive": 29,
+          "precision": 0.795774647887324,
+          "recall": 0.8560606060606061,
+          "true_positive": 113
+        },
+        "entity_by_type": {
+          "DETAIL_LOKASI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 3,
+            "precision": 0.0,
+            "recall": null,
+            "true_positive": 0
+          },
+          "JALAN": {
+            "f1": 0.8219178082191781,
+            "false_negative": 8,
+            "false_positive": 5,
+            "precision": 0.8571428571428571,
+            "recall": 0.7894736842105263,
+            "true_positive": 30
+          },
+          "KECAMATAN": {
+            "f1": 0.8571428571428571,
+            "false_negative": 4,
+            "false_positive": 7,
+            "precision": 0.825,
+            "recall": 0.8918918918918919,
+            "true_positive": 33
+          },
+          "KELURAHAN": {
+            "f1": 0.2,
+            "false_negative": 1,
+            "false_positive": 7,
+            "precision": 0.125,
+            "recall": 0.5,
+            "true_positive": 1
+          },
+          "KODEPOS": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "KOTA_KABUPATEN": {
+            "f1": 0.9577464788732395,
+            "false_negative": 3,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.918918918918919,
+            "true_positive": 34
+          },
+          "NOMOR": {
+            "f1": 0.823529411764706,
+            "false_negative": 1,
+            "false_positive": 2,
+            "precision": 0.7777777777777778,
+            "recall": 0.875,
+            "true_positive": 7
+          },
+          "PROVINSI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "RT": {
+            "f1": 0.7692307692307692,
+            "false_negative": 1,
+            "false_positive": 2,
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "true_positive": 5
+          },
+          "RW": {
+            "f1": 0.6,
+            "false_negative": 1,
+            "false_positive": 3,
+            "precision": 0.5,
+            "recall": 0.75,
+            "true_positive": 3
+          }
+        }
+      },
+      "kind": "fine-tuned model",
+      "latency_ms": null,
+      "measured": true,
+      "note": "fine-tuned NER, selected candidate",
+      "provenance": {
+        "bio_repairs_applied": 8,
+        "decoder": "orphan_i_to_b_v1",
+        "model_sha256": "95523cfe19fcd729e2113aade5472c518fbc7a3bfcf171077d70cd7158afc0fa"
+      },
+      "recomputed_from": "experiments/ner-targeted-v2-real-dev/predictions.json",
+      "tuned_on_part_of_this_split": false
+    },
+    {
+      "approach": "ner_lora_kevin",
+      "critical_exact_match": {
+        "denominator": 70,
+        "numerator": 12,
+        "rate": 0.17142857142857143
+      },
+      "entity": {
+        "f1": 0.6489184692179701,
+        "false_negative": 79,
+        "false_positive": 132,
+        "precision": 0.5963302752293578,
+        "recall": 0.7116788321167883,
+        "true_positive": 195
+      },
+      "entity_by_type": {
+        "DETAIL_LOKASI": {
+          "f1": 0.0,
+          "false_negative": 3,
+          "false_positive": 10,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive": 0
+        },
+        "JALAN": {
+          "f1": 0.5035971223021583,
+          "false_negative": 43,
+          "false_positive": 26,
+          "precision": 0.5737704918032787,
+          "recall": 0.44871794871794873,
+          "true_positive": 35
+        },
+        "KECAMATAN": {
+          "f1": 0.7428571428571429,
+          "false_negative": 22,
+          "false_positive": 14,
+          "precision": 0.7878787878787878,
+          "recall": 0.7027027027027027,
+          "true_positive": 52
+        },
+        "KELURAHAN": {
+          "f1": 0.06349206349206349,
+          "false_negative": 1,
+          "false_positive": 58,
+          "precision": 0.03333333333333333,
+          "recall": 0.6666666666666666,
+          "true_positive": 2
+        },
+        "KODEPOS": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "KOTA_KABUPATEN": {
+          "f1": 0.965034965034965,
+          "false_negative": 3,
+          "false_positive": 2,
+          "precision": 0.971830985915493,
+          "recall": 0.9583333333333334,
+          "true_positive": 69
+        },
+        "NOMOR": {
+          "f1": 0.7826086956521738,
+          "false_negative": 2,
+          "false_positive": 8,
+          "precision": 0.6923076923076923,
+          "recall": 0.9,
+          "true_positive": 18
+        },
+        "PROVINSI": {
+          "f1": null,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": null,
+          "recall": null,
+          "true_positive": 0
+        },
+        "RT": {
+          "f1": 0.8571428571428571,
+          "false_negative": 0,
+          "false_positive": 4,
+          "precision": 0.75,
+          "recall": 1.0,
+          "true_positive": 12
+        },
+        "RW": {
+          "f1": 0.4827586206896552,
+          "false_negative": 5,
+          "false_positive": 10,
+          "precision": 0.4117647058823529,
+          "recall": 0.5833333333333334,
+          "true_positive": 7
+        }
+      },
+      "held_out": {
+        "critical_exact_match": {
+          "denominator": 35,
+          "numerator": 6,
+          "rate": 0.17142857142857143
+        },
+        "entity": {
+          "f1": 0.6438356164383561,
+          "false_negative": 38,
+          "false_positive": 66,
+          "precision": 0.5875,
+          "recall": 0.7121212121212122,
+          "true_positive": 94
+        },
+        "entity_by_type": {
+          "DETAIL_LOKASI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 3,
+            "precision": 0.0,
+            "recall": null,
+            "true_positive": 0
+          },
+          "JALAN": {
+            "f1": 0.5,
+            "false_negative": 21,
+            "false_positive": 13,
+            "precision": 0.5666666666666667,
+            "recall": 0.4473684210526316,
+            "true_positive": 17
+          },
+          "KECAMATAN": {
+            "f1": 0.75,
+            "false_negative": 10,
+            "false_positive": 8,
+            "precision": 0.7714285714285715,
+            "recall": 0.7297297297297297,
+            "true_positive": 27
+          },
+          "KELURAHAN": {
+            "f1": 0.05714285714285715,
+            "false_negative": 1,
+            "false_positive": 32,
+            "precision": 0.030303030303030304,
+            "recall": 0.5,
+            "true_positive": 1
+          },
+          "KODEPOS": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "KOTA_KABUPATEN": {
+            "f1": 0.9589041095890412,
+            "false_negative": 2,
+            "false_positive": 1,
+            "precision": 0.9722222222222222,
+            "recall": 0.9459459459459459,
+            "true_positive": 35
+          },
+          "NOMOR": {
+            "f1": 0.6666666666666665,
+            "false_negative": 2,
+            "false_positive": 4,
+            "precision": 0.6,
+            "recall": 0.75,
+            "true_positive": 6
+          },
+          "PROVINSI": {
+            "f1": null,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": null,
+            "recall": null,
+            "true_positive": 0
+          },
+          "RT": {
+            "f1": 1.0,
+            "false_negative": 0,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "true_positive": 6
+          },
+          "RW": {
+            "f1": 0.36363636363636365,
+            "false_negative": 2,
+            "false_positive": 5,
+            "precision": 0.2857142857142857,
+            "recall": 0.5,
+            "true_positive": 2
+          }
+        }
+      },
+      "kind": "fine-tuned model",
+      "latency_ms": null,
+      "measured": true,
+      "note": "LoRA candidate",
+      "provenance": {
+        "bio_repairs_applied": 26,
+        "decoder": "orphan_i_to_b_v1",
+        "model_sha256": "d165b015696172b6cf82445b73c928aa159c6c5c36d46ffe90024af703f5326c"
+      },
+      "recomputed_from": "experiments/ner-lora-kevin-real-dev/predictions.json",
+      "tuned_on_part_of_this_split": false
+    }
+  ],
+  "schema_version": "1.0.0",
+  "split": {
+    "canonical_json_sha256": "21cabe856526c3fff76aa07e5fc431115b02d8adb1af318119d20fc370d4fc9a",
+    "example_count": 70,
+    "name": "real_dev",
+    "path": "data/interim/evaluation-splits/real_dev.json",
+    "role": "comparison-only; never used for training or checkpoint selection"
+  }
+}

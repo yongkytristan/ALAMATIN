@@ -55,7 +55,7 @@
   },
   "declared_versions": {
     "contract": "1.0.0",
-    "extractor": "regex-baseline-v1",
+    "extractor": "regex-baseline-v1.1",
     "normalizer": "normalizer-v1",
     "quality_gate": "quality-gate-v1",
     "reference_data": "jabar-reference-v1",
@@ -63,9 +63,9 @@
   },
   "frozen_files": [
     {
-      "bytes": 9295,
+      "bytes": 10382,
       "path": "src/alamatin/regex_baseline.py",
-      "sha256": "484c02269e8263284a4477daf9657548e1b4033bf18601dcf3fa467dadeb7639"
+      "sha256": "8c3132907d916b9cd2b248fef96f6a8a729a3f7808851694f9a5f4a58478c0ee"
     },
     {
       "bytes": 811,
@@ -103,9 +103,9 @@
       "sha256": "c5a04010b458a601d801ab1f727a4f2b18b55534462aa74ab491a9c78ce380e4"
     },
     {
-      "bytes": 14171,
+      "bytes": 14410,
       "path": "src/alamatin/pipeline.py",
-      "sha256": "a2bd60275a3c07381b767f5d17678cfe9d553b9c0e25094b829214a3497591b6"
+      "sha256": "ee0d1a8426862188f95079a83fe2c32118ecebbe9c68a5f61978e96e4c77e705"
     },
     {
       "bytes": 11736,
@@ -145,7 +145,7 @@
   ],
   "model_checkpoint": {
     "note": "The fine-tuned candidate ner-targeted-v2 is a release asset recorded in experiments/ner-final-candidate/release_manifest.json and is not served. versions.model reports the extractor that actually ran, so no response claims a model that did not.",
-    "runtime_extractor": "regex-baseline-v1",
+    "runtime_extractor": "regex-baseline-v1.1",
     "served_in_release_candidate": false
   },
   "p1_features": {
@@ -171,8 +171,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "120cabf58aa7bda099defcceb930dc3f80cf7316",
-    "describe": "rc-1.0.0",
+    "built_from_commit": "542cba1cb9e271ebb1e3eb5d6bf19dcf9654fac5",
+    "describe": "542cba1",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",

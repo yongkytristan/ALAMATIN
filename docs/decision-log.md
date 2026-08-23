@@ -113,3 +113,47 @@ auditable rather than silent.
   - ALM-037 and ALM-038 close against this reduced scope. Their checklists were
     rewritten to the delivered scope on this date, with the execution items
     moved to the post-submission backlog rather than silently ticked.
+
+## DEC-008 — Ship `regex-baseline-v1.1` and let the sealed figures go stale
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- Decision: adopt two JALAN span rules in the rule extractor -- a second
+  designator of the same type continues the span instead of opening a rival
+  one, and the JALAN span cap moves from 5 to 6 tokens -- bump the extractor to
+  `regex-baseline-v1.1`, and re-freeze the ALM-034 manifest around it.
+- Measurement that justified it: on a pre-registered held-out half of
+  `real_dev` (35 addresses; the partition is recorded as
+  `data/interim/evaluation-splits/real-dev-tuning-partition.json` in the
+  internal repository, alongside the governed split it partitions),
+  entity F1 rises `0.8949` to `0.9027` and critical exact match `24/35` to
+  `25/35`. The tuning half showed a larger gain, `+3` addresses against the
+  held-out `+1`; the held-out figure is the one that counts.
+- Cost accepted: on the synthetic split the change is marginally **worse**,
+  entity F1 `0.8923` to `0.8922`. The synthetic generator does not produce the
+  stacked-designator and long-street-name patterns the rules address, which is
+  further evidence that synthetic performance is not a proxy for real.
+- Consequences:
+  - **The sealed evaluation now describes a previous extractor.** Its figures --
+    entity F1 `0.8984`, critical exact match `87/130`, `0 of 130` reaching
+    `SIAP_DIPROSES` -- were measured against `regex-baseline-v1`. Recorded in
+    [`evaluation-results.md`](evaluation-results.md) and
+    [`release-candidate.md`](release-candidate.md).
+  - **The sealed set is not re-run.** One opening was authorised and is spent. A
+    second opening would destroy the property that makes the number worth
+    quoting. A stale figure that is honest about being stale beats a fresh
+    figure with no guarantee behind it.
+  - A test enforces that *only* the extractor may differ between the sealed
+    record and the frozen manifest, so a silent change to the gate, normalizer,
+    validator, or contract still fails.
+  - The rule baseline was tuned on 35 of the 70 `real_dev` addresses, so no
+    figure over the full 70 is a clean estimate for it. The comparison in
+    [`approach-comparison.md`](approach-comparison.md) is ranked on the held-out
+    half, where no approach in the table was tuned.
+  - Rejected: the configuration that scored highest on the tuning half
+    (`JALAN` cap 8, entity F1 `0.9338` there). It won by capturing a single
+    eight-token example, which is fitting to one address rather than a rule. The
+    cap was taken from the gold span-length distribution instead.
+  - Also rejected: adding noise-specific designator spellings (`kat` for
+    `kab`, a space-split `k ecamatan`) that would each have fixed exactly one
+    tuning example.

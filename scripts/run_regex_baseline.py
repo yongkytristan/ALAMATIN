@@ -28,6 +28,7 @@ from alamatin.evaluation_metrics import (  # noqa: E402
     latency_summary_ms,
 )
 from alamatin.label_schema import validate_bio_sequence  # noqa: E402
+from alamatin.pipeline import REGEX_EXTRACTOR_VERSION
 from alamatin.regex_baseline import tag_tokens  # noqa: E402
 
 DEFAULT_DATASET = ROOT / "data" / "synthetic" / "val.json"
@@ -35,6 +36,11 @@ DEFAULT_DATASET = ROOT / "data" / "synthetic" / "val.json"
 
 class BaselineRunError(ValueError):
     """Raised when the baseline cannot be run or scored safely."""
+
+
+#: Derived from the extractor version so a rule change cannot be recorded
+#: under a label whose published numbers describe different rules.
+BASELINE_LABEL = REGEX_EXTRACTOR_VERSION.replace('-', '_').replace('.', '_')
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -74,7 +80,7 @@ def main(argv: list[str] | None = None) -> int:
         latency = latency_summary_ms(latencies_ms)
 
         report: dict[str, Any] = {
-            "baseline": "regex_rule_v1",
+            "baseline": BASELINE_LABEL,
             "dataset": str(args.dataset),
             "example_count": len(examples),
             "overall": {
