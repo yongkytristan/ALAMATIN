@@ -57,7 +57,7 @@
   },
   "declared_versions": {
     "contract": "1.2.0",
-    "extractor": "regex-baseline-v1.1",
+    "extractor": "regex-baseline-v1.2",
     "normalizer": "normalizer-v1",
     "quality_gate": "quality-gate-v1",
     "reference_data": "jabar-reference-v1",
@@ -65,9 +65,9 @@
   },
   "frozen_files": [
     {
-      "bytes": 10382,
+      "bytes": 10799,
       "path": "src/alamatin/regex_baseline.py",
-      "sha256": "8c3132907d916b9cd2b248fef96f6a8a729a3f7808851694f9a5f4a58478c0ee"
+      "sha256": "885b4013cb08c69dff0e973c4e52c6ac4f5c0b594eef73f82c16555e31f8f47f"
     },
     {
       "bytes": 811,
@@ -80,9 +80,9 @@
       "sha256": "a7dc10f9d659d276f9eb20f43417c434e193f2e662f18418a0655b975d89f77f"
     },
     {
-      "bytes": 12045,
+      "bytes": 12688,
       "path": "src/alamatin/address_normalizer.py",
-      "sha256": "388e691d6f65db35f9d3b1f9a191c700886bab82b906522e09f20e695570514d"
+      "sha256": "aaa07b88c9c86c740874854a54f57499db5e4b430552cfffee88ba25100cd212"
     },
     {
       "bytes": 12930,
@@ -107,7 +107,7 @@
     {
       "bytes": 14683,
       "path": "src/alamatin/pipeline.py",
-      "sha256": "dcf607332aee994d9de0ccbdb3581c2863f4e031ec600dfa55013fea8e38df70"
+      "sha256": "2dc43a61e90eee590e72a637628005538efb3570684e5481f6545711d6470b3f"
     },
     {
       "bytes": 11919,
@@ -147,7 +147,7 @@
   ],
   "model_checkpoint": {
     "note": "The fine-tuned candidate ner-targeted-v2 is a release asset recorded in experiments/ner-final-candidate/release_manifest.json and is not served. versions.model reports the extractor that actually ran, so no response claims a model that did not.",
-    "runtime_extractor": "regex-baseline-v1.1",
+    "runtime_extractor": "regex-baseline-v1.2",
     "served_in_release_candidate": false
   },
   "p1_features": {
@@ -173,8 +173,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "53d19ae76ec11a4fc01541fa6a3d4c331dcbe1b6",
-    "describe": "53d19ae",
+    "built_from_commit": "06070ad7c99ab2c7549d9500a953941b8ffc3d27",
+    "describe": "06070ad",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",

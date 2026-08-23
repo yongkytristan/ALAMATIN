@@ -16,7 +16,7 @@ produced by `scripts/run_sealed_evaluation.py`. Nothing here was typed by hand.
 | Openings used | 1 of 1 authorized |
 
 > **These figures describe `regex-baseline-v1`, not the extractor served today.**
-> The release candidate now serves `regex-baseline-v1.1`, whose JALAN span rules
+> The release candidate now serves `regex-baseline-v1.2`, whose JALAN span rules
 > changed after this run. The sealed set is not re-run to resynchronise them --
 > its single authorised opening is spent, and a second one would void the
 > guarantee. For a held-out estimate of `v1.1`, see

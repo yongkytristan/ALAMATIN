@@ -60,14 +60,19 @@ MAX_SPAN_LENGTH = {
     "PROVINSI": 3,
 }
 
-RT_PATTERN = re.compile(r"^rt\.{0,2}0*(\d+)[a-z]?$")
-RW_PATTERN = re.compile(r"^rw\.{0,2}0*(\d+)[a-z]?$")
-NOMOR_PATTERN = re.compile(r"^(no|nomor|nomer)\.?0*(\d+[a-z]?)$")
+# Trailing dots are tolerated on every numeric form. A period used as a
+# separator attaches to the token before it -- "RW. 6. Kel. Braga" tokenizes as
+# "RW." + "6." -- and these patterns previously allowed leading dots but not
+# trailing ones, so the number was silently dropped and the field went
+# undetected. Leading dots stay allowed for the same reason they always were.
+RT_PATTERN = re.compile(r"^rt\.{0,2}0*(\d+)[a-z]?\.{0,2}$")
+RW_PATTERN = re.compile(r"^rw\.{0,2}0*(\d+)[a-z]?\.{0,2}$")
+NOMOR_PATTERN = re.compile(r"^(no|nomor|nomer)\.?0*(\d+[a-z]?)\.{0,2}$")
 RT_MARKER_ONLY = re.compile(r"^rt\.{0,2}$")
 RW_MARKER_ONLY = re.compile(r"^rw\.{0,2}$")
-NOMOR_MARKER_ONLY = re.compile(r"^(no|nomor|nomer)\.?$")
-BARE_NUMBER = re.compile(r"^\.{0,2}0*(\d+)[a-z]?$")
-KODEPOS_PATTERN = re.compile(r"^\d{5}$")
+NOMOR_MARKER_ONLY = re.compile(r"^(no|nomor|nomer)\.{0,2}$")
+BARE_NUMBER = re.compile(r"^\.{0,2}0*(\d+)[a-z]?\.{0,2}$")
+KODEPOS_PATTERN = re.compile(r"^\d{5}\.{0,2}$")
 
 
 def _clean(token: str) -> str:

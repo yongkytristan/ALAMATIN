@@ -46,7 +46,7 @@ traceable to the configuration that produced it.
 | Component | Version |
 |---|---|
 | Output contract | `1.0.0` |
-| Extractor | `regex-baseline-v1.1` |
+| Extractor | `regex-baseline-v1.2` |
 | Normalizer | `normalizer-v1` |
 | Validator | `jabar-reference-v1` |
 | Reference data | `jabar-reference-v1` |
@@ -65,7 +65,7 @@ looking for one, and so a future change that introduces one is visible as drift.
 ## Model checkpoint
 
 `served_in_release_candidate: false`. The runtime extractor is
-`regex-baseline-v1.1`, which lives in the repository. The fine-tuned candidate
+`regex-baseline-v1.2`, which lives in the repository. The fine-tuned candidate
 `ner-targeted-v2` is a 712 MB release asset recorded in
 `experiments/ner-final-candidate/release_manifest.json` with its SHA-256; it is
 in neither repository and is not served.
@@ -77,7 +77,7 @@ describes that model, not this release candidate.
 ## The sealed evaluation describes the previous extractor
 
 The sealed run (ALM-035) was executed against `regex-baseline-v1`. The release
-candidate now serves `regex-baseline-v1.1`, whose JALAN span rules changed after
+candidate now serves `regex-baseline-v1.2`, whose JALAN span rules changed after
 that run. So:
 
 - Every figure in [`evaluation-results.md`](evaluation-results.md) --

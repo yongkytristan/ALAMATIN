@@ -38,7 +38,7 @@ are the only addresses no approach in this table was tuned against.
 
 | Approach | Entity F1 | Precision | Recall | Critical EM |
 |---|---|---|---|---|
-| **regex baseline v1.1** (shipped) | **0.9027** | 0.9280 | 0.8788 | **25/35 = 0.714** |
+| **regex baseline v1.2** (shipped) | **0.9027** | 0.9280 | 0.8788 | **25/35 = 0.714** |
 | NER targeted v2 | 0.8248 | 0.7958 | 0.8561 | 20/35 = 0.571 |
 | NER v1.0.0 | 0.7046 | 0.6644 | 0.7500 | 8/35 = 0.229 |
 | NER LoRA candidate | 0.6438 | 0.5875 | 0.7121 | 6/35 = 0.171 |
@@ -132,7 +132,7 @@ automatically, using the adapter's own entry point.
 
 ## What this changes, and what it does not
 
-**It confirms the release-candidate choice.** Serving `regex-baseline-v1.1` was
+**It confirms the release-candidate choice.** Serving `regex-baseline-v1.2` was
 previously justified on operational grounds — the checkpoint is a 712 MB release
 asset outside both repositories, so a clean clone could not start with it. It is
 now also the accuracy-preferred option on the only real-data comparison that

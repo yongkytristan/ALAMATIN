@@ -69,7 +69,7 @@ class PublishedResultTest(unittest.TestCase):
     #: figures stopped describing the release for a reason nobody recorded.
     DOCUMENTED_DRIFT = {
         # DEC-008: the v1.1 JALAN span rules postdate the sealed run.
-        "extractor": ("regex-baseline-v1", "regex-baseline-v1.1"),
+        "extractor": ("regex-baseline-v1", "regex-baseline-v1.2"),
         # DEC-010 and its amendment: contract 1.1.0 added
         # MISSING_STREET_LOCATOR, 1.2.0 added MISSING_HOUSE_LOCATOR. The sealed
         # status distribution is unaffected -- both rules can only add issues,

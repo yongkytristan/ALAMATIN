@@ -70,7 +70,7 @@ class ComparabilityTest(unittest.TestCase):
             / "data"
             / "interim"
             / "baselines"
-            / "regex_baseline_v1_1-synthetic_dev.json"
+            / "regex_baseline_v1_2-synthetic_dev.json"
         )
         if not recorded_path.is_file():
             self.skipTest("recorded synthetic-dev baseline is not present")
