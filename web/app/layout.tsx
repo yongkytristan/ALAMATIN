@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ALAMATIN — Review Alamat",
-  description: "Pemeriksaan alamat Indonesia sebelum fulfillment.",
+  description: "Pemeriksaan alamat Jawa Barat sebelum fulfillment.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

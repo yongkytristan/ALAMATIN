@@ -306,7 +306,7 @@ export function AddressReview() {
             <span className="intro-kicker"><SparkIcon size={14}/> ADDRESS INTELLIGENCE</span>
             <h1>Alamat rapi.<br/><em>Pengiriman lebih pasti.</em></h1>
           </div>
-          <p>Periksa satu alamat Indonesia sebelum membuat resi. Kenali komponennya, selesaikan keraguan, lalu salin hasil final.</p>
+          <p>Periksa satu alamat di Jawa Barat sebelum membuat resi. Kenali komponennya, selesaikan keraguan, lalu salin hasil final. Referensi wilayah yang digunakan mencakup 5.957 kelurahan/desa di Jawa Barat.</p>
         </section>
 
         <div className="workspace">
@@ -321,7 +321,7 @@ export function AddressReview() {
                 id="raw-address"
                 value={rawAddress}
                 onChange={(event) => { setRawAddress(event.target.value); setError(""); }}
-                placeholder="Contoh: Jl. Braga No. 99, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111"
+                placeholder="Contoh: Jl. Braga No. 5, Kel. Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111"
                 maxLength={501}
                 aria-describedby={error ? "address-help address-error" : "address-help"}
               />
@@ -363,7 +363,7 @@ export function AddressReview() {
           </div>
         </div>
       </main>
-      <footer><span>ALAMATIN <i>•</i> MVP REVIEW</span><p>Dibuat untuk operasi fulfillment Indonesia.</p></footer>
+      <footer><span>ALAMATIN <i>•</i> MVP REVIEW</span><p>Dibuat untuk operasi fulfillment di Jawa Barat.</p></footer>
     </div>
   );
 }
