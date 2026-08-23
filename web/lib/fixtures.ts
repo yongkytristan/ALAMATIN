@@ -1,9 +1,21 @@
 import type { AddressComponent, ReviewResult } from "./types";
 
+// Each of these produces its intended status from the REAL backend, verified
+// against the running service. The previous set only worked on the fixture
+// path, which routes by keyword ("sukamaju" -> invalid); once
+// NEXT_PUBLIC_API_BASE_URL was set, all three collapsed to PERLU_KONFIRMASI and
+// the demo demonstrated nothing.
 export const DEMO_ADDRESSES = {
-  ready: "Jl. Braga No. 99, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111",
-  confirmation: "Jl. Cimanuk No. 12, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
-  invalid: "Dekat lapangan utama, Sukamaju, Jawa Barat",
+  // Complete, internally consistent chain with explicit designators. Without
+  // "Kel."/"Kec." the rule extractor does not recover the two fields and even a
+  // correct address lands in PERLU_KONFIRMASI.
+  ready: "Jl. Braga No. 5, Kel. Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+  // A village absent from the reference: medium severity, because a coverage
+  // gap is not evidence the address is wrong.
+  confirmation: "Jl. Melati No. 7, Kel. Sukamaju Indah, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+  // Braga is in Sumur Bandung, so the reference contradicts Coblong outright:
+  // high severity, and the only kind of evidence that reaches TIDAK_VALID.
+  invalid: "Jl. Braga No. 5, Kel. Braga, Kec. Coblong, Kota Bandung, Jawa Barat 40111",
 } as const;
 
 const base = (

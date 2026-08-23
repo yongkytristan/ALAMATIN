@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 
 from .address_normalizer import NormalizationChange
@@ -64,6 +64,103 @@ def _ordered_fields(fields: Iterable[str]) -> tuple[str, ...]:
 
 def _field_list(fields: tuple[str, ...]) -> str:
     return ", ".join(fields)
+
+
+#: Human field names for messages a seller reads. The machine-readable field
+#: identifiers still travel in ``affected_fields``; only the prose changes.
+FIELD_LABEL: dict[str, str] = {
+    "KELURAHAN": "kelurahan/desa",
+    "KECAMATAN": "kecamatan",
+    "KOTA_KABUPATEN": "kota/kabupaten",
+    "PROVINSI": "provinsi",
+    "KODEPOS": "kode pos",
+}
+
+#: Which candidate attribute holds the reference's own value for a field, so a
+#: message can name what the reference says instead of only which field
+#: disagreed. Naming the field alone left a reader with no way to act.
+_CANDIDATE_ATTRIBUTE: dict[str, str] = {
+    "KELURAHAN": "village_name",
+    "KECAMATAN": "district_name",
+    "KOTA_KABUPATEN": "city_name",
+    "PROVINSI": "province_name",
+}
+
+#: Named so a message can cite the reference it speaks for rather than an
+#: anonymous "our data".
+REFERENCE_SCOPE = "data wilayah Jawa Barat"
+
+
+def _label(field: str) -> str:
+    return FIELD_LABEL.get(field, field)
+
+
+def _titlecase(value: str) -> str:
+    """Present a reference value in running prose, not as a shouted CSV cell."""
+
+    cleaned = " ".join(str(value).split())
+    return " ".join(
+        part if any(character.islower() for character in part) else part.title()
+        for part in cleaned.split(" ")
+    )
+
+
+def _reference_value(
+    validation: AdministrativeValidationResult, field: str
+) -> str | None:
+    """Return what the reference says for one field, when it says anything."""
+
+    attribute = _CANDIDATE_ATTRIBUTE.get(field)
+    if attribute is None or len(validation.candidates) != 1:
+        return None
+    value = getattr(validation.candidates[0], attribute, None)
+    return _titlecase(value) if value else None
+
+
+#: Designators the normalizer prepends. Stripped for display only: a message
+#: that said "kecamatan yang tertulis (Kecamatan Coblong)" repeated the field
+#: name back at the reader instead of naming the place.
+_DISPLAY_PREFIXES: tuple[str, ...] = (
+    "kelurahan ", "desa ", "kecamatan ", "kota ", "kabupaten ", "provinsi ",
+)
+
+
+def _submitted_value(submitted: Mapping[str, str] | None, field: str) -> str | None:
+    if not submitted:
+        return None
+    value = submitted.get(field)
+    if not isinstance(value, str) or not value.strip():
+        return None
+    cleaned = " ".join(value.split())
+    # KOTA_KABUPATEN keeps its prefix: "Bandung" alone is ambiguous between the
+    # city and the regency, and dropping it would lose real information.
+    if field != "KOTA_KABUPATEN":
+        for prefix in _DISPLAY_PREFIXES:
+            if cleaned.lower().startswith(prefix):
+                cleaned = cleaned[len(prefix):].strip() or cleaned
+                break
+    return _titlecase(cleaned)
+
+
+def _chain_anchor(
+    validation: AdministrativeValidationResult, field: str
+) -> str | None:
+    """Name the village the reference resolved, unless that is the field itself."""
+
+    if field == "KELURAHAN":
+        return None
+    village = _reference_value(validation, "KELURAHAN")
+    return f"Kelurahan/desa {village}" if village else None
+
+
+def _chain_prefix(validation: AdministrativeValidationResult) -> str | None:
+    """Name the anchor the reference resolved, so the claim is checkable."""
+
+    village = _reference_value(validation, "KELURAHAN")
+    district = _reference_value(validation, "KECAMATAN")
+    if village and district:
+        return f"Kelurahan {village}, Kecamatan {district}"
+    return f"Kelurahan {village}" if village else None
 
 
 @dataclass(frozen=True, slots=True)
@@ -151,8 +248,112 @@ class QualityGateResult:
         }
 
 
+def _conflict_sentence(
+    validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None,
+    field: str,
+) -> str:
+    """Describe one field's disagreement in terms a seller can act on."""
+
+    expected = _reference_value(validation, field)
+    written = _submitted_value(submitted, field)
+    label = _label(field)
+    anchor = _chain_anchor(validation, field)
+    if expected and written and anchor:
+        # "kota/kabupaten Kota Bandung" repeats itself, so the label is dropped
+        # when the value already carries its own.
+        place = (
+            expected
+            if expected.lower().startswith(("kota ", "kabupaten ", "provinsi "))
+            else f"{label.capitalize()} {expected}"
+        )
+        return (
+            f"{anchor} tercatat berada di {place}, "
+            f"sedangkan alamat ini menulis {written}"
+        )
+    if expected and written:
+        return (
+            f"{label} pada {REFERENCE_SCOPE} adalah {expected}, "
+            f"sedangkan alamat ini menulis {written}"
+        )
+    if expected:
+        return f"{label} pada {REFERENCE_SCOPE} tercatat sebagai {expected}"
+    if written:
+        return (
+            f"{label} yang tertulis ({written}) tidak sesuai dengan "
+            f"{REFERENCE_SCOPE} untuk rantai wilayah ini"
+        )
+    return f"{label} tidak sesuai dengan {REFERENCE_SCOPE} untuk rantai wilayah ini"
+
+
+def _kodepos_message(
+    validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None,
+) -> str:
+    written = _submitted_value(submitted, "KODEPOS")
+    anchor = _chain_prefix(validation)
+    expected = (
+        validation.candidates[0].postal_codes
+        if len(validation.candidates) == 1
+        else ()
+    )
+    if anchor and expected:
+        listed = " atau ".join(expected)
+        tail = f" Kode pos yang tertulis: {written}." if written else ""
+        return (
+            f"Menurut {REFERENCE_SCOPE}, kode pos untuk {anchor} adalah "
+            f"{listed}.{tail}"
+        )
+    if written:
+        return (
+            f"Kode pos yang tertulis ({written}) tidak sesuai dengan "
+            f"{REFERENCE_SCOPE} untuk rantai wilayah pada alamat ini."
+        )
+    return (
+        f"Kode pos tidak sesuai dengan {REFERENCE_SCOPE} untuk rantai wilayah "
+        "pada alamat ini."
+    )
+
+
+def _kodepos_question(
+    validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None,
+) -> str:
+    written = _submitted_value(submitted, "KODEPOS")
+    expected = (
+        validation.candidates[0].postal_codes
+        if len(validation.candidates) == 1
+        else ()
+    )
+    if written and expected:
+        listed = " atau ".join(expected)
+        return f"Kode pos mana yang benar untuk alamat tujuan: {listed} atau {written}?"
+    return "Kode pos mana yang benar untuk kelurahan dan kecamatan tujuan?"
+
+
+def _conflict_question(
+    validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None,
+    fields: tuple[str, ...],
+) -> str:
+    if len(fields) == 1:
+        field = fields[0]
+        expected = _reference_value(validation, field)
+        written = _submitted_value(submitted, field)
+        label = _label(field)
+        if expected and written:
+            return (
+                f"{label.capitalize()} mana yang benar untuk alamat tujuan: "
+                f"{expected} atau {written}?"
+            )
+        return f"{label.capitalize()} mana yang benar untuk alamat tujuan?"
+    labels = ", ".join(_label(field) for field in fields)
+    return f"Mohon periksa {labels}; nilai mana yang sesuai dengan alamat tujuan?"
+
+
 def _administrative_conflict_issues(
     validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None = None,
 ) -> tuple[QualityIssue, ...]:
     affected = validation.affected_fields
     # Only ADMINISTRATIVE_FIELDS can be contradicted by the governed reference,
@@ -177,28 +378,27 @@ def _administrative_conflict_issues(
             QualityIssue(
                 reason_code=KODEPOS_TIDAK_COCOK,
                 severity="high",
-                message=(
-                    "Kode pos bertentangan dengan rantai wilayah pada referensi "
-                    "administratif yang digunakan."
-                ),
+                message=_kodepos_message(validation, submitted),
                 affected_fields=("KODEPOS",),
-                clarification_question=(
-                    "Kode pos mana yang benar untuk kelurahan dan kecamatan tujuan?"
-                ),
+                clarification_question=_kodepos_question(validation, submitted),
                 source_reason_code=VALIDATOR_ADMINISTRATIVE_CONFLICT,
             )
         )
     other_fields = tuple(field for field in affected if field != "KODEPOS")
     if other_fields:
-        fields = _field_list(other_fields)
+        sentences = [
+            _conflict_sentence(validation, submitted, field) for field in other_fields
+        ]
         issues.append(
             QualityIssue(
                 reason_code=ADMINISTRATIVE_CONFLICT,
                 severity="high",
-                message=f"Komponen administratif berikut saling bertentangan: {fields}.",
+                message=(
+                    f"Menurut {REFERENCE_SCOPE}, " + "; ".join(sentences) + "."
+                ),
                 affected_fields=other_fields,
-                clarification_question=(
-                    f"Mohon periksa {fields}; nilai mana yang sesuai dengan alamat tujuan?"
+                clarification_question=_conflict_question(
+                    validation, submitted, other_fields
                 ),
                 source_reason_code=VALIDATOR_ADMINISTRATIVE_CONFLICT,
             )
@@ -206,25 +406,81 @@ def _administrative_conflict_issues(
     return tuple(issues)
 
 
+def _coverage_gap_message(submitted: Mapping[str, str] | None) -> str:
+    """State the fact about the reference, not a verdict on the address.
+
+    Naming the value is what makes this actionable: a seller can compare the
+    spelling. Calling it unrecognised would say nothing they can use, and
+    calling it wrong would be a claim the reference cannot support -- a village
+    absent from a 5,957-row Jawa Barat reference is a gap in that reference.
+    """
+
+    written = _submitted_value(submitted, "KELURAHAN")
+    named = f" ({written})" if written else ""
+    return (
+        f"Kelurahan/desa yang tertulis{named} tidak sesuai dengan "
+        f"{REFERENCE_SCOPE} pada referensi yang digunakan, sehingga rantai "
+        "wilayahnya belum dapat diverifikasi. Status ini menandakan alamat "
+        "belum terverifikasi, bukan bahwa alamat salah."
+    )
+
+
+def _coverage_gap_question(submitted: Mapping[str, str] | None) -> str:
+    written = _submitted_value(submitted, "KELURAHAN")
+    if written:
+        return (
+            f"Apakah {written} sudah tepat ejaannya, dan sudah sesuai dengan "
+            "kecamatan serta kota/kabupaten tujuan?"
+        )
+    return "Apakah ejaan kelurahan serta kecamatan dan kota/kabupatennya sudah benar?"
+
+
+def _ambiguous_message(validation: AdministrativeValidationResult) -> str:
+    chains = [
+        f"{_titlecase(candidate.district_name)}, "
+        f"{_titlecase(candidate.city_name)}"
+        for candidate in validation.candidates[:4]
+    ]
+    if not chains:
+        return (
+            f"Nama kelurahan/desa ini cocok dengan lebih dari satu wilayah pada "
+            f"{REFERENCE_SCOPE}."
+        )
+    listed = "; ".join(chains)
+    more = (
+        f" dan {len(validation.candidates) - 4} wilayah lain"
+        if len(validation.candidates) > 4
+        else ""
+    )
+    return (
+        f"Nama kelurahan/desa ini ada di lebih dari satu wilayah pada "
+        f"{REFERENCE_SCOPE}: {listed}{more}."
+    )
+
+
 def _issues_from_validation(
     validation: AdministrativeValidationResult,
+    submitted: Mapping[str, str] | None = None,
 ) -> tuple[QualityIssue, ...]:
     reason_codes = validation.reason_codes
     if reason_codes == (VALID_CHAIN,):
         return ()
     if reason_codes == (VALIDATOR_ADMINISTRATIVE_CONFLICT,):
-        return _administrative_conflict_issues(validation)
+        return _administrative_conflict_issues(validation, submitted)
     if reason_codes == (VALIDATOR_MISSING_FIELDS,):
         affected = _ordered_fields(validation.missing_fields)
-        fields = _field_list(affected)
+        labels = ", ".join(_label(field) for field in affected)
         return (
             QualityIssue(
                 reason_code=MISSING_ADMINISTRATIVE_FIELDS,
                 severity="medium",
-                message=f"Komponen administratif wajib belum lengkap: {fields}.",
+                message=(
+                    f"Alamat ini belum menyebutkan {labels}, sehingga rantai "
+                    f"wilayahnya belum dapat dicocokkan dengan {REFERENCE_SCOPE}."
+                ),
                 affected_fields=affected,
                 clarification_question=(
-                    f"Mohon lengkapi {fields} agar rantai wilayah dapat diperiksa?"
+                    f"Mohon lengkapi {labels} agar rantai wilayah dapat diperiksa?"
                 ),
                 source_reason_code=VALIDATOR_MISSING_FIELDS,
             ),
@@ -234,10 +490,7 @@ def _issues_from_validation(
             QualityIssue(
                 reason_code=AMBIGUOUS_ADMINISTRATIVE_CANDIDATES,
                 severity="medium",
-                message=(
-                    "Nama kelurahan cocok dengan lebih dari satu rantai wilayah "
-                    "pada referensi."
-                ),
+                message=_ambiguous_message(validation),
                 affected_fields=("KELURAHAN", "KECAMATAN", "KOTA_KABUPATEN"),
                 clarification_question=(
                     "Kecamatan dan kota/kabupaten mana yang benar untuk kelurahan tujuan?"
@@ -250,14 +503,9 @@ def _issues_from_validation(
             QualityIssue(
                 reason_code=KELURAHAN_TIDAK_DITEMUKAN,
                 severity="medium",
-                message=(
-                    "Kelurahan belum ditemukan pada versi referensi saat ini; "
-                    "hasil ini tidak membuktikan alamat salah."
-                ),
+                message=_coverage_gap_message(submitted),
                 affected_fields=("KELURAHAN",),
-                clarification_question=(
-                    "Apakah ejaan kelurahan serta kecamatan dan kota/kabupatennya sudah benar?"
-                ),
+                clarification_question=_coverage_gap_question(submitted),
                 source_reason_code=VALIDATOR_REFERENCE_COVERAGE_GAP,
             ),
         )
@@ -297,12 +545,17 @@ def evaluate_quality_gate(
     validation: AdministrativeValidationResult,
     *,
     normalization_changes: Iterable[NormalizationChange] = (),
+    submitted: Mapping[str, str] | None = None,
 ) -> QualityGateResult:
     """Evaluate the frozen precedence without scores or probabilistic thresholds."""
 
     if not isinstance(validation, AdministrativeValidationResult):
         raise TypeError("validation must be an AdministrativeValidationResult")
-    issues = _issues_from_validation(validation) + _issues_from_changes(
+    if submitted is not None and not isinstance(submitted, Mapping):
+        raise TypeError("submitted must be a mapping of field to value")
+    # `submitted` only enriches prose. It never participates in the status,
+    # which stays a function of reason codes and severities alone.
+    issues = _issues_from_validation(validation, submitted) + _issues_from_changes(
         normalization_changes
     )
     return QualityGateResult(status=_status_from_issues(issues), issues=issues)

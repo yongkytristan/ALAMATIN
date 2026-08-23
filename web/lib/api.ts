@@ -5,7 +5,7 @@ import {
   type ContractErrorResponse,
   type ContractResponse,
 } from "./contract";
-import { confirmationFixture, invalidFixture, readyFixture } from "./fixtures";
+import { DEMO_ADDRESSES, confirmationFixture, invalidFixture, readyFixture } from "./fixtures";
 import type { AddressComponent, ReviewResult } from "./types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -57,12 +57,17 @@ export async function parseAddress(rawAddress: string, signal?: AbortSignal): Pr
 
   await pause(850);
   if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
-  const source = rawAddress.toLowerCase();
-  const fixture = source.includes("lapangan") || source.includes("sukamaju")
-    ? invalidFixture
-    : source.includes("cimanuk") || source.includes("40114")
-      ? confirmationFixture
-      : readyFixture;
+  // Matched against the demo constants themselves rather than substrings of
+  // them. The previous keyword routing ("sukamaju" -> invalid) silently
+  // mis-routed as soon as a demo address changed, and coupled the fixture path
+  // to the wording of addresses chosen for the real backend.
+  const normalized = rawAddress.trim().toLowerCase();
+  const fixture =
+    normalized === DEMO_ADDRESSES.invalid.toLowerCase()
+      ? invalidFixture
+      : normalized === DEMO_ADDRESSES.confirmation.toLowerCase()
+        ? confirmationFixture
+        : readyFixture;
   return structuredClone(fixture);
 }
 
