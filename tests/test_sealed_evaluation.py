@@ -64,30 +64,38 @@ class PublishedResultTest(unittest.TestCase):
         self.assertEqual(len(dataset["canonical_sha256"]), 64)
         self.assertEqual(dataset["per_item_digests_verified"], 130)
 
-    def test_only_the_extractor_differs_from_the_frozen_release(self) -> None:
-        """The sealed run predates the v1.1 JALAN span rules (DEC-008).
+    #: Components allowed to differ from the sealed run, each with the decision
+    #: that authorised it. Anything else changing means the published sealed
+    #: figures stopped describing the release for a reason nobody recorded.
+    DOCUMENTED_DRIFT = {
+        # DEC-008: the v1.1 JALAN span rules postdate the sealed run.
+        "extractor": ("regex-baseline-v1", "regex-baseline-v1.1"),
+        # DEC-010: contract 1.1.0 adds MISSING_STREET_LOCATOR. The sealed status
+        # distribution is unaffected -- the new rule can only add issues, and
+        # SIAP_DIPROSES was already 0 of 130 -- and the entity metrics are
+        # extraction metrics that no gate rule touches.
+        "contract": ("1.0.0", "1.1.0"),
+    }
 
-        The extractor is therefore allowed to differ, and only the extractor.
-        Asserting equality would fail forever; asserting nothing would let an
-        unnoticed change to the gate, normalizer, validator, or contract slip
-        past as if it had been evaluated.
-        """
-
+    def test_only_documented_components_differ_from_the_frozen_release(self) -> None:
         frozen = json.loads(RELEASE_MANIFEST.read_text(encoding="utf-8"))
         declared = dict(frozen["declared_versions"])
         recorded = dict(self.report["system"])
 
-        sealed_extractor = recorded.pop("extractor", None)
-        served_extractor = declared.pop("extractor", None)
+        for component, (sealed_value, served_value) in self.DOCUMENTED_DRIFT.items():
+            with self.subTest(component=component):
+                self.assertEqual(recorded.pop(component, None), sealed_value)
+                self.assertEqual(declared.pop(component, None), served_value)
+
         self.assertEqual(
             recorded,
             declared,
-            "a component other than the extractor changed after the sealed run; "
+            "a component outside DOCUMENTED_DRIFT changed after the sealed run; "
             "the published sealed figures no longer describe the release for a "
             "reason nothing has recorded",
         )
-        self.assertEqual(sealed_extractor, "regex-baseline-v1")
-        self.assertEqual(served_extractor, "regex-baseline-v1.1")
+        # Non-vacuous: something must still be pinned, or this asserts nothing.
+        self.assertTrue(recorded)
 
     def test_the_release_manifest_records_the_opening(self) -> None:
         frozen = json.loads(RELEASE_MANIFEST.read_text(encoding="utf-8"))

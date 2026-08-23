@@ -1,9 +1,9 @@
 {
   "document_type": "address_parse_response",
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "request_id": "req_success_001",
   "versions": {
-    "contract": "1.0.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1",
+    "contract": "1.1.0", "model": "ner-targeted-v2", "normalizer": "normalizer-v1",
     "validator": "validator-v1", "reference_data": "jabar-reference-v1", "quality_gate": "quality-gate-v1"
   },
   "pii": {

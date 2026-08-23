@@ -97,6 +97,15 @@ These fields are critical because they can be compared against a versioned
 administrative reference. `JALAN`, `NOMOR`, `RT`, `RW`, and `DETAIL_LOKASI`
 remain visible and useful for clarification, but the current reference does not
 justify treating their absence or form as proof that an address is invalid.
+
+One completeness requirement applies outside that set: an address must name a
+street-level locator -- `JALAN` or `DETAIL_LOKASI` -- or the gate raises a
+**medium** `MISSING_STREET_LOCATOR` issue and returns `PERLU_KONFIRMASI`. A
+perfect administrative chain with no street is not deliverable. It stays medium
+because the reference cannot check a street name, so this asks rather than
+declares. `NOMOR` is **not** required: 71% of real evaluation addresses carry no
+house number, and requiring one would flag most valid Indonesian addresses. See
+[`decision-log.md`](decision-log.md) DEC-010.
 Names and phone numbers are handled as PII, not NER address components.
 
 ## Frozen operational statuses
@@ -108,7 +117,8 @@ The first matching rule wins:
 2. `PERLU_KONFIRMASI`: there is no high-severity conflict, but at least one
    medium issue remains, such as missing administrative context, ambiguity, a
    reference coverage gap, or an unapplied semantic suggestion.
-3. `SIAP_DIPROSES`: the frozen quality gate returns no unresolved issue.
+3. `SIAP_DIPROSES`: the frozen quality gate returns no unresolved issue, which
+   now includes naming a street-level locator.
 
 `SIAP_DIPROSES` means only that no issue was found by the frozen rules and
 reference version. It does not mean the physical location is verified, the

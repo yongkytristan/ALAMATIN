@@ -161,13 +161,21 @@ class OptionalEnrichmentTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             evaluate_quality_gate(conflict(("KECAMATAN",)), submitted=["KECAMATAN"])
 
-    def test_submitted_values_cannot_change_the_status(self) -> None:
-        # Prose input must not reach the decision. Same validation, wildly
-        # different submitted values, identical status and severities.
-        baseline = evaluate_quality_gate(conflict(("KECAMATAN",)))
+    def test_submitted_conflict_values_do_not_change_the_status(self) -> None:
+        # Prose input must not reach the conflict decision. Both sides carry a
+        # street locator so the MISSING_STREET_LOCATOR rule -- the one declared
+        # place where submitted values do affect the status (DEC-010) -- is out
+        # of the picture, leaving only the prose path under test.
+        baseline = evaluate_quality_gate(
+            conflict(("KECAMATAN",)), submitted={"JALAN": "Jalan Braga"}
+        )
         enriched = evaluate_quality_gate(
             conflict(("KECAMATAN",)),
-            submitted={"KECAMATAN": "apa saja", "KODEPOS": "00000"},
+            submitted={
+                "JALAN": "Jalan Braga",
+                "KECAMATAN": "apa saja",
+                "KODEPOS": "00000",
+            },
         )
         self.assertEqual(baseline.status, enriched.status)
         self.assertEqual(
