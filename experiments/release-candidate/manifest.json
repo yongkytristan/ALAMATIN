@@ -93,9 +93,9 @@
       "sha256": "476442b319e9b5061a95b47ae41d4783782618ff5f9f80c245b21209e54724fd"
     },
     {
-      "bytes": 12276,
+      "bytes": 21532,
       "path": "src/alamatin/quality_gate.py",
-      "sha256": "34c7ec90eec750748831a224a1f31f7452c680aa6b42a8262c49f27463c27bed"
+      "sha256": "9a8b4e1407a5ceb115b24f7de9030d19ec2ea1e715a27dfcab90eb035ef7f070"
     },
     {
       "bytes": 10312,
@@ -103,9 +103,9 @@
       "sha256": "c5a04010b458a601d801ab1f727a4f2b18b55534462aa74ab491a9c78ce380e4"
     },
     {
-      "bytes": 14410,
+      "bytes": 14683,
       "path": "src/alamatin/pipeline.py",
-      "sha256": "ee0d1a8426862188f95079a83fe2c32118ecebbe9c68a5f61978e96e4c77e705"
+      "sha256": "dcf607332aee994d9de0ccbdb3581c2863f4e031ec600dfa55013fea8e38df70"
     },
     {
       "bytes": 11736,
@@ -171,8 +171,8 @@
     }
   },
   "release_candidate": {
-    "built_from_commit": "542cba1cb9e271ebb1e3eb5d6bf19dcf9654fac5",
-    "describe": "542cba1",
+    "built_from_commit": "87d1eae1cfbdb59dc60efe5169e6fe0834a21ad7",
+    "describe": "87d1eae",
     "note": "built_from_commit is the parent of the commit storing this manifest; verification compares file digests, not the commit"
   },
   "schema_version": "1.0.0",

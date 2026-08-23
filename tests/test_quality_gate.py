@@ -137,7 +137,12 @@ class QualityGateReasonCodeTests(unittest.TestCase):
             result.issues[0].affected_fields,
             ("KECAMATAN", "KODEPOS"),
         )
-        self.assertIn("KECAMATAN, KODEPOS", result.issues[0].clarification_question)
+        # The machine-readable identifiers stay in affected_fields, asserted
+        # above. The prose names the same fields in a form a seller reads, so
+        # this asserts the readable labels rather than the enum values.
+        question = result.issues[0].clarification_question
+        self.assertIn("kecamatan", question)
+        self.assertIn("kode pos", question)
 
     def test_ambiguous_candidates_require_location_context(self):
         result = evaluate_quality_gate(
@@ -160,7 +165,12 @@ class QualityGateReasonCodeTests(unittest.TestCase):
         )
         self.assertEqual(result.status, PERLU_KONFIRMASI)
         self.assertEqual(result.reason_codes, (KELURAHAN_TIDAK_DITEMUKAN,))
-        self.assertIn("tidak membuktikan alamat salah", result.issues[0].message)
+        # The wording changed to name the value and cite the reference scope;
+        # what must not change is the refusal to call a coverage gap a wrong
+        # address. Asserted on meaning, not on one phrasing.
+        message = result.issues[0].message
+        self.assertIn("bukan bahwa alamat salah", message)
+        self.assertIn("Jawa Barat", message)
 
     def test_pending_semantic_correction_requires_confirmation(self):
         result = evaluate_quality_gate(

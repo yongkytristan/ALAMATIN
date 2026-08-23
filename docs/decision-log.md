@@ -157,3 +157,43 @@ auditable rather than silent.
   - Also rejected: adding noise-specific designator spellings (`kat` for
     `kab`, a space-split `k ecamatan`) that would each have fixed exactly one
     tuning example.
+
+## DEC-009 — Issues must name the reference value, not only the field
+
+- Date: 2026-08-23
+- Status: accepted by the project owner.
+- Decision: every administrative issue states what the governed reference holds
+  beside what the address carries. `"Komponen administratif berikut saling
+  bertentangan: KECAMATAN."` becomes `"Menurut data wilayah Jawa Barat,
+  Kelurahan/desa Braga tercatat berada di Kecamatan Sumur Bandung, sedangkan
+  alamat ini menulis Coblong."`
+- Rationale: naming only the field told a seller which field disagreed and
+  nothing they could act on. The reference value was already available in the
+  validator's candidate; it simply never reached the response.
+- A value absent from the reference is described as **not matching the Jawa
+  Barat reference data**, never as unrecognised and never as a wrong address.
+  The first is unhelpful, the second is a claim the reference cannot support: a
+  village missing from a 5,957-row Jawa Barat reference is a gap in that
+  reference. The message keeps an explicit sentence saying the address is
+  unverified rather than wrong, and a test asserts it.
+- Consequences:
+  - `evaluate_quality_gate` gains an optional `submitted` mapping. It affects
+    prose only; a test asserts that wildly different submitted values leave the
+    status, severities, and reason codes identical.
+  - **The frozen contract is untouched.** The issue object has
+    `additionalProperties: false` and six fixed fields, so no field was added;
+    the reference value travels inside `message` and `clarification_question`,
+    which are free-form strings.
+  - `RULES_VERSION` stays `quality-gate-v1`. The rules it names -- status
+    precedence, severities, and reason codes -- are unchanged; only prose
+    changed, and the change is recorded by the manifest's file digests. Bumping
+    it would imply the sealed evaluation's gate figures no longer apply, which
+    would be false.
+  - Reference values are shown as **evidence**, never applied. The frozen scope
+    forbids applying a substantive change without a human, so no correction is
+    proposed or written into any component.
+  - The three UI demo addresses were replaced. Against the real backend all
+    three previously returned `PERLU_KONFIRMASI`, so the product tour
+    demonstrated nothing; and the fixture path routed by substring, which
+    mis-classified an address as soon as its wording changed. Routing now
+    matches the demo constants themselves.

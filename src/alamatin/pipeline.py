@@ -287,7 +287,12 @@ class AddressPipeline:
         values = normalization.values()
         validation = self.validator.validate(values)
         quality = evaluate_quality_gate(
-            validation, normalization_changes=normalization.changes
+            validation,
+            normalization_changes=normalization.changes,
+            # Passed so an issue can name the value the address actually carries
+            # beside the value the reference holds. It affects prose only; the
+            # status is still decided by reason codes and severities.
+            submitted=values,
         )
         # Resolved after the gate on purpose: a geocoder result must never
         # change the operational status. An external failure cannot turn a
