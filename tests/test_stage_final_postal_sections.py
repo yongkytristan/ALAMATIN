@@ -57,8 +57,8 @@ class StageFinalPostalSectionsTest(unittest.TestCase):
         ]
         if not all(path.exists() for path in paths):
             self.skipTest(
-                "section-1/2/3 are internal-only artifacts (see data/final/README.md); "
-                "not every clone of this repository carries them"
+                "section-1/2/3 are restricted review artifacts "
+                "(see data/final/README.md) and are not redistributed"
             )
         sections: list[list[dict[str, str]]] = []
         headers: list[list[str]] = []

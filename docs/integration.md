@@ -39,7 +39,7 @@ These are deliberate and documented rather than hidden.
 
 **The runtime extractor is the rule baseline, not the fine-tuned model.** The
 selected NER candidate is a 712 MB release asset, and `.gitignore` excludes
-`*.safetensors`, so no model weights exist in either repository. The default
+`*.safetensors`, so no model weights are tracked in this repository. The default
 extractor is `regex_extractor`, and `versions.model` reports
 `regex-baseline-v1.2` — it never claims a model that did not run. The extractor is
 injected, so serving the fine-tuned model later requires no pipeline change.

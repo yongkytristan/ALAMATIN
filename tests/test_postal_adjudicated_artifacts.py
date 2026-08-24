@@ -14,9 +14,9 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(stream))
 
 
-# These evidence gates read governed datasets that data/sources.md keeps in the
-# private repository, so they run there and skip in the public mirror. The
-# assertions stay visible either way; only the restricted inputs are absent.
+# These evidence gates read governed datasets whose row-level content is not
+# redistributed. The assertions remain public; only the restricted inputs are
+# absent from this repository.
 GOVERNED_INPUTS = (
     ROOT / "data" / "processed" / "jabar-postal-consensus-accepted.csv",
     ROOT / "data" / "processed" / "jabar-reference-v1.csv",

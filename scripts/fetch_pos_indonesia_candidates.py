@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch rate-limited Pos Indonesia observations for candidate review rows.
 
-This internal-only tool submits the same public postcode search form a reviewer
+This review-only tool submits the same public postcode search form a reviewer
 uses, caches each unique village-name response, and accepts a result only when
 village, district, city/regency, and province all match the target row. It does
 not promote observations into the verified reference dataset.
@@ -317,7 +317,7 @@ def build_observations(
                 "exact_result_count": str(len(exact)) if cached else "",
                 "evidence_url": SEARCH_URL,
                 "note": (
-                    "Rate-limited internal observation; exact hierarchy match; "
+                    "Rate-limited review observation; exact hierarchy match; "
                     "requires adjudication before promotion."
                 ),
             }

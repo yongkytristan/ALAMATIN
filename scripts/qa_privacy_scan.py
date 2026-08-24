@@ -84,6 +84,11 @@ SECRET_RULES = (
 #: Indonesian mobile numbers, the PII shape this project redacts.
 PII_RULES = (
     Rule(
+        "email_address",
+        re.compile(r"(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b"),
+        "a raw email address",
+    ),
+    Rule(
         "indonesian_mobile",
         re.compile(r"(?<![\w.+-])(?:\+?62|0)8\d{2}[\s.-]?\d{3,4}[\s.-]?\d{3,5}(?![\w-])"),
         "a raw Indonesian mobile number",
@@ -101,16 +106,17 @@ ALLOWLIST: dict[tuple[str, str], str] = {
     ("scripts/qa_privacy_scan.py", "github_token"): "the rule patterns themselves",
     ("scripts/qa_privacy_scan.py", "aws_access_key_id"): "the rule patterns themselves",
     ("scripts/qa_privacy_scan.py", "slack_token"): "the rule patterns themselves",
+    ("scripts/qa_privacy_scan.py", "email_address"): "the rule patterns themselves",
     ("tests/test_qa_privacy_scan.py", "indonesian_mobile"): "synthetic separated/prefixed forms proving the rule fires",
     ("tests/test_pii.py", "indonesian_mobile"): "synthetic numbers exercising redaction",
     ("tests/test_build_human_noised_benchmark.py", "indonesian_mobile"): "synthetic number in a test asserting phone-like text is flagged",
     ("tests/test_pipeline.py", "indonesian_mobile"): "one synthetic number in the mixed-PII case",
     ("tests/test_service.py", "indonesian_mobile"): "one synthetic number in the mixed-PII case",
-    # Internal-only OSM extract. Two business landmarks (a cafe and a bar)
+    # Restricted OSM review extract. Two business landmarks (a cafe and a bar)
     # have a phone number mis-entered into tag_addr:housenumber by an
     # OpenStreetMap contributor. Business contact data published under ODbL,
     # not recipient PII, and this file is never published.
-    ("data/interim/osm-extraction/landmarks.csv", "indonesian_mobile"): "OSM business phone mis-entered as a housenumber; ODbL business data, internal-only file",
+    ("data/interim/osm-extraction/landmarks.csv", "indonesian_mobile"): "OSM business phone mis-entered as a housenumber; ODbL business data in a non-redistributed review file",
     ("docs/pii-handling.md", "indonesian_mobile"): "documented example of a redacted number",
     ("docs/integration.md", "indonesian_mobile"): "documented example of a redacted number",
 }

@@ -68,7 +68,7 @@ looking for one, and so a future change that introduces one is visible as drift.
 `regex-baseline-v1.2`, which lives in the repository. The fine-tuned candidate
 `ner-targeted-v2` is a 712 MB release asset recorded in
 `experiments/ner-final-candidate/release_manifest.json` with its SHA-256; it is
-in neither repository and is not served.
+not tracked in this repository and is not served.
 
 `versions.model` reports the extractor that actually ran, so no response claims a
 model that did not. Any accuracy figure quoted from the model evaluation
@@ -108,8 +108,8 @@ test asserts the manifest lists none as included.
 
 ## real_dev verification and critical errors
 
-The `real_dev` split and its per-example artifacts are governed and stay in the
-private repository under `data/sources.md`. What is published here:
+The `real_dev` split is governed and its row-level content is not redistributed
+under `data/sources.md`. What is published here:
 
 - `experiments/ner-v1-real-dev/`, `experiments/ner-targeted-v2-real-dev/`, and
   `experiments/ner-lora-kevin-real-dev/` carry `metrics.json`,
@@ -120,16 +120,18 @@ private repository under `data/sources.md`. What is published here:
   address spans from the governed school benchmark.
 
 Those artefacts describe the fine-tuned candidates. **The release candidate runs
-the rule baseline**, whose `real_dev` metrics live in
-`data/interim/baselines/regex_rule_v1-real_dev.json` in the private repository.
-Publishing a head-to-head comparison across all approaches on the same metric is
-ALM-036; until that lands, no cross-approach claim should be made from these
-artefacts.
+the rule baseline**. Its aggregate comparison against the candidate approaches
+is published in `experiments/comparison-real-dev/results.json` and documented in
+`docs/approach-comparison.md`. Row-level governed inputs remain withheld.
 
 ## Sealed test
 
 - Authorized openings: **1**
-- Opened: **no**
+- Opened: **yes, once after the release candidate was frozen**
+
+The immutable result is published in
+`experiments/sealed-evaluation/results.json`. It records `openings_used: 1` and
+the frozen system identifiers used for the run.
 
 The authorization and the no-tuning declaration are recorded in the manifest with
 their provenance: given on the project owner's instruction, with per-member

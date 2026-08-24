@@ -9,15 +9,15 @@ Numbers are unique and permanent once published. A published number is never
 reused for a different decision, even if a gap results.
 
 `DEC-003` and `DEC-004` are **reserved** for the postal-review adjudication
-decisions dated 12 August 2026, which are recorded in the internal repository
-and not yet published here. They are not missing; they belong to work whose
+decisions dated 12 August 2026, whose row-level evidence is restricted and not
+redistributed here. They are not missing; they belong to work whose
 supporting evidence is governed by [`../data/sources.md`](../data/sources.md).
 
 The scope-freeze entry below was originally recorded as `DEC-003` and is now
 `DEC-006`. That renumbering is deliberate: the postal decisions predate it by
 ten days, so `DEC-003` was already theirs, and two different decisions cannot
-share a number across the two repositories. This note exists so the change is
-auditable rather than silent.
+share a number across the public and restricted records. This note exists so
+the change is auditable rather than silent.
 
 ## DEC-001 — Repository workflow baseline
 
@@ -49,17 +49,16 @@ auditable rather than silent.
   `click`, `h11`, and the conditional `colorama` and `typing_extensions`, in
   `requirements.lock` with wheel and sdist hashes.
 - Rationale: `src/alamatin/api.py` is a dependency-free ASGI application, but
-  the Dewacloud deploy needs something to serve it, and the node has neither
-  `uvicorn` nor `gunicorn` installed. Pinning with hashes keeps the repository
+  the deployment target needs an ASGI server. Pinning with hashes keeps the repository
   dependency policy intact; the deploy installs with `--require-hashes`, so an
   unpinned or unhashed requirement fails the deploy rather than fetching an
   unverified package.
 - Consequences: the runtime stack is no longer standard-library-only, so a
   clean-clone check must install this lock file. Bumping the server is a
   reviewed change to this lock file, not an ad-hoc install on the node. The
-  node requires Python 3.10+ for both this server and the application's use of
-  `dataclass(slots=True)`; its system `python3` is 3.9, so deploys pin
-  `python3.11` (see [`deployment.md`](deployment.md)).
+  target requires Python 3.10+ for both this server and the application's use of
+  `dataclass(slots=True)`; deploys use an explicitly configured Python 3.11+
+  interpreter (see [`deployment.md`](deployment.md)).
 - Amendment, 2026-08-22: this entry originally named `alamatin.api:app` as the
   service entrypoint. ALM-028 wired the pipeline into
   `alamatin.service:app`, which is what deployments must serve;
@@ -124,8 +123,7 @@ auditable rather than silent.
   `regex-baseline-v1.1`, and re-freeze the ALM-034 manifest around it.
 - Measurement that justified it: on a pre-registered held-out half of
   `real_dev` (35 addresses; the partition is recorded as
-  `data/interim/evaluation-splits/real-dev-tuning-partition.json` in the
-  internal repository, alongside the governed split it partitions),
+  a restricted partition manifest alongside the governed split it partitions),
   entity F1 rises `0.8949` to `0.9027` and critical exact match `24/35` to
   `25/35`. The tuning half showed a larger gain, `+3` addresses against the
   held-out `+1`; the held-out figure is the one that counts.

@@ -23,6 +23,7 @@ FAKE_PHONE = "0812" + "3456789"
 FAKE_GOOGLE_KEY = "AIza" + "b" * 35
 FAKE_AWS_KEY = "AKIA" + "B" * 16
 FAKE_ASSIGNMENT = 'api_key = "' + "z" * 20 + '"'
+FAKE_EMAIL = "reviewer" + "@example.com"
 # Assembled at runtime so this source file contains no key-header literal:
 # scripts/check_repository.py scans tracked source text and would flag it.
 FAKE_KEY_HEADER = "-----BEGIN " + "OPENSSH" + " PRIVATE KEY-----"
@@ -36,6 +37,9 @@ class RuleDetectionTest(unittest.TestCase):
 
     def test_detects_a_raw_indonesian_mobile_number(self) -> None:
         self.assertIn("indonesian_mobile", self.rules_for(f"hubungi {FAKE_PHONE}"))
+
+    def test_detects_a_raw_email_address(self) -> None:
+        self.assertIn("email_address", self.rules_for(FAKE_EMAIL))
 
     def test_detects_separated_and_prefixed_mobile_forms(self) -> None:
         for variant in (
