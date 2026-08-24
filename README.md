@@ -4,6 +4,8 @@ ALAMATIN is a pre-fulfillment address quality gate that helps Indonesian seller
 operators identify incomplete, ambiguous, or administratively conflicting
 address components and request human confirmation before a waybill is created.
 
+**Live demo:** [alamatin.flow-app.my.id](https://alamatin.flow-app.my.id)
+
 It separates address components, redacts supported PII, checks the
 administrative chain against the governed Jawa Barat reference, and returns an
 operational status with actionable reason codes.
@@ -76,6 +78,9 @@ curl http://127.0.0.1:8000/health
 ```
 
 The response should report HTTP 200 and `"status":"healthy"`.
+
+The deployed health endpoint is available at
+<https://alamatin.flow-app.my.id/api/health>.
 
 ### 3. Start the web interface
 

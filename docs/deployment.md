@@ -4,6 +4,11 @@
 the Dewacloud node over SSH. It runs automatically on every push to `main` and
 can be triggered manually for a re-deploy or rollback.
 
+Public endpoints:
+
+- Application: <https://alamatin.flow-app.my.id>
+- Health check: <https://alamatin.flow-app.my.id/api/health>
+
 ## Current status
 
 The runtime code is now present: the API, contracts, quality gate, validator,
@@ -212,8 +217,8 @@ are not sensitive.
 | Variable | Default | Purpose |
 |---|---|---|
 | `DEWACLOUD_REMOTE_ROOT` | `/home/jelastic/alamatin` | Deploy root on the node. Override if the account uses a different home. |
-| `DEWACLOUD_HEALTH_URL` | unset | Full URL of `GET /health`. When unset, the post-deploy health check is skipped. |
-| `DEWACLOUD_APP_URL` | unset | Shown as the deployment URL on the GitHub run. |
+| `DEWACLOUD_HEALTH_URL` | `https://alamatin.flow-app.my.id/api/health` | Full public health-check URL. When unset, the post-deploy health check is skipped. |
+| `DEWACLOUD_APP_URL` | `https://alamatin.flow-app.my.id` | Shown as the deployment URL on the GitHub run. |
 
 The health check treats `503` as a distinct, reported outcome rather than a
 generic timeout, because the API returns `503` with `app: alive` when the
