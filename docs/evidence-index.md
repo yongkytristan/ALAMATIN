@@ -33,10 +33,10 @@ Current state: **15 measured, 6 not measured, 0 problems**.
 | Normalization changes applied on the synthetic validation split | `4,811` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
 | Additional valid administrative chains contributed by the normalizer | `0` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
 | Shipped extractor critical exact match on the synthetic validation split | `0.3933` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
-| Shipped extractor entity F1 on the synthetic validation split | `0.8923` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
-| Extraction latency p50 in milliseconds | `0.1027` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
-| Complete pipeline latency p50 in milliseconds | `28.2479` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
-| Extractor served by the release candidate | `regex-baseline-v1` | `experiments/release-candidate/manifest.json` | `scripts/build_release_manifest.py` |
+| Shipped extractor entity F1 on the synthetic validation split | `0.8922` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
+| Extraction latency p50 in milliseconds | `0.1043` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
+| Complete pipeline latency p50 in milliseconds | `28.3974` | `experiments/ablation/results.json` | `scripts/run_ablation.py` |
+| Extractor served by the release candidate | `regex-baseline-v1.2` | `experiments/release-candidate/manifest.json` | `scripts/build_release_manifest.py` |
 | Files frozen in the release candidate | `16` | `experiments/release-candidate/manifest.json` | `scripts/build_release_manifest.py` |
 | Critical exact match on the sealed real test set | `0.6692` | `experiments/sealed-evaluation/results.json` | `scripts/run_sealed_evaluation.py` |
 | Entity F1 on the sealed real test set | `0.8984` | `experiments/sealed-evaluation/results.json` | `scripts/run_sealed_evaluation.py` |
@@ -82,4 +82,4 @@ inferential claim.
 - Any claim about delivery success, returns, or failed deliveries is recorded as
   out of scope: nothing in this project measures a downstream outcome.
 - Figures from the fine-tuned NER model describe a system that is **not
-  served**; the release candidate runs `regex-baseline-v1`.
+  served**; the release candidate runs `regex-baseline-v1.2`.
