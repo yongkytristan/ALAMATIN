@@ -41,7 +41,7 @@ These are deliberate and documented rather than hidden.
 selected NER candidate is a 712 MB release asset, and `.gitignore` excludes
 `*.safetensors`, so no model weights exist in either repository. The default
 extractor is `regex_extractor`, and `versions.model` reports
-`regex-baseline-v1` — it never claims a model that did not run. The extractor is
+`regex-baseline-v1.2` — it never claims a model that did not run. The extractor is
 injected, so serving the fine-tuned model later requires no pipeline change.
 Any accuracy figure quoted from the model evaluation describes that model, not
 this default path.

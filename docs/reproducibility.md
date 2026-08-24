@@ -78,7 +78,7 @@ the fragile-download risk, not an omission.
 
 The runtime extractor is the deterministic rule baseline in
 `alamatin.pipeline.regex_extractor`, which lives in the repository.
-`versions.model` reports `regex-baseline-v1`, so a response never claims a model
+`versions.model` reports `regex-baseline-v1.2`, so a response never claims a model
 that did not run. There is nothing to download, so there is nothing to fail
 during a demo.
 
@@ -101,7 +101,7 @@ evaluation describe that model, not the baseline the demo runs.
 | Reference data | `data/processed/jabar-reference-v1-verified.json`, reported as `versions.reference_data` |
 | Quality-gate rules | `RULES_VERSION` (`quality-gate-v1`), reported in every response |
 | Output contract | `contracts/address-api.v1.schema.json`, `schema_version 1.0.0` |
-| Extractor | `REGEX_EXTRACTOR_VERSION` (`regex-baseline-v1`) |
+| Extractor | `REGEX_EXTRACTOR_VERSION` (`regex-baseline-v1.2`) |
 
 Every one of these appears in the `versions` block of an API response, so a
 result can be traced to the exact configuration that produced it.

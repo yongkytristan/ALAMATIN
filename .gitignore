@@ -23,6 +23,15 @@ node_modules/
 .next/
 coverage/
 
+# Generated proposal sources and media
+*.typ
+*.ipynb
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
 # Private and generated data
 data/raw/**
 data/private/**

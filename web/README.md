@@ -1,64 +1,82 @@
 # ALAMATIN web
 
-Single-address review UI for ALM-027, implemented with Next.js 16, React 19, and TypeScript. Next.js was selected because it gives the MVP a typed React UI today and a clear path to server-side integration later, while keeping all frontend work inside `web/`.
+Next.js 16, React 19, and TypeScript implementation of the single-address
+review interface.
 
-## Run locally
+## Run with the local backend
+
+Start the Python backend from the repository root as described in the main
+[README](../README.md). In another terminal:
 
 ```bash
 cd web
-npm install
+npm ci
+cp .env.example .env.local
 npm run dev
 ```
 
-Open <http://localhost:3000>. The UI defaults to provisional, synthetic fixtures so every required state can be demonstrated without a backend. Use the three “Coba contoh” options and then select “Periksa alamat”.
+On Windows PowerShell, use:
 
-## Production build
+```powershell
+Copy-Item .env.example .env.local
+npm run dev
+```
+
+Open <http://localhost:3000>. The supplied environment file routes browser
+requests through the same-origin `/api` proxy to
+<http://127.0.0.1:8000>. The backend therefore needs no CORS configuration.
+
+If the backend uses another origin, change `API_ORIGIN` in `.env.local`.
+
+## Fixture-only demo
+
+To run without a backend, remove `NEXT_PUBLIC_API_BASE_URL` from
+`.env.local` or do not create that file. The UI then uses typed synthetic
+fixtures. Use one of the “Coba contoh” options and select “Periksa alamat”.
+
+## Tests and production build
 
 ```bash
+npm test
 npm run build
 npm start
 ```
 
-## Tests
+The tests cover the contract, all demo addresses, the valid-address flow, and
+the confirmation → dirty → revalidation flow.
 
-```bash
-npm test
+## API contract
+
+`NEXT_PUBLIC_API_BASE_URL=/api` enables live requests.
+`next.config.ts` proxies them to `API_ORIGIN`, which defaults to
+`http://127.0.0.1:8000`.
+
+The request body is:
+
+```json
+{
+  "document_type": "address_parse_request",
+  "schema_version": "1.0.0",
+  "request_id": "req_demo_00001",
+  "input": {
+    "address_text": "Jl. Asia Afrika No. 1, Kel. Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+    "geocoding_consent": false
+  }
+}
 ```
 
-The component tests cover the complete valid-address flow and the explicit confirmation → dirty → revalidation flow.
+The canonical schema is `contracts/address-api.v1.schema.json`; the frontend
+loads it through `address-contract.js`. Do not create a frontend-only copy or
+rename `model_score` to `confidence`.
 
-## API integration
+## Privacy and interaction rules
 
-Set `NEXT_PUBLIC_API_BASE_URL` to `/api` and the app talks to the backend through the same-origin proxy in `next.config.ts`, so the backend needs no CORS headers. Point `API_ORIGIN` at the API if it is not on `http://127.0.0.1:8000`. The simplest local setup is a `.env.local` holding:
-
-```
-NEXT_PUBLIC_API_BASE_URL=/api
-NEXT_PUBLIC_HEALTH_AVAILABLE=true
-```
-
-Prefer the file over an inline environment variable: a shell that rewrites POSIX paths (Git Bash on Windows) turns `/api` into a Windows path, which is compiled into the bundle and produces a silent fetch failure.
-
-With no value set, `lib/api.ts` uses typed fixtures, routed by exact match against `DEMO_ADDRESSES`. Set `NEXT_PUBLIC_HEALTH_AVAILABLE=true` only when a safe health endpoint is actually connected; the health indicator is hidden by default.
-
-Load the schema through `address-contract.js`, which fetches the canonical
-`contracts/address-api.v1.schema.json`. Do not keep a frontend-only copy of the
-schema, and do not rename `model_score` to `confidence`: the frozen scope
-forbids presenting `model_score` as calibrated confidence.
-
-ALM-025 and ALM-026 are frozen and the alignment is done. The request body must be
-`{"document_type": "address_parse_request", "schema_version": "1.0.0",
-"request_id": ..., "input": {"address_text": ..., "geocoding_consent": ...}}`;
-sending `{"address": ...}` returns HTTP 422 `REQUEST_VALIDATION_ERROR`.
-
-## Interaction notes
-
-- Suggestions remain visually marked and cannot be copied until explicitly resolved and revalidated.
-- Any component edit preserves the previous value, marks the review as dirty, and disables final copying.
-- Raw addresses are kept in React memory only. They are not written to URLs, logs, analytics, local storage, or session storage.
-- The interface includes empty, loading, ready, needs-confirmation, invalid, dirty, input-error, and safe API-error states.
-
-## Known limitations
-
-- Fixtures use keyword routing purely for demonstration; address inference and reference lookup belong to the backend.
-- Health status is hidden until a health endpoint is connected.
-- The three demo addresses exercise the real backend; each was verified to return a distinct status. Against the fixture path they are matched by exact value, so changing one requires updating it in one place only.
+- Raw addresses remain in React memory only.
+- They are not written to URLs, logs, analytics, local storage, or session
+  storage.
+- Suggestions cannot be copied until they are explicitly resolved and
+  revalidated.
+- Editing a component preserves the previous value, marks the review dirty, and
+  disables final copying.
+- The UI includes empty, loading, ready, needs-confirmation, invalid, dirty,
+  input-error, and safe API-error states.

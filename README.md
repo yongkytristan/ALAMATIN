@@ -4,142 +4,189 @@ ALAMATIN is a pre-fulfillment address quality gate that helps Indonesian seller
 operators identify incomplete, ambiguous, or administratively conflicting
 address components and request human confirmation before a waybill is created.
 
-The frozen Jawa Barat release scope, operational meanings, priority cut-line,
-and allowed claims are defined in [docs/product-scope.md](docs/product-scope.md).
+It separates address components, redacts supported PII, checks the
+administrative chain against the governed Jawa Barat reference, and returns an
+operational status with actionable reason codes.
 
-## Current status
+## What is included
 
-The single-address path runs end to end: PII redaction, component extraction,
-normalization with provenance, administrative validation against the governed
-Jawa Barat reference, and the frozen quality gate, exposed through the HTTP
-contract and a Next.js review UI.
+- A Python HTTP API in `src/alamatin/`.
+- A Next.js single-address review UI in `web/`.
+- The frozen API contract in `contracts/`.
+- The governed runtime reference in
+  `data/processed/jabar-reference-v1-verified.json`.
+- Tests, evaluation evidence, and reproducibility scripts.
 
-The runtime extractor is the deterministic rule baseline, and responses report
-`versions.model` as `regex-baseline-v1`. The fine-tuned NER candidate is a
-release asset and is not part of this release candidate; see
-[docs/integration.md](docs/integration.md).
+The current runtime extractor is the deterministic
+`regex-baseline-v1.2`. The selected fine-tuned NER candidate is recorded as a
+research/release asset but is not served by this build. See
+[the integration notes](docs/integration.md) and
+[the frozen release record](docs/release-candidate.md).
 
-Raw and derived source data remain ignored and cannot be redistributed under the
-recorded source terms. See [data/sources.md](data/sources.md).
+## Local setup
+
+### Prerequisites
+
+- Git
+- Python 3.11 or newer
+- Node.js 20.9 or newer and npm
+- Docker Desktop or Docker Engine with Compose, optional
+
+No API key or private dataset is required for the default local demo.
+
+### 1. Clone and prepare the backend
+
+```bash
+git clone https://github.com/yongkytristan/ALAMATIN.git
+cd ALAMATIN
+python -m venv .venv
+```
+
+Activate the virtual environment:
+
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+```
+
+```bash
+# macOS or Linux
+source .venv/bin/activate
+```
+
+Install the exact runtime dependencies and verify the clone:
+
+```bash
+python -m pip install --require-hashes -r requirements.lock
+python scripts/verify_clean_clone.py
+```
+
+A healthy clone ends with `clean clone is healthy`.
+
+### 2. Start the backend
+
+```bash
+python -m uvicorn alamatin.service:app --app-dir src --host 127.0.0.1 --port 8000
+```
+
+Verify it from another terminal:
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+The response should report HTTP 200 and `"status":"healthy"`.
+
+### 3. Start the web interface
+
+Keep the backend running, then open another terminal:
+
+```bash
+cd web
+npm ci
+```
+
+Copy the supplied frontend environment template:
+
+```powershell
+# Windows PowerShell
+Copy-Item .env.example .env.local
+```
+
+```bash
+# macOS or Linux
+cp .env.example .env.local
+```
+
+Start the UI:
+
+```bash
+npm run dev
+```
+
+Open <http://localhost:3000>. The browser sends `/api/*` requests through the
+Next.js proxy to the backend at `http://127.0.0.1:8000`.
+
+To demonstrate the interface without the backend, remove
+`NEXT_PUBLIC_API_BASE_URL` from `web/.env.local`; the UI will use its typed
+synthetic fixtures.
+
+## Docker alternative
+
+The Docker Compose setup starts the backend only:
+
+```bash
+docker compose up --build
+curl http://127.0.0.1:8000/health
+```
+
+Run the web setup above separately if the review UI is also needed.
+
+## Tests
+
+Backend and repository checks:
+
+```bash
+python -m unittest discover -s tests
+python scripts/check_repository.py
+python scripts/qa_privacy_scan.py
+python scripts/qa_report.py
+```
+
+Frontend checks:
+
+```bash
+cd web
+npm ci
+npm test
+npm run build
+```
+
+The Python runtime tests do not require network access. Dependency installation
+does.
 
 ## Repository layout
 
 | Path | Purpose |
 |---|---|
-| `data/` | Dataset metadata and reproducible data instructions; raw/private data is never committed |
-| `scripts/` | Reproducible repository, data, training, and evaluation commands |
-| `src/` | Python backend and ML packages |
-| `web/` | Frontend application |
+| `src/alamatin/` | Backend runtime and reusable address-processing modules |
+| `web/` | Next.js review UI and component tests |
+| `contracts/` | Canonical API schema and request/response examples |
+| `data/` | Redistributable runtime data, dataset metadata, and synthetic splits |
 | `tests/` | Unit, integration, privacy, and reproducibility tests |
-| `docs/` | Architecture, governance, decisions, risks, and evaluation documentation |
+| `docs/` | Architecture, scope, governance, limitations, and results |
+| `scripts/` | Data preparation, evaluation, QA, and deployment utilities |
+| `configs/` | Frozen experiment configurations |
+| `experiments/` | Small, auditable result artifacts used by project claims |
+| `requirements/` | Dependencies used only for reproducible model experiments |
 
-## Quick start
+Generated proposal sources, videos, exploratory notebooks, model weights,
+raw/private datasets, and local build outputs are intentionally excluded from
+the public repository.
 
-Requirements: Python 3.11 or newer, and Git. Python 3.10 is the hard floor: the
-code uses `dataclass(slots=True)`.
+## Important boundaries
 
-### Verify the clone
+- The MVP reference covers Jawa Barat and contains 5,957 verified
+  administrative rows.
+- The running release serves a deterministic rule-based extractor, not the NER
+  checkpoint.
+- Raw customer addresses are not committed, cached, or written to disk by the
+  request path.
+- `alamatin.service:app` is the configured application.
+  `alamatin.api:app` intentionally has no handlers and returns 503.
+- Files in `contracts/examples/` illustrate the contract shape; they are not
+  guaranteed recordings of current pipeline output.
 
-```bash
-python scripts/verify_clean_clone.py
-```
+The frozen scope and allowed claims are in
+[docs/product-scope.md](docs/product-scope.md). Known limitations are in
+[docs/limitations.md](docs/limitations.md).
 
-Checks the interpreter, every runtime file, that no secret is needed, that the
-application imports, that the pipeline answers a real address, and that
-`/health` returns 200. Every failure names the step at fault.
+## Documentation and contribution
 
-### Run the tests
+[docs/README.md](docs/README.md) is the documentation index. Start with
+[docs/architecture.md](docs/architecture.md) to understand the request flow and
+[docs/reproducibility.md](docs/reproducibility.md) for the clean-clone contract.
 
-```bash
-python -m unittest discover -s tests
-python scripts/check_repository.py     # tracked-file and repository policy
-python scripts/qa_privacy_scan.py      # secrets and raw PII
-python scripts/qa_report.py            # critical-path coverage and skips
-```
-
-No network access is required for any of these.
-
-### Run the service
-
-```bash
-python -m pip install --require-hashes -r requirements.lock
-PYTHONPATH=src python -m uvicorn alamatin.service:app --port 8000
-```
-
-Then:
-
-```bash
-curl http://localhost:8000/health
-
-curl -X POST http://localhost:8000/parse   -H 'Content-Type: application/json'   -d '{"document_type":"address_parse_request","schema_version":"1.0.0",
-       "request_id":"req_demo_00001",
-       "input":{"address_text":"Jl. Asia Afrika No. 1, Kel. Braga, Kec. Sumur Bandung, Kota Bandung, Jawa Barat 40111",
-                "geocoding_consent":false}}'
-```
-
-That address returns `SIAP_DIPROSES`. Dropping the `Kel.`/`Kec.` prefixes or the
-province returns `PERLU_KONFIRMASI` with `MISSING_ADMINISTRATIVE_FIELDS`, which
-is the intended behaviour: the rule baseline needs those markers.
-
-The files in `contracts/examples/` illustrate the **contract shape** for each
-state. They are hand-authored fixtures, not recorded pipeline output, so feeding
-`success.request.json` to the running service does not necessarily reproduce
-`success.response.json`.
-
-`alamatin.service:app` is the wired application. `alamatin.api:app` is the
-transport with unconfigured handlers and answers `503` by design.
-
-### Run in Docker
-
-```bash
-docker compose up --build
-curl http://localhost:8000/health
-```
-
-### Run the review UI
-
-```bash
-cd web
-npm install
-npm run dev        # http://localhost:3000
-npm test
-```
-
-The UI defaults to typed fixtures so every state can be demonstrated without a
-backend. Set `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000` to use the live
-API.
-
-Installing dependencies needs network access; nothing else does. See
-[docs/reproducibility.md](docs/reproducibility.md).
-
-## Working agreement
-
-- Create branches named `feat/<short-description>` or `fix/<short-description>`.
-- Keep pull requests small and focused on one reviewable outcome.
-- Require at least one reviewer before merge.
-- Reference the relevant issue using `Closes #...` or `Refs #...`.
-- Never commit secrets, raw personal addresses, customer data, private contact
-  details, model checkpoints, or unlicensed datasets.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) and
-[docs/team-workflow.md](docs/team-workflow.md) for the complete workflow.
-
-## Security and privacy
-
-Use `.env.example` only as a template. Actual credentials belong in an ignored
-`.env` file or the deployment platform's secret store. Public-address datasets
-must still pass provenance, licensing, redistribution, and PII reviews before
-use. See [docs/artifact-policy.md](docs/artifact-policy.md).
-
-Address text is held for the lifetime of a request and no longer: nothing is
-cached, nothing is written to disk on the request path, and no log line contains
-address or exception text. Consent, logging, cache, retention, and the OSM
-attribution obligation are documented in
-[docs/data-handling.md](docs/data-handling.md).
-
-## Documentation
-
-[docs/README.md](docs/README.md) indexes every document. Start with
-[docs/architecture.md](docs/architecture.md) for how a request flows, and
-[docs/limitations.md](docs/limitations.md) for what the numbers do and do not
-support.
+Contribution and security rules are documented in
+[CONTRIBUTING.md](CONTRIBUTING.md), [docs/team-workflow.md](docs/team-workflow.md),
+and [docs/artifact-policy.md](docs/artifact-policy.md).

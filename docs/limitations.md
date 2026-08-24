@@ -21,7 +21,7 @@ contradicted by its own evaluation. Evidence:
 
 ## The model that was selected is not the model that runs
 
-The release candidate serves `regex-baseline-v1`. The selected fine-tuned
+The release candidate serves `regex-baseline-v1.2`. The selected fine-tuned
 candidate `ner-targeted-v2` is a 712 MB release asset, excluded from both
 repositories by `.gitignore`, and is **not served**.
 
