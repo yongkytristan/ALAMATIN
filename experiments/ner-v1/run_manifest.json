@@ -55,7 +55,7 @@
       "sha256": "76cd3c68e3643f6097b8e735984067bbc2bcc149f0f4d8c50e4639e48dcadac5"
     }
   },
-  "source_notebook": "src/alamatin/bert-ner-reviewed.ipynb",
+  "source_script": "scripts/train_ner_v1.py",
   "training_config": {
     "path": "configs/ner-v1.json",
     "sha256": "4cb7e86132a74027f67d9e26d02125023f67f6fd7b108c52dbbe6860826d9d0b"

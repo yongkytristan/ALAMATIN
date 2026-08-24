@@ -1,15 +1,14 @@
 {
   "schema_version": "1.0.0",
   "release": {
-    "repository": "yongkytristan/ALAMATIN-internal",
     "tag": "ner-v1.0.0",
-    "url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/tag/ner-v1.0.0"
+    "availability": "model weights are not redistributed in the public repository"
   },
   "asset": {
     "name": "ner-v1-inference.tar",
     "bytes": 712084480,
     "sha256": "0dcb9d4266bdfc419f6e29ccaf7482f9006bc96f2c4948a469efb1fe9931b0f5",
-    "download_url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/download/ner-v1.0.0/ner-v1-inference.tar"
+    "distribution": "not redistributed; checksum retained for provenance"
   },
   "contents": [
     "config.json",

@@ -61,18 +61,20 @@ ignored, which is worse than no scanner.
 
 ## Skipped tests are listed, never hidden
 
-13 tests skip in the public repository. Every one is a governed-data evidence
-gate: the datasets stay private under `data/sources.md`, so the assertions run in
-the private repository and skip here. `qa_report.py` prints each reason with a
-count.
+25 tests skip in the public repository. Every one is an evidence gate whose
+required governed input or recorded baseline is not redistributed.
+`qa_report.py` prints each reason with a count.
 
 | Count | Reason |
 |---|---|
+| 1 | recorded synthetic-dev baseline is not present |
+| 9 | `real_dev` split is governed data; see `data/sources.md` |
 | 12 | governed dataset not present in this repository; see `data/sources.md` |
-| 1 | `section-1/2/3` are internal-only artifacts; not every clone carries them |
+| 2 | governed `real_dev` split not present; see `data/sources.md` |
+| 1 | restricted `section-1/2/3` review artifacts are not redistributed |
 
-In the internal repository the same suite runs with **zero skips**, which is the
-check that these guards are conditional rather than a permanent disable.
+The custodian-side validation suite runs with **zero skips**, which confirms
+that these guards are conditional rather than a permanent disable.
 
 ## Robustness
 

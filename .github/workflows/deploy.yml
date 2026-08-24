@@ -25,7 +25,6 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.11"
-  DEFAULT_REMOTE_ROOT: /home/jelastic/alamatin
 
 jobs:
   verify:
@@ -60,9 +59,8 @@ jobs:
             --python-version 3.11 --implementation cp --abi cp311 \
             --platform manylinux2014_x86_64 --target "$RUNNER_TEMP/lockcheck"
 
-      # "Pipeline first, code later" is a deliberate state: the runtime modules
-      # still live in the internal repository. Fail loudly here rather than
-      # shipping an empty skeleton that would look like a successful deploy.
+      # Fail loudly if a release branch is missing required runtime modules,
+      # rather than shipping an incomplete skeleton as a successful deploy.
       - name: Confirm a deployable application is present
         run: |
           missing=0
@@ -73,8 +71,8 @@ jobs:
             fi
           done
           if [ "$missing" -eq 1 ]; then
-            echo "The deploy pipeline is ready, but the runtime code has not landed here yet."
-            echo "Sync the API, contracts, and web application from the internal repository first."
+            echo "The selected release does not contain every required runtime file."
+            echo "Restore the API, contract, and web application before deploying."
             exit 1
           fi
           echo "Deployable application present."
@@ -104,6 +102,7 @@ jobs:
           PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
           KEY: ${{ secrets.DEWACLOUD_SSH_KEY }}
           KNOWN_HOSTS: ${{ secrets.DEWACLOUD_SSH_KNOWN_HOSTS }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT }}
         run: |
           missing=""
           [ -z "$HOST" ] && missing="$missing DEWACLOUD_SSH_HOST"
@@ -111,6 +110,7 @@ jobs:
           [ -z "$PORT" ] && missing="$missing DEWACLOUD_SSH_PORT"
           [ -z "$KEY" ] && missing="$missing DEWACLOUD_SSH_KEY"
           [ -z "$KNOWN_HOSTS" ] && missing="$missing DEWACLOUD_SSH_KNOWN_HOSTS"
+          [ -z "$REMOTE_ROOT" ] && missing="$missing DEWACLOUD_REMOTE_ROOT"
           if [ -n "$missing" ]; then
             echo "::error title=Missing deployment secrets::Set:$missing"
             echo "See docs/deployment.md for how to generate each value."
@@ -145,7 +145,7 @@ jobs:
           esac
           if [ -n "$bad" ]; then
             echo "::error title=Malformed deployment secrets::Fix:$bad"
-            echo "A hostname must be just the host, e.g. gate.infra.dewacloud.com --"
+            echo "A hostname must be just the host, e.g. ssh.example.invalid --"
             echo "no user@ prefix, no -p flag, no surrounding ssh command."
             echo "See docs/deployment.md."
             exit 1
@@ -203,7 +203,7 @@ jobs:
           HOST: ${{ secrets.DEWACLOUD_SSH_HOST }}
           USER_NAME: ${{ secrets.DEWACLOUD_SSH_USER }}
           PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
-          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT }}
         run: |
           RELEASE="$(date -u +%Y%m%d%H%M%S)-$(echo "$GITHUB_SHA" | cut -c1-12)"
           echo "RELEASE=$RELEASE" >> "$GITHUB_ENV"
@@ -228,7 +228,7 @@ jobs:
           HOST: ${{ secrets.DEWACLOUD_SSH_HOST }}
           USER_NAME: ${{ secrets.DEWACLOUD_SSH_USER }}
           PORT: ${{ secrets.DEWACLOUD_SSH_PORT }}
-          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT }}
           RESTART_COMMAND: ${{ secrets.DEWACLOUD_RESTART_COMMAND }}
           # The node's system python3 is 3.9, which cannot run this codebase.
           NODE_PYTHON: ${{ vars.DEWACLOUD_PYTHON || 'python3.11' }}
@@ -280,7 +280,7 @@ jobs:
       - name: Report rollback instructions on failure
         if: failure()
         env:
-          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT || env.DEFAULT_REMOTE_ROOT }}
+          REMOTE_ROOT: ${{ vars.DEWACLOUD_REMOTE_ROOT }}
         run: |
           echo "::warning title=Deploy failed::The previous release is still on the node."
           echo "Roll back by re-running this workflow with 'release_ref' set to the last good commit,"

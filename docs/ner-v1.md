@@ -39,18 +39,13 @@ outside ALM-018.
 
 ## Inference artifact
 
-The inference package is published as the private internal release
-`ner-v1.0.0`. It contains only the model/config/tokenizer and experiment
-metadata; optimizer state is intentionally excluded.
+The inference package is recorded as `ner-v1.0.0`, but its model weights are
+not redistributed in this public repository. The public evidence retains the
+archive name, byte size, SHA-256 digest, model configuration, metrics, and
+training provenance. The running MVP does not load this package.
 
-```bash
-gh release download ner-v1.0.0 \
-  --repo yongkytristan/ALAMATIN-internal \
-  --pattern ner-v1-inference.tar
-```
-
-Verify the archive SHA-256 against
-`experiments/ner-v1/release_manifest.json`, extract it, then run:
+If an approved copy of the archive is supplied separately, verify its SHA-256
+against `experiments/ner-v1/release_manifest.json`, extract it, then run:
 
 ```bash
 python scripts/verify_ner_v1_artifact.py \

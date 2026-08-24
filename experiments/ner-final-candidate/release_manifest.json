@@ -1,15 +1,14 @@
 {
   "schema_version": "1.0.0",
   "release": {
-    "repository": "yongkytristan/ALAMATIN-internal",
     "tag": "ner-final-candidate-v1.0.0",
-    "url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/tag/ner-final-candidate-v1.0.0"
+    "availability": "model weights are not redistributed in the public repository"
   },
   "asset": {
     "name": "ner-final-candidate.tar",
     "bytes": 712125440,
     "sha256": "b556eb708c935a354a7e0f397837cb53b162f4f8d73ec049160f918ab16ad83a",
-    "download_url": "https://github.com/yongkytristan/ALAMATIN-internal/releases/download/ner-final-candidate-v1.0.0/ner-final-candidate.tar"
+    "distribution": "not redistributed; checksum retained for provenance"
   },
   "selected_model": {
     "candidate_id": "ner-targeted-v2",

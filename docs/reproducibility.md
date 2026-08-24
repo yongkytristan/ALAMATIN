@@ -84,7 +84,7 @@ during a demo.
 
 The selected fine-tuned candidate (`ner-targeted-v2`) is a 712 MB release asset
 recorded in `experiments/ner-final-candidate/release_manifest.json` with its
-SHA-256. It is not in either repository — `.gitignore` excludes
+SHA-256. It is not tracked in this repository — `.gitignore` excludes
 `*.safetensors` — and it is **not** part of the release candidate. If it is ever
 served, the extractor is injected, so no pipeline change is needed; verify the
 asset against the manifest checksum before use.

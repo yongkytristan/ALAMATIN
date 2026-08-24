@@ -165,5 +165,5 @@ python scripts/compare_approaches_real_dev.py
 python -m unittest discover -s tests -p test_approach_comparison.py
 ```
 
-Requires the governed `real_dev` split, which lives in the internal repository
-only; see [`../data/sources.md`](../data/sources.md).
+Requires the governed `real_dev` split, whose row-level content is not
+redistributed; see [`../data/sources.md`](../data/sources.md).

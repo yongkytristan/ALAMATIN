@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Activate an uploaded ALAMATIN release on the Dewacloud node.
+# Activate an uploaded ALAMATIN release on the production host.
 #
 # Streamed to the node over stdin by .github/workflows/deploy.yml and run as
 # `bash -s -- <root> <release> <restart-command>`. Arguments are used instead of
@@ -14,10 +14,8 @@ set -euo pipefail
 ROOT="${1:?deploy root is required}"
 RELEASE="${2:?release name is required}"
 RESTART_COMMAND="${3:-}"
-# Not plain "python3": the Dewacloud node ships AlmaLinux 9's system Python
-# 3.9, and this codebase uses dataclass(slots=True), which is 3.10+. Building
-# the virtualenv from python3 there produces an environment the application
-# cannot import.
+# Use an explicit interpreter because the application requires Python 3.10+
+# and a host's default `python3` may be older.
 PYTHON_BIN="${4:-python3.11}"
 
 RELEASE_DIR="$ROOT/releases/$RELEASE"
@@ -34,7 +32,7 @@ cd "$RELEASE_DIR"
 # after a deploy that reported success.
 if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
   echo "error: interpreter '$PYTHON_BIN' not found on this node." >&2
-  echo "       Install it (AlmaLinux: dnf install -y python3.11) or set the" >&2
+  echo "       Install Python 3.11+ on the host or set the" >&2
   echo "       DEWACLOUD_PYTHON repository variable to an interpreter that exists." >&2
   exit 1
 fi

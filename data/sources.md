@@ -139,8 +139,8 @@ derived from them:
 Not redistributed: the raw Open Data Jabar extract, per-source value columns
 (`postal_code_diskominfo`, `postal_code_open_data_jabar`,
 `postal_code_kodepos_dev`), reviewer worksheets, and raw
-Kodepos.dev/Pos Indonesia observations. Those stay in the private repository
-under the standing decisions above.
+Kodepos.dev/Pos Indonesia observations. Those stay in the restricted evidence
+archive under the standing decisions above.
 
 This decision applies only to the specific derived files listed above. It
 does not change `open_data_jabar_postal_2023`'s `internal_noncommercial_only`

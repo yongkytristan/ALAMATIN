@@ -134,10 +134,11 @@ python scripts/select_ner_final_candidate.py
 The committed augmentation, comparison, metrics, config, dependency lock, and
 run manifest allow every selected input and output checksum to be verified.
 
-The inference package is published in the private internal release
-`ner-final-candidate-v1.0.0`. Verify both its archive digest from
-`experiments/ner-final-candidate/release_manifest.json` and the selected model
-digest above before inference.
+The inference package is recorded as `ner-final-candidate-v1.0.0`, but its model
+weights are not redistributed in this public repository. The manifest retains
+the archive size and digest for provenance. If an approved copy is supplied
+separately, verify both its archive digest and the selected model digest above
+before inference.
 
 ## Sealed-test boundary
 

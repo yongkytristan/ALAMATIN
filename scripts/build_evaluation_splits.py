@@ -6,15 +6,14 @@ Splits (per docs/evaluation_protocol.md sections 7-8):
 - `synthetic_train` / `synthetic_dev` / `synthetic_test`: already produced by
   scripts/generate_synthetic_addresses.py (data/synthetic/{train,val,test}.json).
   This script only records their counts and content hashes.
-- `real_dev`: an open subset of the ALM-013 gold human-noised benchmark for
-  repeated ML iteration. Written in full to an internal-only, git-tracked
-  path.
+- `real_dev`: a governed subset of the ALM-013 gold human-noised benchmark for
+  repeated ML iteration. Its row-level content is not redistributed.
 - `sealed_real_test`: the remaining gold examples. The full content and the
   full manifest (ordered example IDs, per-item hashes) are written ONLY to
   `data/private/` (gitignored, never committed). A separate, boundary-safe
   manifest -- opaque split id, count, schema/taxonomy versions, creation
   timestamp, and a single SHA-256 content hash, nothing that reveals content
-  -- is written to the tracked internal repo, matching the information
+  -- is written to the restricted evidence archive, matching the information
   boundary in evaluation_protocol.md section 7.
 
 The 70/130 real_dev/sealed_real_test split is stratified by kabupaten/kota so

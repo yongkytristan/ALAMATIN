@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "run_id": "alamatin-mbert-ner-lora-kevin-seed42",
   "source": {
-    "pull_request": "yongkytristan/ALAMATIN-internal#9",
+    "provenance": "contributor experiment incorporated into the public evidence package",
     "commit": "866303afffb178e8b5910764b303db0b7c500d7f"
   },
   "base_model": {

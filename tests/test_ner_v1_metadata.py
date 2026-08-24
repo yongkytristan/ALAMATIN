@@ -82,7 +82,9 @@ class NerV1MetadataTest(unittest.TestCase):
         self.assertEqual(release["release"]["tag"], "ner-v1.0.0")
         self.assertEqual(len(asset["sha256"]), 64)
         self.assertGreater(asset["bytes"], 0)
-        self.assertTrue(asset["download_url"].endswith(asset["name"]))
+        self.assertIn("not redistributed", release["release"]["availability"])
+        self.assertIn("not redistributed", asset["distribution"])
+        self.assertNotIn("download_url", asset)
 
     def test_training_runner_can_be_imported_without_ml_dependencies(self) -> None:
         path = ROOT / "scripts" / "train_ner_v1.py"
